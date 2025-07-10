@@ -1,0 +1,25 @@
+<section id="merch" class="merch-section section text-center">
+  <div class="container">
+    <h2 class="section-title">Merch Store</h2>
+    <div class="row">
+      @for (item of merchItems(); track item.id) {
+        <div class="item col-12 col-md-6">
+          <div class="item-inner">
+            <img class="img-fluid" [src]="item.image" [alt]="item.title">
+            <a class="mask" [href]="item.purchaseUrl">
+              <span class="mask-inner">
+                <span class="item-title">{{ item.title }} ${{ item.price }}</span>
+                <span class="desc">{{ item.description }}</span>
+                <span class="btn btn-primary btn-cta">Buy Now</span>
+              </span>
+            </a>
+          </div>
+        </div>
+      }
+    </div>
+    
+    <div class="merch-action">
+      <a class="btn btn-ghost-primary" href="#">View All Items</a>
+    </div>
+  </div>
+</section>

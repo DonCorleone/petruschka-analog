@@ -1,0 +1,62 @@
+<section id="gigs" class="gigs-section section">
+  <div class="container">
+    <h2 class="section-title text-center">Upcoming Gigs</h2>
+    <div class="gigs-container">
+      @for (gig of gigs(); track gig.id) {
+        <div class="item">
+          <div class="date-label">
+            <div class="number">{{ gig.date.day }}</div>
+            <div class="month">{{ gig.date.month }}</div>
+          </div>
+          
+          <div class="gig-info">
+            <div class="info-content">
+              <h3 class="gig-title">{{ gig.title }}</h3>
+              <div class="meta">
+                <ul class="meta-list list-inline">
+                  <li class="list-inline-item location">
+                    <i class="fas fa-map-marker-alt"></i>
+                    <a [href]="'#'">{{ gig.venue }}, {{ gig.location }}</a>
+                  </li>
+                  <li class="list-inline-item time">
+                    <i class="far fa-clock"></i>
+                    {{ gig.time }}, {{ gig.dayOfWeek }}
+                  </li>
+                </ul>
+              </div>
+            </div>
+            
+            <div class="gig-actions">
+              <button 
+                class="btn btn-xs btn-ghost-secondary" 
+                (click)="toggleGigInfo(gig.id)"
+                [attr.aria-expanded]="isGigInfoOpen(gig.id)"
+                [attr.aria-controls]="'info-extra-' + gig.id">
+                More info
+              </button>
+              <a class="btn btn-xs btn-secondary" [href]="gig.ticketUrl">
+                Buy Tickets
+              </a>
+            </div>
+            
+            <div 
+              [id]="'info-extra-' + gig.id"
+              class="info-extra"
+              [class.show]="isGigInfoOpen(gig.id)">
+              {{ gig.description }}
+            </div>
+          </div>
+        </div>
+      }
+    </div>
+    
+    <div class="gigs-contact text-center">
+      <h4 class="title">Want to book a private gig?</h4>
+      <p class="intro center-block">
+        Sed et felis vitae odio lobortis imperdiet. Vivamus ex tellus, faucibus sed dui eu, 
+        mattis dictum leo. Suspendisse quis leo metus. Vivamus ut lacus nisi. Nulla facilisi
+      </p>
+      <a class="btn btn-ghost-primary scrollto" href="#contact">Get in touch now</a>
+    </div>
+  </div>
+</section>

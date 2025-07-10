@@ -1,0 +1,11 @@
+/* Gigs section styles */
+.info-extra {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.3s ease-out;
+}
+
+.info-extra.show {
+  max-height: 200px;
+  transition: max-height 0.3s ease-in;
+}

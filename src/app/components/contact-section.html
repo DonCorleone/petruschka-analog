@@ -1,0 +1,52 @@
+<div id="contact" class="contact-section section text-center">
+  <div class="container">
+    <h2 class="section-title">Contact</h2>
+    <div class="section-intro center-block">
+      Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. 
+      Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. 
+      Donec quam felis.
+    </div>
+    
+    <div class="contact-block mr-auto ml-auto">
+      <div class="row">
+        @for (contact of contactInfo; track contact.type) {
+          <div class="item col-12 col-lg-4">
+            <div class="item-inner">
+              <div class="icon-holder">
+                <i [class]="contact.icon"></i>
+              </div>
+              <h4 class="title">{{ contact.title }}</h4>
+              <div class="email">
+                <a [href]="'mailto:' + contact.email">{{ contact.email }}</a>
+              </div>
+            </div>
+          </div>
+        }
+      </div>
+    </div>
+    
+    <div class="channels-block">
+      <ul class="channels-list list-inline">
+        @for (channel of musicChannels; track channel.name) {
+          <li class="list-inline-item mr-3">
+            <a [href]="channel.url" [title]="channel.name">
+              <img class="icon" [src]="channel.icon" [alt]="channel.name">
+            </a>
+          </li>
+        }
+      </ul>
+    </div>
+    
+    <div class="social-media-block">
+      <ul class="list-inline social-media-list">
+        @for (social of socialMedia; track social.name) {
+          <li class="list-inline-item mr-3">
+            <a [href]="social.url" [title]="social.name">
+              <i [class]="social.icon"></i>
+            </a>
+          </li>
+        }
+      </ul>
+    </div>
+  </div>
+</div>

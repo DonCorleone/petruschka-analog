@@ -1,0 +1,27 @@
+<section id="about" class="about-section section text-center">
+  <div class="container">
+    <h2 class="section-title">About</h2>
+    <div class="section-intro ml-auto mr-auto">
+      Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. 
+      Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. 
+      Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem. Nulla consequat massa quis enim.
+    </div>
+    
+    <div class="members-block">
+      <div class="row">
+        @for (member of bandMembers(); track member.id) {
+          <div class="item col-6 col-lg-3">
+            <div class="item-inner">
+              <div class="member-profile">
+                <img class="img-fluid" [src]="member.image" [alt]="member.name">
+              </div>
+              <div class="member-label">{{ member.instrument }}</div>
+              <h3 class="member-name">{{ member.name }}</h3>
+              <div class="member-desc">{{ member.description }}</div>
+            </div>
+          </div>
+        }
+      </div>
+    </div>
+  </div>
+</section>

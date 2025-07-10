@@ -1,0 +1,34 @@
+<header id="header" class="header fixed-top" [class.header-scrolled]="isScrolled()">  
+  <div class="container">       
+    <nav class="main-nav navbar navbar-expand-md" role="navigation">
+      <button 
+        class="navbar-toggler navbar-dark" 
+        type="button" 
+        (click)="toggleNavbar()"
+        [attr.aria-expanded]="isNavbarOpen()"
+        aria-controls="navbar-collapse" 
+        aria-label="Toggle navigation">
+        <span class="toggle-title">Menu</span>
+        <span class="navbar-toggler-icon"></span>
+      </button>  
+      
+      <div 
+        id="navbar-collapse" 
+        class="navbar-collapse collapse text-center justify-content-center"
+        [class.show]="isNavbarOpen()">
+        <ul class="nav navbar-nav">
+          @for (link of navLinks; track link.href) {
+            <li class="nav-item">
+              <a 
+                class="nav-link scrollto" 
+                [href]="link.href"
+                (click)="scrollToSection($event, link.href)">
+                {{ link.label }}
+              </a>
+            </li>
+          }
+        </ul>
+      </div>
+    </nav>
+  </div>
+</header>

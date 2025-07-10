@@ -6,10 +6,16 @@ import {
 import {
   ApplicationConfig,
   provideBrowserGlobalErrorListeners,
-  provideZoneChangeDetection
+  provideZoneChangeDetection,
+  APP_INITIALIZER
 } from '@angular/core';
 import { provideClientHydration, withEventReplay } from '@angular/platform-browser';
 import { provideFileRouter, requestContextInterceptor } from '@analogjs/router';
+import { BootstrapService } from './services/bootstrap';
+
+function initializeBootstrap(bootstrapService: BootstrapService) {
+  return () => bootstrapService.initializeBootstrap();
+}
 
 export const appConfig: ApplicationConfig = {
   providers: [
@@ -21,5 +27,11 @@ export const appConfig: ApplicationConfig = {
       withInterceptors([requestContextInterceptor])
     ),
     provideClientHydration(withEventReplay()),
+    {
+      provide: APP_INITIALIZER,
+      useFactory: initializeBootstrap,
+      deps: [BootstrapService],
+      multi: true
+    },
   ],
 };

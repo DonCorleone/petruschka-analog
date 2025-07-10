@@ -1,13 +1,12 @@
 import { Component } from '@angular/core';
-import { HeaderComponent } from '../components/header';
-import { PromoSectionComponent } from '../components/promo-section';
-import { GigsSectionComponent } from '../components/gigs-section';
-import { MusicSectionComponent } from '../components/music-section';
-import { AboutSectionComponent } from '../components/about-section';
-import { MerchSectionComponent } from '../components/merch-section';
-import { ContactSectionComponent } from '../components/contact-section';
-import { FooterComponent } from '../components/footer';
-import { BackToTopComponent } from '../components/back-to-top';
+import { HeaderComponent, FooterComponent } from '../core/layout';
+import { PromoSectionComponent } from '../features/promo';
+import { GigsSectionComponent } from '../features/gigs';
+import { MusicSectionComponent } from '../features/music';
+import { AboutSectionComponent } from '../features/about';
+import { MerchSectionComponent } from '../features/merch';
+import { ContactSectionComponent } from '../features/contact';
+import { BackToTopComponent } from '../shared/components';
 
 @Component({
   selector: 'app-home',

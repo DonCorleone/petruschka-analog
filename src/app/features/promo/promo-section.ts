@@ -1,7 +1,7 @@
 import { Component, signal, inject } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { BandDataService } from '../services/band-data';
-import { CountdownComponent } from './countdown';
+import { BandDataService } from '../../core/services';
+import { CountdownComponent } from '../../shared/components';
 
 interface CarouselSlide {
   id: number;

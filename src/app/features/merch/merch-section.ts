@@ -1,6 +1,6 @@
 import { Component, inject } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { BandDataService } from '../services/band-data';
+import { BandDataService } from '../../core/services';
 
 @Component({
   selector: 'app-merch-section',

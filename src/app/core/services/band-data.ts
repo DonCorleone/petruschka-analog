@@ -1,9 +1,9 @@
 import { inject, Injectable } from '@angular/core';
 import { resource } from '@angular/core';
-import { MOCK_GIGS, type Gig } from '../data/gigs';
-import { MOCK_ALBUMS, type Album } from '../data/albums';
-import { MOCK_BAND_MEMBERS, type BandMember } from '../data/band-members';
-import { MOCK_MERCH, MOCK_UPDATES, type MerchItem, type Update } from '../data/merch';
+import { MOCK_GIGS, type Gig } from '../../features/gigs';
+import { MOCK_ALBUMS, type Album } from '../../features/music';
+import { MOCK_BAND_MEMBERS, type BandMember } from '../../features/about';
+import { MOCK_MERCH, MOCK_UPDATES, type MerchItem, type Update } from '../../features/merch';
 
 @Injectable({
   providedIn: 'root'

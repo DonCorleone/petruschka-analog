@@ -11,7 +11,7 @@ import {
 } from '@angular/core';
 import { provideClientHydration, withEventReplay } from '@angular/platform-browser';
 import { provideFileRouter, requestContextInterceptor } from '@analogjs/router';
-import { BootstrapService } from './services/bootstrap';
+import { BootstrapService } from './core/services';
 
 function initializeBootstrap(bootstrapService: BootstrapService) {
   return () => bootstrapService.initializeBootstrap();

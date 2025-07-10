@@ -1,5 +1,5 @@
-import { Component, Input, signal, OnInit, OnDestroy } from '@angular/core';
-import { CommonModule } from '@angular/common';
+import { Component, Input, signal, OnInit, OnDestroy, inject, PLATFORM_ID } from '@angular/core';
+import { CommonModule, isPlatformBrowser } from '@angular/common';
 
 interface TimeLeft {
   days: number;
@@ -27,6 +27,7 @@ export class CountdownComponent implements OnInit, OnDestroy {
   });
   
   private intervalId?: number;
+  private platformId = inject(PLATFORM_ID);
   
   timeLeft = this.timeLeftSignal.asReadonly();
 
@@ -41,6 +42,11 @@ export class CountdownComponent implements OnInit, OnDestroy {
   }
 
   private startCountdown() {
+    // Exit early if not in browser environment (SSR)
+    if (!isPlatformBrowser(this.platformId)) {
+      return;
+    }
+    
     const targetTime = new Date(this.targetDate).getTime();
     
     this.updateCountdown(targetTime);

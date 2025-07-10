@@ -23,12 +23,71 @@ import { BackToTopComponent } from '../shared/components';
   ],
   template: `
     <app-header />
-    <app-promo-section />
-    <app-gigs-section />
-    <app-music-section />
-    <app-about-section />
-    <app-merch-section />
-    <app-contact-section />
+    
+    <div id="promo">
+      <app-promo-section />
+    </div>
+    
+    <div id="gigs">
+      @defer (on idle) {
+        <app-gigs-section />
+      } @placeholder {
+        <div class="section" style="min-height: 400px; display: flex; align-items: center; justify-content: center;">
+          <div class="spinner-border text-primary" role="status">
+            <span class="visually-hidden">Loading...</span>
+          </div>
+        </div>
+      }
+    </div>
+    
+    <div id="music">
+      @defer (on idle) {
+        <app-music-section />
+      } @placeholder {
+        <div class="section" style="min-height: 400px; display: flex; align-items: center; justify-content: center;">
+          <div class="spinner-border text-primary" role="status">
+            <span class="visually-hidden">Loading...</span>
+          </div>
+        </div>
+      }
+    </div>
+    
+    <div id="about">
+      @defer (on idle) {
+        <app-about-section />
+      } @placeholder {
+        <div class="section" style="min-height: 400px; display: flex; align-items: center; justify-content: center;">
+          <div class="spinner-border text-primary" role="status">
+            <span class="visually-hidden">Loading...</span>
+          </div>
+        </div>
+      }
+    </div>
+    
+    <div id="merch">
+      @defer (on idle) {
+        <app-merch-section />
+      } @placeholder {
+        <div class="section" style="min-height: 400px; display: flex; align-items: center; justify-content: center;">
+          <div class="spinner-border text-primary" role="status">
+            <span class="visually-hidden">Loading...</span>
+          </div>
+        </div>
+      }
+    </div>
+    
+    <div id="contact">
+      @defer (on idle) {
+        <app-contact-section />
+      } @placeholder {
+        <div class="section" style="min-height: 400px; display: flex; align-items: center; justify-content: center;">
+          <div class="spinner-border text-primary" role="status">
+            <span class="visually-hidden">Loading...</span>
+          </div>
+        </div>
+      }
+    </div>
+    
     <app-footer />
     <app-back-to-top />
   `,

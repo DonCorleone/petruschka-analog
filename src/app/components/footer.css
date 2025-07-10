@@ -1,1 +1,18 @@
 /* Footer styles */
+.footer {
+  background: #000;
+  font-weight: normal;
+  color: rgba(255, 255, 255, 0.6);
+}
+
+.footer a {
+  color: var(--primary-color);
+}
+
+.footer a:hover {
+  color: var(--primary-darker);
+}
+
+.footer-content {
+  padding: 15px;
+}

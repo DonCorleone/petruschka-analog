@@ -1,11 +1,113 @@
 /* Gigs section styles */
-.info-extra {
+.gigs-section .container {
+  max-width: 860px;
+}
+
+.gigs-section .item {
+  position: relative;
+  padding-left: 60px;
+  padding-top: 15px;
+  padding-bottom: 15px;
+  border-bottom: 1px solid var(--border-light);
+}
+
+.gigs-section .date-label {
+  background: var(--dark-bg);
+  color: #fff;
+  text-align: center;
+  display: inline-block;
+  width: 45px;
+  height: 55px;
+  padding-top: 4px;
+  position: absolute;
+  left: 0;
+  top: 15px;
+}
+
+.gigs-section .date-label .number {
+  font-size: 20px;
+  font-weight: 700;
+}
+
+.gigs-section .date-label .month {
+  font-size: 12px;
+  font-weight: 600;
+  font-family: 'Raleway', sans-serif;
+  color: rgba(255, 255, 255, 0.8);
+}
+
+.gigs-section .gig-title {
+  font-size: 16px;
+  margin-top: 0;
+  margin-bottom: 10px;
+  font-weight: 700;
+}
+
+.gigs-section .meta-list {
+  color: #788191;
+}
+
+.gigs-section .meta-list a {
+  color: #788191;
+}
+
+.gigs-section .meta-list i {
+  margin-right: 5px;
+  color: var(--primary-color);
+  font-size: 16px;
+}
+
+.gigs-section .gig-actions {
+  position: absolute;
+  right: 0;
+  top: 15px;
+}
+
+.gigs-section .gig-actions .btn {
+  margin-right: 5px;
+}
+
+.gigs-section .gig-actions .btn:last-child {
+  margin-right: 0;
+}
+
+.gigs-section .info-extra {
+  color: var(--text-muted);
+  font-size: 16px;
   max-height: 0;
   overflow: hidden;
   transition: max-height 0.3s ease-out;
 }
 
-.info-extra.show {
+.gigs-section .info-extra.show {
   max-height: 200px;
   transition: max-height 0.3s ease-in;
+}
+
+.gigs-section .gigs-contact {
+  margin-top: 60px;
+}
+
+.gigs-section .gigs-contact .title {
+  font-size: 18px;
+  margin-top: 0;
+  margin-bottom: 15px;
+}
+
+.gigs-section .gigs-contact .intro {
+  font-size: 16px;
+  color: var(--text-muted);
+  max-width: 800px;
+}
+
+.gigs-section .gigs-contact .btn {
+  margin-top: 15px;
+}
+
+@media (max-width: 767.98px) {
+  .gigs-section .gig-actions {
+    position: static;
+    margin-top: 15px;
+    margin-bottom: 15px;
+  }
 }

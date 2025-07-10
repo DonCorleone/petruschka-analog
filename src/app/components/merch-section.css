@@ -1,1 +1,73 @@
 /* Merch section styles */
+.merch-section {
+  background: var(--section-bg-light);
+}
+
+.merch-section .item {
+  margin-bottom: 30px;
+}
+
+.merch-section .item .item-inner {
+  position: relative;
+}
+
+.merch-section .item:hover .mask {
+  visibility: visible;
+  opacity: 1;
+}
+
+.merch-section .mask {
+  visibility: hidden;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  color: #fff;
+  text-decoration: none;
+  transition: all 0.4s ease-in-out;
+  opacity: 0;
+}
+
+.merch-section .mask .item-title {
+  font-size: 18px;
+  color: #fff;
+  margin-bottom: 5px;
+  font-family: 'Raleway', sans-serif;
+  font-weight: bold;
+  text-transform: uppercase;
+  margin-top: 0;
+  margin-bottom: 15px;
+}
+
+.merch-section .mask .desc {
+  font-size: 16px;
+  margin-bottom: 30px;
+}
+
+.merch-section .mask span {
+  display: block;
+}
+
+.merch-section .mask span.btn {
+  display: inline-block;
+}
+
+.merch-section .mask-inner {
+  background: rgba(16, 17, 19, 0.8);
+  padding: 30px;
+  padding-top: 45px;
+  height: 100%;
+  overflow: hidden;
+  color: #fff;
+}
+
+.merch-section .merch-action {
+  margin-top: 30px;
+}
+
+@media (max-width: 767.98px) {
+  .merch-section .mask-inner {
+    padding-top: 30px;
+  }
+}

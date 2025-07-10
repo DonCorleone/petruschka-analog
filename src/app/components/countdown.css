@@ -1,1 +1,17 @@
 /* Countdown component styles */
+.countdown-box {
+  font-size: 16px;
+}
+
+.countdown-box .number {
+  font-weight: 700;
+  color: var(--primary-color);
+  font-size: 24px;
+}
+
+.countdown-box .unit {
+  color: rgba(255, 255, 255, 0.6);
+  padding-left: 5px;
+  padding-right: 5px;
+  font-size: 14px;
+}

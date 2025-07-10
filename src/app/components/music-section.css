@@ -1,1 +1,140 @@
 /* Music section styles */
+.music-section {
+  background: var(--section-bg-light);
+}
+
+.music-section .sc-block {
+  max-width: 860px;
+  margin-bottom: 90px;
+}
+
+.music-section .sc-block .item {
+  margin-bottom: 15px;
+}
+
+.music-section .albums-block .item {
+  margin-bottom: 45px;
+}
+
+.music-section .albums-block .item-inner {
+  position: relative;
+  padding-right: 60px;
+}
+
+.music-section .albums-block .arrow-holder {
+  content: "";
+  display: block;
+  width: 0;
+  height: 0;
+  border-left: 20px solid transparent;
+  border-right: 20px solid transparent;
+  border-top: 20px solid #810c3b;
+  position: absolute;
+  left: -10px;
+  top: 37px;
+  bottom: -20px;
+}
+
+.music-section .albums-block .cover-figure {
+  max-width: 235px;
+  max-height: 235px;
+  position: relative;
+  display: inline-block;
+  margin-bottom: 15px;
+  background: var(--dark-bg);
+  box-shadow: 0 0 4px rgba(0, 0, 0, 0.5);
+}
+
+.music-section .albums-block .cover-figure .cover-image {
+  position: relative;
+  opacity: 0.95;
+}
+
+.music-section .albums-block .cover-figure .record-holder {
+  max-width: 235px;
+  max-height: 235px;
+  display: inline-block;
+  position: absolute;
+  right: -80px;
+  bottom: 0;
+  transition: all 0.6s ease-in-out;
+}
+
+.music-section .albums-block .cover-figure:hover .cover-image {
+  opacity: 1;
+}
+
+.music-section .albums-block .cover-figure:hover .record-holder {
+  right: -118px;
+}
+
+.music-section .albums-block .cover-label {
+  position: absolute;
+  left: -10px;
+  top: 0;
+  background: var(--primary-color);
+  color: #fff;
+  font-family: 'Raleway', sans-serif;
+  text-transform: uppercase;
+  font-weight: 700;
+  font-size: 12px;
+  padding: 10px;
+}
+
+.music-section .albums-block .album-title {
+  font-size: 14px;
+  margin-bottom: 15px;
+  margin-top: 0;
+  max-width: 235px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  text-align: center;
+  display: inline-block;
+}
+
+.music-section .music-action {
+  margin-top: 30px;
+}
+
+@media (max-width: 767.98px) {
+  .music-section .albums-block .item-inner {
+    padding: 0px;
+  }
+  
+  .music-section .albums-block .album-title {
+    max-width: 100px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+  
+  .music-section .albums-block .cover-figure {
+    max-width: 100%;
+    max-height: inherit;
+  }
+  
+  .music-section .albums-block .cover-figure .record-holder {
+    display: none;
+  }
+}
+
+@media (min-width: 768px) {
+  .music-section .albums-block .cover-figure .record-holder {
+    right: -60px;
+  }
+  
+  .music-section .albums-block .cover-figure:hover .record-holder {
+    right: -80px;
+  }
+}
+
+@media (min-width: 992px) {
+  .music-section .albums-block .cover-figure .record-holder {
+    right: -80px;
+  }
+  
+  .music-section .albums-block .cover-figure:hover .record-holder {
+    right: -118px;
+  }
+}

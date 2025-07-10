@@ -1,1 +1,352 @@
-/* Promo section specific styles */
+/* Promo section styles */
+.promo-section {
+  height: 100vh;
+  width: 100%;
+  position: relative;
+  color: #fff;
+  background: var(--dark-bg);
+}
+
+@keyframes zoom {
+  from {
+    transform: scale(1.5, 1.5);
+  }
+  to {
+    transform: scale(1, 1);
+  }
+}
+
+.promo-carousel-holder {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.promo-carousel-holder .carousel-item {
+  animation: zoom 5s ease-in-out;
+}
+
+.promo-carousel-holder .slide-1 {
+  background: url("/images/hero/hero-1.jpg") no-repeat center center;
+  background-size: cover;
+}
+
+.promo-carousel-holder .slide-2 {
+  background: url("/images/hero/hero-2.jpg") no-repeat center center;
+  background-size: cover;
+}
+
+.promo-carousel-holder .slide-3 {
+  background: url("/images/hero/hero-3.jpg") no-repeat center center;
+  background-size: cover;
+}
+
+.promo-carousel-holder .slide-4 {
+  background: url("/images/hero/hero-4.jpg") no-repeat center center;
+  background-size: cover;
+}
+
+.promo-carousel-holder .slide-5 {
+  background: url("/images/hero/hero-5.jpg") no-repeat center center;
+  background-size: cover;
+}
+
+.promo-carousel-holder .slide-6 {
+  background: url("/images/hero/hero-6.jpg") no-repeat center center;
+  background-size: cover;
+}
+
+.overlay-mask {
+  background: rgba(0, 0, 0, 0.4);
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  z-index: 10;
+  top: 0;
+  left: 0;
+}
+
+.promo-content {
+  padding-top: 80px;
+  position: relative;
+  z-index: 20;
+}
+
+.promo-content .headline {
+  font-size: 48px;
+  text-transform: uppercase;
+  text-shadow: 0 1px 1px rgba(0, 0, 0, 0.4);
+}
+
+.promo-content .tagline {
+  font-size: 24px;
+  margin-bottom: 90px;
+}
+
+.updates-block {
+  position: absolute;
+  z-index: 30;
+  bottom: 2px;
+  width: 100%;
+  height: 160px;
+  padding-top: 30px;
+  padding-bottom: 30px;
+  background: rgba(0, 0, 0, 0.8);
+  color: #fff;
+}
+
+.updates-block .updates-block-inner {
+  padding-left: 60px;
+  padding-right: 60px;
+  position: relative;
+}
+
+.updates-block .carousel-inner {
+  min-height: 100px;
+}
+
+.updates-block .media-holder {
+  display: inline-block;
+  position: absolute;
+  width: 170px;
+  height: 100px;
+  left: 0;
+}
+
+.updates-block .media-thumb {
+  position: relative;
+}
+
+.updates-block .video-play-trigger {
+  position: absolute;
+  width: 36px;
+  height: 36px;
+  left: 50%;
+  margin-left: -18px;
+  text-align: center;
+  z-index: 5;
+  top: 50%;
+  margin-top: -18px;
+  color: #fff;
+  background: rgba(0, 0, 0, 0.8);
+  border-radius: 50%;
+  background-clip: padding-box;
+  cursor: pointer;
+}
+
+.updates-block .video-play-trigger:hover {
+  background: rgba(236, 58, 129, 0.6);
+}
+
+.updates-block .video-play-trigger i {
+  color: #fff;
+  font-size: 14px;
+  margin-top: 11px;
+  margin-left: 4px;
+}
+
+.updates-block .carousel-control-prev {
+  left: -60px;
+}
+
+.updates-block .carousel-control-next {
+  right: -60px;
+}
+
+.updates-block .carousel-control-next,
+.updates-block .carousel-control-prev {
+  width: auto;
+}
+
+.updates-block .carousel-control-next:hover,
+.updates-block .carousel-control-prev:hover {
+  opacity: 0.6;
+}
+
+.updates-block .carousel-control-prev-icon {
+  background: transparent url("/images/left-arrow.svg") no-repeat left top;
+  width: 23px;
+  height: 40px;
+  left: -60px;
+}
+
+.updates-block .carousel-control-next-icon {
+  background: transparent url("/images/right-arrow.svg") no-repeat right top;
+  width: 23px;
+  height: 40px;
+  right: -60px;
+}
+
+.updates-block .carousel .carousel-item {
+  height: 100px;
+}
+
+.updates-block .carousel-content {
+  padding-left: 200px;
+  max-width: 760px;
+}
+
+.updates-block .carousel-content.no-media-holder {
+  padding-left: 0;
+  max-width: 620px;
+}
+
+.updates-block .carousel-content.no-media-holder .title {
+  margin-bottom: 15px;
+}
+
+.updates-block .carousel-content .title {
+  font-size: 18px;
+  font-weight: 600;
+  margin-top: 0;
+  margin-bottom: 5px;
+}
+
+.updates-block .carousel-content .btn-cta {
+  position: absolute;
+  right: 0;
+  top: 30px;
+}
+
+.updates-block .carousel-content .desc {
+  color: rgba(255, 255, 255, 0.6);
+}
+
+.updates-block .carousel-content .desc a {
+  color: #fff;
+}
+
+.updates-block .carousel-content .desc a.more-link {
+  color: var(--primary-color);
+  vertical-align: middle;
+}
+
+.updates-block .carousel-content .desc a.more-link:hover {
+  color: var(--primary-darker);
+}
+
+.updates-block .carousel-content .highlight {
+  color: var(--primary-color);
+}
+
+/* Modal styles */
+.modal-backdrop {
+  background-color: rgba(0, 0, 0, 0.9);
+}
+
+.modal.modal-video .modal-dialog {
+  margin-top: 90px;
+}
+
+.modal.modal-video .modal-body {
+  padding: 0;
+  padding-top: 0;
+}
+
+.modal.modal-video .modal-header {
+  border: none;
+  padding: 0;
+}
+
+.modal.modal-video .modal-content {
+  background: none;
+  border: none;
+  box-shadow: none;
+}
+
+.modal.modal-video .btn-close {
+  color: #fff;
+  opacity: 0.6;
+  background: none;
+  position: absolute;
+  top: inherit;
+  right: 0px;
+  bottom: 5px;
+  z-index: 10;
+}
+
+.modal.modal-video .btn-close:hover {
+  opacity: 1;
+}
+
+/* Media Queries */
+@media (max-width: 767.98px) {
+  .promo-section {
+    height: auto;
+  }
+  
+  .promo-content {
+    padding-top: 0px;
+  }
+  
+  .promo-content .headline {
+    font-size: 30px;
+  }
+  
+  .promo-content .tagline {
+    font-size: 20px;
+  }
+  
+  .updates-block {
+    position: relative;
+    height: inherit;
+    bottom: 0;
+    min-height: 400px;
+  }
+  
+  .updates-block .media-holder {
+    position: static;
+    margin: 0 auto;
+    margin-bottom: 30px;
+  }
+  
+  .updates-block .carousel-content {
+    padding-left: 0;
+  }
+  
+  .updates-block .carousel-content .btn-cta {
+    position: static;
+  }
+  
+  .updates-block .carousel .carousel-item {
+    height: inherit;
+  }
+}
+
+@media (min-width: 768px) {
+  .promo-content {
+    padding-top: 30px;
+  }
+  
+  .updates-block {
+    height: 260px;
+  }
+  
+  .updates-block .carousel-content .btn-cta {
+    position: static;
+  }
+  
+  .updates-block .carousel .carousel-item {
+    height: 200px;
+  }
+}
+
+@media (min-width: 992px) {
+  .promo-content {
+    padding-top: 80px;
+  }
+  
+  .updates-block {
+    height: 160px;
+  }
+  
+  .updates-block .carousel-content .btn-cta {
+    position: absolute;
+  }
+  
+  .updates-block .carousel .carousel-item {
+    height: 100px;
+  }
+}

@@ -1,1 +1,104 @@
-/* Header component specific styles will be inherited from global theme */
+/* Header component styles */
+.header {
+  color: #fff;
+  padding-top: 0;
+  min-height: 51px;
+}
+
+.header-scrolled {
+  box-shadow: 0 0 4px rgba(0, 0, 0, 0.5);
+  background: rgba(0, 0, 0, 0.8);
+  transition: all 0.6s ease-in-out;
+}
+
+.header-scrolled .nav > li > a {
+  color: rgba(255, 255, 255, 0.65);
+}
+
+.header-scrolled .navbar-nav {
+  padding-top: 0;
+}
+
+.navbar {
+  padding-top: 0;
+  padding-bottom: 0;
+}
+
+.navbar-nav {
+  padding-top: 15px;
+}
+
+.nav-link {
+  padding-top: 15px;
+  padding-bottom: 15px;
+  text-decoration: none;
+  color: rgba(255, 255, 255, 0.7);
+  font-size: 14px;
+  font-weight: 600;
+  text-transform: uppercase;
+}
+
+.nav-link:hover {
+  text-decoration: none;
+}
+
+.nav-link:focus,
+.nav-link:hover {
+  background: none;
+  outline: none;
+  color: #fff;
+}
+
+.nav-item.active .nav-link {
+  color: #fff;
+}
+
+.navbar-toggler {
+  margin-right: 0;
+  margin-top: 0;
+  margin-bottom: 10px;
+  background: none;
+  position: relative;
+  top: 5px;
+  right: 0;
+  left: auto;
+  padding-left: 0;
+  padding-right: 0;
+}
+
+.navbar-toggler:focus {
+  outline: none;
+}
+
+.navbar-toggler .toggle-title {
+  display: inline-block;
+  color: rgba(255, 255, 255, 0.9);
+  margin-right: 5px;
+  font-weight: bold;
+  text-transform: uppercase;
+  position: relative;
+  top: 0;
+  font-size: 16px;
+}
+
+@media (max-width: 767.98px) {
+  .header {
+    background: rgba(0, 0, 0, 0.9);
+    padding-top: 0;
+  }
+  
+  .navbar-collapse {
+    box-shadow: none;
+  }
+  
+  .nav > li.active > a {
+    color: var(--primary-color);
+  }
+}
+
+@media (min-width: 768px) {
+  .navbar-expand-md .navbar-nav .nav-link {
+    padding-left: 15px;
+    padding-right: 15px;
+  }
+}

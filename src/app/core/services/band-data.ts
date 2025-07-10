@@ -1,38 +1,63 @@
 import { inject, Injectable } from '@angular/core';
+import { HttpClient } from '@angular/common/http';
 import { resource } from '@angular/core';
-import { MOCK_GIGS, type Gig } from '../../features/gigs';
-import { MOCK_ALBUMS, type Album } from '../../features/music';
-import { MOCK_BAND_MEMBERS, type BandMember } from '../../features/about';
-import { MOCK_MERCH, MOCK_UPDATES, type MerchItem, type Update } from '../../features/merch';
+import { 
+  type Gig, 
+  type Album, 
+  type BandMember, 
+  type MerchItem, 
+  type Update,
+  type ContactInfo,
+  type SocialLink,
+  type ApiResponse 
+} from '../../../shared/types';
 
 @Injectable({
   providedIn: 'root'
 })
 export class BandDataService {
+  private http = inject(HttpClient);
   
-  // Using Resource API for optimal performance with signals
+  // Using Resource API for optimal performance with signals and server-side data fetching
   gigsResource = resource({
-    loader: () => Promise.resolve(MOCK_GIGS)
+    loader: async () => {
+      const response = await this.http.get<ApiResponse<Gig[]>>('/api/v1/gigs').toPromise();
+      return response?.data || [];
+    }
   });
 
   albumsResource = resource({
-    loader: () => Promise.resolve(MOCK_ALBUMS)
+    loader: async () => {
+      const response = await this.http.get<ApiResponse<Album[]>>('/api/v1/albums').toPromise();
+      return response?.data || [];
+    }
   });
 
   bandMembersResource = resource({
-    loader: () => Promise.resolve(MOCK_BAND_MEMBERS)
+    loader: async () => {
+      const response = await this.http.get<ApiResponse<BandMember[]>>('/api/v1/band-members').toPromise();
+      return response?.data || [];
+    }
   });
 
   merchResource = resource({
-    loader: () => Promise.resolve(MOCK_MERCH)
+    loader: async () => {
+      const response = await this.http.get<ApiResponse<{ merchandise: MerchItem[], updates: Update[] }>>('/api/v1/merch').toPromise();
+      return response?.data?.merchandise || [];
+    }
   });
 
   updatesResource = resource({
-    loader: () => Promise.resolve(MOCK_UPDATES)
+    loader: async () => {
+      const response = await this.http.get<ApiResponse<{ merchandise: MerchItem[], updates: Update[] }>>('/api/v1/merch').toPromise();
+      return response?.data?.updates || [];
+    }
   });
 
-  // In the future, these would be replaced with actual HTTP calls:
-  // gigsResource = resource({
-  //   loader: () => this.http.get<Gig[]>('/api/gigs').toPromise()
-  // });
+  contactResource = resource({
+    loader: async () => {
+      const response = await this.http.get<ApiResponse<{ contactInfo: ContactInfo[], musicChannels: SocialLink[], socialMedia: SocialLink[] }>>('/api/v1/contact').toPromise();
+      return response?.data || { contactInfo: [], musicChannels: [], socialMedia: [] };
+    }
+  });
 }

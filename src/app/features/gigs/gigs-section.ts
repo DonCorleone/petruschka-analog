@@ -1,11 +1,9 @@
 import { Component, signal, inject } from '@angular/core';
-import { CommonModule } from '@angular/common';
 import { BandDataService } from '../../core/services';
 
 @Component({
   selector: 'app-gigs-section',
   standalone: true,
-  imports: [CommonModule],
   templateUrl: './gigs-section.html',
   styleUrls: ['./gigs-section.css']
 })

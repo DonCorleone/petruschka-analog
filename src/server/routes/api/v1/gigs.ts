@@ -1,19 +1,7 @@
-export interface Gig {
-  id: number;
-  date: {
-    day: number;
-    month: string;
-  };
-  title: string;
-  venue: string;
-  location: string;
-  time: string;
-  dayOfWeek: string;
-  description: string;
-  ticketUrl: string;
-}
+import { defineEventHandler } from 'h3';
+import { Gig, ApiResponse } from '../../../../shared/types';
 
-export const MOCK_GIGS: Gig[] = [
+const MOCK_GIGS: Gig[] = [
   {
     id: 1,
     date: { day: 16, month: 'OCT' },
@@ -49,13 +37,24 @@ export const MOCK_GIGS: Gig[] = [
   },
   {
     id: 4,
-    date: { day: 19, month: 'JUL' },
-    title: 'Decibel Pharetra Lorem Vitae, Chicago',
-    venue: 'Auditorium',
-    location: 'Chicago',
-    time: '6:00pm',
-    dayOfWeek: 'Saturday',
-    description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam non ipsum erat. Cras quis justo vel lorem lobortis facilisis. Fusce rhoncus rutrum sapien posuere porttitor.',
+    date: { day: 18, month: 'JUL' },
+    title: 'Decibel Vehicula, New York',
+    venue: 'Irving Plaza',
+    location: 'New York',
+    time: '7:30pm',
+    dayOfWeek: 'Sunday',
+    description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam non ipsum erat. Cras quis justo vel lorem lobortis facilisis.',
     ticketUrl: '#'
   }
 ];
+
+export default defineEventHandler(async (event): Promise<ApiResponse<Gig[]>> => {
+  // Simulate network delay
+  await new Promise(resolve => setTimeout(resolve, 100));
+  
+  return {
+    success: true,
+    data: MOCK_GIGS,
+    timestamp: new Date().toISOString()
+  };
+});

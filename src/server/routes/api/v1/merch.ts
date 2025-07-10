@@ -1,13 +1,7 @@
-export interface MerchItem {
-  id: number;
-  title: string;
-  price: number;
-  image: string;
-  description: string;
-  purchaseUrl: string;
-}
+import { defineEventHandler } from 'h3';
+import { MerchItem, Update, ApiResponse } from '../../../../shared/types';
 
-export const MOCK_MERCH: MerchItem[] = [
+const MOCK_MERCH: MerchItem[] = [
   {
     id: 1,
     title: 'Band T-Shirt',
@@ -42,20 +36,7 @@ export const MOCK_MERCH: MerchItem[] = [
   }
 ];
 
-export interface Update {
-  id: number;
-  title: string;
-  description: string;
-  ctaText: string;
-  ctaUrl: string;
-  mediaType?: 'video' | 'image';
-  mediaUrl?: string;
-  mediaThumb?: string;
-  isCountdown?: boolean;
-  countdownDate?: string;
-}
-
-export const MOCK_UPDATES: Update[] = [
+const MOCK_UPDATES: Update[] = [
   {
     id: 1,
     title: "Decibel's EP is out July 18th 2024",
@@ -85,3 +66,17 @@ export const MOCK_UPDATES: Update[] = [
     mediaThumb: '/images/image-thumb-1.jpg'
   }
 ];
+
+export default defineEventHandler(async (event): Promise<ApiResponse<{ merchandise: MerchItem[], updates: Update[] }>> => {
+  // Simulate network delay
+  await new Promise(resolve => setTimeout(resolve, 180));
+  
+  return {
+    success: true,
+    data: {
+      merchandise: MOCK_MERCH,
+      updates: MOCK_UPDATES
+    },
+    timestamp: new Date().toISOString()
+  };
+});

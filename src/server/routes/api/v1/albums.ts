@@ -1,13 +1,7 @@
-export interface Album {
-  id: number;
-  title: string;
-  coverImage: string;
-  status: 'available' | 'coming-soon';
-  price?: number;
-  purchaseUrl: string;
-}
+import { defineEventHandler } from 'h3';
+import { Album, ApiResponse } from '../../../../shared/types';
 
-export const MOCK_ALBUMS: Album[] = [
+const MOCK_ALBUMS: Album[] = [
   {
     id: 1,
     title: 'Album Title Lorem Ipsum',
@@ -56,3 +50,14 @@ export const MOCK_ALBUMS: Album[] = [
     purchaseUrl: '#'
   }
 ];
+
+export default defineEventHandler(async (event): Promise<ApiResponse<Album[]>> => {
+  // Simulate network delay
+  await new Promise(resolve => setTimeout(resolve, 150));
+  
+  return {
+    success: true,
+    data: MOCK_ALBUMS,
+    timestamp: new Date().toISOString()
+  };
+});

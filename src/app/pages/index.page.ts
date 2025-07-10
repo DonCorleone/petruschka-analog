@@ -30,19 +30,7 @@ import { BackToTopComponent } from '../shared/components';
     </div>
     
     <div id="gigs">
-      @if (isBrowser) {
-        @defer (on viewport) {
-          <app-gigs-section />
-        } @placeholder {
-          <div class="section" style="min-height: 200px; display: flex; align-items: center; justify-content: center;">
-            <div class="spinner-border text-primary" role="status">
-              <span class="visually-hidden">Loading...</span>
-            </div>
-          </div>
-        }
-      } @else {
-        <app-gigs-section />
-      }
+      <app-gigs-section />
     </div>
     
     <div id="music">
@@ -50,10 +38,8 @@ import { BackToTopComponent } from '../shared/components';
         @defer (on viewport) {
           <app-music-section />
         } @placeholder {
-          <div class="section" style="min-height: 200px; display: flex; align-items: center; justify-content: center;">
-            <div class="spinner-border text-primary" role="status">
-              <span class="visually-hidden">Loading...</span>
-            </div>
+          <div class="section" style="min-height: 180px; display: flex; align-items: center; justify-content: center; background: var(--section-bg-light, #f8f9fa);">
+            <div style="color: var(--primary-color, #EC3A81); font-size: 14px; opacity: 0.8;">Loading music...</div>
           </div>
         }
       } @else {
@@ -66,10 +52,8 @@ import { BackToTopComponent } from '../shared/components';
         @defer (on viewport) {
           <app-about-section />
         } @placeholder {
-          <div class="section" style="min-height: 200px; display: flex; align-items: center; justify-content: center;">
-            <div class="spinner-border text-primary" role="status">
-              <span class="visually-hidden">Loading...</span>
-            </div>
+          <div class="section" style="min-height: 180px; display: flex; align-items: center; justify-content: center; background: var(--section-bg-light, #f8f9fa);">
+            <div style="color: var(--primary-color, #EC3A81); font-size: 14px; opacity: 0.8;">Loading about...</div>
           </div>
         }
       } @else {
@@ -82,10 +66,8 @@ import { BackToTopComponent } from '../shared/components';
         @defer (on viewport) {
           <app-merch-section />
         } @placeholder {
-          <div class="section" style="min-height: 200px; display: flex; align-items: center; justify-content: center;">
-            <div class="spinner-border text-primary" role="status">
-              <span class="visually-hidden">Loading...</span>
-            </div>
+          <div class="section" style="min-height: 180px; display: flex; align-items: center; justify-content: center; background: var(--section-bg-light, #f8f9fa);">
+            <div style="color: var(--primary-color, #EC3A81); font-size: 14px; opacity: 0.8;">Loading merchandise...</div>
           </div>
         }
       } @else {
@@ -98,10 +80,8 @@ import { BackToTopComponent } from '../shared/components';
         @defer (on viewport) {
           <app-contact-section />
         } @placeholder {
-          <div class="section" style="min-height: 200px; display: flex; align-items: center; justify-content: center;">
-            <div class="spinner-border text-primary" role="status">
-              <span class="visually-hidden">Loading...</span>
-            </div>
+          <div class="section" style="min-height: 180px; display: flex; align-items: center; justify-content: center; background: var(--section-bg-dark, #f1f1f1);">
+            <div style="color: var(--primary-color, #EC3A81); font-size: 14px; opacity: 0.8;">Loading contact...</div>
           </div>
         }
       } @else {

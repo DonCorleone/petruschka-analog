@@ -1,0 +1,39 @@
+/* Minimal FontAwesome icons - only the ones we actually use */
+
+/* Base FontAwesome styles */
+.fas, .far {
+  font-family: "Font Awesome 6 Free";
+  font-weight: 900;
+  font-style: normal;
+  font-variant: normal;
+  text-rendering: auto;
+  line-height: 1;
+  display: inline-block;
+}
+
+.far {
+  font-weight: 400;
+}
+
+/* Only include the icons we actually use */
+.fa-play::before { content: "\f04b"; }
+.fa-map-marker-alt::before { content: "\f3c5"; }
+.fa-clock::before { content: "\f017"; }
+.fa-chevron-up::before { content: "\f077"; }
+
+/* Load minimal font subset */
+@font-face {
+  font-family: "Font Awesome 6 Free";
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url("@fortawesome/fontawesome-free/webfonts/fa-regular-400.woff2") format("woff2");
+}
+
+@font-face {
+  font-family: "Font Awesome 6 Free";
+  font-style: normal;
+  font-weight: 900;
+  font-display: swap;
+  src: url("@fortawesome/fontawesome-free/webfonts/fa-solid-900.woff2") format("woff2");
+}

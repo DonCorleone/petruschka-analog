@@ -1,4 +1,5 @@
-import { Component } from '@angular/core';
+import { Component, inject, PLATFORM_ID } from '@angular/core';
+import { isPlatformBrowser } from '@angular/common';
 import { HeaderComponent, FooterComponent } from '../core/layout';
 import { PromoSectionComponent } from '../features/promo';
 import { GigsSectionComponent } from '../features/gigs';
@@ -29,62 +30,82 @@ import { BackToTopComponent } from '../shared/components';
     </div>
     
     <div id="gigs">
-      @defer (on idle) {
-        <app-gigs-section />
-      } @placeholder {
-        <div class="section" style="min-height: 400px; display: flex; align-items: center; justify-content: center;">
-          <div class="spinner-border text-primary" role="status">
-            <span class="visually-hidden">Loading...</span>
+      @if (isBrowser) {
+        @defer (on viewport) {
+          <app-gigs-section />
+        } @placeholder {
+          <div class="section" style="min-height: 200px; display: flex; align-items: center; justify-content: center;">
+            <div class="spinner-border text-primary" role="status">
+              <span class="visually-hidden">Loading...</span>
+            </div>
           </div>
-        </div>
+        }
+      } @else {
+        <app-gigs-section />
       }
     </div>
     
     <div id="music">
-      @defer (on idle) {
-        <app-music-section />
-      } @placeholder {
-        <div class="section" style="min-height: 400px; display: flex; align-items: center; justify-content: center;">
-          <div class="spinner-border text-primary" role="status">
-            <span class="visually-hidden">Loading...</span>
+      @if (isBrowser) {
+        @defer (on viewport) {
+          <app-music-section />
+        } @placeholder {
+          <div class="section" style="min-height: 200px; display: flex; align-items: center; justify-content: center;">
+            <div class="spinner-border text-primary" role="status">
+              <span class="visually-hidden">Loading...</span>
+            </div>
           </div>
-        </div>
+        }
+      } @else {
+        <app-music-section />
       }
     </div>
     
     <div id="about">
-      @defer (on idle) {
-        <app-about-section />
-      } @placeholder {
-        <div class="section" style="min-height: 400px; display: flex; align-items: center; justify-content: center;">
-          <div class="spinner-border text-primary" role="status">
-            <span class="visually-hidden">Loading...</span>
+      @if (isBrowser) {
+        @defer (on viewport) {
+          <app-about-section />
+        } @placeholder {
+          <div class="section" style="min-height: 200px; display: flex; align-items: center; justify-content: center;">
+            <div class="spinner-border text-primary" role="status">
+              <span class="visually-hidden">Loading...</span>
+            </div>
           </div>
-        </div>
+        }
+      } @else {
+        <app-about-section />
       }
     </div>
     
     <div id="merch">
-      @defer (on idle) {
-        <app-merch-section />
-      } @placeholder {
-        <div class="section" style="min-height: 400px; display: flex; align-items: center; justify-content: center;">
-          <div class="spinner-border text-primary" role="status">
-            <span class="visually-hidden">Loading...</span>
+      @if (isBrowser) {
+        @defer (on viewport) {
+          <app-merch-section />
+        } @placeholder {
+          <div class="section" style="min-height: 200px; display: flex; align-items: center; justify-content: center;">
+            <div class="spinner-border text-primary" role="status">
+              <span class="visually-hidden">Loading...</span>
+            </div>
           </div>
-        </div>
+        }
+      } @else {
+        <app-merch-section />
       }
     </div>
     
     <div id="contact">
-      @defer (on idle) {
-        <app-contact-section />
-      } @placeholder {
-        <div class="section" style="min-height: 400px; display: flex; align-items: center; justify-content: center;">
-          <div class="spinner-border text-primary" role="status">
-            <span class="visually-hidden">Loading...</span>
+      @if (isBrowser) {
+        @defer (on viewport) {
+          <app-contact-section />
+        } @placeholder {
+          <div class="section" style="min-height: 200px; display: flex; align-items: center; justify-content: center;">
+            <div class="spinner-border text-primary" role="status">
+              <span class="visually-hidden">Loading...</span>
+            </div>
           </div>
-        </div>
+        }
+      } @else {
+        <app-contact-section />
       }
     </div>
     
@@ -93,4 +114,6 @@ import { BackToTopComponent } from '../shared/components';
   `,
 })
 export default class HomeComponent {
+  private platformId = inject(PLATFORM_ID);
+  isBrowser = isPlatformBrowser(this.platformId);
 }

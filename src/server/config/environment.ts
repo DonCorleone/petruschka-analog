@@ -19,8 +19,23 @@ interface ServerConfig {
 function getServerConfig(): ServerConfig {
   const mongoConnectionString = process.env['MONGODB_CONNECTION_STRING'];
   
+  // During build/prerender time, MongoDB might not be available
   if (!mongoConnectionString) {
-    throw new Error('MONGODB_CONNECTION_STRING environment variable is required');
+    if (process.env['NODE_ENV'] === 'production' && !process.env['PRERENDER']) {
+      throw new Error('MONGODB_CONNECTION_STRING environment variable is required');
+    }
+    // Return a placeholder for build time
+    return {
+      mongodb: {
+        connectionString: '',
+        database: process.env['MONGODB_DATABASE'] || 'staticDb',
+      },
+      app: {
+        nodeEnv: process.env['NODE_ENV'] || 'development',
+        isDevelopment: (process.env['NODE_ENV'] || 'development') === 'development',
+        isProduction: process.env['NODE_ENV'] === 'production',
+      },
+    };
   }
 
   return {

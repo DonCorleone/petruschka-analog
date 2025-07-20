@@ -68,4 +68,4 @@ The build artifacts will be stored in the `dist/` directory, optimized for produ
 
 ---
 
-*Built with ❤️ using Angular and Analog.js*
+*Built with ❤️ and Claude using Angular and Analog.js*

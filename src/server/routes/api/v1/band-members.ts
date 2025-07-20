@@ -10,12 +10,27 @@ export default defineEventHandler(async (event): Promise<ApiResponse<BandMember[
     // Get the staff collection
     const staffCollection = db.collection('staff');
     
-    // Fetch all band members from MongoDB
-    const documents = await staffCollection.find({ "active": true }).toArray();
+    // Fetch all band members from MongoDB, sorted by sortOrder
+    const documents = await staffCollection.find({ "active": true }).sort({ "sortOrder": 1 }).toArray();
     
+    // Helper function to truncate HTML content and add ellipsis
+    const truncateHtml = (html: string, maxLength: number = 120): string => {
+      if (!html) return 'No description available.';
+      
+      // Remove HTML tags and clean up whitespace
+      const textOnly = html.replace(/<[^>]*>/g, '').replace(/\s+/g, ' ').trim();
+      
+      if (textOnly.length <= maxLength) {
+        return textOnly;
+      }
+      
+      // Truncate and add ellipsis
+      return textOnly.substring(0, maxLength).trim() + '...';
+    };
+
     // Transform MongoDB documents to BandMember format
     const bandMembers: BandMember[] = documents.map((doc: any, index: number) => {
-      // Ensure we only use valid image paths (1-4)
+      // Ensure we only use valid image paths (1-4), cycling through them
       let imagePath = `/images/members/member-${(index % 4) + 1}.png`;
       
       // If doc has a valid image path, use it, otherwise use fallback
@@ -26,9 +41,9 @@ export default defineEventHandler(async (event): Promise<ApiResponse<BandMember[
       return {
         id: index + 1,
         name: doc.name || 'Unknown Member',
-        instrument: doc.instrument || 'Unknown Instrument',
+        instrument: doc.topic || 'Unknown Topic',
         image: imagePath,
-        description: doc.description || 'No description available.'
+        description: truncateHtml(doc.bio)
       };
     });
 

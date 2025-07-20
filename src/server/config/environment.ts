@@ -6,8 +6,7 @@
 
 interface ServerConfig {
   mongodb: {
-    apiKey: string;
-    dataSource: string;
+    connectionString: string;
     database: string;
   };
   app: {
@@ -18,16 +17,15 @@ interface ServerConfig {
 }
 
 function getServerConfig(): ServerConfig {
-  const mongoApiKey = process.env['API_KEY_MONGODB'];
+  const mongoConnectionString = process.env['MONGODB_CONNECTION_STRING'];
   
-  if (!mongoApiKey) {
-    throw new Error('API_KEY_MONGODB environment variable is required');
+  if (!mongoConnectionString) {
+    throw new Error('MONGODB_CONNECTION_STRING environment variable is required');
   }
 
   return {
     mongodb: {
-      apiKey: mongoApiKey,
-      dataSource: process.env['MONGODB_DATA_SOURCE'] || 'Cluster0',
+      connectionString: mongoConnectionString,
       database: process.env['MONGODB_DATABASE'] || 'staticDb',
     },
     app: {

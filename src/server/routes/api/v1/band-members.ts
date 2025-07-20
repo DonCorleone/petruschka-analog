@@ -30,13 +30,8 @@ export default defineEventHandler(async (event): Promise<ApiResponse<BandMember[
 
     // Transform MongoDB documents to BandMember format
     const bandMembers: BandMember[] = documents.map((doc: any, index: number) => {
-      // Ensure we only use valid image paths (1-4), cycling through them
-      let imagePath = `/images/members/member-${(index % 4) + 1}.png`;
-      
-      // If doc has a valid image path, use it, otherwise use fallback
-      if (doc.image && doc.image.includes('member-') && doc.image.match(/member-[1-4]\.png/)) {
-        imagePath = doc.image;
-      }
+      // Use actual member photos from petruschka.ch with URL-encoded names
+      const imagePath = `https://www.petruschka.ch/assets/images/staff/${encodeURIComponent(doc.name || 'Unknown Member')}.jpg?nf_resize=fit&h=240`;
       
       return {
         id: index + 1,

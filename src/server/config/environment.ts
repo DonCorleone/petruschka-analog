@@ -21,7 +21,7 @@ function getServerConfig(): ServerConfig {
   
   // During build/prerender time, MongoDB might not be available
   if (!mongoConnectionString) {
-    if (process.env['NODE_ENV'] === 'production' && !process.env['PRERENDER']) {
+    if (process.env['NODE_ENV'] === 'production' && !process.env['PRERENDER'] && !process.env['BUILD_TIME']) {
       throw new Error('MONGODB_CONNECTION_STRING environment variable is required');
     }
     // Return a placeholder for build time

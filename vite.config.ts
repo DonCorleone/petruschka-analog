@@ -12,7 +12,16 @@ export default defineConfig(({ mode }) => ({
     mainFields: ['module'],
   },
   plugins: [
-    analog(),
+    analog({
+      nitro: {
+        preset: 'netlify',
+        esbuild: {
+          options: {
+            target: 'es2020',
+          },
+        },
+      },
+    }),
   ],
   test: {
     globals: true,

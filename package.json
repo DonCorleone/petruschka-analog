@@ -9,10 +9,12 @@
     "ng": "ng",
     "dev": "vite",
     "start": "npm run dev",
-    "build": "vite build",
+    "build": "BUILD_TIME=true vite build",
+    "build:prod": "NODE_ENV=production BUILD_TIME=true vite build",
     "watch": "vite build --watch",
     "test": "vitest",
-    "preview": "node dist/analog/server/index.mjs"
+    "preview": "node dist/analog/server/index.mjs",
+    "start:prod": "node dist/analog/server/index.mjs"
   },
   "private": true,
   "dependencies": {

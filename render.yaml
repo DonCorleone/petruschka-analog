@@ -1,0 +1,11 @@
+services:
+  - type: web
+    name: petruschka-analog
+    env: node
+    buildCommand: npm ci && npm run build:prod
+    startCommand: npm run start:prod
+    envVars:
+      - key: NODE_VERSION
+        value: 20.19.1
+      - key: NODE_ENV
+        value: production

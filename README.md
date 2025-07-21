@@ -1,4 +1,4 @@
-# Petruschka Analog - Modern Angular Music Band Website
+# Petruschka Analog - Modern Angular Website
 
 This project is a modern Angular application built with Analog.js that has been migrated from a premium Bootstrap 5 template for bands and musicians. It features SSR (Server-Side Rendering) and SSG (Static Site Generation) capabilities for optimal performance.
 

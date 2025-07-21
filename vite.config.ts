@@ -14,7 +14,7 @@ export default defineConfig(({ mode }) => ({
   plugins: [
     analog({
       nitro: {
-        preset: 'netlify',
+        preset: 'node-server',
         esbuild: {
           options: {
             target: 'es2020',

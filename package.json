@@ -14,7 +14,7 @@
     "watch": "vite build --watch",
     "test": "vitest",
     "preview": "node dist/analog/server/index.mjs",
-    "start:prod": "node dist/analog/server/index.mjs"
+    "start:prod": "NODE_ENV=production node dist/analog/server/index.mjs"
   },
   "private": true,
   "dependencies": {

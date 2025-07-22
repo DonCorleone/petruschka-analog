@@ -2,7 +2,7 @@ services:
   - type: web
     name: petruschka-analog
     env: node
-    buildCommand: npm install && npm run build
+    buildCommand: npm cache clean --force && npm install --legacy-peer-deps && npm run build
     startCommand: node dist/analog/server/index.mjs
     plan: free
     envVars:

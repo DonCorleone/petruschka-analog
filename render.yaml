@@ -1,0 +1,14 @@
+services:
+  - type: web
+    name: petruschka-analog
+    env: node
+    buildCommand: npm install && npm run build
+    startCommand: node dist/analog/server/index.mjs
+    plan: free
+    envVars:
+      - key: NODE_VERSION
+        value: 20.19.1
+      - key: NODE_ENV
+        value: production
+      - key: PORT
+        value: 10000

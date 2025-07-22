@@ -12,16 +12,7 @@ export default defineConfig(({ mode }) => ({
     mainFields: ['module'],
   },
   plugins: [
-    analog({
-      nitro: {
-        preset: 'node-server',
-        esbuild: {
-          options: {
-            target: 'es2020',
-          },
-        },
-      },
-    }),
+    analog(),
   ],
   test: {
     globals: true,

@@ -9,12 +9,10 @@
     "ng": "ng",
     "dev": "vite",
     "start": "npm run dev",
-    "build": "BUILD_TIME=true vite build",
-    "build:prod": "NODE_ENV=production BUILD_TIME=true vite build",
+    "build": "vite build",
     "watch": "vite build --watch",
     "test": "vitest",
-    "preview": "node dist/analog/server/index.mjs",
-    "start:prod": "NODE_ENV=production node dist/analog/server/index.mjs"
+    "preview": "node dist/analog/server/index.mjs"
   },
   "private": true,
   "dependencies": {
@@ -36,12 +34,10 @@
     "mongodb": "^6.17.0",
     "rxjs": "~7.8.0",
     "tslib": "^2.3.0",
-    "zone.js": "~0.15.0",
-    "@analogjs/platform": "^1.19.1",
-    "typescript": "~5.8.0",
-    "vite": "^7.0.0"
+    "zone.js": "~0.15.0"
   },
   "devDependencies": {
+    "@analogjs/platform": "^1.19.1",
     "@analogjs/vite-plugin-angular": "^1.19.1",
     "@analogjs/vitest-angular": "^1.19.1",
     "@angular/build": "^20.0.0",
@@ -51,6 +47,8 @@
     "@types/bootstrap": "^5.2.10",
     "jsdom": "^22.0.0",
     "postcss-purgecss": "^5.0.0",
+    "typescript": "~5.8.0",
+    "vite": "^7.0.0",
     "vite-tsconfig-paths": "^4.2.0",
     "vitest": "^3.0.0"
   },

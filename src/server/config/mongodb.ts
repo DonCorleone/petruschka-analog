@@ -16,11 +16,6 @@ export async function getDatabase(): Promise<Db> {
   try {
     const config = getEnv();
     
-    // During build/prerender time, MongoDB might not be available
-    if (!config.mongodb.connectionString) {
-      throw new Error('MongoDB not available during build time');
-    }
-    
     console.log('Attempting to connect to MongoDB...');
     
     // Create new client if it doesn't exist

@@ -2,7 +2,7 @@ services:
   - type: web
     name: petruschka-analog
     env: node
-    buildCommand: npm ci && npm run build:prod
+    buildCommand: npm install && npm run build:prod
     startCommand: node dist/analog/server/index.mjs
     plan: free
     envVars:
@@ -12,3 +12,5 @@ services:
         value: production
       - key: PORT
         value: 10000
+      - key: BUILD_TIME
+        value: true

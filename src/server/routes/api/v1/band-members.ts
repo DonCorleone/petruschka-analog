@@ -9,28 +9,6 @@ interface MongoDBResponse {
 
 export default defineEventHandler(async (event): Promise<ApiResponse<BandMember[]>> => {
   try {
-    // During build time, return mock data to prevent timeouts
-    const isBuildTime = process.env['BUILD_TIME'] === 'true';
-    if (isBuildTime) {
-      console.log('🔧 Build time detected, returning mock data');
-      const mockMembers: BandMember[] = [
-        {
-          id: 1,
-          name: 'Build Time Mock',
-          instrument: 'Build',
-          image: '/images/members/member-1.png',
-          description: 'Mock data for build time'
-        }
-      ];
-      
-      return {
-        success: true,
-        data: mockMembers,
-        timestamp: new Date().toISOString(),
-        source: 'build-time-mock'
-      };
-    }
-
     // Try MongoDB Native Driver first
     try {
       console.log('🔄 Attempting MongoDB Native Driver connection...');
@@ -45,7 +23,7 @@ export default defineEventHandler(async (event): Promise<ApiResponse<BandMember[
         id: doc._id?.toString() || index + 1,
         name: doc.name || 'Unknown Member',
         instrument: doc.instrument || 'Unknown Instrument', 
-        image: doc.image || `/images/members/member-${(index % 4) + 1}.png`, // Cycle through 1-4
+        image: doc.image || `/images/members/member-${index + 1}.png`,
         description: doc.description || 'No description available.'
       }));
 
@@ -85,7 +63,7 @@ export default defineEventHandler(async (event): Promise<ApiResponse<BandMember[
         id: doc._id || index + 1,
         name: doc.name || 'Unknown Member',
         instrument: doc.instrument || 'Unknown Instrument',
-        image: doc.image || `/images/members/member-${(index % 4) + 1}.png`, // Cycle through 1-4
+        image: doc.image || `/images/members/member-${index + 1}.png`,
         description: doc.description || 'No description available.'
       }));
 

@@ -1,6 +1,7 @@
 import { defineEventHandler, createError } from 'h3';
 import { BandMember, ApiResponse } from '../../../../shared/types';
 import { getEnv } from '../../../config/environment';
+import { connectToDatabase } from '../../../config/mongodb';
 
 interface MongoDBResponse {
   documents: any[];
@@ -8,41 +9,71 @@ interface MongoDBResponse {
 
 export default defineEventHandler(async (event): Promise<ApiResponse<BandMember[]>> => {
   try {
-    // Get server configuration (secure - never exposed to browser)
-    const config = getEnv();
-    
-    // MongoDB Data API request configuration
-    const mongoRequest = {
-      collection: "staff",
-      database: config.mongodb.database,
-      dataSource: config.mongodb.dataSource
-    };
+    // Try MongoDB Native Driver first
+    try {
+      console.log('🔄 Attempting MongoDB Native Driver connection...');
+      const db = await connectToDatabase();
+      const collection = db.collection('staff');
+      
+      const documents = await collection.find({}).toArray();
+      console.log('✅ MongoDB Native Driver successful, found', documents.length, 'documents');
+      
+      // Transform MongoDB documents to BandMember format
+      const bandMembers: BandMember[] = documents.map((doc: any, index: number) => ({
+        id: doc._id?.toString() || index + 1,
+        name: doc.name || 'Unknown Member',
+        instrument: doc.instrument || 'Unknown Instrument', 
+        image: doc.image || `/images/members/member-${index + 1}.png`,
+        description: doc.description || 'No description available.'
+      }));
 
-    // Fetch data from MongoDB Data API
-    const response = await $fetch<MongoDBResponse>('https://data.mongodb-api.com/app/data-pcuoo/endpoint/data/v1/action/find', {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json',
-        'Access-Control-Request-Headers': '*',
-        'api-key': config.mongodb.apiKey,
-      },
-      body: mongoRequest
-    });
+      return {
+        success: true,
+        data: bandMembers,
+        timestamp: new Date().toISOString(),
+        source: 'mongodb-native-driver'
+      };
+      
+    } catch (nativeError) {
+      console.warn('⚠️ MongoDB Native Driver failed, falling back to Data API:', nativeError);
+      
+      // Fallback to MongoDB Data API
+      const config = getEnv();
+      
+      // MongoDB Data API request configuration
+      const mongoRequest = {
+        collection: "staff",
+        database: config.mongodb.database,
+        dataSource: config.mongodb.dataSource
+      };
 
-    // Transform MongoDB documents to BandMember format
-    const bandMembers: BandMember[] = response.documents.map((doc: any, index: number) => ({
-      id: doc._id || index + 1,
-      name: doc.name || 'Unknown Member',
-      instrument: doc.instrument || 'Unknown Instrument',
-      image: doc.image || `/images/members/member-${index + 1}.png`,
-      description: doc.description || 'No description available.'
-    }));
+      // Fetch data from MongoDB Data API
+      const response = await $fetch<MongoDBResponse>('https://data.mongodb-api.com/app/data-pcuoo/endpoint/data/v1/action/find', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+          'Access-Control-Request-Headers': '*',
+          'api-key': config.mongodb.apiKey,
+        },
+        body: mongoRequest
+      });
 
-    return {
-      success: true,
-      data: bandMembers,
-      timestamp: new Date().toISOString()
-    };
+      // Transform MongoDB documents to BandMember format
+      const bandMembers: BandMember[] = response.documents.map((doc: any, index: number) => ({
+        id: doc._id || index + 1,
+        name: doc.name || 'Unknown Member',
+        instrument: doc.instrument || 'Unknown Instrument',
+        image: doc.image || `/images/members/member-${index + 1}.png`,
+        description: doc.description || 'No description available.'
+      }));
+
+      return {
+        success: true,
+        data: bandMembers,
+        timestamp: new Date().toISOString(),
+        source: 'mongodb-data-api-fallback'
+      };
+    }
 
   } catch (error) {
     console.error('Error fetching band members from MongoDB:', error);

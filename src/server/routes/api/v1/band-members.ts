@@ -1,7 +1,7 @@
 import { defineEventHandler, createError } from 'h3';
 import { BandMember, ApiResponse } from '../../../../shared/types';
 import { getEnv } from '../../../config/environment';
-import { connectToDatabase } from '../../../config/mongodb';
+import { getDatabase } from '../../../config/mongodb';
 
 interface MongoDBResponse {
   documents: any[];
@@ -12,7 +12,7 @@ export default defineEventHandler(async (event): Promise<ApiResponse<BandMember[
     // Try MongoDB Native Driver first
     try {
       console.log('🔄 Attempting MongoDB Native Driver connection...');
-      const db = await connectToDatabase();
+      const db = await getDatabase();
       const collection = db.collection('staff');
       
       const documents = await collection.find({}).toArray();

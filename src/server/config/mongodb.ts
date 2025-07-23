@@ -1,13 +1,9 @@
 /**
  * MongoDB Native Driver Connection Utility
- * This file handles the connection to MongoDB using the native driver
+ * Simple connection approach compatible with Render.com
  */
 
 import { MongoClient, Db } from 'mongodb';
-
-// Global connection instance (singleton pattern)
-let cachedClient: MongoClient | null = null;
-let cachedDb: Db | null = null;
 
 interface MongoConfig {
   connectionString: string;
@@ -28,31 +24,19 @@ function getMongoConfig(): MongoConfig {
   };
 }
 
-export async function connectToDatabase(): Promise<Db> {
-  // Return cached connection if available
-  if (cachedClient && cachedDb) {
-    return cachedDb;
-  }
-
+export async function getDatabase(): Promise<Db> {
   try {
     const config = getMongoConfig();
     
-    // Create new MongoDB client
+    // Create a simple client connection
     const client = new MongoClient(config.connectionString, {
-      maxPoolSize: 10,
       serverSelectionTimeoutMS: 5000,
-      socketTimeoutMS: 45000,
+      connectTimeoutMS: 10000,
     });
 
-    // Connect to MongoDB
+    // Connect and return database
     await client.connect();
-    
-    // Get database instance
     const db = client.db(config.database);
-
-    // Cache the connection
-    cachedClient = client;
-    cachedDb = db;
 
     console.log('✅ Connected to MongoDB successfully');
     return db;
@@ -60,15 +44,5 @@ export async function connectToDatabase(): Promise<Db> {
   } catch (error) {
     console.error('❌ Failed to connect to MongoDB:', error);
     throw new Error(`MongoDB connection failed: ${error instanceof Error ? error.message : 'Unknown error'}`);
-  }
-}
-
-// Graceful shutdown function
-export async function closeConnection(): Promise<void> {
-  if (cachedClient) {
-    await cachedClient.close();
-    cachedClient = null;
-    cachedDb = null;
-    console.log('🔌 MongoDB connection closed');
   }
 }

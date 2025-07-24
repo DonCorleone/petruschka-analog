@@ -1,6 +1,7 @@
 import { defineEventHandler, createError } from 'h3';
 import { BandMember, ApiResponse } from '../../../../shared/types';
 import { getEnv } from '../../../config/environment';
+import { getMongoData } from '../../../lib/simple-mongo';
 
 interface MongoDBResponse {
   documents: any[];
@@ -8,7 +9,31 @@ interface MongoDBResponse {
 
 export default defineEventHandler(async (event): Promise<ApiResponse<BandMember[]>> => {
   try {
-    // Get server configuration (secure - never exposed to browser)
+    // Try MongoDB native driver first (simple approach)
+    const mongoDocuments = await getMongoData();
+    
+    if (mongoDocuments && mongoDocuments.length > 0) {
+      console.log('✅ Using MongoDB native driver data');
+      
+      // Transform MongoDB documents to BandMember format
+      const bandMembers: BandMember[] = mongoDocuments.map((doc: any, index: number) => ({
+        id: doc._id?.toString() || index + 1,
+        name: doc.name || 'Unknown Member',
+        instrument: doc.instrument || 'Unknown Instrument',
+        image: doc.image || `/images/members/member-${(index % 4) + 1}.png`,
+        description: doc.description || 'No description available.'
+      }));
+
+      return {
+        success: true,
+        data: bandMembers,
+        timestamp: new Date().toISOString(),
+        source: 'mongodb-native-driver'
+      };
+    }
+    
+    // Fallback to Data API if MongoDB native fails
+    console.log('⚠️ Falling back to MongoDB Data API');
     const config = getEnv();
     
     // MongoDB Data API request configuration
@@ -34,14 +59,15 @@ export default defineEventHandler(async (event): Promise<ApiResponse<BandMember[
       id: doc._id || index + 1,
       name: doc.name || 'Unknown Member',
       instrument: doc.instrument || 'Unknown Instrument',
-      image: doc.image || `/images/members/member-${index + 1}.png`,
+      image: doc.image || `/images/members/member-${(index % 4) + 1}.png`,
       description: doc.description || 'No description available.'
     }));
 
     return {
       success: true,
       data: bandMembers,
-      timestamp: new Date().toISOString()
+      timestamp: new Date().toISOString(),
+      source: 'mongodb-data-api'
     };
 
   } catch (error) {

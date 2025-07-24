@@ -2,6 +2,21 @@ import { defineEventHandler, createError } from 'h3';
 import { BandMember, ApiResponse } from '../../../../shared/types';
 import { getMongoData } from '../../../lib/simple-mongo';
 
+// Helper function to truncate text and strip HTML
+function truncateText(text: string, maxLength: number = 150): string {
+  if (!text) return '';
+  
+  // Strip HTML tags
+  const stripped = text.replace(/<[^>]*>/g, '');
+  
+  // Truncate and add ellipsis if needed
+  if (stripped.length <= maxLength) {
+    return stripped;
+  }
+  
+  return stripped.substring(0, maxLength).trim() + '...';
+}
+
 export default defineEventHandler(async (event): Promise<ApiResponse<BandMember[]>> => {
   try {
     // Get data from MongoDB native driver
@@ -14,13 +29,16 @@ export default defineEventHandler(async (event): Promise<ApiResponse<BandMember[
     console.log('✅ Using MongoDB native driver data');
     
     // Transform MongoDB documents to BandMember format
-    const bandMembers: BandMember[] = mongoDocuments.map((doc: any, index: number) => ({
-      id: doc._id?.toString() || index + 1,
-      name: doc.name || 'Unknown Member',
-      instrument: doc.instrument || 'Unknown Instrument',
-      image: doc.image || `/images/members/member-${(index % 4) + 1}.png`,
-      description: doc.description || 'No description available.'
-    }));
+    const bandMembers: BandMember[] = mongoDocuments
+      .filter((doc: any) => doc.active !== false) // Only show active members
+      .sort((a: any, b: any) => (a.sortOrder || 999) - (b.sortOrder || 999)) // Sort by sortOrder
+      .map((doc: any, index: number) => ({
+        id: doc._id?.toString() || index + 1,
+        name: doc.name || 'Unknown Member',
+        instrument: doc.topic || 'Unknown Topic', // MongoDB 'topic' maps to 'instrument'
+        image: doc.image || `/images/members/member-${(index % 4) + 1}.png`,
+        description: truncateText(doc.bio, 150) || 'No description available.' // MongoDB 'bio' with ellipsis
+      }));
 
     return {
       success: true,

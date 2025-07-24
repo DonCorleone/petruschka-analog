@@ -1,42 +1,44 @@
 import { defineEventHandler, createError } from 'h3';
 import { BandMember, ApiResponse } from '../../../../shared/types';
-import { getEnv } from '../../../config/environment';
+import { getMongoData } from '../../../lib/simple-mongo';
 
-interface MongoDBResponse {
-  documents: any[];
+// Helper function to truncate text and strip HTML
+function truncateText(text: string, maxLength: number = 150): string {
+  if (!text) return '';
+  
+  // Strip HTML tags
+  const stripped = text.replace(/<[^>]*>/g, '');
+  
+  // Truncate and add ellipsis if needed
+  if (stripped.length <= maxLength) {
+    return stripped;
+  }
+  
+  return stripped.substring(0, maxLength).trim() + '...';
 }
 
 export default defineEventHandler(async (event): Promise<ApiResponse<BandMember[]>> => {
   try {
-    // Get server configuration (secure - never exposed to browser)
-    const config = getEnv();
+    // Get data from MongoDB native driver
+    const mongoDocuments = await getMongoData();
     
-    // MongoDB Data API request configuration
-    const mongoRequest = {
-      collection: "staff",
-      database: config.mongodb.database,
-      dataSource: config.mongodb.dataSource
-    };
-
-    // Fetch data from MongoDB Data API
-    const response = await $fetch<MongoDBResponse>('https://data.mongodb-api.com/app/data-pcuoo/endpoint/data/v1/action/find', {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json',
-        'Access-Control-Request-Headers': '*',
-        'api-key': config.mongodb.apiKey,
-      },
-      body: mongoRequest
-    });
-
+    if (!mongoDocuments || mongoDocuments.length === 0) {
+      throw new Error('No data found in MongoDB or connection failed');
+    }
+    
+    console.log('✅ Using MongoDB native driver data');
+    
     // Transform MongoDB documents to BandMember format
-    const bandMembers: BandMember[] = response.documents.map((doc: any, index: number) => ({
-      id: doc._id || index + 1,
-      name: doc.name || 'Unknown Member',
-      instrument: doc.instrument || 'Unknown Instrument',
-      image: doc.image || `/images/members/member-${index + 1}.png`,
-      description: doc.description || 'No description available.'
-    }));
+    const bandMembers: BandMember[] = mongoDocuments
+      .filter((doc: any) => doc.active !== false) // Only show active members
+      .sort((a: any, b: any) => (a.sortOrder || 999) - (b.sortOrder || 999)) // Sort by sortOrder
+      .map((doc: any, index: number) => ({
+        id: doc._id?.toString() || index + 1,
+        name: doc.name || 'Unknown Member',
+        instrument: doc.topic || 'Unknown Topic', // MongoDB 'topic' maps to 'instrument'
+        image: doc.image || `/images/members/member-${(index % 4) + 1}.png`,
+        description: truncateText(doc.bio, 150) || 'No description available.' // MongoDB 'bio' with ellipsis
+      }));
 
     return {
       success: true,

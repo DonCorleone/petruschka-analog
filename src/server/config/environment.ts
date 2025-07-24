@@ -5,11 +5,6 @@
  */
 
 interface ServerConfig {
-  mongodb: {
-    apiKey: string;
-    dataSource: string;
-    database: string;
-  };
   app: {
     nodeEnv: string;
     isDevelopment: boolean;
@@ -18,18 +13,7 @@ interface ServerConfig {
 }
 
 function getServerConfig(): ServerConfig {
-  const mongoApiKey = process.env['API_KEY_MONGODB'];
-  
-  if (!mongoApiKey) {
-    throw new Error('API_KEY_MONGODB environment variable is required');
-  }
-
   return {
-    mongodb: {
-      apiKey: mongoApiKey,
-      dataSource: process.env['MONGODB_DATA_SOURCE'] || 'Cluster0',
-      database: process.env['MONGODB_DATABASE'] || 'staticDb',
-    },
     app: {
       nodeEnv: process.env['NODE_ENV'] || 'development',
       isDevelopment: process.env['NODE_ENV'] !== 'production',

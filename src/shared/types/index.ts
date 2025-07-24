@@ -72,5 +72,4 @@ export interface ApiResponse<T> {
   success: boolean;
   data: T;
   timestamp: string;
-  source?: string; // Optional field to track data source
 }

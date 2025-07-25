@@ -1,63 +1,80 @@
-import { defineEventHandler } from 'h3';
+import { defineEventHandler, createError } from 'h3';
 import { Album, ApiResponse } from '../../../../shared/types';
+import { getEventData } from '../../../lib/simple-events-mongo';
 
-const MOCK_ALBUMS: Album[] = [
-  {
-    id: 1,
-    title: 'Album Title Lorem Ipsum',
-    coverImage: '/images/albums/album-cover-1.jpg',
-    status: 'coming-soon',
-    purchaseUrl: '#'
-  },
-  {
-    id: 2,
-    title: 'Album Title Sollicitudin',
-    coverImage: '/images/albums/album-cover-2.jpg',
-    status: 'available',
-    price: 15,
-    purchaseUrl: '#'
-  },
-  {
-    id: 3,
-    title: 'Album Title Maecenas',
-    coverImage: '/images/albums/album-cover-3.jpg',
-    status: 'available',
-    price: 15,
-    purchaseUrl: '#'
-  },
-  {
-    id: 4,
-    title: 'Album Title Proin Interdum',
-    coverImage: '/images/albums/album-cover-4.jpg',
-    status: 'available',
-    price: 15,
-    purchaseUrl: '#'
-  },
-  {
-    id: 5,
-    title: 'Album Title Vestibulum',
-    coverImage: '/images/albums/album-cover-5.jpg',
-    status: 'available',
-    price: 15,
-    purchaseUrl: '#'
-  },
-  {
-    id: 6,
-    title: 'Album Title Donec',
-    coverImage: '/images/albums/album-cover-6.jpg',
-    status: 'available',
-    price: 15,
-    purchaseUrl: '#'
-  }
-];
+// Helper function to extract CD albums from MongoDB event data
+function extractCDAlbums(eventDocuments: any[]): Album[] {
+  const albums: Album[] = [];
+  
+  eventDocuments.forEach((doc: any, docIndex: number) => {
+    // Get event name (use languageId 0 for German)
+    const eventName = doc.eventInfos?.find((info: any) => info.languageId === 0)?.name || 'Unknown Show';
+    
+    // Generate unique numeric ID
+    let albumId: number;
+    if (doc._id?.$numberLong) {
+      albumId = parseInt(doc._id.$numberLong.toString().slice(-8)); // Use last 8 digits
+    } else if (typeof doc._id === 'number') {
+      albumId = doc._id;
+    } else {
+      albumId = docIndex + 1000; // Fallback to index-based ID
+    }
+    
+    // Find CD ticket types
+    doc.ticketTypes?.forEach((ticketType: any) => {
+      const cdTicketInfo = ticketType.ticketTypeInfos?.find((info: any) => 
+        info.name === 'CD' && info.languageId === 0 && info.imageUrl
+      );
+      
+      if (cdTicketInfo) {
+        albums.push({
+          id: albumId,
+          title: eventName,
+          coverImage: cdTicketInfo.imageUrl,
+          status: 'available' as const,
+          price: 22, // Default price for CDs
+          purchaseUrl: '#' // You can update this with real purchase URLs
+        });
+      }
+    });
+  });
+  
+  // Sort by newest first (assuming higher IDs are newer)
+  return albums.sort((a, b) => b.id - a.id);
+}
 
 export default defineEventHandler(async (event): Promise<ApiResponse<Album[]>> => {
-  // Simulate network delay
-  await new Promise(resolve => setTimeout(resolve, 150));
-  
-  return {
-    success: true,
-    data: MOCK_ALBUMS,
-    timestamp: new Date().toISOString()
-  };
+  try {
+    // Get data from MongoDB native driver
+    const eventDocuments = await getEventData();
+    
+    let albums: Album[] = [];
+    
+    if (eventDocuments && eventDocuments.length > 0) {
+      console.log('✅ Using MongoDB event data for albums');
+      albums = extractCDAlbums(eventDocuments);
+    } else {
+      console.log('⚠️ No event data found, using empty albums array');
+    }
+
+    return {
+      success: true,
+      data: albums,
+      timestamp: new Date().toISOString()
+    };
+
+  } catch (error) {
+    console.error('Error fetching albums data from MongoDB:', error);
+    
+    // Return error response while maintaining API contract
+    throw createError({
+      statusCode: 500,
+      statusMessage: 'Failed to fetch albums',
+      data: {
+        success: false,
+        error: error instanceof Error ? error.message : 'Unknown error',
+        timestamp: new Date().toISOString()
+      }
+    });
+  }
 });

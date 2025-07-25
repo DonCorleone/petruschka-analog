@@ -1,9 +1,9 @@
 <section class="merch-section section text-center">
   <div class="container">
     <h2 class="section-title">Merch Store</h2>
-    <div class="row">
-      @for (item of merchItems(); track item.id) {
-        <div class="item col-12 col-md-6">
+    <div class="d-flex justify-content-center flex-wrap merch-container">
+      @for (item of merchItems(); track item.id; let i = $index) {
+        <div class="item">
           <div class="item-inner">
             <img class="img-fluid" [src]="item.image" [alt]="item.title">
             <a class="mask" [href]="item.purchaseUrl">

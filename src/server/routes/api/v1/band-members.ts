@@ -19,18 +19,22 @@ function truncateText(text: string, maxLength: number = 150): string {
 
 export default defineEventHandler(async (event): Promise<ApiResponse<BandMember[]>> => {
   try {
-    // Get data from MongoDB native driver
-    const mongoDocuments = await getMongoData();
+    // Get only active staff from MongoDB native driver (filtered at DB level)
+    const mongoDocuments = await getMongoData({ 
+      $or: [
+        { active: { $ne: false } }, // active is not false
+        { active: { $exists: false } } // active field doesn't exist (assume active)
+      ]
+    }, 'staticDb', 'staff');
     
     if (!mongoDocuments || mongoDocuments.length === 0) {
-      throw new Error('No data found in MongoDB or connection failed');
+      throw new Error('No active staff found in MongoDB or connection failed');
     }
     
-    console.log('✅ Using MongoDB native driver data');
+    console.log('✅ Using MongoDB native driver data (active staff only)');
     
     // Transform MongoDB documents to BandMember format
     const bandMembers: BandMember[] = mongoDocuments
-      .filter((doc: any) => doc.active !== false) // Only show active members
       .sort((a: any, b: any) => (a.sortOrder || 999) - (b.sortOrder || 999)) // Sort by sortOrder
       .map((doc: any, index: number) => ({
         id: doc._id?.toString() || index + 1,

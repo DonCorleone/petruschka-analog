@@ -5,7 +5,7 @@
 
 import { MongoClient } from 'mongodb';
 
-export async function getMongoData() {
+export async function getMongoData(filter: object = {}, dbName= '', collectionName = '') {
   // Bail out immediately if no connection string
   const connectionString = process.env['MONGODB_CONNECTION_STRING'];
   if (!connectionString) {
@@ -26,12 +26,12 @@ export async function getMongoData() {
     console.log('✅ Connected to MongoDB');
     
     // Get database and collection
-    const db = client.db('staticDb');
-    const collection = db.collection('staff');
+    const db = client.db(dbName);
+    const collection = db.collection(collectionName);
     
-    // Simple query
-    const documents = await collection.find({}).toArray();
-    console.log(`✅ Found ${documents.length} documents`);
+    // Query with filter
+    const documents = await collection.find(filter).toArray();
+    console.log(`✅ Found ${documents.length} documents with filter:`, filter);
     
     return documents;
     

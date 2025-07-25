@@ -1,40 +1,47 @@
-import { defineEventHandler } from 'h3';
+import { defineEventHandler, createError } from 'h3';
 import { MerchItem, Update, ApiResponse } from '../../../../shared/types';
+import { getEventData } from '../../../lib/simple-events-mongo';
 
-const MOCK_MERCH: MerchItem[] = [
-  {
-    id: 1,
-    title: 'Band T-Shirt',
-    price: 20,
-    image: '/images/merch/merch-1.jpg',
-    description: 'Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor aenean massa.',
-    purchaseUrl: '#'
-  },
-  {
-    id: 2,
-    title: 'Band T-Shirt',
-    price: 20,
-    image: '/images/merch/merch-2.jpg',
-    description: 'Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor aenean massa.',
-    purchaseUrl: '#'
-  },
-  {
-    id: 3,
-    title: 'Band Hoody',
-    price: 35,
-    image: '/images/merch/merch-3.jpg',
-    description: 'Lorem ipsum dolor sit amet, consectetuer adipiscing elit.',
-    purchaseUrl: '#'
-  },
-  {
-    id: 4,
-    title: 'Band Tote Bag',
-    price: 12,
-    image: '/images/merch/merch-4.jpg',
-    description: 'Lorem ipsum dolor sit amet, consectetuer adipiscing elit.',
-    purchaseUrl: '#'
-  }
-];
+// Helper function to extract Tournee items from MongoDB event data
+function extractTourneeMerch(eventDocuments: any[]): MerchItem[] {
+  const merchItems: MerchItem[] = [];
+  
+  eventDocuments.forEach((doc: any, docIndex: number) => {
+    // Get event name (use languageId 0 for German)
+    const eventName = doc.eventInfos?.find((info: any) => info.languageId === 0)?.name || 'Unknown Show';
+    
+    // Generate unique numeric ID
+    let itemId: number;
+    if (doc._id?.$numberLong) {
+      itemId = parseInt(doc._id.$numberLong.toString().slice(-8)); // Use last 8 digits
+    } else if (typeof doc._id === 'number') {
+      itemId = doc._id;
+    } else {
+      itemId = docIndex + 2000; // Fallback to index-based ID (different range from albums)
+    }
+    
+    // Find Tournee ticket types
+    doc.ticketTypes?.forEach((ticketType: any) => {
+      const tourneeTicketInfo = ticketType.ticketTypeInfos?.find((info: any) => 
+        info.name === 'Tournee' && info.languageId === 0 && info.imageUrl
+      );
+      
+      if (tourneeTicketInfo) {
+        merchItems.push({
+          id: itemId,
+          title: `${eventName} - Tournee`,
+          price: 25, // Default price for tour merchandise
+          image: tourneeTicketInfo.imageUrl,
+          description: `Tournee merchandise for "${eventName}" by PETRUSCHKA Figurentheater.`,
+          purchaseUrl: '#' // You can update this with real purchase URLs
+        });
+      }
+    });
+  });
+  
+  // Sort by newest first (assuming higher IDs are newer)
+  return merchItems.sort((a, b) => b.id - a.id);
+}
 
 const MOCK_UPDATES: Update[] = [
   {

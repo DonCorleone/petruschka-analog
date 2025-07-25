@@ -29,13 +29,13 @@ export async function getEventData() {
     const db = client.db('eventDb');
     const collection = db.collection('EventDetailsTaggedUsage');
     
-    // Query only documents that have CD ticket types
-    // Use MongoDB aggregation to filter documents that contain "CD" in ticket type names
+    // Query documents that have either CD or Tournee ticket types
+    // Use MongoDB query to filter documents that contain "CD" or "Tournee" in ticket type names
     const documents = await collection.find({
-      "ticketTypes.ticketTypeInfos.name": "CD"
+      "ticketTypes.ticketTypeInfos.name": { $in: ["CD", "Tournee"] }
     }).toArray();
     
-    console.log(`✅ Found ${documents.length} CD documents`);
+    console.log(`✅ Found ${documents.length} CD/Tournee documents`);
     
     return documents;
     

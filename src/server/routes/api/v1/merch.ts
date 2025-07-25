@@ -27,12 +27,17 @@ function extractTourneeMerch(eventDocuments: any[]): MerchItem[] {
       );
       
       if (tourneeTicketInfo) {
+        // Add netlify image resizing parameters for consistent 300x300 square images
+        const resizedImageUrl = tourneeTicketInfo.imageUrl.includes('?') 
+          ? `${tourneeTicketInfo.imageUrl}&nf_resize=smartcrop&w=300&h=300`
+          : `${tourneeTicketInfo.imageUrl}?nf_resize=smartcrop&w=300&h=300`;
+          
         merchItems.push({
           id: itemId,
           title: `${eventName} - Tournee`,
           price: 25, // Default price for tour merchandise
-          image: tourneeTicketInfo.imageUrl,
-          description: `Tournee merchandise for "${eventName}" by PETRUSCHKA Figurentheater.`,
+          image: resizedImageUrl,
+          description: `"${eventName}" kann gebucht werden!`,
           purchaseUrl: '#' // You can update this with real purchase URLs
         });
       }
@@ -75,15 +80,40 @@ const MOCK_UPDATES: Update[] = [
 ];
 
 export default defineEventHandler(async (event): Promise<ApiResponse<{ merchandise: MerchItem[], updates: Update[] }>> => {
-  // Simulate network delay
-  await new Promise(resolve => setTimeout(resolve, 180));
-  
-  return {
-    success: true,
-    data: {
-      merchandise: MOCK_MERCH,
-      updates: MOCK_UPDATES
-    },
-    timestamp: new Date().toISOString()
-  };
+  try {
+    // Get data from MongoDB native driver
+    const eventDocuments = await getEventData();
+    
+    let merchandise: MerchItem[] = [];
+    
+    if (eventDocuments && eventDocuments.length > 0) {
+      console.log('✅ Using MongoDB event data for tournee merch');
+      merchandise = extractTourneeMerch(eventDocuments);
+    } else {
+      console.log('⚠️ No event data found, using empty merch array');
+    }
+
+    return {
+      success: true,
+      data: {
+        merchandise,
+        updates: MOCK_UPDATES
+      },
+      timestamp: new Date().toISOString()
+    };
+
+  } catch (error) {
+    console.error('Error fetching merch data from MongoDB:', error);
+    
+    // Return error response while maintaining API contract
+    throw createError({
+      statusCode: 500,
+      statusMessage: 'Failed to fetch merchandise',
+      data: {
+        success: false,
+        error: error instanceof Error ? error.message : 'Unknown error',
+        timestamp: new Date().toISOString()
+      }
+    });
+  }
 });

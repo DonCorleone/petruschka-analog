@@ -6,7 +6,9 @@
 .merch-section .item {
   margin-bottom: 30px;
 }
-
+.merch-container {
+  gap: 2rem;
+}
 .merch-section .item .item-inner {
   position: relative;
 }
@@ -17,7 +19,7 @@
 }
 
 .merch-section .mask {
-  visibility: hidden;
+  visibility: visible;
   position: absolute;
   top: 0;
   left: 0;
@@ -26,7 +28,7 @@
   color: #fff;
   text-decoration: none;
   transition: all 0.4s ease-in-out;
-  opacity: 0;
+  opacity: 1;
 }
 
 .merch-section .mask .item-title {
@@ -54,7 +56,7 @@
 }
 
 .merch-section .mask-inner {
-  background: rgba(16, 17, 19, 0.8);
+  background: rgba(16, 17, 19, 0.7);
   padding: 30px;
   padding-top: 45px;
   height: 100%;
@@ -69,5 +71,21 @@
 @media (max-width: 767.98px) {
   .merch-section .mask-inner {
     padding-top: 30px;
+  }
+}
+
+@media (min-width: 768px) {
+  /* Softer light background with dark text on hover for desktop */
+  .merch-section .item:hover .mask-inner {
+    background: rgba(220, 220, 220, 0.8);
+    color: #333;
+  }
+  
+  .merch-section .item:hover .mask .item-title {
+    color: #333;
+  }
+  
+  .merch-section .item:hover .mask .desc {
+    color: #333;
   }
 }

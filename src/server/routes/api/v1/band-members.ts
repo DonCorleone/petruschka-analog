@@ -36,7 +36,7 @@ export default defineEventHandler(async (event): Promise<ApiResponse<BandMember[
         id: doc._id?.toString() || index + 1,
         name: doc.name || 'Unknown Member',
         instrument: doc.topic || 'Unknown Topic', // MongoDB 'topic' maps to 'instrument'
-        image: doc.image || `/images/members/member-${(index % 4) + 1}.png`,
+        image: doc.image || `https://www.petruschka.ch/assets/images/staff/${encodeURIComponent(doc.name || 'Unknown Member')}.jpg?nf_resize=fit&h=240`,
         description: truncateText(doc.bio, 150) || 'No description available.' // MongoDB 'bio' with ellipsis
       }));
 

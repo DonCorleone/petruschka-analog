@@ -1,0 +1,820 @@
+[{
+  "_id": "2024s",
+  "eventDetail": {
+    "_id": {
+      "$numberLong": "1726405200000"
+    },
+    "eventInfos": [
+      {
+        "name": "De Flug zum Planet Sossindra",
+        "languageId": 0,
+        "importantNotes": "",
+        "flyerImagePath": "https://petruschka.netlify.app/assets/images/main/portrait/2024s.jpg",
+        "shortDescription": "Ein Weltraummärchen mit klassischer Musik und Sandmalerei - für Grosse und Kleine ab 5 Jahren"
+      }
+    ],
+    "facebookPixelId": "2024s",
+    "googleAnalyticsTracker": "",
+    "notificationEmail": "",
+    "start": {
+      "$date": "2024-09-15T13:00:00.000Z"
+    }
+  }
+},
+{
+  "_id": "2024w",
+  "eventDetail": {
+    "_id": {
+      "$numberLong": "1733578200000"
+    },
+    "eventInfos": [
+      {
+        "name": "Die langi Reis zum Elfeschloss",
+        "languageId": 0,
+        "importantNotes": "",
+        "flyerImagePath": "https://petruschka.netlify.app/assets/images/main/portrait/2024w.jpg",
+        "shortDescription": "Ein Märchen aus der Welt der Zwergen, Elfen, Schnecken und Insekten."
+      }
+    ],
+    "facebookPixelId": "2024w",
+    "googleAnalyticsTracker": "Premiere|CD",
+    "notificationEmail": "",
+    "start": {
+      "$date": "2024-12-07T13:30:00.000Z"
+    }
+  }
+},
+{
+  "_id": "2023w",
+  "eventDetail": {
+    "_id": {
+      "$numberLong": "1701869400000"
+    },
+    "eventInfos": [
+      {
+        "name": "Di chli Nixe und s’Walross",
+        "languageId": 0,
+        "importantNotes": "",
+        "flyerImagePath": "https://petruschka.netlify.app/assets/images/main/portrait/2023w.jpg",
+        "shortDescription": "Ein Wintermärchen aus dem hohen Norden - Für Gross und Klein ab 5 Jahren"
+      }
+    ],
+    "facebookPixelId": "2023w",
+    "googleAnalyticsTracker": "Premiere|CD",
+    "notificationEmail": "",
+    "start": {
+      "$date": "2023-12-06T13:30:00.000Z"
+    }
+  }
+},
+{
+  "_id": "2023s",
+  "eventDetail": {
+    "_id": 1693141200000,
+    "eventInfos": [
+      {
+        "name": "Fantasie het Flügel",
+        "languageId": 0,
+        "importantNotes": "",
+        "flyerImagePath": "https://petruschka.netlify.app/assets/images/main/portrait/2023s.jpg",
+        "shortDescription": "Ein musikalisches Märchen mit Perlen aus der klassischen Musik und Sandmalerei\nfür Grosse und Kleine ab 5 Jahren."
+      }
+    ],
+    "facebookPixelId": "2023s",
+    "googleAnalyticsTracker": "",
+    "notificationEmail": "",
+    "start": {
+      "$date": "2023-08-27T13:00:00.000Z"
+    }
+  }
+},
+{
+  "_id": "2022w",
+  "eventDetail": {
+    "_id": {
+      "$numberLong": "1671024600000"
+    },
+    "eventInfos": [
+      {
+        "name": "Peter und der Wolf 2",
+        "languageId": 0,
+        "importantNotes": "",
+        "flyerImagePath": "https://petruschka.netlify.app/assets/images/main/portrait/2022w.jpg",
+        "shortDescription": "Ein Wintermärchen für grosse und kleine Zuschauer ab 5 Jahren - Mit der Musik von Sergei Prokofjew (Bearbeitung für Trio)\n"
+      }
+    ],
+    "facebookPixelId": "2022w",
+    "googleAnalyticsTracker": "",
+    "notificationEmail": "",
+    "start": {
+      "$date": "2022-12-14T13:30:00.000Z"
+    }
+  }
+},
+{
+  "_id": "2022s",
+  "eventDetail": {
+    "_id": 164389,
+    "start": {
+      "$date": "2022-08-21T13:00:00.000Z"
+    },
+    "googleAnalyticsTracker": "",
+    "notificationEmail": "",
+    "facebookPixelId": "2022s",
+    "eventInfos": [
+      {
+        "name": "De Bär wott Cello spile",
+        "shortDescription": "Ein musikalisches Märchen mit Perlen aus der klassischen Musik & Sandmalerei. Für Grosse & Kleine  ab 5 Jahren.",
+        "importantNotes": "",
+        "flyerImagePath": "https://petruschka.netlify.app/assets/images/ticketino/164389/164389_fly_de_thumb.jpeg",
+        "languageId": 0
+      },
+      {
+        "name": "De Bär wott Cello spile",
+        "shortDescription": "Ein musikalisches Märchen mit Perlen aus der klassischen Musik & Sandmalerei. Für Grosse & Kleine  ab 5 Jahren.",
+        "importantNotes": "",
+        "flyerImagePath": "https://petruschka.netlify.app/assets/images/ticketino/164389/164389_fly_de_thumb.jpeg",
+        "languageId": 1
+      }
+    ]
+  }
+},
+{
+  "_id": "2022f",
+  "eventDetail": {
+    "_id": 143887,
+    "start": {
+      "$date": "2022-03-05T14:00:00.000Z"
+    },
+    "googleAnalyticsTracker": "",
+    "notificationEmail": "",
+    "facebookPixelId": "2022f",
+    "eventInfos": [
+      {
+        "name": "Di chli Nixe und s'Walross",
+        "shortDescription": "Die kleine mutige Nixe Aquamarin erlebt spannende Abenteuer unter und über dem Eismeer und findet dabei viele neue Freunde. Mit viel Sandmalerei. Ab 5 Jahren. \n",
+        "importantNotes": "",
+        "flyerImagePath": "https://petruschka.netlify.app/assets/images/ticketino/143887/143887_fly_de_thumb.jpeg",
+        "languageId": 0
+      },
+      {
+        "name": "Di chli Nixe und s'Walross",
+        "shortDescription": "Die kleine mutige Nixe Aquamarin erlebt spannende Abenteuer unter und über dem Eismeer und findet dabei viele neue Freunde. Mit viel Sandmalerei. Ab 5 Jahren. \n",
+        "importantNotes": "",
+        "flyerImagePath": "https://petruschka.netlify.app/assets/images/ticketino/143887/143887_fly_de_thumb.jpeg",
+        "languageId": 1
+      }
+    ]
+  }
+},
+{
+  "_id": "2021h",
+  "eventDetail": {
+    "_id": 130385,
+    "start": {
+      "$date": "2021-12-08T13:30:00.000Z"
+    },
+    "googleAnalyticsTracker": "Premiere|CD",
+    "notificationEmail": "",
+    "facebookPixelId": "2021h",
+    "eventInfos": [
+      {
+        "name": "De Frau Emma iri Tier",
+        "shortDescription": "Ein Wintermärchen für grosse und kleine Zuschauer ab 5 Jahren.",
+        "importantNotes": "",
+        "flyerImagePath": "https://petruschka.netlify.app/assets/images/ticketino/130385/130385_fly_de_thumb.jpeg",
+        "languageId": 0
+      },
+      {
+        "name": "De Frau Emma iri Tier",
+        "shortDescription": "Ein Wintermärchen für grosse und kleine Zuschauer ab 5 Jahren.",
+        "importantNotes": "",
+        "flyerImagePath": "https://petruschka.netlify.app/assets/images/ticketino/130385/130385_fly_de_thumb.jpeg",
+        "languageId": 1
+      }
+    ]
+  }
+},
+{
+  "_id": "2019h",
+  "eventDetail": {
+    "_id": 130179,
+    "start": {
+      "$date": "2019-11-01T13:00:00.000Z"
+    },
+    "googleAnalyticsTracker": "Premiere|Tournee",
+    "notificationEmail": "info@triore.ch",
+    "facebookPixelId": "2019h",
+    "eventInfos": [
+      {
+        "name": "Der Mondballon",
+        "shortDescription": "Der kleine Junge mit dem Mondballon begibt sich auf eine musikalische Reise nach fernen Ländern, trifft auf magische Wesen und gewinnt neue Freunde.\nDiese Sandperformance wurde mit dem Trio di Gioia im Schlössli Wartegg im November 2019 uraufgeführt.\nWeitere Aufführungen (mit Musik ab CD) fanden anlässlich des Familientages 2019 im Landesmuseum Zürich statt.",
+        "importantNotes": "",
+        "flyerImagePath": "https://petruschka.netlify.app/assets/images/ticketino/130179/130179_fly_de_thumb.jpeg",
+        "languageId": 0
+      },
+      {
+        "name": "Der Mondballon",
+        "shortDescription": "Der kleine Junge mit dem Mondballon begibt sich auf eine musikalische Reise nach fernen Ländern, trifft auf magische Wesen und gewinnt neue Freunde.\nDiese Sandperformance wurde mit dem Trio di Gioia im Schlössli Wartegg im November 2019 uraufgeführt.\nWeitere Aufführungen (mit Musik ab CD) fanden anlässlich des Familientages 2019 im Landesmuseum Zürich statt.",
+        "importantNotes": "",
+        "flyerImagePath": "https://petruschka.netlify.app/assets/images/ticketino/130179/130179_fly_de_thumb.jpeg",
+        "languageId": 1
+      }
+    ]
+  }
+},
+{
+  "_id": "2021s",
+  "eventDetail": {
+    "_id": 128227,
+    "start": {
+      "$date": "2021-08-29T13:00:00.000Z"
+    },
+    "googleAnalyticsTracker": "",
+    "notificationEmail": "",
+    "facebookPixelId": "2021s",
+    "eventInfos": [
+      {
+        "name": "Peter und der Wolf 2",
+        "shortDescription": "Ein musikalisches Märchen mit der Musik von Sergei Prokofjew für Grosse und Kleine ab 5 Jahren in einer neuen Fassung des Figurentheaters PETRUSCHKA",
+        "importantNotes": "",
+        "flyerImagePath": "https://petruschka.netlify.app/assets/images/ticketino/128227/128227_fly_de_thumb.jpeg",
+        "languageId": 0
+      },
+      {
+        "name": "Peter und der Wolf 2",
+        "shortDescription": "Ein musikalisches Märchen mit der Musik von Sergei Prokofjew für Grosse und Kleine ab 5 Jahren in einer neuen Fassung des Figurentheaters PETRUSCHKA",
+        "importantNotes": "",
+        "flyerImagePath": "https://petruschka.netlify.app/assets/images/ticketino/128227/128227_fly_de_thumb.jpeg",
+        "languageId": 1
+      }
+    ]
+  }
+},
+{
+  "_id": "2017t",
+  "eventDetail": {
+    "_id": 119729,
+    "start": {
+      "$date": "2020-12-05T13:30:00.000Z"
+    },
+    "googleAnalyticsTracker": "Tournee|CD",
+    "notificationEmail": "regulaaufdermaur@kinderkultur.ch",
+    "facebookPixelId": "2017t",
+    "eventInfos": [
+      {
+        "name": "De schlaui Igel Pic",
+        "shortDescription": "Gemeinsam sind auch kleine Waldtiere stärker als ein grosses Tier oder ein Jäger: Über die Wichtigkeit von Freundschaft und Zusammenhalt. Ab 5 Jahren, Dauer ca.45 Min.",
+        "importantNotes": "keine Subventionen, kein Sponsoring, inkl. Billettsteuer",
+        "flyerImagePath": "https://petruschka.netlify.app/assets/images/ticketino/119729/119729_fly_de_thumb.jpeg",
+        "languageId": 0
+      },
+      {
+        "name": "De schlaui Igel Pic",
+        "shortDescription": "Gemeinsam sind auch kleine Waldtiere stärker als ein grosses Tier oder ein Jäger: Über die Wichtigkeit von Freundschaft und Zusammenhalt. Ab 5 Jahren, Dauer ca.45 Min.",
+        "importantNotes": "keine Subventionen, kein Sponsoring, inkl. Billettsteuer",
+        "flyerImagePath": "https://petruschka.netlify.app/assets/images/ticketino/119729/119729_fly_de_thumb.jpeg",
+        "languageId": 1
+      }
+    ]
+  }
+},
+{
+  "_id": "2020h",
+  "eventDetail": {
+    "_id": 98623,
+    "start": {
+      "$date": "2020-08-26T13:00:00.000Z"
+    },
+    "googleAnalyticsTracker": "Premiere",
+    "notificationEmail": "",
+    "facebookPixelId": "2020h",
+    "eventInfos": [
+      {
+        "name": "De tapferi Puck rettet s'Elferiich",
+        "shortDescription": "Ein Abenteuer mit zwei Figurenspielerinnen, drei MusikerInnen/SchauspielerInnen, Spielfiguren und Sandart Performance. Aufführung in schweizerdeutscher Mundart. Ein musikalisches Märchen mit Perlen aus der klassischen Musik und Sandmalerei für Grosse und Kleine ab 5 Jahren.",
+        "importantNotes": "",
+        "flyerImagePath": "https://petruschka.netlify.app/assets/images/ticketino/98623/98623_fly_de_thumb.jpeg",
+        "languageId": 0
+      },
+      {
+        "name": "De tapferi Puck rettet s'Elferiich",
+        "shortDescription": "Ein Abenteuer mit zwei Figurenspielerinnen, drei MusikerInnen/SchauspielerInnen, Spielfiguren und Sandart Performance. Aufführung in schweizerdeutscher Mundart. Ein musikalisches Märchen mit Perlen aus der klassischen Musik und Sandmalerei für Grosse und Kleine ab 5 Jahren.",
+        "importantNotes": "",
+        "flyerImagePath": "https://petruschka.netlify.app/assets/images/ticketino/98623/98623_fly_de_thumb.jpeg",
+        "languageId": 1
+      }
+    ]
+  }
+},
+{
+  "_id": "2019w",
+  "eventDetail": {
+    "_id": 130642,
+    "start": {
+      "$date": "2019-12-07T14:00:00.000Z"
+    },
+    "googleAnalyticsTracker": "Premiere",
+    "notificationEmail": "",
+    "facebookPixelId": "2019w",
+    "eventInfos": [
+      {
+        "name": "Der Karneval der Tiere",
+        "shortDescription": "Ein Zirkusmärchen mit der Musik von Camille Saint-Saëns für Grosse und Kleine ab 5 Jahren",
+        "importantNotes": "",
+        "flyerImagePath": "https://petruschka.netlify.app/assets/images/ticketino/130642/130642_fly_de_thumb.jpeg",
+        "languageId": 0
+      },
+      {
+        "name": "Der Karneval der Tiere",
+        "shortDescription": "Ein Zirkusmärchen mit der Musik von Camille Saint-Saëns für Grosse und Kleine ab 5 Jahren",
+        "importantNotes": "",
+        "flyerImagePath": "https://petruschka.netlify.app/assets/images/ticketino/130642/130642_fly_de_thumb.jpeg",
+        "languageId": 1
+      }
+    ]
+  }
+},
+{
+  "_id": "2019s",
+  "eventDetail": {
+    "_id": 83917,
+    "start": {
+      "$date": "2019-08-17T12:30:00.000Z"
+    },
+    "googleAnalyticsTracker": "Premiere",
+    "notificationEmail": "",
+    "facebookPixelId": "2019s",
+    "eventInfos": [
+      {
+        "name": "Der Zauberladen",
+        "shortDescription": "Ein musikalisches Märchen mit Musik aus Barock, Klassik, Romatik und Moderne - gespielt  und in den Sand gezeichnet vom Figurentheater PETRUSCHKA",
+        "importantNotes": "",
+        "flyerImagePath": "https://petruschka.netlify.app/assets/images/ticketino/83917/83917_fly_de_thumb.jpeg",
+        "languageId": 0
+      },
+      {
+        "name": "Der Zauberladen",
+        "shortDescription": "Ein musikalisches Märchen mit Musik aus Barock, Klassik, Romatik und Moderne - gespielt  und in den Sand gezeichnet vom Figurentheater PETRUSCHKA",
+        "importantNotes": "",
+        "flyerImagePath": "https://petruschka.netlify.app/assets/images/ticketino/83917/83917_fly_de_thumb.jpeg",
+        "languageId": 1
+      }
+    ]
+  }
+},
+{
+  "_id": "2018w",
+  "eventDetail": {
+    "_id": 130643,
+    "start": {
+      "$date": "2018-12-01T14:00:00.000Z"
+    },
+    "googleAnalyticsTracker": "Premiere",
+    "notificationEmail": "",
+    "facebookPixelId": "2018w",
+    "eventInfos": [
+      {
+        "name": "De wissi Wolf",
+        "shortDescription": "Ein Wolfsmärchen für Grosse und Kleine ab 5 Jahren",
+        "importantNotes": "",
+        "flyerImagePath": "https://petruschka.netlify.app/assets/images/ticketino/130643/130643_fly_0_thumb.jpeg",
+        "languageId": 0
+      },
+      {
+        "name": "De wissi Wolf",
+        "shortDescription": "Ein Wolfsmärchen für Grosse und Kleine ab 5 Jahren",
+        "importantNotes": "",
+        "flyerImagePath": "https://petruschka.netlify.app/assets/images/ticketino/130643/130643_fly_de_thumb.jpeg",
+        "languageId": 1
+      }
+    ]
+  }
+},
+{
+  "_id": "2018s",
+  "eventDetail": {
+    "_id": 130656,
+    "start": {
+      "$date": "2018-08-19T13:00:00.000Z"
+    },
+    "googleAnalyticsTracker": "Premiere",
+    "notificationEmail": "",
+    "facebookPixelId": "2018s",
+    "eventInfos": [
+      {
+        "name": "Das Traumland",
+        "shortDescription": "Ein musikalisches Märchen mit Musik von von Grieg, Prokofiev und Jodok Vuille. Für die ganze Familie, Kinder ab 5 Jahren.",
+        "importantNotes": "",
+        "flyerImagePath": "https://petruschka.netlify.app/assets/images/ticketino/130656/130656_fly_de_thumb.jpeg",
+        "languageId": 0
+      },
+      {
+        "name": "Das Traumland",
+        "shortDescription": "Ein musikalisches Märchen mit Musik von von Grieg, Prokofiev und Jodok Vuille. Für die ganze Familie, Kinder ab 5 Jahren.",
+        "importantNotes": "",
+        "flyerImagePath": "https://petruschka.netlify.app/assets/images/ticketino/130656/130656_fly_de_thumb.jpeg",
+        "languageId": 1
+      }
+    ]
+  }
+},
+{
+  "_id": "2017w",
+  "eventDetail": {
+    "_id": 125144,
+    "start": {
+      "$date": "2017-12-01T14:00:00.000Z"
+    },
+    "googleAnalyticsTracker": "CD",
+    "notificationEmail": "regulaaufdermaur@kinderkultur.ch",
+    "facebookPixelId": "2017w",
+    "eventInfos": [
+      {
+        "name": "Sonne. Schnee ond Donnerwätter",
+        "shortDescription": "Ein Hörspiel des Figurentheaters PETRUSCHKA über das Wetter für Kleine und Grosse ab 5 Jahren",
+        "importantNotes": "",
+        "flyerImagePath": "https://petruschka.netlify.app/assets/images/ticketino/125144/125144_fly_de_thumb.jpeg",
+        "languageId": 0
+      },
+      {
+        "name": "Sonne. Schnee ond Donnerwätter",
+        "shortDescription": "Ein Hörspiel des Figurentheaters PETRUSCHKA über das Wetter für Kleine und Grosse ab 5 Jahren",
+        "importantNotes": "",
+        "flyerImagePath": "https://petruschka.netlify.app/assets/images/ticketino/125144/125144_fly_de_thumb.jpeg",
+        "languageId": 1
+      }
+    ]
+  }
+},
+{
+  "_id": "2017s",
+  "eventDetail": {
+    "_id": 130744,
+    "start": {
+      "$date": "2017-08-19T13:00:00.000Z"
+    },
+    "googleAnalyticsTracker": "Premiere",
+    "notificationEmail": "",
+    "facebookPixelId": "2017s",
+    "eventInfos": [
+      {
+        "name": "Die Zaubermuschel",
+        "shortDescription": "Ein musikalisches Märchen mit Musik von Mussorgsky, Satie, Vuille und anderen. Für die ganze Familie, Kinder ab 5 Jahren",
+        "importantNotes": "",
+        "flyerImagePath": "https://petruschka.netlify.app/assets/images/ticketino/130744/130744_fly_0_thumb.jpeg",
+        "languageId": 0
+      },
+      {
+        "name": "Die Zaubermuschel",
+        "shortDescription": "Ein musikalisches Märchen mit Musik von Mussorgsky, Satie, Vuille und anderen. Für die ganze Familie, Kinder ab 5 Jahren",
+        "importantNotes": "",
+        "flyerImagePath": "https://petruschka.netlify.app/assets/images/ticketino/130744/130744_fly_de_thumb.jpeg",
+        "languageId": 1
+      }
+    ]
+  }
+},
+{
+  "_id": "2016w",
+  "eventDetail": {
+    "_id": 125146,
+    "start": {
+      "$date": "2016-12-01T14:00:00.000Z"
+    },
+    "googleAnalyticsTracker": "CD",
+    "notificationEmail": "nathaliehildebrand@kinderkultur.ch",
+    "facebookPixelId": "2016w",
+    "eventInfos": [
+      {
+        "name": "Lutra und s’Gheimnis im See",
+        "shortDescription": "Ein Hörspiel des Figurentheaters PETRUSCHKA",
+        "importantNotes": "",
+        "flyerImagePath": "https://petruschka.netlify.app/assets/images/ticketino/125146/125146_fly_de_thumb.jpeg",
+        "languageId": 0
+      },
+      {
+        "name": "Lutra und s’Gheimnis im See",
+        "shortDescription": "Ein Hörspiel des Figurentheaters PETRUSCHKA",
+        "importantNotes": "",
+        "flyerImagePath": "https://petruschka.netlify.app/assets/images/ticketino/125146/125146_fly_de_thumb.jpeg",
+        "languageId": 1
+      }
+    ]
+  }
+},
+{
+  "_id": "2016s",
+  "eventDetail": {
+    "_id": 150424,
+    "start": {
+      "$date": "2016-08-01T12:00:00.000Z"
+    },
+    "googleAnalyticsTracker": "Premiere",
+    "notificationEmail": "",
+    "facebookPixelId": "2016s",
+    "eventInfos": [
+      {
+        "name": "Die Aufziehprinzessin",
+        "shortDescription": "Lucerne Festival Young Figurentheater.\nEin musikalisches Märchen gespielt vom Figurentheater PETRUSCHKA.\nMit Musik von Bartók, Offenbach, Vivaldi und Vuille.",
+        "importantNotes": "",
+        "flyerImagePath": "https://petruschka.netlify.app/assets/images/ticketino/150424/150424_fly_de_thumb.jpeg",
+        "languageId": 0
+      },
+      {
+        "name": "Die Aufziehprinzessin",
+        "shortDescription": "Lucerne Festival Young Figurentheater.\nEin musikalisches Märchen gespielt vom Figurentheater PETRUSCHKA.\nMit Musik von Bartók, Offenbach, Vivaldi und Vuille.",
+        "importantNotes": "",
+        "flyerImagePath": "https://petruschka.netlify.app/assets/images/ticketino/150424/150424_fly_de_thumb.jpeg",
+        "languageId": 1
+      }
+    ]
+  }
+},
+{
+  "_id": "2015w",
+  "eventDetail": {
+    "_id": 125147,
+    "start": {
+      "$date": "2015-12-01T14:00:00.000Z"
+    },
+    "googleAnalyticsTracker": "CD",
+    "notificationEmail": "nathaliehildebrand@kinderkultur.ch",
+    "facebookPixelId": "2015w",
+    "eventInfos": [
+      {
+        "name": "Die chli Fee schickt de Winter wäg",
+        "shortDescription": "Frei nach einer Geschichte von Franz Fühmann",
+        "importantNotes": "",
+        "flyerImagePath": "https://petruschka.netlify.app/assets/images/ticketino/125147/125147_fly_de_thumb.jpeg",
+        "languageId": 0
+      },
+      {
+        "name": "Die chli Fee schickt de Winter wäg",
+        "shortDescription": "Frei nach einer Geschichte von Franz Fühmann",
+        "importantNotes": "",
+        "flyerImagePath": "https://petruschka.netlify.app/assets/images/ticketino/125147/125147_fly_de_thumb.jpeg",
+        "languageId": 1
+      }
+    ]
+  }
+},
+{
+  "_id": "2014w",
+  "eventDetail": {
+    "_id": 125145,
+    "start": {
+      "$date": "2014-12-01T14:00:00.000Z"
+    },
+    "googleAnalyticsTracker": "CD",
+    "notificationEmail": "nathaliehildebrand@kinderkultur.ch",
+    "facebookPixelId": "2014w",
+    "eventInfos": [
+      {
+        "name": "Beschti Fründe",
+        "shortDescription": "Eine Geschichte über die Freundschaft des Figurentheaters PETRUSCHKA",
+        "importantNotes": "",
+        "flyerImagePath": "https://petruschka.netlify.app/assets/images/ticketino/125145/125145_fly_de_thumb.jpeg",
+        "languageId": 0
+      },
+      {
+        "name": "Beschti Fründe",
+        "shortDescription": "Eine Geschichte über die Freundschaft des Figurentheaters PETRUSCHKA",
+        "importantNotes": "",
+        "flyerImagePath": "https://petruschka.netlify.app/assets/images/ticketino/125145/125145_fly_de_thumb.jpeg",
+        "languageId": 1
+      }
+    ]
+  }
+},
+{
+  "_id": "2014s",
+  "eventDetail": {
+    "_id": 150470,
+    "start": {
+      "$date": "2014-08-01T12:00:00.000Z"
+    },
+    "googleAnalyticsTracker": "Premiere",
+    "notificationEmail": "",
+    "facebookPixelId": "2014s",
+    "eventInfos": [
+      {
+        "name": "Rusalka, die kleine Seejungfrau ",
+        "shortDescription": "Ein Figurentheater mit Musik aus der gleichnamigen Oper von Antonín Dvořák Gespielt und in den Sand gezeichnet vom Figurentheater Petruschka.",
+        "importantNotes": "",
+        "flyerImagePath": "https://petruschka.netlify.app/assets/images/ticketino/150470/150470_fly_de_thumb.jpeg",
+        "languageId": 0
+      },
+      {
+        "name": "Rusalka, die kleine Seejungfrau ",
+        "shortDescription": "Ein Figurentheater mit Musik aus der gleichnamigen Oper von Antonín Dvořák Gespielt und in den Sand gezeichnet vom Figurentheater Petruschka.",
+        "importantNotes": "",
+        "flyerImagePath": "https://petruschka.netlify.app/assets/images/ticketino/150470/150470_fly_de_thumb.jpeg",
+        "languageId": 1
+      }
+    ]
+  }
+},
+{
+  "_id": "2013w",
+  "eventDetail": {
+    "_id": 125148,
+    "start": {
+      "$date": "2013-12-01T14:00:00.000Z"
+    },
+    "googleAnalyticsTracker": "CD",
+    "notificationEmail": "nathaliehildebrand@kinderkultur.ch",
+    "facebookPixelId": "2013w",
+    "eventInfos": [
+      {
+        "name": "De Has wott ned schlofe",
+        "shortDescription": "Ein neues Stück des Figurentheaters Petruschka",
+        "importantNotes": "",
+        "flyerImagePath": "https://petruschka.netlify.app/assets/images/ticketino/125148/125148_fly_de_thumb.jpeg",
+        "languageId": 0
+      },
+      {
+        "name": "De Has wott ned schlofe",
+        "shortDescription": "Ein neues Stück des Figurentheaters Petruschka",
+        "importantNotes": "",
+        "flyerImagePath": "https://petruschka.netlify.app/assets/images/ticketino/125148/125148_fly_de_thumb.jpeg",
+        "languageId": 1
+      }
+    ]
+  }
+},
+{
+  "_id": "2013s",
+  "eventDetail": {
+    "_id": 150471,
+    "start": {
+      "$date": "2013-08-01T12:00:00.000Z"
+    },
+    "googleAnalyticsTracker": "",
+    "notificationEmail": "",
+    "facebookPixelId": "2013s",
+    "eventInfos": [
+      {
+        "name": "Der fliegende Holländer",
+        "shortDescription": "Mit Musik aus der gleichnamigen Oper von Richard Wagner\nKoproduktion LUCERNE FESTIVAL und Zusammenarbeit mit dem Richard Wagner Museum und Schweizerische Richard Wagner-Gesellschaft",
+        "importantNotes": "",
+        "flyerImagePath": "https://petruschka.netlify.app/assets/images/ticketino/150471/150471_fly_de_thumb.jpeg",
+        "languageId": 0
+      },
+      {
+        "name": "Der fliegende Holländer",
+        "shortDescription": "Mit Musik aus der gleichnamigen Oper von Richard Wagner\nKoproduktion LUCERNE FESTIVAL und Zusammenarbeit mit dem Richard Wagner Museum und Schweizerische Richard Wagner-Gesellschaft",
+        "importantNotes": "",
+        "flyerImagePath": "https://petruschka.netlify.app/assets/images/ticketino/150471/150471_fly_de_thumb.jpeg",
+        "languageId": 1
+      }
+    ]
+  }
+},
+{
+  "_id": "2012w",
+  "eventDetail": {
+    "_id": 125149,
+    "start": {
+      "$date": "2012-12-01T14:00:00.000Z"
+    },
+    "googleAnalyticsTracker": "CD",
+    "notificationEmail": "nathaliehildebrand@kinderkultur.ch",
+    "facebookPixelId": "2012w",
+    "eventInfos": [
+      {
+        "name": "S tanzende Meersäuli",
+        "shortDescription": "Ein neues Stück des Figurentheaters Petruschka über drei tierische Freunde und wie Not erfinderisch macht.",
+        "importantNotes": "",
+        "flyerImagePath": "https://petruschka.netlify.app/assets/images/ticketino/125149/125149_fly_de_thumb.jpeg",
+        "languageId": 0
+      },
+      {
+        "name": "S tanzende Meersäuli",
+        "shortDescription": "Ein neues Stück des Figurentheaters Petruschka über drei tierische Freunde und wie Not erfinderisch macht.",
+        "importantNotes": "",
+        "flyerImagePath": "https://petruschka.netlify.app/assets/images/ticketino/125149/125149_fly_de_thumb.jpeg",
+        "languageId": 1
+      }
+    ]
+  }
+},
+{
+  "_id": "2012s",
+  "eventDetail": {
+    "_id": 121292,
+    "start": {
+      "$date": "2012-08-01T12:30:00.000Z"
+    },
+    "googleAnalyticsTracker": "Tournee|CD",
+    "notificationEmail": "regulaaufdermaur@kinderkultur.ch",
+    "facebookPixelId": "2012s",
+    "eventInfos": [
+      {
+        "name": "Der Abfallkobold",
+        "shortDescription": "Dieses spannende, humorvolle Theater zeigt den Kindern, wie Abfall richtig entsorgt werden soll.\n\nEbenso beleuchtet es die Problematik von Littering und zeigt auf anschauliche Art, dass man viele Gegenstände reparieren und wiederverwenden kann.\n\nDie Kinder werden auf lustvolle Weise angeregt, mit passenden Abfallprodukten zu werken und sogar eigene Spielsachen zu gestalten.",
+        "importantNotes": "",
+        "flyerImagePath": "https://petruschka.netlify.app/assets/images/ticketino/121292/121292_fly_en_thumb.jpeg",
+        "languageId": 0
+      },
+      {
+        "name": "Der Abfallkobold",
+        "shortDescription": "Dieses spannende, humorvolle Theater zeigt den Kindern, wie Abfall richtig entsorgt werden soll.\n\nEbenso beleuchtet es die Problematik von Littering und zeigt auf anschauliche Art, dass man viele Gegenstände reparieren und wiederverwenden kann.\n\nDie Kinder werden auf lustvolle Weise angeregt, mit passenden Abfallprodukten zu werken und sogar eigene Spielsachen zu gestalten.",
+        "importantNotes": "",
+        "flyerImagePath": "https://petruschka.netlify.app/assets/images/ticketino/121292/121292_fly_en_thumb.jpeg",
+        "languageId": 1
+      },
+      {
+        "name": "Der Abfallkobold",
+        "shortDescription": "Dieses spannende, humorvolle Theater zeigt den Kindern, wie Abfall richtig entsorgt werden soll.\n\nEbenso beleuchtet es die Problematik von Littering und zeigt auf anschauliche Art, dass man viele Gegenstände reparieren und wiederverwenden kann.\n\nDie Kinder werden auf lustvolle Weise angeregt, mit passenden Abfallprodukten zu werken und sogar eigene Spielsachen zu gestalten.",
+        "importantNotes": "",
+        "flyerImagePath": "https://petruschka.netlify.app/assets/images/ticketino/121292/121292_fly_en_thumb.jpeg",
+        "languageId": 3
+      }
+    ]
+  }
+},
+{
+  "_id": "2011w",
+  "eventDetail": {
+    "_id": 125150,
+    "start": {
+      "$date": "2011-12-01T14:00:00.000Z"
+    },
+    "googleAnalyticsTracker": "CD",
+    "notificationEmail": "nathaliehildebrand@kinderkultur.ch",
+    "facebookPixelId": "2011w",
+    "eventInfos": [
+      {
+        "name": "Krah",
+        "shortDescription": "Eine Rabengeschichte nach den gleichnamigen Stück des Figurentheaters Petruschka für Grosse & Kleine ab 5 Jahren.",
+        "importantNotes": "",
+        "flyerImagePath": "https://petruschka.netlify.app/assets/images/ticketino/125150/125150_fly_de_thumb.jpeg",
+        "languageId": 0
+      },
+      {
+        "name": "Krah",
+        "shortDescription": "Eine Rabengeschichte nach den gleichnamigen Stück des Figurentheaters Petruschka für Grosse & Kleine ab 5 Jahren.",
+        "importantNotes": "",
+        "flyerImagePath": "https://petruschka.netlify.app/assets/images/ticketino/125150/125150_fly_de_thumb.jpeg",
+        "languageId": 1
+      }
+    ]
+  }
+},
+{
+  "_id": "2011s",
+  "eventDetail": {
+    "_id": 121304,
+    "start": {
+      "$date": "2011-08-01T12:30:00.000Z"
+    },
+    "googleAnalyticsTracker": "Tournee|CD",
+    "notificationEmail": "mariannehofer@kinderkultur.ch",
+    "facebookPixelId": "2011s",
+    "eventInfos": [
+      {
+        "name": "Fliegen wär so schön",
+        "shortDescription": "Ein wunderschön poetisches Figurenspiel, das mit Einbezug der Kinder und Spannung zu fesseln vermag.\n\nDie liebevoll gestalteten Figuren und die originell Bühne entführen das Publikum in die magische Welt der Zwerge und Elfen.\n\n„Fliegen wär so schön' hat viele Themen, die im Unterricht einfliessen können.\n\nDas Stück zeigt den Kindern die Entwicklung von der Raupe bis zum Schmetterling.\n\nDabei lernen sie, wie ein Raupenleben aussieht und welche Gefahren es ausgesetzt ist.\n\nAls weiteres sind folgende Themen enthalten: Die vier Jahreszeiten / Freundschaft / Verantwortung übernehmen / Umgang mit Erfolg und Misserfolg / Leben und Vergänglichkeit.",
+        "importantNotes": "",
+        "flyerImagePath": "https://petruschka.netlify.app/assets/images/ticketino/121304/121304_fly_de_thumb.jpeg",
+        "languageId": 0
+      },
+      {
+        "name": "Fliegen wär so schön",
+        "shortDescription": "Ein wunderschön poetisches Figurenspiel, das mit Einbezug der Kinder und Spannung zu fesseln vermag.\n\nDie liebevoll gestalteten Figuren und die originell Bühne entführen das Publikum in die magische Welt der Zwerge und Elfen.\n\n„Fliegen wär so schön' hat viele Themen, die im Unterricht einfliessen können.\n\nDas Stück zeigt den Kindern die Entwicklung von der Raupe bis zum Schmetterling.\n\nDabei lernen sie, wie ein Raupenleben aussieht und welche Gefahren es ausgesetzt ist.\n\nAls weiteres sind folgende Themen enthalten: Die vier Jahreszeiten / Freundschaft / Verantwortung übernehmen / Umgang mit Erfolg und Misserfolg / Leben und Vergänglichkeit.",
+        "importantNotes": "",
+        "flyerImagePath": "https://petruschka.netlify.app/assets/images/ticketino/121304/121304_fly_de_thumb.jpeg",
+        "languageId": 1
+      }
+    ]
+  }
+},
+{
+  "_id": "2008s",
+  "eventDetail": {
+    "_id": 121240,
+    "start": {
+      "$date": "2008-08-01T13:00:00.000Z"
+    },
+    "googleAnalyticsTracker": "Tournee|CD",
+    "notificationEmail": "regulaaufdermaur@kinderkultur.ch",
+    "facebookPixelId": "2008s",
+    "eventInfos": [
+      {
+        "name": "Das Drachenei",
+        "shortDescription": "Ein Figurentheater zum Mitfiebern und Nachdenken. Auch geeignet für Kindergarten und Unterstufe zum Thema Gewalt und zum Thema Farben.",
+        "importantNotes": "",
+        "flyerImagePath": "https://petruschka.netlify.app/assets/images/ticketino/121240/121240_fly_de_thumb.jpeg",
+        "languageId": 0
+      },
+      {
+        "name": "Das Drachenei",
+        "shortDescription": "Ein Figurentheater zum Mitfiebern und Nachdenken. Auch geeignet für Kindergarten und Unterstufe zum Thema Gewalt und zum Thema Farben.",
+        "importantNotes": "",
+        "flyerImagePath": "https://petruschka.netlify.app/assets/images/ticketino/121240/121240_fly_de_thumb.jpeg",
+        "languageId": 1
+      }
+    ]
+  }
+}]

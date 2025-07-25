@@ -1,0 +1,124 @@
+/* History section styles - horizontal layout with image */
+.history-section {
+  background: rgba(0, 0, 0, 0.9);
+  padding: 60px 0;
+}
+
+.history-section .container {
+  max-width: 860px;
+}
+
+.history-section .section-header {
+  color: var(--text-light);
+  padding-bottom: 32px;
+}
+
+.history-section .item {
+  position: relative;
+  display: flex;
+  align-items: flex-start;
+  padding: 20px 0;
+  border-bottom: 1px solid var(--border-light);
+  gap: 20px;
+}
+
+.history-section .event-image {
+  flex-shrink: 0;
+  width: 120px;
+  height: auto;
+}
+
+.history-section .event-image img {
+  width: 100%;
+  height: auto;
+}
+
+.history-section .event-info {
+  flex: 1;
+  padding-right: 60px;
+}
+
+.history-section .event-title {
+  font-size: 24px;
+  margin-top: 0;
+  margin-bottom: 8px;
+  font-weight: 700;
+  color: #fff;
+}
+
+.history-section .event-subtitle {
+  font-size: 16px;
+  margin-bottom: 12px;
+  color: #ccc;
+}
+
+.history-section .event-date {
+  color: var(--primary-color);
+  font-weight: 600;
+}
+
+.history-section .event-description {
+  color: #aaa;
+  font-size: 14px;
+  line-height: 1.5;
+  margin-bottom: 15px;
+}
+
+.history-section .event-actions {
+  margin-top: 15px;
+}
+
+.history-section .event-actions .btn {
+  border: 2px solid var(--primary-color);
+  color: var(--primary-color);
+  padding: 8px 16px;
+  text-transform: uppercase;
+}
+
+.history-section .event-actions .btn:hover {
+  background: var(--primary-color);
+  color: #ccc;
+}
+
+.history-section .info-extra {
+  color: var(--text-muted);
+  font-size: 16px;
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.3s ease-out;
+}
+
+.history-section .info-extra.show {
+  max-height: 200px;
+  transition: max-height 0.3s ease-in;
+}
+
+.history-section .title {
+  font-size: 32px;
+  margin-bottom: 15px;
+  font-weight: 700;
+}
+
+.history-section .intro {
+  font-size: 16px;
+  color: var(--text-muted);
+  margin-bottom: 40px;
+}
+
+@media (max-width: 767.98px) {
+  .history-section .item {
+    flex-direction: column;
+    gap: 15px;
+  }
+  
+  .history-section .event-info {
+    padding-right: 0;
+  }
+  
+
+  .history-section .event-image {
+    width: 100%;
+    max-width: 200px;
+    align-self: center;
+  }
+}

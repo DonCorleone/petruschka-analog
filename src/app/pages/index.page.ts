@@ -6,6 +6,7 @@ import { GigsSectionComponent } from '../features/gigs';
 import { MusicSectionComponent } from '../features/music';
 import { AboutSectionComponent } from '../features/about';
 import { MerchSectionComponent } from '../features/merch';
+import { HistorySectionComponent } from '../features/history';
 import { ContactSectionComponent } from '../features/contact';
 import { BackToTopComponent } from '../shared/components';
 
@@ -18,6 +19,7 @@ import { BackToTopComponent } from '../shared/components';
     MusicSectionComponent,
     AboutSectionComponent,
     MerchSectionComponent,
+    HistorySectionComponent,
     ContactSectionComponent,
     FooterComponent,
     BackToTopComponent
@@ -82,6 +84,20 @@ import { BackToTopComponent } from '../shared/components';
         }
       } @else {
         <app-merch-section />
+      }
+    </div>
+    
+    <div id="history">
+      @if (isBrowser) {
+        @defer (on viewport) {
+          <app-history-section />
+        } @placeholder {
+          <div class="section" style="min-height: 100vh; display: flex; align-items: center; justify-content: center; background: var(--section-bg-dark, #f1f1f1);">
+            <div style="color: var(--primary-color, #EC3A81); font-size: 14px; opacity: 0.8;">Loading vergangene Stücke...</div>
+          </div>
+        }
+      } @else {
+        <app-history-section />
       }
     </div>
     

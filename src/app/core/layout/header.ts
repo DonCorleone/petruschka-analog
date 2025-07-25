@@ -24,6 +24,7 @@ export class HeaderComponent {
     { href: '#music', label: 'Music' },
     { href: '#about', label: 'About' },
     { href: '#merch', label: 'Merch' },
+    { href: '#history', label: 'History' },
     { href: '#contact', label: 'Contact' }
   ];
 

@@ -54,6 +54,16 @@ export interface Update {
   countdownDate?: string;
 }
 
+export interface PastEvent {
+  id: string;
+  title: string;
+  image: string;
+  description: string;
+  date: string;
+  year: string;
+  season: string;
+}
+
 export interface ContactInfo {
   type: string;
   title: string;

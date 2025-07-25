@@ -9,6 +9,7 @@ import {
   type Update,
   type ContactInfo,
   type SocialLink,
+  type PastEvent,
   type ApiResponse 
 } from '../../../shared/types';
 
@@ -58,6 +59,13 @@ export class BandDataService {
     loader: async () => {
       const response = await this.http.get<ApiResponse<{ contactInfo: ContactInfo[], musicChannels: SocialLink[], socialMedia: SocialLink[] }>>('/api/v1/contact').toPromise();
       return response?.data || { contactInfo: [], musicChannels: [], socialMedia: [] };
+    }
+  });
+
+  pastEventsResource = resource({
+    loader: async () => {
+      const response = await this.http.get<ApiResponse<PastEvent[]>>('/api/v1/past-events').toPromise();
+      return response?.data || [];
     }
   });
 }

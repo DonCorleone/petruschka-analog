@@ -1,6 +1,6 @@
 import { defineEventHandler, createError } from 'h3';
 import { Album, ApiResponse } from '../../../../shared/types';
-import { getEventData } from '../../../lib/simple-events-mongo';
+import { getMongoData } from '../../../lib/simple-mongo';
 
 // Helper function to extract CD albums from MongoDB event data
 function extractCDAlbums(eventDocuments: any[]): Album[] {
@@ -45,13 +45,15 @@ function extractCDAlbums(eventDocuments: any[]): Album[] {
 
 export default defineEventHandler(async (event): Promise<ApiResponse<Album[]>> => {
   try {
-    // Get data from MongoDB native driver
-    const eventDocuments = await getEventData();
+    // Get CD data from MongoDB native driver (optimized query)
+    const query = { "ticketTypes.ticketTypeInfos.name": { $in: ["CD"] } };
+
+    const eventDocuments = await getMongoData(query, 'eventDb', 'EventDetailsTaggedUsage');
     
     let albums: Album[] = [];
     
     if (eventDocuments && eventDocuments.length > 0) {
-      console.log('✅ Using MongoDB event data for albums');
+      console.log('✅ Using MongoDB CD data for albums');
       albums = extractCDAlbums(eventDocuments);
     } else {
       console.log('⚠️ No event data found, using empty albums array');

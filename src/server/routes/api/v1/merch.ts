@@ -1,6 +1,6 @@
 import { defineEventHandler, createError } from 'h3';
 import { MerchItem, Update, ApiResponse } from '../../../../shared/types';
-import { getEventData } from '../../../lib/simple-events-mongo';
+import { getMongoData } from '../../../lib/simple-mongo';
 
 // Helper function to extract Tournee items from MongoDB event data
 function extractTourneeMerch(eventDocuments: any[]): MerchItem[] {
@@ -81,13 +81,16 @@ const MOCK_UPDATES: Update[] = [
 
 export default defineEventHandler(async (event): Promise<ApiResponse<{ merchandise: MerchItem[], updates: Update[] }>> => {
   try {
-    // Get data from MongoDB native driver
-    const eventDocuments = await getEventData();
+    // Get Tournee data from MongoDB native driver (optimized query)
+
+    const query = { "ticketTypes.ticketTypeInfos.name": { $in: ["Tournee"] } };
+
+    const eventDocuments = await getMongoData(query, 'eventDb', 'EventDetailsTaggedUsage');
     
     let merchandise: MerchItem[] = [];
     
     if (eventDocuments && eventDocuments.length > 0) {
-      console.log('✅ Using MongoDB event data for tournee merch');
+      console.log('✅ Using MongoDB Tournee data for merch');
       merchandise = extractTourneeMerch(eventDocuments);
     } else {
       console.log('⚠️ No event data found, using empty merch array');

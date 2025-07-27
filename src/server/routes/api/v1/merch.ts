@@ -1,5 +1,5 @@
 import { defineEventHandler, createError } from 'h3';
-import { MerchItem, Update, ApiResponse } from '../../../../shared/types';
+import { MerchItem, ApiResponse } from '../../../../shared/types';
 import { getMongoData } from '../../../lib/simple-mongo';
 
 // Helper function to extract Tournee items from MongoDB event data
@@ -48,38 +48,7 @@ function extractTourneeMerch(eventDocuments: any[]): MerchItem[] {
   return merchItems.sort((a, b) => b.id - a.id);
 }
 
-const MOCK_UPDATES: Update[] = [
-  {
-    id: 1,
-    title: "Decibel's EP is out July 18th 2024",
-    description: 'Our forthcoming EP is available for pre-order via pledgemusic.com now',
-    ctaText: 'Pre-order Now',
-    ctaUrl: '#',
-    mediaType: 'video',
-    mediaUrl: 'https://www.youtube.com/embed/mCHUw7ACS8o',
-    mediaThumb: '/images/video-thumb-1.jpg',
-    isCountdown: true,
-    countdownDate: 'July 18, 2025'
-  },
-  {
-    id: 2,
-    title: 'We are performing at The Fleece, London this Saturday night 9:00pm',
-    description: 'Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes.',
-    ctaText: 'Buy Tickets',
-    ctaUrl: '#'
-  },
-  {
-    id: 3,
-    title: 'Help to fund our new album via KickStarter',
-    description: 'Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes.',
-    ctaText: 'Support Us',
-    ctaUrl: '#',
-    mediaType: 'image',
-    mediaThumb: '/images/image-thumb-1.jpg'
-  }
-];
-
-export default defineEventHandler(async (event): Promise<ApiResponse<{ merchandise: MerchItem[], updates: Update[] }>> => {
+export default defineEventHandler(async (event): Promise<ApiResponse<MerchItem[]>> => {
   try {
     // Get Tournee data from MongoDB native driver (optimized query)
 
@@ -98,10 +67,7 @@ export default defineEventHandler(async (event): Promise<ApiResponse<{ merchandi
 
     return {
       success: true,
-      data: {
-        merchandise,
-        updates: MOCK_UPDATES
-      },
+      data: merchandise,
       timestamp: new Date().toISOString()
     };
 

@@ -1,0 +1,1822 @@
+[{
+  "_id": "2008s",
+  "eventDetail": {
+    "_id": 121240,
+    "start": {
+      "$date": "2008-08-01T13:00:00.000Z"
+    },
+    "googleAnalyticsTracker": "Tournee|CD",
+    "eventInfos": [
+      {
+        "name": "Das Drachenei",
+        "shortDescription": "Ein Figurentheater zum Mitfiebern und Nachdenken. Auch geeignet für Kindergarten und Unterstufe zum Thema Gewalt und zum Thema Farben.",
+        "url": "",
+        "location": "Pavillon Tribschenhorn",
+        "bannerImagePath": "https://petruschka.netlify.app/assets/images/ticketino/121240/121240_ban_de_sma.jpeg",
+        "flyerImagePath": "https://petruschka.netlify.app/assets/images/ticketino/121240/121240_fly_de_thumb.jpeg",
+        "languageId": 0
+      },
+      {
+        "name": "Das Drachenei",
+        "shortDescription": "Ein Figurentheater zum Mitfiebern und Nachdenken. Auch geeignet für Kindergarten und Unterstufe zum Thema Gewalt und zum Thema Farben.",
+        "url": "",
+        "location": "Pavillon Tribschenhorn",
+        "bannerImagePath": "https://petruschka.netlify.app/assets/images/ticketino/121240/121240_ban_de_sma.jpeg",
+        "flyerImagePath": "https://petruschka.netlify.app/assets/images/ticketino/121240/121240_fly_de_thumb.jpeg",
+        "languageId": 1
+      }
+    ],
+    "ticketTypes": [
+      {
+        "currency": "CHF",
+        "price": 0,
+        "sortOrder": 1,
+        "preSaleStart": {
+          "$date": "2008-01-01T14:00:00.000Z"
+        },
+        "ticketTypeInfos": [
+          {
+            "name": "Tournee",
+            "languageId": 0
+          },
+          {
+            "name": "Tournee",
+            "languageId": 1
+          }
+        ]
+      },
+      {
+        "currency": "CHF",
+        "price": 0,
+        "sortOrder": 2,
+        "preSaleStart": {
+          "$date": "2008-08-01T10:30:00.000Z"
+        },
+        "ticketTypeInfos": [
+          {
+            "name": "CD",
+            "languageId": 0
+          },
+          {
+            "name": "CD",
+            "languageId": 1
+          }
+        ]
+      }
+    ]
+  }
+},
+{
+  "_id": "2011s",
+  "eventDetail": {
+    "_id": 121304,
+    "start": {
+      "$date": "2011-08-01T12:30:00.000Z"
+    },
+    "googleAnalyticsTracker": "Tournee|CD",
+    "eventInfos": [
+      {
+        "name": "Fliegen wär so schön",
+        "shortDescription": "Ein wunderschön poetisches Figurenspiel, das mit Einbezug der Kinder und Spannung zu fesseln vermag.\n\nDie liebevoll gestalteten Figuren und die originell Bühne entführen das Publikum in die magische Welt der Zwerge und Elfen.\n\n„Fliegen wär so schön' hat viele Themen, die im Unterricht einfliessen können.\n\nDas Stück zeigt den Kindern die Entwicklung von der Raupe bis zum Schmetterling.\n\nDabei lernen sie, wie ein Raupenleben aussieht und welche Gefahren es ausgesetzt ist.\n\nAls weiteres sind folgende Themen enthalten: Die vier Jahreszeiten / Freundschaft / Verantwortung übernehmen / Umgang mit Erfolg und Misserfolg / Leben und Vergänglichkeit.",
+        "url": "www.petruschka.ch",
+        "location": "Naturmuseum Luzern",
+        "bannerImagePath": "https://petruschka.netlify.app/assets/images/ticketino/121304/121304_ban_de_sma.jpeg",
+        "flyerImagePath": "https://petruschka.netlify.app/assets/images/ticketino/121304/121304_fly_de_thumb.jpeg",
+        "languageId": 0
+      },
+      {
+        "name": "Fliegen wär so schön",
+        "shortDescription": "Ein wunderschön poetisches Figurenspiel, das mit Einbezug der Kinder und Spannung zu fesseln vermag.\n\nDie liebevoll gestalteten Figuren und die originell Bühne entführen das Publikum in die magische Welt der Zwerge und Elfen.\n\n„Fliegen wär so schön' hat viele Themen, die im Unterricht einfliessen können.\n\nDas Stück zeigt den Kindern die Entwicklung von der Raupe bis zum Schmetterling.\n\nDabei lernen sie, wie ein Raupenleben aussieht und welche Gefahren es ausgesetzt ist.\n\nAls weiteres sind folgende Themen enthalten: Die vier Jahreszeiten / Freundschaft / Verantwortung übernehmen / Umgang mit Erfolg und Misserfolg / Leben und Vergänglichkeit.",
+        "url": "www.petruschka.ch",
+        "location": "Naturmuseum Luzern",
+        "bannerImagePath": "https://petruschka.netlify.app/assets/images/ticketino/121304/121304_ban_de_sma.jpeg",
+        "flyerImagePath": "https://petruschka.netlify.app/assets/images/ticketino/121304/121304_fly_de_thumb.jpeg",
+        "languageId": 1
+      }
+    ],
+    "ticketTypes": [
+      {
+        "currency": "CHF",
+        "price": 0,
+        "sortOrder": 1,
+        "preSaleStart": {
+          "$date": "2011-08-01T12:30:00.000Z"
+        },
+        "ticketTypeInfos": [
+          {
+            "name": "Tournee",
+            "languageId": 0
+          },
+          {
+            "name": "Tournee",
+            "languageId": 1
+          }
+        ]
+      },
+      {
+        "currency": "CHF",
+        "price": 0,
+        "sortOrder": 2,
+        "preSaleStart": {
+          "$date": "2011-08-01T10:50:00.000Z"
+        },
+        "ticketTypeInfos": [
+          {
+            "name": "CD",
+            "languageId": 0
+          },
+          {
+            "name": "CD",
+            "languageId": 1
+          }
+        ]
+      }
+    ]
+  }
+},
+{
+  "_id": "2011w",
+  "eventDetail": {
+    "_id": 125150,
+    "start": {
+      "$date": "2011-12-01T14:00:00.000Z"
+    },
+    "googleAnalyticsTracker": "CD",
+    "eventInfos": [
+      {
+        "name": "Krah",
+        "shortDescription": "Eine Rabengeschichte nach den gleichnamigen Stück des Figurentheaters Petruschka für Grosse & Kleine ab 5 Jahren.",
+        "url": "https://www.petruschka.ch",
+        "location": "Naturmuseum Luzern",
+        "bannerImagePath": "https://petruschka.netlify.app/assets/images/ticketino/125150/125150_ban_de_sma.jpeg",
+        "flyerImagePath": "https://petruschka.netlify.app/assets/images/ticketino/125150/125150_fly_de_thumb.jpeg",
+        "languageId": 0
+      },
+      {
+        "name": "Krah",
+        "shortDescription": "Eine Rabengeschichte nach den gleichnamigen Stück des Figurentheaters Petruschka für Grosse & Kleine ab 5 Jahren.",
+        "url": "https://www.petruschka.ch",
+        "location": "Naturmuseum Luzern",
+        "bannerImagePath": "https://petruschka.netlify.app/assets/images/ticketino/125150/125150_ban_de_sma.jpeg",
+        "flyerImagePath": "https://petruschka.netlify.app/assets/images/ticketino/125150/125150_fly_de_thumb.jpeg",
+        "languageId": 1
+      }
+    ],
+    "ticketTypes": [
+      {
+        "currency": "CHF",
+        "price": 0,
+        "sortOrder": 1,
+        "preSaleStart": {
+          "$date": "2011-12-01T11:30:00.000Z"
+        },
+        "ticketTypeInfos": [
+          {
+            "name": "CD",
+            "languageId": 0
+          },
+          {
+            "name": "CD",
+            "languageId": 1
+          }
+        ]
+      }
+    ]
+  }
+},
+{
+  "_id": "2012s",
+  "eventDetail": {
+    "_id": 121292,
+    "start": {
+      "$date": "2012-08-01T12:30:00.000Z"
+    },
+    "googleAnalyticsTracker": "Tournee|CD",
+    "eventInfos": [
+      {
+        "name": "Der Abfallkobold",
+        "shortDescription": "Dieses spannende, humorvolle Theater zeigt den Kindern, wie Abfall richtig entsorgt werden soll.\n\nEbenso beleuchtet es die Problematik von Littering und zeigt auf anschauliche Art, dass man viele Gegenstände reparieren und wiederverwenden kann.\n\nDie Kinder werden auf lustvolle Weise angeregt, mit passenden Abfallprodukten zu werken und sogar eigene Spielsachen zu gestalten.",
+        "url": "",
+        "location": "Naturmuseum Luzern",
+        "bannerImagePath": "https://petruschka.netlify.app/assets/images/ticketino/121292/121292_ban_en_sma.jpeg",
+        "flyerImagePath": "https://petruschka.netlify.app/assets/images/ticketino/121292/121292_fly_en_thumb.jpeg",
+        "languageId": 0
+      },
+      {
+        "name": "Der Abfallkobold",
+        "shortDescription": "Dieses spannende, humorvolle Theater zeigt den Kindern, wie Abfall richtig entsorgt werden soll.\n\nEbenso beleuchtet es die Problematik von Littering und zeigt auf anschauliche Art, dass man viele Gegenstände reparieren und wiederverwenden kann.\n\nDie Kinder werden auf lustvolle Weise angeregt, mit passenden Abfallprodukten zu werken und sogar eigene Spielsachen zu gestalten.",
+        "url": "",
+        "location": "Naturmuseum Luzern",
+        "bannerImagePath": "https://petruschka.netlify.app/assets/images/ticketino/121292/121292_ban_en_sma.jpeg",
+        "flyerImagePath": "https://petruschka.netlify.app/assets/images/ticketino/121292/121292_fly_en_thumb.jpeg",
+        "languageId": 1
+      },
+      {
+        "name": "Der Abfallkobold",
+        "shortDescription": "Dieses spannende, humorvolle Theater zeigt den Kindern, wie Abfall richtig entsorgt werden soll.\n\nEbenso beleuchtet es die Problematik von Littering und zeigt auf anschauliche Art, dass man viele Gegenstände reparieren und wiederverwenden kann.\n\nDie Kinder werden auf lustvolle Weise angeregt, mit passenden Abfallprodukten zu werken und sogar eigene Spielsachen zu gestalten.",
+        "url": "",
+        "location": "Naturmuseum Luzern",
+        "bannerImagePath": "https://petruschka.netlify.app/assets/images/ticketino/121292/121292_ban_en_sma.jpeg",
+        "flyerImagePath": "https://petruschka.netlify.app/assets/images/ticketino/121292/121292_fly_en_thumb.jpeg",
+        "languageId": 3
+      }
+    ],
+    "ticketTypes": [
+      {
+        "currency": "CHF",
+        "price": 0,
+        "sortOrder": 1,
+        "preSaleStart": {
+          "$date": "2012-08-01T12:30:00.000Z"
+        },
+        "ticketTypeInfos": [
+          {
+            "name": "Tournee",
+            "languageId": 0
+          },
+          {
+            "name": "Tournee",
+            "languageId": 1
+          }
+        ]
+      },
+      {
+        "currency": "CHF",
+        "price": 0,
+        "sortOrder": 2,
+        "preSaleStart": {
+          "$date": "2012-08-01T11:00:00.000Z"
+        },
+        "ticketTypeInfos": [
+          {
+            "name": "CD",
+            "languageId": 0
+          },
+          {
+            "name": "CD",
+            "languageId": 1
+          }
+        ]
+      }
+    ]
+  }
+},
+{
+  "_id": "2012w",
+  "eventDetail": {
+    "_id": 125149,
+    "start": {
+      "$date": "2012-12-01T14:00:00.000Z"
+    },
+    "googleAnalyticsTracker": "CD",
+    "eventInfos": [
+      {
+        "name": "S tanzende Meersäuli",
+        "shortDescription": "Ein neues Stück des Figurentheaters Petruschka über drei tierische Freunde und wie Not erfinderisch macht.",
+        "url": "https://www.petruschka.ch",
+        "location": "Naturmuseum Luzern",
+        "bannerImagePath": "https://petruschka.netlify.app/assets/images/ticketino/125149/125149_ban_de_sma.jpeg",
+        "flyerImagePath": "https://petruschka.netlify.app/assets/images/ticketino/125149/125149_fly_de_thumb.jpeg",
+        "languageId": 0
+      },
+      {
+        "name": "S tanzende Meersäuli",
+        "shortDescription": "Ein neues Stück des Figurentheaters Petruschka über drei tierische Freunde und wie Not erfinderisch macht.",
+        "url": "https://www.petruschka.ch",
+        "location": "Naturmuseum Luzern",
+        "bannerImagePath": "https://petruschka.netlify.app/assets/images/ticketino/125149/125149_ban_de_sma.jpeg",
+        "flyerImagePath": "https://petruschka.netlify.app/assets/images/ticketino/125149/125149_fly_de_thumb.jpeg",
+        "languageId": 1
+      }
+    ],
+    "ticketTypes": [
+      {
+        "currency": "CHF",
+        "price": 0,
+        "sortOrder": 1,
+        "preSaleStart": {
+          "$date": "2012-12-01T11:30:00.000Z"
+        },
+        "ticketTypeInfos": [
+          {
+            "name": "CD",
+            "languageId": 0
+          },
+          {
+            "name": "CD",
+            "languageId": 1
+          }
+        ]
+      }
+    ]
+  }
+},
+{
+  "_id": "2013s",
+  "eventDetail": {
+    "_id": 150471,
+    "start": {
+      "$date": "2013-08-01T12:00:00.000Z"
+    },
+    "googleAnalyticsTracker": "",
+    "eventInfos": [
+      {
+        "name": "Der fliegende Holländer",
+        "shortDescription": "Mit Musik aus der gleichnamigen Oper von Richard Wagner\nKoproduktion LUCERNE FESTIVAL und Zusammenarbeit mit dem Richard Wagner Museum und Schweizerische Richard Wagner-Gesellschaft",
+        "url": "https://www.petruschka.ch",
+        "location": "Pavillon Tribschenhorn",
+        "bannerImagePath": "https://petruschka.netlify.app/assets/images/ticketino/150471/150471_ban_de_sma.jpeg",
+        "flyerImagePath": "https://petruschka.netlify.app/assets/images/ticketino/150471/150471_fly_de_thumb.jpeg",
+        "languageId": 0
+      },
+      {
+        "name": "Der fliegende Holländer",
+        "shortDescription": "Mit Musik aus der gleichnamigen Oper von Richard Wagner\nKoproduktion LUCERNE FESTIVAL und Zusammenarbeit mit dem Richard Wagner Museum und Schweizerische Richard Wagner-Gesellschaft",
+        "url": "https://www.petruschka.ch",
+        "location": "Pavillon Tribschenhorn",
+        "bannerImagePath": "https://petruschka.netlify.app/assets/images/ticketino/150471/150471_ban_de_sma.jpeg",
+        "flyerImagePath": "https://petruschka.netlify.app/assets/images/ticketino/150471/150471_fly_de_thumb.jpeg",
+        "languageId": 1
+      }
+    ],
+    "ticketTypes": [
+      {
+        "currency": "CHF",
+        "price": 0,
+        "sortOrder": 1,
+        "preSaleStart": {
+          "$date": "2013-08-01T10:00:00.000Z"
+        },
+        "ticketTypeInfos": [
+          {
+            "name": "Premiere",
+            "languageId": 0
+          },
+          {
+            "name": "Premiere",
+            "languageId": 1
+          }
+        ]
+      }
+    ]
+  }
+},
+{
+  "_id": "2013w",
+  "eventDetail": {
+    "_id": 125148,
+    "start": {
+      "$date": "2013-12-01T14:00:00.000Z"
+    },
+    "googleAnalyticsTracker": "CD",
+    "eventInfos": [
+      {
+        "name": "De Has wott ned schlofe",
+        "shortDescription": "Ein neues Stück des Figurentheaters Petruschka",
+        "url": "https://www.petruschka.ch",
+        "location": "Naturmuseum Luzern",
+        "bannerImagePath": "https://petruschka.netlify.app/assets/images/ticketino/125148/125148_ban_de_sma.jpeg",
+        "flyerImagePath": "https://petruschka.netlify.app/assets/images/ticketino/125148/125148_fly_de_thumb.jpeg",
+        "languageId": 0
+      },
+      {
+        "name": "De Has wott ned schlofe",
+        "shortDescription": "Ein neues Stück des Figurentheaters Petruschka",
+        "url": "https://www.petruschka.ch",
+        "location": "Naturmuseum Luzern",
+        "bannerImagePath": "https://petruschka.netlify.app/assets/images/ticketino/125148/125148_ban_de_sma.jpeg",
+        "flyerImagePath": "https://petruschka.netlify.app/assets/images/ticketino/125148/125148_fly_de_thumb.jpeg",
+        "languageId": 1
+      }
+    ],
+    "ticketTypes": [
+      {
+        "currency": "CHF",
+        "price": 0,
+        "sortOrder": 1,
+        "preSaleStart": {
+          "$date": "2013-12-01T11:30:00.000Z"
+        },
+        "ticketTypeInfos": [
+          {
+            "name": "CD",
+            "languageId": 0
+          },
+          {
+            "name": "CD",
+            "languageId": 1
+          }
+        ]
+      }
+    ]
+  }
+},
+{
+  "_id": "2014s",
+  "eventDetail": {
+    "_id": 150470,
+    "start": {
+      "$date": "2014-08-01T12:00:00.000Z"
+    },
+    "googleAnalyticsTracker": "Premiere",
+    "eventInfos": [
+      {
+        "name": "Rusalka, die kleine Seejungfrau ",
+        "shortDescription": "Ein Figurentheater mit Musik aus der gleichnamigen Oper von Antonín Dvořák Gespielt und in den Sand gezeichnet vom Figurentheater Petruschka.",
+        "url": "https://www.petruschka.ch",
+        "location": "Pavillon Tribschenhorn",
+        "bannerImagePath": "https://petruschka.netlify.app/assets/images/ticketino/150470/150470_ban_de_sma.jpeg",
+        "flyerImagePath": "https://petruschka.netlify.app/assets/images/ticketino/150470/150470_fly_de_thumb.jpeg",
+        "languageId": 0
+      },
+      {
+        "name": "Rusalka, die kleine Seejungfrau ",
+        "shortDescription": "Ein Figurentheater mit Musik aus der gleichnamigen Oper von Antonín Dvořák Gespielt und in den Sand gezeichnet vom Figurentheater Petruschka.",
+        "url": "https://www.petruschka.ch",
+        "location": "Pavillon Tribschenhorn",
+        "bannerImagePath": "https://petruschka.netlify.app/assets/images/ticketino/150470/150470_ban_de_sma.jpeg",
+        "flyerImagePath": "https://petruschka.netlify.app/assets/images/ticketino/150470/150470_fly_de_thumb.jpeg",
+        "languageId": 1
+      }
+    ],
+    "ticketTypes": [
+      {
+        "currency": "CHF",
+        "price": 0,
+        "sortOrder": 1,
+        "preSaleStart": {
+          "$date": "2014-08-01T10:00:00.000Z"
+        },
+        "ticketTypeInfos": [
+          {
+            "name": "Premiere",
+            "languageId": 0
+          },
+          {
+            "name": "Premiere",
+            "languageId": 1
+          }
+        ]
+      }
+    ]
+  }
+},
+{
+  "_id": "2014w",
+  "eventDetail": {
+    "_id": 125145,
+    "start": {
+      "$date": "2014-12-01T14:00:00.000Z"
+    },
+    "googleAnalyticsTracker": "CD",
+    "eventInfos": [
+      {
+        "name": "Beschti Fründe",
+        "shortDescription": "Eine Geschichte über die Freundschaft des Figurentheaters PETRUSCHKA",
+        "url": "https://www.petruschka.ch",
+        "location": "Naturmuseum Luzern",
+        "bannerImagePath": "https://petruschka.netlify.app/assets/images/ticketino/125145/125145_ban_de_sma.jpeg",
+        "flyerImagePath": "https://petruschka.netlify.app/assets/images/ticketino/125145/125145_fly_de_thumb.jpeg",
+        "languageId": 0
+      },
+      {
+        "name": "Beschti Fründe",
+        "shortDescription": "Eine Geschichte über die Freundschaft des Figurentheaters PETRUSCHKA",
+        "url": "https://www.petruschka.ch",
+        "location": "Naturmuseum Luzern",
+        "bannerImagePath": "https://petruschka.netlify.app/assets/images/ticketino/125145/125145_ban_de_sma.jpeg",
+        "flyerImagePath": "https://petruschka.netlify.app/assets/images/ticketino/125145/125145_fly_de_thumb.jpeg",
+        "languageId": 1
+      }
+    ],
+    "ticketTypes": [
+      {
+        "currency": "CHF",
+        "price": 0,
+        "sortOrder": 1,
+        "preSaleStart": {
+          "$date": "2014-12-01T12:00:00.000Z"
+        },
+        "ticketTypeInfos": [
+          {
+            "name": "CD",
+            "languageId": 0
+          },
+          {
+            "name": "CD",
+            "languageId": 1
+          }
+        ]
+      }
+    ]
+  }
+},
+{
+  "_id": "2015w",
+  "eventDetail": {
+    "_id": 125147,
+    "start": {
+      "$date": "2015-12-01T14:00:00.000Z"
+    },
+    "googleAnalyticsTracker": "CD",
+    "eventInfos": [
+      {
+        "name": "Die chli Fee schickt de Winter wäg",
+        "shortDescription": "Frei nach einer Geschichte von Franz Fühmann",
+        "url": "https://www.petruschka.ch",
+        "location": "Naturmuseum Luzern",
+        "bannerImagePath": "https://petruschka.netlify.app/assets/images/ticketino/125147/125147_ban_de_sma.jpeg",
+        "flyerImagePath": "https://petruschka.netlify.app/assets/images/ticketino/125147/125147_fly_de_thumb.jpeg",
+        "languageId": 0
+      },
+      {
+        "name": "Die chli Fee schickt de Winter wäg",
+        "shortDescription": "Frei nach einer Geschichte von Franz Fühmann",
+        "url": "https://www.petruschka.ch",
+        "location": "Naturmuseum Luzern",
+        "bannerImagePath": "https://petruschka.netlify.app/assets/images/ticketino/125147/125147_ban_de_sma.jpeg",
+        "flyerImagePath": "https://petruschka.netlify.app/assets/images/ticketino/125147/125147_fly_de_thumb.jpeg",
+        "languageId": 1
+      }
+    ],
+    "ticketTypes": [
+      {
+        "currency": "CHF",
+        "price": 0,
+        "sortOrder": 1,
+        "preSaleStart": {
+          "$date": "2015-12-01T12:00:00.000Z"
+        },
+        "ticketTypeInfos": [
+          {
+            "name": "CD",
+            "languageId": 0
+          },
+          {
+            "name": "CD",
+            "languageId": 1
+          }
+        ]
+      }
+    ]
+  }
+},
+{
+  "_id": "2016s",
+  "eventDetail": {
+    "_id": 150424,
+    "start": {
+      "$date": "2016-08-01T12:00:00.000Z"
+    },
+    "googleAnalyticsTracker": "Premiere",
+    "eventInfos": [
+      {
+        "name": "Die Aufziehprinzessin",
+        "shortDescription": "Lucerne Festival Young Figurentheater.\nEin musikalisches Märchen gespielt vom Figurentheater PETRUSCHKA.\nMit Musik von Bartók, Offenbach, Vivaldi und Vuille.",
+        "url": "https://petruschka.ch",
+        "location": "Pavillon Tribschenhorn",
+        "bannerImagePath": "https://petruschka.netlify.app/assets/images/ticketino/150424/150424_ban_de_sma.jpeg",
+        "flyerImagePath": "https://petruschka.netlify.app/assets/images/ticketino/150424/150424_fly_de_thumb.jpeg",
+        "languageId": 0
+      },
+      {
+        "name": "Die Aufziehprinzessin",
+        "shortDescription": "Lucerne Festival Young Figurentheater.\nEin musikalisches Märchen gespielt vom Figurentheater PETRUSCHKA.\nMit Musik von Bartók, Offenbach, Vivaldi und Vuille.",
+        "url": "https://petruschka.ch",
+        "location": "Pavillon Tribschenhorn",
+        "bannerImagePath": "https://petruschka.netlify.app/assets/images/ticketino/150424/150424_ban_de_sma.jpeg",
+        "flyerImagePath": "https://petruschka.netlify.app/assets/images/ticketino/150424/150424_fly_de_thumb.jpeg",
+        "languageId": 1
+      }
+    ],
+    "ticketTypes": [
+      {
+        "currency": "CHF",
+        "price": 0,
+        "sortOrder": 1,
+        "preSaleStart": {
+          "$date": "2016-08-01T08:00:00.000Z"
+        },
+        "ticketTypeInfos": [
+          {
+            "name": "Premiere",
+            "languageId": 0
+          },
+          {
+            "name": "Premiere",
+            "languageId": 1
+          }
+        ]
+      }
+    ]
+  }
+},
+{
+  "_id": "2016w",
+  "eventDetail": {
+    "_id": 125146,
+    "start": {
+      "$date": "2016-12-01T14:00:00.000Z"
+    },
+    "googleAnalyticsTracker": "CD",
+    "eventInfos": [
+      {
+        "name": "Lutra und s’Gheimnis im See",
+        "shortDescription": "Ein Hörspiel des Figurentheaters PETRUSCHKA",
+        "url": "https://www.petruschka.ch",
+        "location": "Naturmuseum Luzern",
+        "bannerImagePath": "https://petruschka.netlify.app/assets/images/ticketino/125146/125146_ban_de_sma.jpeg",
+        "flyerImagePath": "https://petruschka.netlify.app/assets/images/ticketino/125146/125146_fly_de_thumb.jpeg",
+        "languageId": 0
+      },
+      {
+        "name": "Lutra und s’Gheimnis im See",
+        "shortDescription": "Ein Hörspiel des Figurentheaters PETRUSCHKA",
+        "url": "https://www.petruschka.ch",
+        "location": "Naturmuseum Luzern",
+        "bannerImagePath": "https://petruschka.netlify.app/assets/images/ticketino/125146/125146_ban_de_sma.jpeg",
+        "flyerImagePath": "https://petruschka.netlify.app/assets/images/ticketino/125146/125146_fly_de_thumb.jpeg",
+        "languageId": 1
+      }
+    ],
+    "ticketTypes": [
+      {
+        "currency": "CHF",
+        "price": 0,
+        "sortOrder": 1,
+        "preSaleStart": {
+          "$date": "2016-12-01T12:00:00.000Z"
+        },
+        "ticketTypeInfos": [
+          {
+            "name": "CD",
+            "languageId": 0
+          },
+          {
+            "name": "CD",
+            "languageId": 1
+          }
+        ]
+      }
+    ]
+  }
+},
+{
+  "_id": "2017s",
+  "eventDetail": {
+    "_id": 130744,
+    "start": {
+      "$date": "2017-08-19T13:00:00.000Z"
+    },
+    "googleAnalyticsTracker": "Premiere",
+    "eventInfos": [
+      {
+        "name": "Die Zaubermuschel",
+        "shortDescription": "Ein musikalisches Märchen mit Musik von Mussorgsky, Satie, Vuille und anderen. Für die ganze Familie, Kinder ab 5 Jahren",
+        "url": "https://www.petruschka.ch/",
+        "location": "Pavillon Tribschenhorn",
+        "bannerImagePath": "https://petruschka.netlify.app/assets/images/ticketino/130744/130744_ban_0_sma.jpeg",
+        "flyerImagePath": "https://petruschka.netlify.app/assets/images/ticketino/130744/130744_fly_0_thumb.jpeg",
+        "languageId": 0
+      },
+      {
+        "name": "Die Zaubermuschel",
+        "shortDescription": "Ein musikalisches Märchen mit Musik von Mussorgsky, Satie, Vuille und anderen. Für die ganze Familie, Kinder ab 5 Jahren",
+        "url": "https://www.petruschka.ch/",
+        "location": "Pavillon Tribschenhorn",
+        "bannerImagePath": "https://petruschka.netlify.app/assets/images/ticketino/130744/130744_ban_de_sma.jpeg",
+        "flyerImagePath": "https://petruschka.netlify.app/assets/images/ticketino/130744/130744_fly_de_thumb.jpeg",
+        "languageId": 1
+      }
+    ],
+    "ticketTypes": [
+      {
+        "currency": "CHF",
+        "price": 0,
+        "sortOrder": 1,
+        "preSaleStart": {
+          "$date": "2017-08-19T09:00:00.000Z"
+        },
+        "ticketTypeInfos": [
+          {
+            "name": "Premiere",
+            "languageId": 0
+          },
+          {
+            "name": "Premiere",
+            "languageId": 1
+          }
+        ]
+      }
+    ]
+  }
+},
+{
+  "_id": "2017w",
+  "eventDetail": {
+    "_id": 125144,
+    "start": {
+      "$date": "2017-12-01T14:00:00.000Z"
+    },
+    "googleAnalyticsTracker": "CD",
+    "eventInfos": [
+      {
+        "name": "Sonne. Schnee ond Donnerwätter",
+        "shortDescription": "Ein Hörspiel des Figurentheaters PETRUSCHKA über das Wetter für Kleine und Grosse ab 5 Jahren",
+        "url": "https://www.petruschka.ch",
+        "location": "Naturmuseum Luzern",
+        "bannerImagePath": "https://petruschka.netlify.app/assets/images/ticketino/125144/125144_ban_de_sma.jpeg",
+        "flyerImagePath": "https://petruschka.netlify.app/assets/images/ticketino/125144/125144_fly_de_thumb.jpeg",
+        "languageId": 0
+      },
+      {
+        "name": "Sonne. Schnee ond Donnerwätter",
+        "shortDescription": "Ein Hörspiel des Figurentheaters PETRUSCHKA über das Wetter für Kleine und Grosse ab 5 Jahren",
+        "url": "https://www.petruschka.ch",
+        "location": "Naturmuseum Luzern",
+        "bannerImagePath": "https://petruschka.netlify.app/assets/images/ticketino/125144/125144_ban_de_sma.jpeg",
+        "flyerImagePath": "https://petruschka.netlify.app/assets/images/ticketino/125144/125144_fly_de_thumb.jpeg",
+        "languageId": 1
+      }
+    ],
+    "ticketTypes": [
+      {
+        "currency": "CHF",
+        "price": 0,
+        "sortOrder": 1,
+        "preSaleStart": {
+          "$date": "2017-12-01T00:00:00.000Z"
+        },
+        "ticketTypeInfos": [
+          {
+            "name": "CD",
+            "languageId": 0
+          },
+          {
+            "name": "CD",
+            "languageId": 1
+          }
+        ]
+      }
+    ]
+  }
+},
+{
+  "_id": "2018s",
+  "eventDetail": {
+    "_id": 130656,
+    "start": {
+      "$date": "2018-08-19T13:00:00.000Z"
+    },
+    "googleAnalyticsTracker": "Premiere",
+    "eventInfos": [
+      {
+        "name": "Das Traumland",
+        "shortDescription": "Ein musikalisches Märchen mit Musik von von Grieg, Prokofiev und Jodok Vuille. Für die ganze Familie, Kinder ab 5 Jahren.",
+        "url": "https://www.petruschka.ch/",
+        "location": "Pavillon Tribschenhorn",
+        "bannerImagePath": "https://petruschka.netlify.app/assets/images/ticketino/130656/130656_ban_de_sma.jpeg",
+        "flyerImagePath": "https://petruschka.netlify.app/assets/images/ticketino/130656/130656_fly_de_thumb.jpeg",
+        "languageId": 0
+      },
+      {
+        "name": "Das Traumland",
+        "shortDescription": "Ein musikalisches Märchen mit Musik von von Grieg, Prokofiev und Jodok Vuille. Für die ganze Familie, Kinder ab 5 Jahren.",
+        "url": "https://www.petruschka.ch/",
+        "location": "Pavillon Tribschenhorn",
+        "bannerImagePath": "https://petruschka.netlify.app/assets/images/ticketino/130656/130656_ban_de_sma.jpeg",
+        "flyerImagePath": "https://petruschka.netlify.app/assets/images/ticketino/130656/130656_fly_de_thumb.jpeg",
+        "languageId": 1
+      }
+    ],
+    "ticketTypes": [
+      {
+        "currency": "CHF",
+        "price": 0,
+        "sortOrder": 1,
+        "preSaleStart": {
+          "$date": "2018-08-19T10:00:00.000Z"
+        },
+        "ticketTypeInfos": [
+          {
+            "name": "Premiere",
+            "languageId": 0
+          },
+          {
+            "name": "Premiere",
+            "languageId": 1
+          }
+        ]
+      }
+    ]
+  }
+},
+{
+  "_id": "2018w",
+  "eventDetail": {
+    "_id": 130643,
+    "start": {
+      "$date": "2018-12-01T14:00:00.000Z"
+    },
+    "googleAnalyticsTracker": "Premiere",
+    "eventInfos": [
+      {
+        "name": "De wissi Wolf",
+        "shortDescription": "Ein Wolfsmärchen für Grosse und Kleine ab 5 Jahren",
+        "url": "https://www.petruschka.ch/",
+        "location": "Naturmuseum Luzern",
+        "bannerImagePath": "https://petruschka.netlify.app/assets/images/ticketino/130643/130643_ban_0_sma.jpeg",
+        "flyerImagePath": "https://petruschka.netlify.app/assets/images/ticketino/130643/130643_fly_0_thumb.jpeg",
+        "languageId": 0
+      },
+      {
+        "name": "De wissi Wolf",
+        "shortDescription": "Ein Wolfsmärchen für Grosse und Kleine ab 5 Jahren",
+        "url": "https://www.petruschka.ch/",
+        "location": "Naturmuseum Luzern",
+        "bannerImagePath": "https://petruschka.netlify.app/assets/images/ticketino/130643/130643_ban_de_sma.jpeg",
+        "flyerImagePath": "https://petruschka.netlify.app/assets/images/ticketino/130643/130643_fly_de_thumb.jpeg",
+        "languageId": 1
+      }
+    ],
+    "ticketTypes": [
+      {
+        "currency": "CHF",
+        "price": 0,
+        "sortOrder": 1,
+        "preSaleStart": {
+          "$date": "2018-12-01T12:00:00.000Z"
+        },
+        "ticketTypeInfos": [
+          {
+            "name": "Premiere",
+            "languageId": 0
+          },
+          {
+            "name": "Premiere",
+            "languageId": 1
+          }
+        ]
+      }
+    ]
+  }
+},
+{
+  "_id": "2019s",
+  "eventDetail": {
+    "_id": 83917,
+    "start": {
+      "$date": "2019-08-17T12:30:00.000Z"
+    },
+    "googleAnalyticsTracker": "Premiere",
+    "eventInfos": [
+      {
+        "name": "Der Zauberladen",
+        "shortDescription": "Ein musikalisches Märchen mit Musik aus Barock, Klassik, Romatik und Moderne - gespielt  und in den Sand gezeichnet vom Figurentheater PETRUSCHKA",
+        "url": "www.petruschka.ch",
+        "location": "Pavillon Tribschenhorn",
+        "bannerImagePath": "https://petruschka.netlify.app/assets/images/ticketino/83917/83917_ban_de_sma.jpeg",
+        "flyerImagePath": "https://petruschka.netlify.app/assets/images/ticketino/83917/83917_fly_de_thumb.jpeg",
+        "languageId": 0
+      },
+      {
+        "name": "Der Zauberladen",
+        "shortDescription": "Ein musikalisches Märchen mit Musik aus Barock, Klassik, Romatik und Moderne - gespielt  und in den Sand gezeichnet vom Figurentheater PETRUSCHKA",
+        "url": "www.petruschka.ch",
+        "location": "Pavillon Tribschenhorn",
+        "bannerImagePath": "https://petruschka.netlify.app/assets/images/ticketino/83917/83917_ban_de_sma.jpeg",
+        "flyerImagePath": "https://petruschka.netlify.app/assets/images/ticketino/83917/83917_fly_de_thumb.jpeg",
+        "languageId": 1
+      }
+    ],
+    "ticketTypes": [
+      {
+        "currency": "CHF",
+        "price": 22,
+        "sortOrder": 0,
+        "preSaleStart": {
+          "$date": "2019-03-29T15:06:00.000Z"
+        },
+        "ticketTypeInfos": [
+          {
+            "name": "Erwachsene",
+            "languageId": 0
+          },
+          {
+            "name": "Erwachsene",
+            "languageId": 1
+          }
+        ]
+      },
+      {
+        "currency": "CHF",
+        "price": 12,
+        "sortOrder": 0,
+        "preSaleStart": {
+          "$date": "2019-03-29T15:06:00.000Z"
+        },
+        "ticketTypeInfos": [
+          {
+            "name": "Kinder",
+            "languageId": 0
+          },
+          {
+            "name": "Kinder",
+            "languageId": 1
+          }
+        ]
+      }
+    ]
+  }
+},
+{
+  "_id": "",
+  "eventDetail": {
+    "_id": 83930,
+    "start": {
+      "$date": "2019-08-18T12:30:00.000Z"
+    },
+    "googleAnalyticsTracker": "",
+    "eventInfos": [
+      {
+        "name": "DER ZAUBERLADEN",
+        "shortDescription": "Ein musikalisches Zaubermärchen mit Sandmalerei und live Musik",
+        "url": "www.kinderkultur.ch",
+        "location": "Pavillon Tribschenhorn",
+        "bannerImagePath": "https://petruschka.netlify.app/assets/images/ticketino/83930/83930_ban_de_sma.jpg",
+        "flyerImagePath": "",
+        "languageId": 0
+      },
+      {
+        "name": "DER ZAUBERLADEN",
+        "shortDescription": "Ein musikalisches Zaubermärchen mit Sandmalerei und live Musik",
+        "url": "www.kinderkultur.ch",
+        "location": "Pavillon Tribschenhorn",
+        "bannerImagePath": "https://petruschka.netlify.app/assets/images/ticketino/83930/83930_ban_de_sma.jpg",
+        "flyerImagePath": "",
+        "languageId": 1
+      }
+    ],
+    "ticketTypes": [
+      {
+        "currency": "CHF",
+        "price": 22,
+        "sortOrder": 0,
+        "preSaleStart": {
+          "$date": "2019-03-29T15:06:00.000Z"
+        },
+        "ticketTypeInfos": [
+          {
+            "name": "Erwachsene",
+            "languageId": 0
+          },
+          {
+            "name": "Erwachsene",
+            "languageId": 1
+          }
+        ]
+      },
+      {
+        "currency": "CHF",
+        "price": 12,
+        "sortOrder": 0,
+        "preSaleStart": {
+          "$date": "2019-03-29T15:06:00.000Z"
+        },
+        "ticketTypeInfos": [
+          {
+            "name": "Kinder",
+            "languageId": 0
+          },
+          {
+            "name": "Kinder",
+            "languageId": 1
+          }
+        ]
+      }
+    ]
+  }
+},
+{
+  "_id": "2019h",
+  "eventDetail": {
+    "_id": 130179,
+    "start": {
+      "$date": "2019-11-01T13:00:00.000Z"
+    },
+    "googleAnalyticsTracker": "Premiere|Tournee",
+    "eventInfos": [
+      {
+        "name": "Der Mondballon",
+        "shortDescription": "Der kleine Junge mit dem Mondballon begibt sich auf eine musikalische Reise nach fernen Ländern, trifft auf magische Wesen und gewinnt neue Freunde.\nDiese Sandperformance wurde mit dem Trio di Gioia im Schlössli Wartegg im November 2019 uraufgeführt.\nWeitere Aufführungen (mit Musik ab CD) fanden anlässlich des Familientages 2019 im Landesmuseum Zürich statt.",
+        "url": "https://www.petruschka.ch/",
+        "location": "Schlössli Wartegg",
+        "bannerImagePath": "https://petruschka.netlify.app/assets/images/ticketino/130179/130179_ban_de_sma.jpeg",
+        "flyerImagePath": "https://petruschka.netlify.app/assets/images/ticketino/130179/130179_fly_de_thumb.jpeg",
+        "languageId": 0
+      },
+      {
+        "name": "Der Mondballon",
+        "shortDescription": "Der kleine Junge mit dem Mondballon begibt sich auf eine musikalische Reise nach fernen Ländern, trifft auf magische Wesen und gewinnt neue Freunde.\nDiese Sandperformance wurde mit dem Trio di Gioia im Schlössli Wartegg im November 2019 uraufgeführt.\nWeitere Aufführungen (mit Musik ab CD) fanden anlässlich des Familientages 2019 im Landesmuseum Zürich statt.",
+        "url": "https://www.petruschka.ch/",
+        "location": "Schlössli Wartegg",
+        "bannerImagePath": "https://petruschka.netlify.app/assets/images/ticketino/130179/130179_ban_de_sma.jpeg",
+        "flyerImagePath": "https://petruschka.netlify.app/assets/images/ticketino/130179/130179_fly_de_thumb.jpeg",
+        "languageId": 1
+      }
+    ],
+    "ticketTypes": [
+      {
+        "currency": "CHF",
+        "price": 0,
+        "sortOrder": 1,
+        "preSaleStart": {
+          "$date": "2019-11-01T09:00:00.000Z"
+        },
+        "ticketTypeInfos": [
+          {
+            "name": "Tournee",
+            "languageId": 0
+          },
+          {
+            "name": "Tournee",
+            "languageId": 1
+          }
+        ]
+      }
+    ]
+  }
+},
+{
+  "_id": "2019w",
+  "eventDetail": {
+    "_id": 130642,
+    "start": {
+      "$date": "2019-12-07T14:00:00.000Z"
+    },
+    "googleAnalyticsTracker": "Premiere",
+    "eventInfos": [
+      {
+        "name": "Der Karneval der Tiere",
+        "shortDescription": "Ein Zirkusmärchen mit der Musik von Camille Saint-Saëns für Grosse und Kleine ab 5 Jahren",
+        "url": "https://www.petruschka.ch/",
+        "location": "Naturmuseum Luzern",
+        "bannerImagePath": "https://petruschka.netlify.app/assets/images/ticketino/130642/130642_ban_de_sma.jpeg",
+        "flyerImagePath": "https://petruschka.netlify.app/assets/images/ticketino/130642/130642_fly_de_thumb.jpeg",
+        "languageId": 0
+      },
+      {
+        "name": "Der Karneval der Tiere",
+        "shortDescription": "Ein Zirkusmärchen mit der Musik von Camille Saint-Saëns für Grosse und Kleine ab 5 Jahren",
+        "url": "https://www.petruschka.ch/",
+        "location": "Naturmuseum Luzern",
+        "bannerImagePath": "https://petruschka.netlify.app/assets/images/ticketino/130642/130642_ban_de_sma.jpeg",
+        "flyerImagePath": "https://petruschka.netlify.app/assets/images/ticketino/130642/130642_fly_de_thumb.jpeg",
+        "languageId": 1
+      }
+    ],
+    "ticketTypes": [
+      {
+        "currency": "CHF",
+        "price": 0,
+        "sortOrder": 1,
+        "preSaleStart": {
+          "$date": "2019-12-07T13:00:00.000Z"
+        },
+        "ticketTypeInfos": [
+          {
+            "name": "Premiere",
+            "languageId": 0
+          },
+          {
+            "name": "Premiere",
+            "languageId": 1
+          }
+        ]
+      }
+    ]
+  }
+},
+{
+  "_id": "2020h",
+  "eventDetail": {
+    "_id": 98623,
+    "start": {
+      "$date": "2020-08-26T13:00:00.000Z"
+    },
+    "googleAnalyticsTracker": "Premiere",
+    "eventInfos": [
+      {
+        "name": "De tapferi Puck rettet s'Elferiich",
+        "shortDescription": "Ein Abenteuer mit zwei Figurenspielerinnen, drei MusikerInnen/SchauspielerInnen, Spielfiguren und Sandart Performance. Aufführung in schweizerdeutscher Mundart. Ein musikalisches Märchen mit Perlen aus der klassischen Musik und Sandmalerei für Grosse und Kleine ab 5 Jahren.",
+        "url": "www.petruschka.ch",
+        "location": "Pavillon Tribschenhorn",
+        "bannerImagePath": "https://petruschka.netlify.app/assets/images/ticketino/98623/98623_ban_de_sma.jpg",
+        "flyerImagePath": "https://petruschka.netlify.app/assets/images/ticketino/98623/98623_fly_de_thumb.jpeg",
+        "languageId": 0
+      },
+      {
+        "name": "De tapferi Puck rettet s'Elferiich",
+        "shortDescription": "Ein Abenteuer mit zwei Figurenspielerinnen, drei MusikerInnen/SchauspielerInnen, Spielfiguren und Sandart Performance. Aufführung in schweizerdeutscher Mundart. Ein musikalisches Märchen mit Perlen aus der klassischen Musik und Sandmalerei für Grosse und Kleine ab 5 Jahren.",
+        "url": "www.petruschka.ch",
+        "location": "Pavillon Tribschenhorn",
+        "bannerImagePath": "https://petruschka.netlify.app/assets/images/ticketino/98623/98623_ban_de_sma.jpg",
+        "flyerImagePath": "https://petruschka.netlify.app/assets/images/ticketino/98623/98623_fly_de_thumb.jpeg",
+        "languageId": 1
+      }
+    ],
+    "ticketTypes": [
+      {
+        "currency": "CHF",
+        "price": 20,
+        "sortOrder": 0,
+        "preSaleStart": {
+          "$date": "2020-03-10T13:08:00.000Z"
+        },
+        "ticketTypeInfos": [
+          {
+            "name": "Erwachsene",
+            "languageId": 0
+          },
+          {
+            "name": "Erwachsene",
+            "languageId": 1
+          }
+        ]
+      },
+      {
+        "currency": "CHF",
+        "price": 10,
+        "sortOrder": 0,
+        "preSaleStart": {
+          "$date": "2020-03-10T13:08:00.000Z"
+        },
+        "ticketTypeInfos": [
+          {
+            "name": "Kinder",
+            "languageId": 0
+          },
+          {
+            "name": "Kinder",
+            "languageId": 1
+          }
+        ]
+      }
+    ]
+  }
+},
+{
+  "_id": "2017t",
+  "eventDetail": {
+    "_id": 119729,
+    "start": {
+      "$date": "2020-12-05T13:30:00.000Z"
+    },
+    "googleAnalyticsTracker": "Tournee|CD",
+    "eventInfos": [
+      {
+        "name": "De schlaui Igel Pic",
+        "shortDescription": "Gemeinsam sind auch kleine Waldtiere stärker als ein grosses Tier oder ein Jäger: Über die Wichtigkeit von Freundschaft und Zusammenhalt. Ab 5 Jahren, Dauer ca.45 Min.",
+        "url": "www.petruschka.ch",
+        "location": "Pavillon Tribschenhorn",
+        "bannerImagePath": "https://petruschka.netlify.app/assets/images/ticketino/119729/119729_ban_de_sma.jpeg",
+        "flyerImagePath": "https://petruschka.netlify.app/assets/images/ticketino/119729/119729_fly_de_thumb.jpeg",
+        "languageId": 0
+      },
+      {
+        "name": "De schlaui Igel Pic",
+        "shortDescription": "Gemeinsam sind auch kleine Waldtiere stärker als ein grosses Tier oder ein Jäger: Über die Wichtigkeit von Freundschaft und Zusammenhalt. Ab 5 Jahren, Dauer ca.45 Min.",
+        "url": "www.petruschka.ch",
+        "location": "Pavillon Tribschenhorn",
+        "bannerImagePath": "https://petruschka.netlify.app/assets/images/ticketino/119729/119729_ban_de_sma.jpeg",
+        "flyerImagePath": "https://petruschka.netlify.app/assets/images/ticketino/119729/119729_fly_de_thumb.jpeg",
+        "languageId": 1
+      }
+    ],
+    "ticketTypes": [
+      {
+        "currency": "CHF",
+        "price": 20,
+        "sortOrder": 1,
+        "preSaleStart": {
+          "$date": "2020-11-27T15:41:00.000Z"
+        },
+        "ticketTypeInfos": [
+          {
+            "name": "Tournee",
+            "languageId": 0
+          },
+          {
+            "name": "Tournee",
+            "languageId": 1
+          }
+        ]
+      },
+      {
+        "currency": "CHF",
+        "price": 10,
+        "sortOrder": 2,
+        "preSaleStart": {
+          "$date": "2020-11-27T15:42:00.000Z"
+        },
+        "ticketTypeInfos": [
+          {
+            "name": "CD",
+            "languageId": 0
+          },
+          {
+            "name": "CD",
+            "languageId": 1
+          }
+        ]
+      }
+    ]
+  }
+},
+{
+  "_id": "2021s",
+  "eventDetail": {
+    "_id": 125956,
+    "start": {
+      "$date": "2021-08-21T13:00:00.000Z"
+    },
+    "googleAnalyticsTracker": "Premiere",
+    "eventInfos": [
+      {
+        "name": "Peter und der Wolf 2",
+        "shortDescription": "Ein musikalisches Märchen mit der Musik von Sergei Prokofjew für Grosse und Kleine ab 5 Jahren in einer neuen Fassung des Figurentheaters PETRUSCHKA",
+        "url": "https://www.petruschka.ch",
+        "location": "Pavillon Tribschenhorn",
+        "bannerImagePath": "https://petruschka.netlify.app/assets/images/ticketino/125956/125956_ban_de_sma.jpeg",
+        "flyerImagePath": "https://petruschka.netlify.app/assets/images/ticketino/125956/125956_fly_de_thumb.jpeg",
+        "languageId": 0
+      },
+      {
+        "name": "Peter und der Wolf 2",
+        "shortDescription": "Ein musikalisches Märchen mit der Musik von Sergei Prokofjew für Grosse und Kleine ab 5 Jahren in einer neuen Fassung des Figurentheaters PETRUSCHKA",
+        "url": "https://www.petruschka.ch",
+        "location": "Pavillon Tribschenhorn",
+        "bannerImagePath": "https://petruschka.netlify.app/assets/images/ticketino/125956/125956_ban_de_sma.jpeg",
+        "flyerImagePath": "https://petruschka.netlify.app/assets/images/ticketino/125956/125956_fly_de_thumb.jpeg",
+        "languageId": 1
+      }
+    ],
+    "ticketTypes": [
+      {
+        "currency": "CHF",
+        "price": 22,
+        "sortOrder": 1,
+        "preSaleStart": {
+          "$date": "2021-04-30T22:01:00.000Z"
+        },
+        "ticketTypeInfos": [
+          {
+            "name": "Erwachsene",
+            "languageId": 0
+          },
+          {
+            "name": "Erwachsene",
+            "languageId": 1
+          }
+        ]
+      },
+      {
+        "currency": "CHF",
+        "price": 11,
+        "sortOrder": 2,
+        "preSaleStart": {
+          "$date": "2021-04-30T22:01:00.000Z"
+        },
+        "ticketTypeInfos": [
+          {
+            "name": "Kinder",
+            "languageId": 0
+          },
+          {
+            "name": "Kinder",
+            "languageId": 1
+          }
+        ]
+      }
+    ]
+  }
+},
+{
+  "_id": "2021h",
+  "eventDetail": {
+    "_id": 130385,
+    "start": {
+      "$date": "2021-12-08T13:30:00.000Z"
+    },
+    "googleAnalyticsTracker": "Premiere|CD",
+    "eventInfos": [
+      {
+        "name": "De Frau Emma iri Tier",
+        "shortDescription": "Ein Wintermärchen für grosse und kleine Zuschauer ab 5 Jahren.",
+        "url": "https://www.petruschka.ch/",
+        "location": "Naturmuseum Luzern",
+        "bannerImagePath": "https://petruschka.netlify.app/assets/images/ticketino/130385/130385_ban_de_sma.jpeg",
+        "flyerImagePath": "https://petruschka.netlify.app/assets/images/ticketino/130385/130385_fly_de_thumb.jpeg",
+        "languageId": 0
+      },
+      {
+        "name": "De Frau Emma iri Tier",
+        "shortDescription": "Ein Wintermärchen für grosse und kleine Zuschauer ab 5 Jahren.",
+        "url": "https://www.petruschka.ch/",
+        "location": "Naturmuseum Luzern",
+        "bannerImagePath": "https://petruschka.netlify.app/assets/images/ticketino/130385/130385_ban_de_sma.jpeg",
+        "flyerImagePath": "https://petruschka.netlify.app/assets/images/ticketino/130385/130385_fly_de_thumb.jpeg",
+        "languageId": 1
+      }
+    ],
+    "ticketTypes": [
+      {
+        "currency": "CHF",
+        "price": 11,
+        "sortOrder": 1,
+        "preSaleStart": {
+          "$date": "2021-10-31T12:00:00.000Z"
+        },
+        "ticketTypeInfos": [
+          {
+            "name": "Kind",
+            "languageId": 0
+          },
+          {
+            "name": "Kind",
+            "languageId": 1
+          }
+        ]
+      },
+      {
+        "currency": "CHF",
+        "price": 22,
+        "sortOrder": 2,
+        "preSaleStart": {
+          "$date": "2021-10-31T12:00:00.000Z"
+        },
+        "ticketTypeInfos": [
+          {
+            "name": "Erwachsene",
+            "languageId": 0
+          },
+          {
+            "name": "Erwachsene",
+            "languageId": 1
+          }
+        ]
+      },
+      {
+        "currency": "CHF",
+        "price": 0,
+        "sortOrder": 3,
+        "preSaleStart": {
+          "$date": "2021-12-06T21:43:00.000Z"
+        },
+        "ticketTypeInfos": [
+          {
+            "name": "CD",
+            "languageId": 0
+          },
+          {
+            "name": "CD",
+            "languageId": 1
+          }
+        ]
+      }
+    ]
+  }
+},
+{
+  "_id": "2022f",
+  "eventDetail": {
+    "_id": 143887,
+    "start": {
+      "$date": "2022-03-05T14:00:00.000Z"
+    },
+    "googleAnalyticsTracker": "",
+    "eventInfos": [
+      {
+        "name": "Di chli Nixe und s'Walross",
+        "shortDescription": "Die kleine mutige Nixe Aquamarin erlebt spannende Abenteuer unter und über dem Eismeer und findet dabei viele neue Freunde. Mit viel Sandmalerei. Ab 5 Jahren. \n",
+        "url": "https://eventfrog.ch/de/p/klassik-opern/klassik/di-chli-nixe-und-s-walross-ein-musikalisches-wintermaerchen-6858306002102977063.html",
+        "location": "Pavillon Tribschenhorn",
+        "bannerImagePath": "https://petruschka.netlify.app/assets/images/ticketino/143887/143887_ban_de_sma.jpeg",
+        "flyerImagePath": "https://petruschka.netlify.app/assets/images/ticketino/143887/143887_fly_de_thumb.jpeg",
+        "languageId": 0
+      },
+      {
+        "name": "Di chli Nixe und s'Walross",
+        "shortDescription": "Die kleine mutige Nixe Aquamarin erlebt spannende Abenteuer unter und über dem Eismeer und findet dabei viele neue Freunde. Mit viel Sandmalerei. Ab 5 Jahren. \n",
+        "url": "https://eventfrog.ch/de/p/klassik-opern/klassik/di-chli-nixe-und-s-walross-ein-musikalisches-wintermaerchen-6858306002102977063.html",
+        "location": "Pavillon Tribschenhorn",
+        "bannerImagePath": "https://petruschka.netlify.app/assets/images/ticketino/143887/143887_ban_de_sma.jpeg",
+        "flyerImagePath": "https://petruschka.netlify.app/assets/images/ticketino/143887/143887_fly_de_thumb.jpeg",
+        "languageId": 1
+      }
+    ],
+    "ticketTypes": [
+      {
+        "currency": "CHF",
+        "price": 20,
+        "sortOrder": 1,
+        "preSaleStart": {
+          "$date": "2021-10-31T23:00:00.000Z"
+        },
+        "ticketTypeInfos": [
+          {
+            "name": "Erwachsene",
+            "languageId": 0
+          },
+          {
+            "name": "Erwachsene",
+            "languageId": 1
+          }
+        ]
+      },
+      {
+        "currency": "CHF",
+        "price": 10,
+        "sortOrder": 2,
+        "preSaleStart": {
+          "$date": "2021-10-31T23:00:00.000Z"
+        },
+        "ticketTypeInfos": [
+          {
+            "name": "Kinder",
+            "languageId": 0
+          },
+          {
+            "name": "Kinder",
+            "languageId": 1
+          }
+        ]
+      }
+    ]
+  }
+},
+{
+  "_id": "2022s",
+  "eventDetail": {
+    "_id": 164353,
+    "start": {
+      "$date": "2022-08-20T13:00:00.000Z"
+    },
+    "googleAnalyticsTracker": "Premiere",
+    "eventInfos": [
+      {
+        "name": "De Bär wott Cello spile",
+        "shortDescription": "Ein musikalisches Märchen mit Perlen aus der klassischen Musik & Sandmalerei. Für Grosse & Kleine  ab 5 Jahren.",
+        "url": "https://www.ticketino.com/de/Event/De-Baer-wott-Cello-spile/",
+        "location": "Pavillon Tribschenhorn",
+        "bannerImagePath": "https://petruschka.netlify.app/assets/images/ticketino/164353/164353_ban_de_sma.jpeg",
+        "flyerImagePath": "https://petruschka.netlify.app/assets/images/ticketino/164353/164353_fly_de_thumb.jpeg",
+        "languageId": 0
+      },
+      {
+        "name": "De Bär wott Cello spile",
+        "shortDescription": "Ein musikalisches Märchen mit Perlen aus der klassischen Musik & Sandmalerei. Für Grosse & Kleine  ab 5 Jahren.",
+        "url": "https://www.ticketino.com/de/Event/De-Baer-wott-Cello-spile/",
+        "location": "Pavillon Tribschenhorn",
+        "bannerImagePath": "https://petruschka.netlify.app/assets/images/ticketino/164353/164353_ban_de_sma.jpeg",
+        "flyerImagePath": "https://petruschka.netlify.app/assets/images/ticketino/164353/164353_fly_de_thumb.jpeg",
+        "languageId": 1
+      }
+    ],
+    "ticketTypes": [
+      {
+        "currency": "CHF",
+        "price": 22,
+        "sortOrder": 0,
+        "preSaleStart": {
+          "$date": "2022-06-01T10:00:00.000Z"
+        },
+        "ticketTypeInfos": [
+          {
+            "name": "Erwachsene",
+            "languageId": 0
+          },
+          {
+            "name": "Erwachsene",
+            "languageId": 1
+          }
+        ]
+      },
+      {
+        "currency": "CHF",
+        "price": 12,
+        "sortOrder": 0,
+        "preSaleStart": {
+          "$date": "2022-06-01T10:00:00.000Z"
+        },
+        "ticketTypeInfos": [
+          {
+            "name": "Kinder",
+            "languageId": 0
+          },
+          {
+            "name": "Kinder",
+            "languageId": 1
+          }
+        ]
+      }
+    ]
+  }
+},
+{
+  "_id": "2022w",
+  "eventDetail": {
+    "_id": {
+      "$numberLong": "1670506200000"
+    },
+    "eventInfos": [
+      {
+        "name": "Peter und der Wolf 2",
+        "languageId": 0,
+        "location": "Natur-Museum",
+        "flyerImagePath": "https://petruschka.netlify.app/assets/images/main/portrait/2022w.jpg",
+        "shortDescription": "Ein Wintermärchen für grosse und kleine Zuschauer ab 5 Jahren - Mit der Musik von Sergei Prokofjew (Bearbeitung für Trio)\n",
+        "bannerImagePath": "https://petruschka.netlify.app/assets/images/main/landscape/2022w.jpg",
+        "url": "https://naturmuseum.lu.ch/veranstaltungen/anmeldung?id=5110916b-d3f6-4f50-be24-8df73dabf0ad&account=nml"
+      }
+    ],
+    "googleAnalyticsTracker": "Premiere",
+    "start": {
+      "$date": "2022-12-08T13:30:00.000Z"
+    },
+    "ticketTypes": [
+      {
+        "ticketTypeInfos": [
+          {
+            "languageId": 0,
+            "name": "Kinder"
+          }
+        ],
+        "sortOrder": 0,
+        "preSaleStart": {
+          "$date": "2022-11-13T20:40:20.871Z"
+        },
+        "price": 11,
+        "currency": "CHF"
+      },
+      {
+        "ticketTypeInfos": [
+          {
+            "languageId": 0,
+            "name": "Erwachsene"
+          }
+        ],
+        "sortOrder": 1,
+        "preSaleStart": {
+          "$date": "2022-11-13T20:40:20.871Z"
+        },
+        "price": 22,
+        "currency": "CHF"
+      }
+    ]
+  }
+},
+{
+  "_id": "2023s",
+  "eventDetail": {
+    "_id": {
+      "$numberLong": "1692450000000"
+    },
+    "eventInfos": [
+      {
+        "name": "Fantasie het Flügel",
+        "languageId": 0,
+        "location": "Pavillon Tribschenhorn",
+        "flyerImagePath": "https://petruschka.netlify.app/assets/images/main/portrait/2023s.jpg",
+        "shortDescription": "Ein musikalisches Märchen mit Perlen aus der klassischen Musik und Sandmalerei\nfür Grosse und Kleine ab 5 Jahren.",
+        "bannerImagePath": "https://petruschka.netlify.app/assets/images/main/landscape/2023s.jpg",
+        "url": "https://eventfrog.ch/de/p/kinderveranstaltungen/puppentheater/fantasie-het-fluegel-7061364133107471509.html"
+      }
+    ],
+    "googleAnalyticsTracker": "Premiere",
+    "saleState": "available",
+    "start": {
+      "$date": "2023-08-19T13:00:00.000Z"
+    },
+    "ticketTypes": [
+      {
+        "ticketTypeInfos": [
+          {
+            "languageId": 0,
+            "name": "Kinder"
+          }
+        ],
+        "sortOrder": 0,
+        "preSaleStart": {
+          "$date": "2023-05-08T18:51:30.931Z"
+        },
+        "price": 11,
+        "currency": "CHF"
+      },
+      {
+        "ticketTypeInfos": [
+          {
+            "languageId": 0,
+            "name": "Erwachsene"
+          }
+        ],
+        "sortOrder": 1,
+        "preSaleStart": {
+          "$date": "2023-05-08T18:51:30.931Z"
+        },
+        "price": 22,
+        "currency": "CHF"
+      }
+    ]
+  }
+},
+{
+  "_id": "2023w",
+  "eventDetail": {
+    "_id": {
+      "$numberLong": "1701869400000"
+    },
+    "eventInfos": [
+      {
+        "name": "Di chli Nixe und s’Walross",
+        "languageId": 0,
+        "location": "Naturmuseum Luzern",
+        "flyerImagePath": "https://petruschka.netlify.app/assets/images/main/portrait/2023w.jpg",
+        "shortDescription": "Ein Wintermärchen aus dem hohen Norden - Für Gross und Klein ab 5 Jahren",
+        "bannerImagePath": "https://petruschka.netlify.app/assets/images/main/landscape/2023w.jpg",
+        "url": "https://naturmuseum.lu.ch/veranstaltungen/anmeldung?id=e3eb804d-d42b-4380-af91-48e71f6dadff&account=nml"
+      }
+    ],
+    "googleAnalyticsTracker": "Premiere|CD",
+    "saleState": "sold-out",
+    "start": {
+      "$date": "2023-12-06T13:30:00.000Z"
+    },
+    "ticketTypes": [
+      {
+        "ticketTypeInfos": [
+          {
+            "languageId": 0,
+            "name": "Kinder"
+          }
+        ],
+        "sortOrder": 0,
+        "preSaleStart": {
+          "$date": "2023-06-04T07:48:30.690Z"
+        },
+        "price": 11,
+        "currency": "CHF"
+      },
+      {
+        "ticketTypeInfos": [
+          {
+            "languageId": 0,
+            "name": "Erwachsene"
+          }
+        ],
+        "sortOrder": 1,
+        "preSaleStart": {
+          "$date": "2023-06-04T07:48:30.690Z"
+        },
+        "price": 22,
+        "currency": "CHF"
+      },
+      {
+        "ticketTypeInfos": [
+          {
+            "languageId": 0,
+            "name": "CD"
+          }
+        ],
+        "sortOrder": 1,
+        "preSaleStart": {
+          "$date": "2023-06-04T07:48:30.690Z"
+        },
+        "price": 22,
+        "currency": "CHF"
+      }
+    ]
+  }
+},
+{
+  "_id": "2024s",
+  "eventDetail": {
+    "_id": {
+      "$numberLong": "1725714000000"
+    },
+    "eventInfos": [
+      {
+        "name": "De Flug zum Planet Sossindra",
+        "languageId": 0,
+        "location": "Pavillon Tribschenhorn",
+        "flyerImagePath": "https://petruschka.netlify.app/assets/images/main/portrait/2024s.jpg",
+        "shortDescription": "Ein Weltraummärchen mit klassischer Musik und Sandmalerei - für Grosse und Kleine ab 5 Jahren",
+        "bannerImagePath": "https://petruschka.netlify.app/assets/images/main/landscape/2024s.jpg",
+        "url": "https://eventfrog.ch/de/p/kinderveranstaltungen/puppentheater/de-flug-zum-planet-sossindra-7182690466629921203.html"
+      }
+    ],
+    "googleAnalyticsTracker": "Premiere",
+    "saleState": "available",
+    "start": {
+      "$date": "2024-09-07T13:00:00.000Z"
+    },
+    "ticketTypes": [
+      {
+        "ticketTypeInfos": [
+          {
+            "languageId": 0,
+            "name": "Erwachsene"
+          }
+        ],
+        "sortOrder": 0,
+        "preSaleStart": {
+          "$date": "2024-04-08T21:03:04.372Z"
+        },
+        "price": 22,
+        "currency": "CHF"
+      },
+      {
+        "ticketTypeInfos": [
+          {
+            "languageId": 0,
+            "name": "Kinder"
+          }
+        ],
+        "sortOrder": 1,
+        "preSaleStart": {
+          "$date": "2024-04-08T21:03:04.372Z"
+        },
+        "price": 12,
+        "currency": "CHF"
+      }
+    ]
+  }
+},
+{
+  "_id": "2024w",
+  "eventDetail": {
+    "_id": {
+      "$numberLong": "1733578200000"
+    },
+    "eventInfos": [
+      {
+        "name": "Die langi Reis zum Elfeschloss",
+        "languageId": 0,
+        "location": "Natur-Museum Luzern",
+        "flyerImagePath": "https://petruschka.netlify.app/assets/images/main/portrait/2024w.jpg",
+        "shortDescription": "Ein Märchen aus der Welt der Zwergen, Elfen, Schnecken und Insekten.",
+        "bannerImagePath": "https://petruschka.netlify.app/assets/images/main/landscape/2024w.jpg",
+        "url": "https://naturmuseum.lu.ch/veranstaltungen/anmeldung?id=0fb29a1f-3d54-4a04-a002-10d4d3d37cc9&account=nml"
+      }
+    ],
+    "googleAnalyticsTracker": "Premiere|CD",
+    "saleState": "90",
+    "start": {
+      "$date": "2024-12-07T13:30:00.000Z"
+    },
+    "ticketTypes": [
+      {
+        "ticketTypeInfos": [
+          {
+            "languageId": 0,
+            "name": "Kinder"
+          }
+        ],
+        "sortOrder": 0,
+        "preSaleStart": {
+          "$date": "2024-07-21T13:22:17.287Z"
+        },
+        "price": 12,
+        "currency": "CHF"
+      },
+      {
+        "ticketTypeInfos": [
+          {
+            "languageId": 0,
+            "name": "Erwachsene"
+          }
+        ],
+        "sortOrder": 1,
+        "preSaleStart": {
+          "$date": "2024-07-21T13:22:17.287Z"
+        },
+        "price": 22,
+        "currency": "CHF"
+      },
+      {
+        "ticketTypeInfos": [
+          {
+            "languageId": 0,
+            "name": "CD"
+          }
+        ],
+        "sortOrder": 1,
+        "preSaleStart": {
+          "$date": "2024-07-21T13:22:17.287Z"
+        },
+        "price": 22,
+        "currency": "CHF"
+      }
+    ]
+  }
+}]

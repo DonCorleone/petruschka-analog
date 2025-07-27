@@ -2,12 +2,15 @@
 :host {
   display: block;
   background: #fff;
-  border-radius: 12px;
+  /* border-radius: 12px;
   padding: 0;
   max-width: 800px;
   width: 90vw;
   max-height: 90vh;
-  overflow: hidden;
+  overflow: hidden; */
+  margin: 4vh 4vw;
+  min-width: 600px;
+  max-width: 800px;
   box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
 }
 
@@ -16,7 +19,7 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 20px 30px;
+  padding: 20px;
   border-bottom: 1px solid #eee;
   background: #f8f9fa;
 }
@@ -25,30 +28,24 @@
   margin: 0;
   font-size: 24px;
   font-weight: 700;
-  color: #333;
+  color: var(--secondary-color);
 }
 
 /* Close Button */
 .btn-close {
-  background: #f8f9fa;
-  border: 1px solid #dee2e6;
-  font-size: 18px;
-  color: #666;
-  cursor: pointer;
-  padding: 8px 12px;
-  border-radius: 6px;
-  transition: all 0.2s ease;
-  display: flex;
-  align-items: center;
-  justify-content: center;
+  border-color: var(--primary-color);
+  color: var(--primary-color);
+  background-color: var(--section-bg-light);
+  opacity: 1;
   min-width: 40px;
   min-height: 40px;
 }
 
 .btn-close:hover {
-  background: #e9ecef;
-  color: #333;
-  border-color: #adb5bd;
+  border-color: var(--section-bg-light);
+  color: var(--section-bg-light);
+  background: var(--primary-color);
+  box-shadow: unset;
 }
 
 .btn-close:focus {
@@ -58,7 +55,7 @@
 
 /* Content */
 .dialog-content {
-  padding: 30px;
+  padding: 20px;
   overflow-y: auto;
   max-height: calc(90vh - 80px);
 }
@@ -70,10 +67,8 @@
 .info-section h4 {
   font-size: 18px;
   font-weight: 600;
-  margin-bottom: 12px;
   color: #333;
-  border-bottom: 2px solid var(--primary-color);
-  padding-bottom: 5px;
+  border-bottom: 1px solid var(--primary-color);
 }
 
 .info-section p {
@@ -118,21 +113,19 @@
 /* Mobile Responsiveness */
 @media (max-width: 768px) {
   :host {
-    width: 95vw;
+    /* width: 95vw;
     height: 95vh;
     max-height: 95vh;
-    border-radius: 8px;
+    border-radius: 8px; */
+
+    min-width: unset;
+    max-width: unset;
+    margin: 2vh 2vw;
+    height: 96vh;
+    width: 85vw;
   }
-  
-  .dialog-header {
-    padding: 15px 20px;
-  }
-  
+
   .dialog-title {
     font-size: 20px;
-  }
-  
-  .dialog-content {
-    padding: 20px;
   }
 }

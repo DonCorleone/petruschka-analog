@@ -1,8 +1,8 @@
 /* Import Bootstrap 5 */
 @import 'bootstrap/dist/css/bootstrap.min.css';
 
-/* Import minimal FontAwesome icons (only what we use) */
-@import './assets/icons.css';
+/* Import FontAwesome - using CDN for reliability */
+@import url('https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css');
 
 /* Import Google Fonts */
 @import url('https://fonts.googleapis.com/css?family=Raleway:400,500,600,700,800,900');

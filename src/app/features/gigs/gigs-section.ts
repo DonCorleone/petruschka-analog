@@ -1,5 +1,6 @@
-import { Component, signal, inject } from '@angular/core';
-import { BandDataService } from '../../core/services';
+import { Component, inject } from '@angular/core';
+import { BandDataService, DialogService } from '../../core/services';
+import { Gig } from '../../../shared/types';
 
 @Component({
   selector: 'app-gigs-section',
@@ -10,23 +11,11 @@ import { BandDataService } from '../../core/services';
 export class GigsSectionComponent {
   
   private bandDataService = inject(BandDataService);
-  private openGigs = signal<Set<number>>(new Set());
+  private dialogService = inject(DialogService);
 
   gigs = this.bandDataService.gigsResource.value;
 
-  toggleGigInfo(gigId: number) {
-    this.openGigs.update(openGigs => {
-      const newSet = new Set(openGigs);
-      if (newSet.has(gigId)) {
-        newSet.delete(gigId);
-      } else {
-        newSet.add(gigId);
-      }
-      return newSet;
-    });
-  }
-
-  isGigInfoOpen(gigId: number): boolean {
-    return this.openGigs().has(gigId);
+  openGigDetail(gig: Gig): void {
+    this.dialogService.openGigDetail(gig);
   }
 }

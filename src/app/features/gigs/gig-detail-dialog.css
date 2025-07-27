@@ -1,0 +1,138 @@
+/* CDK Dialog Host Styles - Following CDK Documentation Pattern */
+:host {
+  display: block;
+  background: #fff;
+  border-radius: 12px;
+  padding: 0;
+  max-width: 800px;
+  width: 90vw;
+  max-height: 90vh;
+  overflow: hidden;
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+}
+
+/* Dialog Header */
+.dialog-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px 30px;
+  border-bottom: 1px solid #eee;
+  background: #f8f9fa;
+}
+
+.dialog-title {
+  margin: 0;
+  font-size: 24px;
+  font-weight: 700;
+  color: #333;
+}
+
+/* Close Button */
+.btn-close {
+  background: #f8f9fa;
+  border: 1px solid #dee2e6;
+  font-size: 18px;
+  color: #666;
+  cursor: pointer;
+  padding: 8px 12px;
+  border-radius: 6px;
+  transition: all 0.2s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 40px;
+  min-height: 40px;
+}
+
+.btn-close:hover {
+  background: #e9ecef;
+  color: #333;
+  border-color: #adb5bd;
+}
+
+.btn-close:focus {
+  outline: 2px solid var(--primary-color);
+  outline-offset: 2px;
+}
+
+/* Content */
+.dialog-content {
+  padding: 30px;
+  overflow-y: auto;
+  max-height: calc(90vh - 80px);
+}
+
+.info-section {
+  margin-bottom: 25px;
+}
+
+.info-section h4 {
+  font-size: 18px;
+  font-weight: 600;
+  margin-bottom: 12px;
+  color: #333;
+  border-bottom: 2px solid var(--primary-color);
+  padding-bottom: 5px;
+}
+
+.info-section p {
+  margin-bottom: 8px;
+  line-height: 1.6;
+}
+
+.info-section strong {
+  color: #555;
+  font-weight: 600;
+}
+
+.btn-primary {
+  background: var(--primary-color);
+  border-color: var(--primary-color);
+  padding: 12px 24px;
+  font-weight: 600;
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.btn-primary:hover {
+  background: color-mix(in srgb, var(--primary-color) 90%, black);
+  border-color: color-mix(in srgb, var(--primary-color) 90%, black);
+}
+
+/* Accessibility */
+.sr-only {
+  position: absolute !important;
+  width: 1px !important;
+  height: 1px !important;
+  padding: 0 !important;
+  margin: -1px !important;
+  overflow: hidden !important;
+  clip: rect(0, 0, 0, 0) !important;
+  white-space: nowrap !important;
+  border: 0 !important;
+}
+
+/* Mobile Responsiveness */
+@media (max-width: 768px) {
+  :host {
+    width: 95vw;
+    height: 95vh;
+    max-height: 95vh;
+    border-radius: 8px;
+  }
+  
+  .dialog-header {
+    padding: 15px 20px;
+  }
+  
+  .dialog-title {
+    font-size: 20px;
+  }
+  
+  .dialog-content {
+    padding: 20px;
+  }
+}

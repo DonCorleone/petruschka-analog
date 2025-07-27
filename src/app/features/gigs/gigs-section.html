@@ -29,9 +29,7 @@
             <div class="gig-actions">
               <button 
                 class="btn btn-xs btn-ghost-secondary" 
-                (click)="toggleGigInfo(gig.id)"
-                [attr.aria-expanded]="isGigInfoOpen(gig.id)"
-                [attr.aria-controls]="'info-extra-' + gig.id">
+                (click)="openGigDetail(gig)">
                 More info
               </button>
               <a class="btn btn-xs btn-secondary" [href]="gig.ticketUrl">
@@ -39,12 +37,6 @@
               </a>
             </div>
             
-            <div 
-              [id]="'info-extra-' + gig.id"
-              class="info-extra"
-              [class.show]="isGigInfoOpen(gig.id)">
-              {{ gig.description }}
-            </div>
           </div>
         </div>
       }

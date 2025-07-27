@@ -1,0 +1,48 @@
+<div class="dialog-header">
+  <h2 class="dialog-title">{{ data.gig.title }}</h2>
+  <button 
+    type="button" 
+    class="btn-close" 
+    aria-label="Close dialog"
+    (click)="close(); $event.preventDefault(); $event.stopPropagation()"
+    (mousedown)="$event.stopPropagation()"
+    (mouseup)="$event.stopPropagation()">
+    <i class="fa-solid fa-times" aria-hidden="true"></i>
+    <span class="sr-only">×</span>
+  </button>
+</div>
+
+<div class="dialog-content">
+  <div class="gig-info">
+    <div class="row">
+      <div class="col-md-8">
+        <div class="info-section">
+          <h4>Event Details</h4>
+          <p><strong>Date:</strong> {{ data.gig.date.day }} {{ data.gig.date.month }}</p>
+          <p><strong>Day:</strong> {{ data.gig.dayOfWeek }}</p>
+          <p><strong>Time:</strong> {{ data.gig.time }}</p>
+          <p><strong>Venue:</strong> {{ data.gig.venue }}</p>
+          <p><strong>Location:</strong> {{ data.gig.location }}</p>
+        </div>
+        
+        @if (data.gig.description) {
+          <div class="info-section">
+            <h4>About this Performance</h4>
+            <p>{{ data.gig.description }}</p>
+          </div>
+        }
+        
+        @if (data.gig.ticketUrl) {
+          <div class="info-section">
+            <h4>Tickets</h4>
+            <a [href]="data.gig.ticketUrl" 
+               target="_blank" 
+               class="btn btn-primary btn-lg">
+              <i class="fa-solid fa-ticket"></i> Buy Tickets
+            </a>
+          </div>
+        }
+      </div>
+    </div>
+  </div>
+</div>

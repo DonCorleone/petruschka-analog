@@ -43,15 +43,15 @@ export class BandDataService {
 
   merchResource = resource({
     loader: async () => {
-      const response = await this.http.get<ApiResponse<{ merchandise: MerchItem[], updates: Update[] }>>('/api/v1/merch').toPromise();
-      return response?.data?.merchandise || [];
+      const response = await this.http.get<ApiResponse<MerchItem[]>>('/api/v1/merch').toPromise();
+      return response?.data || [];
     }
   });
 
   updatesResource = resource({
     loader: async () => {
-      const response = await this.http.get<ApiResponse<{ merchandise: MerchItem[], updates: Update[] }>>('/api/v1/merch').toPromise();
-      return response?.data?.updates || [];
+      const response = await this.http.get<ApiResponse<Update[]>>('/api/v1/updates').toPromise();
+      return response?.data || [];
     }
   });
 

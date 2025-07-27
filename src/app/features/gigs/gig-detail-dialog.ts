@@ -7,6 +7,7 @@ import { Gig } from '../../../shared/types';
 
 export interface GigDetailData {
   gig: Gig;
+  isHistoryEvent?: boolean;
 }
 
 @Component({
@@ -25,6 +26,7 @@ export class GigDetailDialogComponent {
   ) {}
 
   close(): void {
+    console.log('Dialog close called', { isHistoryEvent: this.data.isHistoryEvent });
     this.dialogService.closeCurrentDialog();
   }
 }

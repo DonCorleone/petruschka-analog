@@ -19,8 +19,8 @@ export class PromoSectionComponent {
   
   private bandDataService = inject(BandDataService);
   
-  headline = 'For Bands and Musicians';
-  tagline = 'The Perfect Bootstrap Template to Promote Your Music';
+  headline = 'Petruschka';
+  tagline = 'Zauberhafte Puppentheater-Aufführungen für Kinder und Familien';
   
   slides: CarouselSlide[] = [
     { id: 1, interval: 6000 },

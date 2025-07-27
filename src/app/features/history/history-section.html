@@ -1,7 +1,7 @@
 <section class="history-section section">
   <div class="container">
     <div class="section-header text-center">
-        <h2 class="section-title">History</h2>
+        <h2 class="section-title">Geschichte</h2>
         <div class="section-intro">
             Hier finden Sie eine Übersicht über unsere vergangenen Stücke, die wir in den letzten Jahren aufgeführt haben.
         </div>
@@ -21,12 +21,9 @@
               @if (event.description) {
                 <div class="event-actions">
                   <button type="button" class="btn btn-xs btn-ghost-secondary" 
-                          (click)="toggleInfo('event-' + event.id)">
-                    INFO / FOTOS
+                          (click)="openHistoryDetail(event)">
+                    Mehr Details
                   </button>
-                </div>
-                <div class="info-extra" [id]="'event-' + event.id">
-                  <p>{{event.description}}</p>
                 </div>
               }
             </div>

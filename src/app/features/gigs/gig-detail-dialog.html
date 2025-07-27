@@ -3,7 +3,7 @@
   <button 
     type="button" 
     class="btn-close" 
-    aria-label="Close dialog"
+    aria-label="Dialog schliessen"
     (click)="close(); $event.preventDefault(); $event.stopPropagation()"
     (mousedown)="$event.stopPropagation()"
     (mouseup)="$event.stopPropagation()">
@@ -17,28 +17,38 @@
     <div class="row">
       <div class="col-md-8">
         <div class="info-section">
-          <h4>Event Details</h4>
-          <p><strong>Date:</strong> {{ data.gig.date.day }} {{ data.gig.date.month }}</p>
-          <p><strong>Day:</strong> {{ data.gig.dayOfWeek }}</p>
-          <p><strong>Time:</strong> {{ data.gig.time }}</p>
-          <p><strong>Venue:</strong> {{ data.gig.venue }}</p>
-          <p><strong>Location:</strong> {{ data.gig.location }}</p>
+          @if (data.isHistoryEvent) {
+            <h4>Historische Aufführung</h4>
+            <p><strong>Titel:</strong> {{ data.gig.title }}</p>
+            <p><strong>Uraufführung:</strong> {{ data.gig.date.day }} {{ data.gig.date.month }}</p>
+          } @else {
+            <h4>Veranstaltungsdetails</h4>
+            <p><strong>Datum:</strong> {{ data.gig.date.day }} {{ data.gig.date.month }}</p>
+            <p><strong>Tag:</strong> {{ data.gig.dayOfWeek }}</p>
+            <p><strong>Zeit:</strong> {{ data.gig.time }}</p>
+            <p><strong>Veranstaltungsort:</strong> {{ data.gig.venue }}</p>
+            <p><strong>Ort:</strong> {{ data.gig.location }}</p>
+          }
         </div>
         
         @if (data.gig.description) {
           <div class="info-section">
-            <h4>About this Performance</h4>
+            @if (data.isHistoryEvent) {
+              <h4>Über dieses Stück</h4>
+            } @else {
+              <h4>Über diese Aufführung</h4>
+            }
             <p>{{ data.gig.description }}</p>
           </div>
         }
         
-        @if (data.gig.ticketUrl) {
+        @if (data.gig.ticketUrl && data.gig.ticketUrl !== '#' && !data.isHistoryEvent) {
           <div class="info-section">
             <h4>Tickets</h4>
             <a [href]="data.gig.ticketUrl" 
                target="_blank" 
                class="btn btn-primary btn-lg">
-              <i class="fa-solid fa-ticket"></i> Buy Tickets
+              <i class="fa-solid fa-ticket"></i> Tickets kaufen
             </a>
           </div>
         }

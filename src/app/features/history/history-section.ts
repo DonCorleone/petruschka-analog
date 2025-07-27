@@ -1,5 +1,7 @@
 import { Component, inject } from '@angular/core';
 import { BandDataService } from '../../core/services';
+import { DialogService } from '../../core/services/dialog.service';
+import { PastEvent } from '../../../shared/types';
 
 @Component({
   selector: 'app-history-section',
@@ -10,13 +12,11 @@ import { BandDataService } from '../../core/services';
 export class HistorySectionComponent {
   
   private bandDataService = inject(BandDataService);
+  private dialogService = inject(DialogService);
   
   pastEvents = this.bandDataService.pastEventsResource.value;
 
-  toggleInfo(elementId: string): void {
-    const element = document.getElementById(elementId);
-    if (element) {
-      element.classList.toggle('show');
-    }
+  openHistoryDetail(event: PastEvent): void {
+    this.dialogService.openHistoryDetail(event);
   }
 }

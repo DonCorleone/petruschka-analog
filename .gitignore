@@ -50,3 +50,4 @@ testem.log
 .DS_Store
 Thumbs.db
 src/assets/eventDb.EventDetailsTaggedUsage.json
+src/assets/input-data

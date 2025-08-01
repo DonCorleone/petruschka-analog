@@ -43,7 +43,7 @@ function extractGigs(eventDocuments: any[]): Gig[] {
       hour12: false 
     });
     
-    // Build description from available info
+    // Build simple description for list view
     let description = '';
     if (doc.ticketTypes && doc.ticketTypes.length > 0) {
       const prices = doc.ticketTypes
@@ -58,9 +58,9 @@ function extractGigs(eventDocuments: any[]): Gig[] {
         description = `Tickets: ${prices.join(', ')}`;
       }
     }
-    
+
     if (!description) {
-      description = 'Ein musikalisches Märchen vom Figurentheater PETRUSCHKA';
+      description = eventInfo.shortDescription || 'Ein musikalisches Märchen vom Figurentheater PETRUSCHKA';
     }
     
     gigsWithDates.push({
@@ -72,8 +72,11 @@ function extractGigs(eventDocuments: any[]): Gig[] {
       time: time,
       dayOfWeek: dayOfWeek,
       description: description,
-      ticketUrl: ticketUrl,
-      eventDate: eventDate
+      ticketUrl: eventInfo.url || '#',
+      eventDate: eventDate,
+      // Only include minimal data for list view - detailed data loaded on demand
+      shortDescription: eventInfo.shortDescription || '',
+      flyerImagePath: eventInfo.flyerImagePath || ''
     });
   });
   

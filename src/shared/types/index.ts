@@ -13,6 +13,22 @@ export interface Gig {
   dayOfWeek: string;
   description: string;
   ticketUrl: string;
+  // Enhanced fields from legacy data
+  longDescription?: string;
+  shortDescription?: string;
+  artists?: string;
+  flyerImagePath?: string;
+  bannerImagePath?: string;
+  eventDateString?: string;
+  ticketTypes?: Array<{
+    name: string;
+    price: number;
+    currency: string;
+    description?: string;
+  }>;
+  duration?: string;
+  ageRecommendation?: string;
+  importantNotes?: string;
 }
 
 export interface Album {

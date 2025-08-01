@@ -1,4 +1,4 @@
-import { Component, Inject, inject } from '@angular/core';
+import { Component, Inject, ChangeDetectionStrategy } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { DIALOG_DATA, DialogRef } from '@angular/cdk/dialog';
 import { Router } from '@angular/router';
@@ -12,10 +12,11 @@ export interface GigDetailData {
 
 @Component({
   selector: 'app-gig-detail-dialog',
-  standalone: true,
   imports: [CommonModule],
   templateUrl: './gig-detail-dialog.html',
-  styleUrls: ['./gig-detail-dialog.css']
+  styleUrls: ['./gig-detail-dialog.css'],
+  changeDetection: ChangeDetectionStrategy.OnPush
+
 })
 export class GigDetailDialogComponent {
   constructor(
@@ -27,6 +28,6 @@ export class GigDetailDialogComponent {
 
   close(): void {
     console.log('Dialog close called', { isHistoryEvent: this.data.isHistoryEvent });
-    this.dialogService.closeCurrentDialog();
+    this.dialogRef.close();
   }
 }

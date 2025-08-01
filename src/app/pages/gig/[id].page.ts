@@ -23,7 +23,7 @@ export default class GigDetailPage implements OnInit {
   private bandDataService = inject(BandDataService);
   private dialogService = inject(DialogService);
 
-  ngOnInit(): void {
+    async ngOnInit(): Promise<void> {
     const gigId = this.route.snapshot.paramMap.get('id');
     
     if (gigId) {
@@ -32,15 +32,15 @@ export default class GigDetailPage implements OnInit {
       const gig = gigs?.find(g => g.id.toString() === gigId);
       
       if (gig) {
-        // Open the dialog overlay
-        this.dialogService.openGigDetail(gig);
+        // Open the dialog overlay with detailed data loading
+        await this.dialogService.openGigDetail(gig);
       } else {
         // Gig not found, redirect to home
         console.error('Gig not found:', gigId);
         this.router.navigate(['/']);
       }
     } else {
-      // No gig ID, redirect to home
+      // No ID provided, redirect to home
       this.router.navigate(['/']);
     }
   }

@@ -12,10 +12,23 @@ export class GigsSectionComponent {
   
   private bandDataService = inject(BandDataService);
   private dialogService = inject(DialogService);
+  private isDialogOpening = false;
 
   gigs = this.bandDataService.gigsResource.value;
 
-  openGigDetail(gig: Gig): void {
-    this.dialogService.openGigDetail(gig);
+  async openGigDetail(gig: Gig): Promise<void> {
+    if (this.isDialogOpening) {
+      return; // Prevent double-click
+    }
+    
+    this.isDialogOpening = true;
+    try {
+      await this.dialogService.openGigDetail(gig);
+    } finally {
+      // Reset flag after a short delay to allow for dialog to fully open
+      setTimeout(() => {
+        this.isDialogOpening = false;
+      }, 500);
+    }
   }
 }

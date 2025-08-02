@@ -1,11 +1,11 @@
-import { Component, inject } from '@angular/core';
+import { Component, inject, ChangeDetectionStrategy } from '@angular/core';
 import { BandDataService } from '../../core/services';
 
 @Component({
   selector: 'app-merch-section',
-  standalone: true,
   templateUrl: './merch-section.html',
-  styleUrls: ['./merch-section.css']
+  styleUrls: ['./merch-section.css'],
+  changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class MerchSectionComponent {
   

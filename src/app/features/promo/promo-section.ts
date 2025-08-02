@@ -1,4 +1,4 @@
-import { Component, signal, inject } from '@angular/core';
+import { Component, signal, inject, ChangeDetectionStrategy } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { BandDataService } from '../../core/services';
 import { CountdownComponent } from '../../shared/components';
@@ -10,10 +10,10 @@ interface CarouselSlide {
 
 @Component({
   selector: 'app-promo-section',
-  standalone: true,
   imports: [CommonModule, CountdownComponent],
   templateUrl: './promo-section.html',
-  styleUrls: ['./promo-section.css']
+  styleUrls: ['./promo-section.css'],
+  changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class PromoSectionComponent {
   

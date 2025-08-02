@@ -16,7 +16,6 @@ export interface GigDetailData {
   templateUrl: './gig-detail-dialog.html',
   styleUrls: ['./gig-detail-dialog.css'],
   changeDetection: ChangeDetectionStrategy.OnPush
-
 })
 export class GigDetailDialogComponent {
   constructor(

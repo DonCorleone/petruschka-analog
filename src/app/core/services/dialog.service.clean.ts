@@ -87,16 +87,14 @@ export class DialogService {
     }
   }
 
-  async openHistoryDetail(event: PastEvent): Promise<void> {
-
-    console.log('event data:', JSON.stringify(event));
+  openHistoryDetail(event: PastEvent): void {
     // Close any existing dialog first
     if (this.currentDialogRef) {
       this.currentDialogRef.close();
     }
     
-    // Transform PastEvent to Gig-like structure for dialog (basic data)
-    let gigData: Gig = {
+    // Transform PastEvent to Gig-like structure for dialog
+    const gigData: Gig = {
       id: parseInt(event.id) || 0,
       title: event.title,
       date: {
@@ -111,28 +109,7 @@ export class DialogService {
       ticketUrl: '#'
     };
 
-    try {
-      console.log(`🔄 Loading detailed past event data for: ${event.title} (ID: ${event.id})`);
-      
-      // Fetch detailed past event data from API
-      const response = await firstValueFrom(
-        this.http.get<ApiResponse<Gig>>(`/api/v1/past-event/${event.id}`)
-      );
-      
-      if (response.success && response.data) {
-        gigData = response.data;
-        console.log(`✅ Loaded detailed past event data for: ${gigData.title}`);
-      } else {
-        throw new Error('Failed to load past event details');
-      }
-      
-    } catch (error) {
-      console.error('Error loading past event details:', error);
-      console.log('⚠️ Falling back to basic past event data');
-      // gigData remains as the basic past event data
-    }
-
-    // Open dialog with either detailed or basic data
+    // Open dialog
     this.currentDialogRef = this.dialog.open<boolean>(GigDetailDialogComponent, {
       data: { gig: gigData, isHistoryEvent: true } as GigDetailData,
       panelClass: 'custom-dialog-panel',

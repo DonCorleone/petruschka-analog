@@ -1,13 +1,13 @@
-import { Component, inject } from '@angular/core';
+import { Component, inject, ChangeDetectionStrategy } from '@angular/core';
 import { BandDataService } from '../../core/services';
 import { DialogService } from '../../core/services/dialog.service';
 import { PastEvent } from '../../../shared/types';
 
 @Component({
   selector: 'app-history-section',
-  standalone: true,
   templateUrl: './history-section.html',
-  styleUrls: ['./history-section.css']
+  styleUrls: ['./history-section.css'],
+  changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class HistorySectionComponent {
   

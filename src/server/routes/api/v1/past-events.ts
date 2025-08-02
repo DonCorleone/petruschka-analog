@@ -55,7 +55,7 @@ function extractPastEvents(eventDocuments: any[]): PastEvent[] {
 
     
     pastEvents.push({
-      id: doc._id,
+      id: eventDetail._id,
       title: eventInfo.name,
       image: imageUrl,
       description: eventInfo.shortDescription || 'Keine Beschreibung verfügbar.',

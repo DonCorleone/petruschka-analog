@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, ChangeDetectionStrategy } from '@angular/core';
 import { HeaderComponent, FooterComponent } from '../core/layout';
 import { PromoSectionComponent } from '../features/promo';
 import { GigsSectionComponent } from '../features/gigs';
@@ -57,6 +57,7 @@ import { BackToTopComponent } from '../shared/components';
     <app-footer />
     <app-back-to-top />
   `,
+  changeDetection: ChangeDetectionStrategy.OnPush
 })
 export default class HomeComponent {
 }

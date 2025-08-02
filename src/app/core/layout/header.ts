@@ -1,4 +1,4 @@
-import { Component, signal, HostListener, inject } from '@angular/core';
+import { Component, signal, HostListener, inject, ChangeDetectionStrategy } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
 interface NavLink {
@@ -8,10 +8,10 @@ interface NavLink {
 
 @Component({
   selector: 'app-header',
-  standalone: true,
   imports: [CommonModule],
   templateUrl: './header.html',
-  styleUrls: ['./header.css']
+  styleUrls: ['./header.css'],
+  changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class HeaderComponent {
   

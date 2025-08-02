@@ -1,4 +1,4 @@
-import { Component, Input, signal, OnInit, OnDestroy, inject, PLATFORM_ID } from '@angular/core';
+import { Component, Input, signal, OnInit, OnDestroy, inject, PLATFORM_ID, ChangeDetectionStrategy } from '@angular/core';
 import { CommonModule, isPlatformBrowser } from '@angular/common';
 
 interface TimeLeft {
@@ -10,10 +10,10 @@ interface TimeLeft {
 
 @Component({
   selector: 'app-countdown',
-  standalone: true,
   imports: [CommonModule],
   templateUrl: './countdown.html',
-  styleUrls: ['./countdown.css']
+  styleUrls: ['./countdown.css'],
+  changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class CountdownComponent implements OnInit, OnDestroy {
   

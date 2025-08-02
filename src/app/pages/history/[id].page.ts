@@ -1,4 +1,4 @@
-import { Component, inject, OnInit } from '@angular/core';
+import { Component, inject, OnInit, ChangeDetectionStrategy } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { CommonModule } from '@angular/common';
 import { DialogService } from '../../core/services/dialog.service';
@@ -7,7 +7,6 @@ import { PastEvent } from '../../../shared/types';
 
 @Component({
   selector: 'app-history-detail-page',
-  standalone: true,
   imports: [CommonModule],
   template: `
     <!-- This page exists for SEO and deep linking -->
@@ -15,7 +14,8 @@ import { PastEvent } from '../../../shared/types';
     <div class="loading-container">
       <p>Lade historische Details...</p>
     </div>
-  `
+  `,
+  changeDetection: ChangeDetectionStrategy.OnPush
 })
 export default class HistoryDetailPage implements OnInit {
   private route = inject(ActivatedRoute);

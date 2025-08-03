@@ -27,4 +27,10 @@ export class GigDetailDialogComponent {
     console.log('Dialog close called', { isHistoryEvent: this.data.isHistoryEvent });
     this.dialogRef.close();
   }
+
+  openLocationDialog(locationName: string): void {
+    if (locationName && locationName !== '#') {
+      this.dialogService.openLocationDetail(locationName);
+    }
+  }
 }

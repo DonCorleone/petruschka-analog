@@ -97,6 +97,24 @@
   border-color: color-mix(in srgb, var(--primary-color) 90%, black);
 }
 
+/* Location link styling */
+.location-link {
+  color: var(--primary-color);
+  cursor: pointer;
+  text-decoration: underline;
+  transition: color 0.2s ease;
+}
+
+.location-link:hover {
+  color: color-mix(in srgb, var(--primary-color) 80%, black);
+  text-decoration: none;
+}
+
+.location-link i {
+  font-size: 0.9em;
+  opacity: 0.8;
+}
+
 /* Accessibility */
 .sr-only {
   position: absolute !important;

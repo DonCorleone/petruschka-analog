@@ -3,7 +3,9 @@ import { Dialog, DialogRef } from '@angular/cdk/dialog';
 import { HttpClient } from '@angular/common/http';
 import { firstValueFrom } from 'rxjs';
 import { GigDetailDialogComponent, GigDetailData } from '../../features/gigs/gig-detail-dialog';
-import { Gig, PastEvent, ApiResponse } from '../../../shared/types';
+import { MemberBioDialogComponent, MemberBioData } from '../../features/about/member-bio-dialog';
+import { LocationDialogComponent, LocationDialogData } from '../../features/location/location-dialog';
+import { Gig, PastEvent, BandMember, Location, ApiResponse } from '../../../shared/types';
 
 @Injectable({
   providedIn: 'root'
@@ -170,5 +172,101 @@ export class DialogService {
       return parts[0];
     }
     return '01';
+  }
+
+  openMemberBio(member: BandMember): void {
+    // Prevent double-opening
+    if (this.isDialogOpening) {
+      return;
+    }
+    
+    this.isDialogOpening = true;
+    
+    try {
+      // Close any existing dialog first
+      if (this.currentDialogRef) {
+        this.currentDialogRef.close();
+      }
+      
+      // Open member bio dialog
+      this.currentDialogRef = this.dialog.open<boolean>(MemberBioDialogComponent, {
+        data: { member } as MemberBioData,
+        panelClass: 'custom-dialog-panel',
+        backdropClass: 'custom-dialog-backdrop',
+        hasBackdrop: true,
+        disableClose: false,
+        autoFocus: false,
+        restoreFocus: true,
+        closeOnNavigation: false
+      });
+
+      // Handle dialog close
+      this.currentDialogRef.closed.subscribe(() => {
+        console.log('Member bio dialog closed');
+        this.currentDialogRef = null;
+      });
+      
+    } finally {
+      // Reset the opening flag after a short delay
+      setTimeout(() => {
+        this.isDialogOpening = false;
+      }, 300);
+    }
+  }
+
+  async openLocationDetail(locationName: string): Promise<void> {
+    // Prevent double-opening
+    if (this.isDialogOpening) {
+      return;
+    }
+    
+    this.isDialogOpening = true;
+    
+    try {
+      // Close any existing dialog first
+      if (this.currentDialogRef) {
+        this.currentDialogRef.close();
+      }
+      
+      console.log(`🔄 Loading location data for: ${locationName}`);
+      
+      // Fetch location data from API
+      const response = await firstValueFrom(
+        this.http.get<ApiResponse<Location>>(`/api/v1/location/${encodeURIComponent(locationName)}`)
+      );
+      
+      if (!response.success || !response.data) {
+        throw new Error('Failed to load location details');
+      }
+      
+      console.log(`✅ Loaded location data for: ${response.data.name}`);
+      
+      // Open location dialog
+      this.currentDialogRef = this.dialog.open<boolean>(LocationDialogComponent, {
+        data: { location: response.data } as LocationDialogData,
+        panelClass: 'custom-dialog-panel',
+        backdropClass: 'custom-dialog-backdrop',
+        hasBackdrop: true,
+        disableClose: false,
+        autoFocus: false,
+        restoreFocus: true,
+        closeOnNavigation: false
+      });
+
+      // Handle dialog close
+      this.currentDialogRef.closed.subscribe(() => {
+        console.log('Location dialog closed');
+        this.currentDialogRef = null;
+      });
+      
+    } catch (error) {
+      console.error('Error loading location details:', error);
+      // Could show a toast notification here
+    } finally {
+      // Reset the opening flag after a short delay
+      setTimeout(() => {
+        this.isDialogOpening = false;
+      }, 300);
+    }
   }
 }

@@ -1,0 +1,121 @@
+/* CDK Dialog Host Styles - Following CDK Documentation Pattern */
+:host {
+  display: block;
+  background: #fff;
+  margin: 4vh 4vw;
+  min-width: 600px;
+  max-width: 1024px;
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+}
+
+/* Dialog Header */
+.dialog-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px;
+  border-bottom: 1px solid #eee;
+  background: #f8f9fa;
+}
+
+.dialog-title {
+  margin: 0;
+  font-size: 24px;
+  font-weight: 700;
+  color: var(--secondary-color);
+}
+
+/* Close Button */
+.btn-close {
+  border-color: var(--primary-color);
+  color: var(--primary-color);
+  background-color: var(--section-bg-light);
+  opacity: 1;
+  min-width: 40px;
+  min-height: 40px;
+}
+
+.btn-close:hover {
+  border-color: var(--section-bg-light);
+  color: var(--section-bg-light);
+  background: var(--primary-color);
+  box-shadow: unset;
+}
+
+.btn-close:focus {
+  outline: 2px solid var(--primary-color);
+  outline-offset: 2px;
+}
+
+/* Content */
+.dialog-content {
+  padding: 20px;
+  overflow-y: auto;
+  max-height: calc(90vh - 80px);
+}
+
+.info-section {
+  margin-bottom: 25px;
+}
+
+.info-section h4 {
+  font-size: 18px;
+  font-weight: 600;
+  color: #333;
+  border-bottom: 1px solid var(--primary-color);
+}
+
+.info-section p {
+  margin-bottom: 8px;
+  line-height: 1.6;
+}
+
+.info-section strong {
+  color: #555;
+  font-weight: 600;
+}
+
+/* Member specific styling */
+.member-profile img {
+  width: 100%;
+  height: auto;
+  border-radius: 12px;
+  object-fit: cover;
+}
+
+.member-label {
+  display: inline-block;
+  width: 100%;
+  text-align: center;
+  padding: 5px 10px;
+  background: var(--dark-bg);
+  color: #fff;
+  font-family: "Raleway", sans-serif;
+  text-transform: uppercase;
+  font-weight: 700;
+  margin-bottom: 30px;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  :host {
+    margin: 2vh 2vw;
+    min-width: unset;
+  }
+
+  .dialog-header {
+    padding: 36px;
+  }
+
+  .dialog-title {
+    font-size: 20px;
+  }
+
+  .dialog-content {
+    padding: 16px;
+  }
+
+  .member-profile {
+    margin-bottom: 20px;
+  }
+}

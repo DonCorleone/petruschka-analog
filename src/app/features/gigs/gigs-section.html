@@ -16,7 +16,9 @@
                 <ul class="meta-list list-inline">
                   <li class="list-inline-item location">
                     <i class="fas fa-map-marker-alt"></i>
-                    <a [href]="'#'">{{ gig.venue }}, {{ gig.location }}</a>
+                    <span class="location-link" (click)="openLocationDialog(gig.location)" title="Ort-Details anzeigen">
+                      {{ gig.location }}
+                    </span>
                   </li>
                   <li class="list-inline-item time">
                     <i class="far fa-clock"></i>

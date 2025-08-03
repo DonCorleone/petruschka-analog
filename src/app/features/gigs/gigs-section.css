@@ -51,6 +51,19 @@
   color: #788191;
 }
 
+/* Location link styling */
+.gigs-section .location-link {
+  color: var(--primary-color);
+  cursor: pointer;
+  text-decoration: underline;
+  transition: color 0.2s ease;
+}
+
+.gigs-section .location-link:hover {
+  color: color-mix(in srgb, var(--primary-color) 80%, black);
+  text-decoration: none;
+}
+
 .gigs-section .meta-list i {
   margin-right: 5px;
   color: var(--primary-color);

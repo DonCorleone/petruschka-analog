@@ -18,4 +18,10 @@ export class GigsSectionComponent {
   async openGigDetail(gig: Gig): Promise<void> {
     await this.dialogService.openGigDetail(gig);
   }
+
+  async openLocationDialog(locationName: string): Promise<void> {
+    if (locationName && locationName !== '#') {
+      await this.dialogService.openLocationDetail(locationName);
+    }
+  }
 }

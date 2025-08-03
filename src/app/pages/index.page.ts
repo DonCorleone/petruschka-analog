@@ -1,5 +1,4 @@
-import { Component, inject, PLATFORM_ID } from '@angular/core';
-import { isPlatformBrowser } from '@angular/common';
+import { Component, ChangeDetectionStrategy } from '@angular/core';
 import { HeaderComponent, FooterComponent } from '../core/layout';
 import { PromoSectionComponent } from '../features/promo';
 import { GigsSectionComponent } from '../features/gigs';
@@ -32,94 +31,33 @@ import { BackToTopComponent } from '../shared/components';
     </div>
     
     <div id="gigs">
-      @if (isBrowser) {
-        @defer (on viewport) {
-          <app-gigs-section />
-        } @placeholder {
-          <div class="section" style="min-height: 100vh; display: flex; align-items: center; justify-content: center; background: var(--section-bg-light, #f8f9fa);">
-            <div style="color: var(--primary-color, #EC3A81); font-size: 14px; opacity: 0.8;">Loading gigs...</div>
-          </div>
-        }
-      } @else {
-        <app-gigs-section />
-      }
+      <app-gigs-section />
     </div>
     
     <div id="music">
-      @if (isBrowser) {
-        @defer (on viewport) {
-          <app-music-section />
-        } @placeholder {
-          <div class="section" style="min-height: 100vh; display: flex; align-items: center; justify-content: center; background: var(--section-bg-light, #f8f9fa);">
-            <div style="color: var(--primary-color, #EC3A81); font-size: 14px; opacity: 0.8;">Loading music...</div>
-          </div>
-        }
-      } @else {
-        <app-music-section />
-      }
+      <app-music-section />
     </div>
     
     <div id="about">
-      @if (isBrowser) {
-        @defer (on viewport) {
-          <app-about-section />
-        } @placeholder {
-          <div class="section" style="min-height: 100vh; display: flex; align-items: center; justify-content: center; background: var(--section-bg-light, #f8f9fa);">
-            <div style="color: var(--primary-color, #EC3A81); font-size: 14px; opacity: 0.8;">Loading about...</div>
-          </div>
-        }
-      } @else {
-        <app-about-section />
-      }
+      <app-about-section />
     </div>
     
     <div id="merch">
-      @if (isBrowser) {
-        @defer (on viewport) {
-          <app-merch-section />
-        } @placeholder {
-          <div class="section" style="min-height: 100vh; display: flex; align-items: center; justify-content: center; background: var(--section-bg-light, #f8f9fa);">
-            <div style="color: var(--primary-color, #EC3A81); font-size: 14px; opacity: 0.8;">Loading merchandise...</div>
-          </div>
-        }
-      } @else {
-        <app-merch-section />
-      }
+      <app-merch-section />
     </div>
     
     <div id="history">
-      @if (isBrowser) {
-        @defer (on viewport) {
-          <app-history-section />
-        } @placeholder {
-          <div class="section" style="min-height: 100vh; display: flex; align-items: center; justify-content: center; background: var(--section-bg-dark, #f1f1f1);">
-            <div style="color: var(--primary-color, #EC3A81); font-size: 14px; opacity: 0.8;">Loading vergangene Stücke...</div>
-          </div>
-        }
-      } @else {
-        <app-history-section />
-      }
+      <app-history-section />
     </div>
     
     <div id="contact">
-      @if (isBrowser) {
-        @defer (on viewport) {
-          <app-contact-section />
-        } @placeholder {
-          <div class="section" style="min-height: 100vh; display: flex; align-items: center; justify-content: center; background: var(--section-bg-dark, #f1f1f1);">
-            <div style="color: var(--primary-color, #EC3A81); font-size: 14px; opacity: 0.8;">Loading contact...</div>
-          </div>
-        }
-      } @else {
-        <app-contact-section />
-      }
+      <app-contact-section />
     </div>
     
     <app-footer />
     <app-back-to-top />
   `,
+  changeDetection: ChangeDetectionStrategy.OnPush
 })
 export default class HomeComponent {
-  private platformId = inject(PLATFORM_ID);
-  isBrowser = isPlatformBrowser(this.platformId);
 }

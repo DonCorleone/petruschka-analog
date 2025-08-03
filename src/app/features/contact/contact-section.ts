@@ -1,12 +1,12 @@
-import { Component, inject } from '@angular/core';
+import { Component, inject, ChangeDetectionStrategy } from '@angular/core';
 import { BandDataService } from '../../core/services';
 import { type ContactInfo, type SocialLink } from '../../../shared/types';
 
 @Component({
   selector: 'app-contact-section',
-  standalone: true,
   templateUrl: './contact-section.html',
-  styleUrls: ['./contact-section.css']
+  styleUrls: ['./contact-section.css'],
+  changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class ContactSectionComponent {
   private bandDataService = inject(BandDataService);

@@ -1,32 +1,21 @@
-import { Component, signal, inject } from '@angular/core';
-import { BandDataService } from '../../core/services';
+import { Component, inject, ChangeDetectionStrategy } from '@angular/core';
+import { BandDataService, DialogService } from '../../core/services';
+import { Gig } from '../../../shared/types';
 
 @Component({
   selector: 'app-gigs-section',
-  standalone: true,
   templateUrl: './gigs-section.html',
-  styleUrls: ['./gigs-section.css']
+  styleUrls: ['./gigs-section.css'],
+  changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class GigsSectionComponent {
   
   private bandDataService = inject(BandDataService);
-  private openGigs = signal<Set<number>>(new Set());
+  private dialogService = inject(DialogService);
 
   gigs = this.bandDataService.gigsResource.value;
 
-  toggleGigInfo(gigId: number) {
-    this.openGigs.update(openGigs => {
-      const newSet = new Set(openGigs);
-      if (newSet.has(gigId)) {
-        newSet.delete(gigId);
-      } else {
-        newSet.add(gigId);
-      }
-      return newSet;
-    });
-  }
-
-  isGigInfoOpen(gigId: number): boolean {
-    return this.openGigs().has(gigId);
+  async openGigDetail(gig: Gig): Promise<void> {
+    await this.dialogService.openGigDetail(gig);
   }
 }

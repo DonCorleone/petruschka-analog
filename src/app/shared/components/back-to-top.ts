@@ -1,12 +1,12 @@
-import { Component, signal, HostListener } from '@angular/core';
+import { Component, signal, HostListener, ChangeDetectionStrategy } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
 @Component({
   selector: 'app-back-to-top',
-  standalone: true,
   imports: [CommonModule],
   templateUrl: './back-to-top.html',
-  styleUrls: ['./back-to-top.css']
+  styleUrls: ['./back-to-top.css'],
+  changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class BackToTopComponent {
   

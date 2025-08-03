@@ -1,6 +1,6 @@
 <section class="merch-section section text-center">
   <div class="container">
-    <h2 class="section-title">Merch Store</h2>
+    <h2 class="section-title">Merchandise</h2>
     <div class="d-flex justify-content-center flex-wrap merch-container">
       @for (item of merchItems(); track item.id; let i = $index) {
         <div class="item">
@@ -8,9 +8,9 @@
             <img class="img-fluid" [src]="item.image" [alt]="item.title">
             <a class="mask" [href]="item.purchaseUrl">
               <span class="mask-inner">
-                <span class="item-title">{{ item.title }} ${{ item.price }}</span>
+                <span class="item-title">{{ item.title }} CHF {{ item.price }}</span>
                 <span class="desc">{{ item.description }}</span>
-                <span class="btn btn-primary btn-cta">Buy Now</span>
+                <span class="btn btn-primary btn-cta">Jetzt kaufen</span>
               </span>
             </a>
           </div>
@@ -19,7 +19,7 @@
     </div>
     
     <div class="merch-action">
-      <a class="btn btn-ghost-primary" href="#">View All Items</a>
+      <a class="btn btn-ghost-primary" href="#">Alle Artikel anzeigen</a>
     </div>
   </div>
 </section>

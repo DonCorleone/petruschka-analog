@@ -1,9 +1,9 @@
 <section class="music-section section text-center">
   <div class="container">
-    <h2 class="section-title">Music</h2>
+    <h2 class="section-title">Musik</h2>
     
     <!-- SoundCloud embeds -->
-    <div class="sc-block ml-auto mr-auto">
+    <!--div class="sc-block ml-auto mr-auto">
       <div class="item">
         <iframe 
           width="100%" 
@@ -22,7 +22,7 @@
           src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/44327523&amp;color=0E0E10&amp;auto_play=false&amp;hide_related=false&amp;show_comments=true&amp;show_user=true&amp;show_reposts=false">
         </iframe>
       </div>
-    </div>
+    </div-->
     
     <!-- Albums grid -->
     <div class="albums-block">
@@ -41,17 +41,17 @@
                   </div>
                   <img class="cover-image img-fluid" [src]="album.coverImage" [alt]="album.title">
                   @if (album.status === 'coming-soon') {
-                    <div class="cover-label">Coming Soon</div>
+                    <div class="cover-label">Demnächst verfügbar</div>
                   }
                 </a>
                 
                 @if (album.status === 'coming-soon') {
                   <a [href]="album.purchaseUrl" class="btn btn-sm btn-ghost-secondary">
-                    Pre-Order Album
+                    Album vorbestellen
                   </a>
                 } @else {
                   <a [href]="album.purchaseUrl" class="btn btn-sm btn-secondary">
-                    Buy Album @if (album.price) { ${{ album.price }} }
+                    Album kaufen @if (album.price) { CHF {{ album.price }} }
                   </a>
                 }
               </div>
@@ -62,7 +62,7 @@
     </div>
     
     <div class="music-action">
-      <a class="btn btn-ghost-primary" href="#">Music on iTunes</a>
+      <a class="btn btn-ghost-primary" href="#">Musik auf iTunes</a>
     </div>
   </div>
 </section>

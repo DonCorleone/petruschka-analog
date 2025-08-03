@@ -51,15 +51,11 @@ function extractPastEvents(eventDocuments: any[]): PastEvent[] {
     };
     
     // Process image URL for consistent sizing
-    let imageUrl = 'https://petruschka.netlify.app/.netlify/images?url=' + eventInfo.flyerImagePath || '';
-    if (imageUrl && !imageUrl.includes('nf_resize')) {
-      imageUrl = imageUrl.includes('?') 
-        ? `${imageUrl}&nf_resize=fit&w=105`
-        : `${imageUrl}?nf_resize=fit&w=105`;
-    }
+    let imageUrl = `https://petruschka.netlify.app/.netlify/images?url=${eventInfo.flyerImagePath}&nf_resize=fit&w=105`
+
     
     pastEvents.push({
-      id: doc._id,
+      id: eventDetail._id,
       title: eventInfo.name,
       image: imageUrl,
       description: eventInfo.shortDescription || 'Keine Beschreibung verfügbar.',

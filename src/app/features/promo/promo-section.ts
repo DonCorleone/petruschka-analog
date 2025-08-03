@@ -1,4 +1,4 @@
-import { Component, signal, inject } from '@angular/core';
+import { Component, signal, inject, ChangeDetectionStrategy } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { BandDataService } from '../../core/services';
 import { CountdownComponent } from '../../shared/components';
@@ -10,17 +10,17 @@ interface CarouselSlide {
 
 @Component({
   selector: 'app-promo-section',
-  standalone: true,
   imports: [CommonModule, CountdownComponent],
   templateUrl: './promo-section.html',
-  styleUrls: ['./promo-section.css']
+  styleUrls: ['./promo-section.css'],
+  changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class PromoSectionComponent {
   
   private bandDataService = inject(BandDataService);
   
-  headline = 'For Bands and Musicians';
-  tagline = 'The Perfect Bootstrap Template to Promote Your Music';
+  headline = 'Petruschka';
+  tagline = 'Zauberhafte Puppentheater-Aufführungen für Kinder und Familien';
   
   slides: CarouselSlide[] = [
     { id: 1, interval: 6000 },

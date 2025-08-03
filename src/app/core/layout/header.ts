@@ -1,4 +1,4 @@
-import { Component, signal, HostListener, inject } from '@angular/core';
+import { Component, signal, HostListener, inject, ChangeDetectionStrategy } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
 interface NavLink {
@@ -8,10 +8,10 @@ interface NavLink {
 
 @Component({
   selector: 'app-header',
-  standalone: true,
   imports: [CommonModule],
   templateUrl: './header.html',
-  styleUrls: ['./header.css']
+  styleUrls: ['./header.css'],
+  changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class HeaderComponent {
   
@@ -20,12 +20,12 @@ export class HeaderComponent {
 
   navLinks: NavLink[] = [
     { href: '#promo', label: 'Home' },
-    { href: '#gigs', label: 'Gigs' },
-    { href: '#music', label: 'Music' },
-    { href: '#about', label: 'About' },
-    { href: '#merch', label: 'Merch' },
-    { href: '#history', label: 'History' },
-    { href: '#contact', label: 'Contact' }
+    { href: '#gigs', label: 'Auftritte' },
+    { href: '#music', label: 'Musik' },
+    { href: '#about', label: 'Über uns' },
+    { href: '#merch', label: 'Merchandise' },
+    { href: '#history', label: 'Geschichte' },
+    { href: '#contact', label: 'Kontakt' }
   ];
 
   isScrolled = this.scrolled.asReadonly();

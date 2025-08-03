@@ -14,7 +14,7 @@
   <div class="gig-info">
     <div class="row">
       <!-- Main Content Column -->
-      <div class="col-md-8">
+      <div class="col-md-7">
         <div class="info-section">
           @if (data.isHistoryEvent) {
             <h4>Historische Aufführung</h4>
@@ -30,7 +30,6 @@
               <p><strong>Zeit:</strong> {{ data.gig.time }}</p>
             }
             <p><strong>Veranstaltungsort:</strong> {{ data.gig.venue }}</p>
-            <p><strong>Ort:</strong> {{ data.gig.location }}</p>
             @if (data.gig.duration) {
               <p><strong>Dauer:</strong> {{ data.gig.duration }}</p>
             }
@@ -85,7 +84,7 @@
           </div>
         }
 
-        <!-- Ticket Information -->
+        <!-- Ticket Information
         @if (data.gig.ticketTypes && data.gig.ticketTypes.length > 0 && !data.isHistoryEvent) {
           <div class="info-section">
             <h4>Tickets & Preise</h4>
@@ -100,8 +99,8 @@
                 </div>
               }
             </div>
-          </div>
-        }
+          </div> 
+        }-->
         
         @if (data.gig.ticketUrl && data.gig.ticketUrl !== '#' && !data.isHistoryEvent) {
           <div class="info-section">
@@ -115,7 +114,7 @@
       </div>
 
       <!-- Image Column -->
-      <div class="col-md-4">
+      <div class="col-md-5">
         @if (data.gig.flyerImagePath) {
           <div class="gig-image mb-3">
             <img [src]="data.gig.flyerImagePath" 
@@ -124,7 +123,7 @@
           </div>
         }
         
-        @if (data.gig.bannerImagePath && data.gig.bannerImagePath !== data.gig.flyerImagePath) {
+        @if (data.gig.bannerImagePath && !data.gig.flyerImagePath) {
           <div class="gig-banner mb-3">
             <img [src]="data.gig.bannerImagePath" 
                  [alt]="data.gig.title + ' Banner'"

@@ -1,4 +1,4 @@
-import { Component, Inject, ChangeDetectionStrategy } from '@angular/core';
+import { Component, Inject, ChangeDetectionStrategy, inject } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { DIALOG_DATA, DialogRef } from '@angular/cdk/dialog';
 import { Router } from '@angular/router';
@@ -18,12 +18,10 @@ export interface GigDetailData {
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class GigDetailDialogComponent {
-  constructor(
-    public dialogRef: DialogRef<boolean>,
-    @Inject(DIALOG_DATA) public data: GigDetailData,
-    private router: Router,
-    private dialogService: DialogService
-  ) {}
+  public dialogRef = inject(DialogRef<boolean>);
+  public data = inject(DIALOG_DATA) as GigDetailData;
+  private router = inject(Router);
+  private dialogService = inject(DialogService);
 
   close(): void {
     console.log('Dialog close called', { isHistoryEvent: this.data.isHistoryEvent });

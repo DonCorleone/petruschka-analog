@@ -48,6 +48,17 @@ export interface BandMember {
   description: string;
 }
 
+export interface Location {
+  _id: { $oid: string };
+  name: string;
+  street: string;
+  postalCode: string;
+  city: string;
+  directions: string;
+  info: string;
+  ef_id?: string;
+}
+
 export interface MerchItem {
   id: number;
   title: string;

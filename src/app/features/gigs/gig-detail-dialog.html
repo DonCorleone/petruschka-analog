@@ -29,7 +29,12 @@
               <p><strong>Tag:</strong> {{ data.gig.dayOfWeek }}</p>
               <p><strong>Zeit:</strong> {{ data.gig.time }}</p>
             }
-            <p><strong>Veranstaltungsort:</strong> {{ data.gig.venue }}</p>
+            <p><strong>Veranstaltungsort:</strong> 
+              <span class="location-link" (click)="openLocationDialog(data.gig.location)" title="Ort-Details anzeigen">
+                {{ data.gig.location }}
+                <i class="fa-solid fa-map-marker-alt ms-1"></i>
+              </span>
+            </p>
             @if (data.gig.duration) {
               <p><strong>Dauer:</strong> {{ data.gig.duration }}</p>
             }

@@ -2,21 +2,6 @@ import { defineEventHandler, createError } from 'h3';
 import { BandMember, ApiResponse } from '../../../../shared/types';
 import { getMongoData } from '../../../lib/simple-mongo';
 
-// Helper function to truncate text and strip HTML
-function truncateText(text: string, maxLength: number = 150): string {
-  if (!text) return '';
-  
-  // Strip HTML tags
-  const stripped = text.replace(/<[^>]*>/g, '');
-  
-  // Truncate and add ellipsis if needed
-  if (stripped.length <= maxLength) {
-    return stripped;
-  }
-  
-  return stripped.substring(0, maxLength).trim() + '...';
-}
-
 export default defineEventHandler(async (event): Promise<ApiResponse<BandMember[]>> => {
   try {
     // Get only active staff from MongoDB native driver (filtered at DB level)
@@ -41,7 +26,7 @@ export default defineEventHandler(async (event): Promise<ApiResponse<BandMember[
         name: doc.name || 'Unknown Member',
         instrument: doc.topic || 'Unknown Topic', // MongoDB 'topic' maps to 'instrument'
         image: doc.image || `https://www.petruschka.ch/assets/images/staff/${encodeURIComponent(doc.name || 'Unknown Member')}.jpg?nf_resize=fit&h=240`,
-        description: truncateText(doc.bio, 150) || 'No description available.' // MongoDB 'bio' with ellipsis
+        description: doc.bio || 'No description available.' // MongoDB 'bio' - full text, no truncation
       }));
 
     return {

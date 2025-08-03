@@ -17,6 +17,30 @@
   height: 100%;
 }
 
+/* Member card clickable styles */
+.about-section .member-card {
+  cursor: pointer;
+  transition: all 0.3s ease;
+  position: relative;
+}
+
+.about-section .member-card::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(255, 255, 255, 0.1);
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  pointer-events: none;
+}
+
+.about-section .member-card:hover::after {
+  opacity: 1;
+}
+
 .about-section .member-name {
   font-size: 16px;
   margin-top: 0;
@@ -54,12 +78,41 @@
   font-family: 'Raleway', sans-serif;
   text-transform: uppercase;
   font-weight: 700;
-  font-size: 14px;
   margin-bottom: 30px;
+}
+
+/* Read more hint - hidden by default, subtle on hover */
+.about-section .read-more-hint {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  margin-top: 16px;
+  color: var(--primary-color);
+  font-size: 14px;
+  font-weight: 500;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+/* Desktop hover behavior */
+@media (min-width: 768px) {
+  .about-section .member-card:hover .read-more-hint {
+    opacity: 0.7;
+  }
+}
+
+.about-section .read-more-hint i {
+  font-size: 16px;
 }
 
 @media (max-width: 767.98px) {
   .about-section .item-inner {
     padding: 15px;
+  }
+  
+  /* Show "Mehr erfahren" by default on mobile */
+  .about-section .read-more-hint {
+    opacity: 0.8;
   }
 }

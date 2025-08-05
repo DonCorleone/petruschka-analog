@@ -6,7 +6,91 @@
       Kontaktieren Sie uns per E-Mail oder folgen Sie uns auf unseren sozialen Kanälen, 
       um über kommende Auftritte informiert zu bleiben.
     </div>
-    
+        <!-- Press Carousel -->
+    @if (pressReleases.length > 0) {
+      <div class="press-section mt-5">
+        <h3 class="section-subtitle">Presseartikel</h3>
+        <div 
+          id="press-carousel" 
+          class="press-carousel carousel slide" 
+          [attr.data-bs-ride]="'carousel'" 
+          [attr.data-bs-interval]="5000">
+          
+          <div class="carousel-inner">
+            @for (press of pressReleases; track press.id; let i = $index) {
+              <div class="carousel-item" [class.active]="i === 0">
+                <div class="press-item">
+                  <div class="row align-items-center">
+                    <div class="col-md-6">
+                      <div class="press-image">
+                        <img [src]="getPressImageUrl(press)" [alt]="press.desc" class="img-fluid">
+                      </div>
+                    </div>
+                    <div class="col-md-6">
+                      <div class="press-content">
+                        <h4 class="press-title">{{ press.desc }}</h4>
+                        <div class="press-meta">
+                          <p class="press-source">{{ press.source }}</p>
+                          <p class="press-date">{{ formatDate(press.date) }}</p>
+                          <p class="press-author">Von {{ press.author }}</p>
+                        </div>
+                        @if (press.quote) {
+                          <blockquote class="press-quote">
+                            "{{ press.quote }}"
+                          </blockquote>
+                        }
+                        <a [href]="getPressArticleUrl(press)" target="_blank" class="btn btn-primary btn-cta btn-sm">
+                          @if (press.link) {
+                            Artikel lesen
+                          } @else {
+                            Artikel öffnen ({{ press.fileExtension.toUpperCase() }})
+                          }
+                        </a>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            }
+          </div>
+          
+          <!-- Carousel Controls -->
+          @if (pressReleases.length > 1) {
+            <button 
+              class="carousel-control-prev" 
+              type="button" 
+              data-bs-target="#press-carousel" 
+              data-bs-slide="prev">
+              <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+              <span class="visually-hidden">Previous</span>
+            </button>
+            <button 
+              class="carousel-control-next" 
+              type="button" 
+              data-bs-target="#press-carousel" 
+              data-bs-slide="next">
+              <span class="carousel-control-next-icon" aria-hidden="true"></span>
+              <span class="visually-hidden">Next</span>
+            </button>
+          }
+
+          <!-- Carousel Indicators -->
+          @if (pressReleases.length > 1) {
+            <div class="carousel-indicators">
+              @for (press of pressReleases; track press.id; let i = $index) {
+                <button 
+                  type="button" 
+                  data-bs-target="#press-carousel" 
+                  [attr.data-bs-slide-to]="i" 
+                  [class.active]="i === 0"
+                  [attr.aria-label]="'Slide ' + (i + 1)">
+                </button>
+              }
+            </div>
+          }
+        </div>
+      </div>
+    }
     <div class="contact-block mr-auto ml-auto">
       <div class="row">
         @for (contact of contactInfo; track contact.type) {

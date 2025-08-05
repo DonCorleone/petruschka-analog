@@ -20,12 +20,12 @@ export class HeaderComponent {
 
   navLinks: NavLink[] = [
     { href: '#promo', label: 'Home' },
-    { href: '#gigs', label: 'Auftritte' },
-    { href: '#music', label: 'Musik' },
-    { href: '#about', label: 'Über uns' },
-    { href: '#merch', label: 'Merchandise' },
-    { href: '#history', label: 'Geschichte' },
-    { href: '#contact', label: 'Kontakt' }
+    { href: '#gigs', label: 'Aufführungen' },
+    { href: '#music', label: 'Hörspiele' },
+    { href: '#about', label: 'Team' },
+    { href: '#merch', label: 'Tourneestücke' },
+    { href: '#history', label: 'Vergangene Stücke' },
+    { href: '#contact', label: 'Über uns' }
   ];
 
   isScrolled = this.scrolled.asReadonly();

@@ -202,14 +202,10 @@
 .press-carousel .carousel-control-next {
   width: 50px;
   height: 50px;
-  background: var(--primary-color);
-  border-radius: 8px; /* Match other button border radius */
-  top: 175px; /* Fixed position from top - middle of 350px slide */
+  top: 75px; /* Fixed position from top - middle of 350px slide */
   transform: none; /* Remove translateY transform */
   transition: all 0.3s ease;
   position: absolute; /* Ensure absolute positioning */
-  opacity: 0.9;
-  border: 2px solid var(--primary-color);
 }
 
 .press-carousel .carousel-control-prev {
@@ -223,25 +219,23 @@
 .press-carousel .carousel-control-prev:hover,
 .press-carousel .carousel-control-next:hover {
   background: transparent;
-  border-color: var(--primary-color);
-  opacity: 1;
   transform: scale(1.05);
 }
 
 .press-carousel .carousel-control-prev-icon,
 .press-carousel .carousel-control-next-icon {
+  color: rgba(255, 255, 255, 0.6);
+
   width: 20px;
   height: 20px;
   background-size: 20px 20px;
-  filter: brightness(0) invert(1); /* Ensure white icons */
 }
 
 .press-carousel .carousel-indicators {
   bottom: auto;
   top: -40px;
   position: absolute;
-  left: 50%;
-  transform: translateX(-50%);
+
   margin: 0;
 }
 
@@ -249,7 +243,6 @@
   width: 12px;
   height: 12px;
   border-radius: 50%;
-  margin: 0 5px;
   background: rgba(255, 255, 255, 0.3);
   border: none;
   transition: all 0.3s ease;

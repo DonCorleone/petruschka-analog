@@ -232,10 +232,10 @@
     border-radius: 8px; */
 
     min-width: unset;
-    max-width: unset;
-    margin: 2vh 2vw;
-    height: 96vh;
-    width: 85vw;
+    /* max-width: unset;
+    margin: 8vh 0vw;
+    height: 84vh;
+    width: 90vw; */
   }
 
   .dialog-title {

@@ -104,6 +104,18 @@ export interface SocialLink {
   icon: string;
 }
 
+export interface Press {
+  id: string;
+  nr: string;
+  desc: string;
+  source: string;
+  date: string;
+  author: string;
+  fileExtension: string;
+  link?: string;
+  quote?: string;
+}
+
 // API Response wrapper
 export interface ApiResponse<T> {
   success: boolean;

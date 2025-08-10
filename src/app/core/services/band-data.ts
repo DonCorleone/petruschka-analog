@@ -1,6 +1,7 @@
 import { inject, Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { resource } from '@angular/core';
+import { GigDataService } from './gig-data.service';
 import { 
   type Gig, 
   type Album, 
@@ -19,12 +20,26 @@ import {
 })
 export class BandDataService {
   private http = inject(HttpClient);
+  private gigDataService = inject(GigDataService);
   
   // Using Resource API for optimal performance with signals and server-side data fetching
   gigsResource = resource({
     loader: async () => {
       const response = await this.http.get<ApiResponse<Gig[]>>('/api/v1/gigs').toPromise();
       return response?.data || [];
+    }
+  });
+
+  // New resource for raw gig template data (for detailed views)
+  gigTemplatesResource = resource({
+    loader: async () => {
+      const response = await this.http.get<ApiResponse<any[]>>('/api/v1/gig-templates').toPromise();
+      const templates = response?.data || [];
+      
+      // Store templates in GigDataService for client-side detail extraction
+      this.gigDataService.setGigTemplates(templates);
+      
+      return templates;
     }
   });
 

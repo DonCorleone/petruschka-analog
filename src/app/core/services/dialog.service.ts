@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { Dialog, DialogRef } from '@angular/cdk/dialog';
 import { HttpClient } from '@angular/common/http';
 import { firstValueFrom } from 'rxjs';
+import { GigDataService } from './gig-data.service';
 import { GigDetailDialogComponent, GigDetailData } from '../../features/gigs/gig-detail-dialog';
 import { MemberBioDialogComponent, MemberBioData } from '../../features/about/member-bio-dialog';
 import { LocationDialogComponent, LocationDialogData } from '../../features/location/location-dialog';
@@ -16,7 +17,8 @@ export class DialogService {
 
   constructor(
     private dialog: Dialog,
-    private http: HttpClient
+    private http: HttpClient,
+    private gigDataService: GigDataService
   ) {}
 
   async openGigDetail(gig: Gig): Promise<void> {
@@ -35,25 +37,60 @@ export class DialogService {
     
       let gigData: Gig = gig; // Default to basic gig data
       
+      // Try to extract detailed gig from client-side template data (no API call needed!)
       try {
-        console.log(`🔄 Loading detailed gig data for: ${gig.title} (ID: ${gig.id})`);
+        console.log(`🔄 Extracting detailed gig data from SSR templates: ${gig.title} (ID: ${gig.id})`);
         
-        // Fetch detailed gig data from API
-        const response = await firstValueFrom(
-          this.http.get<ApiResponse<Gig>>(`/api/v1/gig/${gig.id}`)
-        );
+        // Parse composite ID (format: "templateId_timestamp" or just templateId)
+        let templateId: string | number;
+        let targetTimestamp: number | null = null;
         
-        if (response.success && response.data) {
-          gigData = response.data;
-          console.log(`✅ Loaded detailed gig data for: ${gigData.title}`);
+        const gigIdStr = String(gig.id);
+        if (gigIdStr.includes('_')) {
+          const parts = gigIdStr.split('_');
+          templateId = parts[0];
+          targetTimestamp = parseInt(parts[1]);
         } else {
-          throw new Error('Failed to load gig details');
+          // Legacy numeric ID or simple template ID
+          const numericId = parseInt(gigIdStr);
+          templateId = isNaN(numericId) ? gigIdStr : numericId;
+        }
+        
+        // Extract detailed gig from stored template data
+        const detailedGig = this.gigDataService.extractDetailedGig(templateId, targetTimestamp);
+        
+        if (detailedGig) {
+          gigData = detailedGig;
+          console.log(`✅ Extracted detailed gig data from SSR templates: ${gigData.title}`);
+        } else {
+          console.log(`⚠️ Could not find template data for gig ID: ${templateId}, falling back to API`);
+          throw new Error('Template not found in client-side data');
         }
         
       } catch (error) {
-        console.error('Error loading gig details:', error);
-        console.log('⚠️ Falling back to basic gig data');
-        // gigData remains as the basic gig data
+        console.error('Error extracting gig details from SSR data:', error);
+        console.log('⚠️ API fallback DISABLED for testing - using basic gig data');
+        
+        // TEMPORARILY DISABLED: Fallback to API call if client-side extraction fails
+        // This is disabled to test the happy path of client-side extraction
+        /*
+        try {
+          const response = await firstValueFrom(
+            this.http.get<ApiResponse<Gig>>(`/api/v1/gig/${gig.id}`)
+          );
+          
+          if (response.success && response.data) {
+            gigData = response.data;
+            console.log(`✅ Loaded detailed gig data from API: ${gigData.title}`);
+          } else {
+            throw new Error('Failed to load gig details from API');
+          }
+        } catch (apiError) {
+          console.error('Error loading gig details from API:', apiError);
+          console.log('⚠️ Using basic gig data as final fallback');
+          // gigData remains as the basic gig data
+        }
+        */
       }
       
       // Open dialog with either detailed or basic data
@@ -118,23 +155,37 @@ export class DialogService {
     };
 
     try {
-      console.log(`🔄 Loading detailed past event data for: ${event.title} (ID: ${event.id})`);
+      console.log(`🔄 Extracting detailed past event data from SSR templates: ${event.title} (ID: ${event.id})`);
       
-      // Fetch detailed past event data from API
-      const response = await firstValueFrom(
-        this.http.get<ApiResponse<Gig>>(`/api/v1/past-event/${event.id}`)
-      );
+      // Try to extract detailed past event from client-side template data (no API call needed!)
+      const detailedPastEvent = this.gigDataService.extractDetailedPastEvent(event.id);
       
-      if (response.success && response.data) {
-        gigData = response.data;
-        console.log(`✅ Loaded detailed past event data for: ${gigData.title}`);
+      if (detailedPastEvent) {
+        gigData = detailedPastEvent;
+        console.log(`✅ Extracted detailed past event data from SSR templates: ${gigData.title}`);
       } else {
-        throw new Error('Failed to load past event details');
+        console.log(`⚠️ Could not find template data for past event ID: ${event.id}, using basic data`);
+        console.log('⚠️ API fallback DISABLED for testing - using basic past event data');
+        
+        // TEMPORARILY DISABLED: Fallback to API call if client-side extraction fails
+        // This is disabled to test the happy path of client-side extraction
+        /*
+        const response = await firstValueFrom(
+          this.http.get<ApiResponse<Gig>>(`/api/v1/past-event/${event.id}`)
+        );
+        
+        if (response.success && response.data) {
+          gigData = response.data;
+          console.log(`✅ Loaded detailed past event data for: ${gigData.title}`);
+        } else {
+          throw new Error('Failed to load past event details');
+        }
+        */
       }
       
     } catch (error) {
-      console.error('Error loading past event details:', error);
-      console.log('⚠️ Falling back to basic past event data');
+      console.error('Error extracting past event details from SSR data:', error);
+      console.log('⚠️ API fallback DISABLED for testing - using basic past event data');
       // gigData remains as the basic past event data
     }
 

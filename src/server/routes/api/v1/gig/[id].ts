@@ -33,6 +33,7 @@ function extractDetailedGig(doc: any): Gig | null {
   const dayOfWeek = eventDate.toLocaleDateString('de-DE', { weekday: 'long' });
   const day = eventDate.getDate();
   const month = eventDate.toLocaleDateString('de-DE', { month: 'short' }).toUpperCase();
+  const year = eventDate.getFullYear();
   const time = eventDate.toLocaleTimeString('de-DE', { 
     hour: '2-digit', 
     minute: '2-digit',
@@ -71,7 +72,7 @@ function extractDetailedGig(doc: any): Gig | null {
   
   return {
     id: doc._id,
-    date: { day, month },
+    date: { day, month, year },
     title: eventInfo.name,
     venue: eventInfo.location || 'Venue TBA',
     location: eventInfo.location || 'Location TBA', 
@@ -157,6 +158,7 @@ function extractDetailedGigFromView(doc: any, targetTimestamp?: number | null): 
   const dayOfWeek = eventDate.toLocaleDateString('de-DE', { weekday: 'long' });
   const day = eventDate.getDate();
   const month = eventDate.toLocaleDateString('de-DE', { month: 'short' }).toUpperCase();
+  const year = eventDate.getFullYear();
   const time = eventDate.toLocaleTimeString('de-DE', { 
     hour: '2-digit', 
     minute: '2-digit',
@@ -215,7 +217,7 @@ function extractDetailedGigFromView(doc: any, targetTimestamp?: number | null): 
   
   return {
     id: eventId,
-    date: { day, month },
+    date: { day, month, year },
     title: doc.name,
     venue: doc.location || 'Venue TBA',
     location: doc.location || 'Location TBA', 

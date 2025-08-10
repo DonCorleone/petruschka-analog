@@ -106,7 +106,8 @@ export class DialogService {
       title: event.title,
       date: {
         day: parseInt(this.getDayFromDate(event.date)),
-        month: this.getMonthFromDate(event.date)
+        month: this.getMonthFromDate(event.date),
+        year: this.getYearFromDate(event.date)
       },
       time: '20:00',
       dayOfWeek: '',
@@ -175,6 +176,15 @@ export class DialogService {
       return parts[0];
     }
     return '01';
+  }
+
+  private getYearFromDate(dateStr: string): number {
+    // Extract year from date string like "15.04.2023"
+    const parts = dateStr.split('.');
+    if (parts.length >= 3) {
+      return parseInt(parts[2]) || new Date().getFullYear();
+    }
+    return new Date().getFullYear();
   }
 
   openMemberBio(member: BandMember): void {

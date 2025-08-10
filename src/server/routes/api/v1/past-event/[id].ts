@@ -33,6 +33,7 @@ function extractDetailedPastEvent(doc: any): Gig | null {
   const dayOfWeek = eventDate.toLocaleDateString('de-DE', { weekday: 'long' });
   const day = eventDate.getDate();
   const month = eventDate.toLocaleDateString('de-DE', { month: 'short' }).toUpperCase();
+  const year = eventDate.getFullYear();
   const time = eventDate.toLocaleTimeString('de-DE', { 
     hour: '2-digit', 
     minute: '2-digit',
@@ -71,7 +72,7 @@ function extractDetailedPastEvent(doc: any): Gig | null {
   
   return {
     id: doc._id,
-    date: { day, month },
+    date: { day, month, year },
     title: eventInfo.name,
     venue: eventInfo.location || 'Petruschka Theater',
     location: eventInfo.location || 'Petruschka Theater', 
@@ -126,6 +127,7 @@ function extractDetailedPastEventFromView(doc: any): Gig | null {
   const dayOfWeek = eventDate.toLocaleDateString('de-DE', { weekday: 'long' });
   const day = eventDate.getDate();
   const month = eventDate.toLocaleDateString('de-DE', { month: 'short' }).toUpperCase();
+  const year = eventDate.getFullYear();
   const time = eventDate.toLocaleTimeString('de-DE', { 
     hour: '2-digit', 
     minute: '2-digit',
@@ -188,7 +190,7 @@ function extractDetailedPastEventFromView(doc: any): Gig | null {
   
   return {
     id: eventId,
-    date: { day, month },
+    date: { day, month, year },
     title: doc.name,
     venue: doc.location || 'Petruschka Theater',
     location: doc.location || 'Petruschka Theater', 

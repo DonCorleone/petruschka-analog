@@ -5,6 +5,7 @@ export interface Gig {
   date: {
     day: number;
     month: string;
+    year: number;
   };
   title: string;
   venue: string;

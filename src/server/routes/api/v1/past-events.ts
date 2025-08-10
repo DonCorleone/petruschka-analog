@@ -2,6 +2,76 @@ import { defineEventHandler, createError } from 'h3';
 import { PastEvent, ApiResponse } from '../../../../shared/types';
 import { getMongoData } from '../../../lib/simple-mongo';
 
+// Helper function to extract past events from optimized MongoDB Gigs view
+function extractPastEventsFromView(gigsViewData: any[]): PastEvent[] {
+  const pastEvents: PastEvent[] = [];
+  
+  gigsViewData.forEach((doc: any) => {
+    if (!doc.premiereDate) return;
+    
+    // Parse premiere date
+    let startDate: Date | null = null;
+    if (doc.premiereDate instanceof Date) {
+      startDate = doc.premiereDate;
+    } else if (doc.premiereDate?.$date) {
+      startDate = new Date(doc.premiereDate.$date);
+    } else if (typeof doc.premiereDate === 'string') {
+      startDate = new Date(doc.premiereDate);
+    }
+    
+    if (!startDate) return;
+    
+    // Only include events that are actually in the past
+    const now = new Date();
+    if (startDate >= now) return;
+    
+    const formattedDate = startDate.toLocaleDateString('de-DE', {
+      year: 'numeric',
+      month: 'long',
+    });
+    
+    // Extract year and season from template ID (e.g., "2024s" -> 2024, summer)
+    const idMatch = doc._id.toString().match(/(\d{4})([swfh])/);
+    const year = idMatch ? idMatch[1] : startDate.getFullYear().toString();
+    const seasonLetter = idMatch ? idMatch[2] : '';
+    
+    const seasonNames: {[key: string]: string} = {
+      's': 'Sommer',
+      'w': 'Winter', 
+      'h': 'Herbst',
+      'f': 'Frühling'
+    };
+    
+    // Process image URL for consistent sizing
+    let imageUrl = '';
+    if (doc.flyerImagePath) {
+      imageUrl = `https://petruschka.netlify.app/.netlify/images?url=${doc.flyerImagePath}&nf_resize=fit&w=105`;
+    }
+    
+    pastEvents.push({
+      id: doc._id.toString(),
+      title: doc.name,
+      image: imageUrl,
+      description: doc.shortDescription || 'Keine Beschreibung verfügbar.',
+      date: formattedDate,
+      year: year,
+      season: seasonNames[seasonLetter] || seasonLetter
+    });
+  });
+  
+  // Sort by year descending (newest first), then by season
+  return pastEvents.sort((a, b) => {
+    const yearDiff = parseInt(b.year) - parseInt(a.year);
+    if (yearDiff !== 0) return yearDiff;
+    
+    // Season order: Frühling, Sommer, Herbst, Winter
+    const seasonOrder = { 'Frühling': 1, 'Sommer': 2, 'Herbst': 3, 'Winter': 4 };
+    const aOrder = seasonOrder[a.season as keyof typeof seasonOrder] || 999;
+    const bOrder = seasonOrder[b.season as keyof typeof seasonOrder] || 999;
+    return bOrder - aOrder;
+  });
+}
+
 // Helper function to extract past events from MongoDB data
 function extractPastEvents(eventDocuments: any[]): PastEvent[] {
   const pastEvents: PastEvent[] = [];
@@ -80,16 +150,21 @@ function extractPastEvents(eventDocuments: any[]): PastEvent[] {
 
 export default defineEventHandler(async (event): Promise<ApiResponse<PastEvent[]>> => {
   try {
-    // Get past events data from MongoDB PastEventsWithId collection
-    const eventDocuments = await getMongoData({}, 'eventDb', 'PastEventsWithId');
+    // Get past events data from optimized MongoDB Gigs view
+    // Filter for items from any section (CD, Tournee) that have premiere dates (History section)
+    const query = { 
+      'premiereDate': { $exists: true },
+      'googleAnalyticsTracker': { $regex: "CD|Tournee", $options: "i" }
+    };
+    const gigsData = await getMongoData(query, 'eventDb', 'Gigs');
     
     let pastEvents: PastEvent[] = [];
     
-    if (eventDocuments && eventDocuments.length > 0) {
-      console.log('✅ Using MongoDB PastEventsWithId data');
-      pastEvents = extractPastEvents(eventDocuments);
+    if (gigsData && gigsData.length > 0) {
+      console.log('✅ Using optimized MongoDB Gigs view for past events');
+      pastEvents = extractPastEventsFromView(gigsData);
     } else {
-      console.log('⚠️ No past events data found');
+      console.log('⚠️ No past events data found in Gigs view');
     }
 
     return {

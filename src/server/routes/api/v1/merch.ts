@@ -2,6 +2,52 @@ import { defineEventHandler, createError } from 'h3';
 import { MerchItem, ApiResponse } from '../../../../shared/types';
 import { getMongoData } from '../../../lib/simple-mongo';
 
+// Helper function to extract Tournee items from optimized MongoDB Gigs view
+function extractTourneeMerchFromView(gigsViewData: any[]): MerchItem[] {
+  const merchItems: MerchItem[] = [];
+
+  gigsViewData.forEach((doc: any, docIndex: number) => {
+    // Generate unique numeric ID
+    let merchId: number;
+    if (typeof doc._id === 'number') {
+      merchId = doc._id;
+    } else if (typeof doc._id === 'string') {
+      // Convert string ID to numeric hash
+      merchId = doc._id.split('').reduce((hash: number, char: string) => {
+        return char.charCodeAt(0) + (hash << 6) + (hash << 16) - hash;
+      }, 0);
+      merchId = Math.abs(merchId) % 1000000; // Keep it manageable
+    } else {
+      merchId = docIndex + 2000; // Different base than albums
+    }
+
+    // Check if this gig has Tournee tickets in the pre-processed ticket details
+    const tourneeTicket = doc.ticketDetails?.find((ticket: any) => 
+      ticket.name && ticket.name.toLowerCase().includes('tournee')
+    );
+
+    if (tourneeTicket) {
+      // Process image URL for consistent sizing
+      let imageUrl = doc.flyerImagePath || doc.bannerImagePath || doc.imageUrl;
+      if (imageUrl) {
+        imageUrl = `https://petruschka.netlify.app/.netlify/images?url=${imageUrl}&nf_resize=fit&w=235`;
+      }
+
+      merchItems.push({
+        id: merchId,
+        title: `${doc.name} - Tournee Ticket`,
+        price: tourneeTicket.price || 25, // Use actual price or default
+        image: imageUrl || '',
+        description: doc.shortDescription || 'Tournee-Ticket für das musikalische Märchen',
+        purchaseUrl: doc.url || '#'
+      });
+    }
+  });
+
+  // Sort by newest first (assuming higher IDs are newer)
+  return merchItems.sort((a, b) => b.id - a.id);
+}
+
 // Helper function to extract Tournee items from MongoDB event data
 function extractTourneeMerch(eventDocuments: any[]): MerchItem[] {
   const merchItems: MerchItem[] = [];
@@ -50,19 +96,19 @@ function extractTourneeMerch(eventDocuments: any[]): MerchItem[] {
 
 export default defineEventHandler(async (event): Promise<ApiResponse<MerchItem[]>> => {
   try {
-    // Get Tournee data from MongoDB native driver (optimized query)
+    // Get Tournee data from optimized MongoDB Gigs view (filtered for Merch section)
+    // Use regex to match "Tournee" anywhere in the googleAnalyticsTracker field
+    const query = { "googleAnalyticsTracker": { $regex: "Tournee", $options: "i" } };
 
-    const query = { "ticketTypes.ticketTypeInfos.name": { $in: ["Tournee"] } };
-
-    const eventDocuments = await getMongoData(query, 'eventDb', 'EventDetailsTaggedUsage');
+    const gigsData = await getMongoData(query, 'eventDb', 'Gigs');
     
     let merchandise: MerchItem[] = [];
     
-    if (eventDocuments && eventDocuments.length > 0) {
-      console.log('✅ Using MongoDB Tournee data for merch');
-      merchandise = extractTourneeMerch(eventDocuments);
+    if (gigsData && gigsData.length > 0) {
+      console.log('✅ Using optimized MongoDB Gigs view for merch');
+      merchandise = extractTourneeMerchFromView(gigsData);
     } else {
-      console.log('⚠️ No event data found, using empty merch array');
+      console.log('⚠️ No Tournee data found in Gigs view');
     }
 
     return {

@@ -100,6 +100,123 @@ function extractDetailedPastEvent(doc: any): Gig | null {
   };
 }
 
+// Helper function to extract detailed past event from optimized MongoDB Gigs view
+function extractDetailedPastEventFromView(doc: any): Gig | null {
+  if (!doc.name || !doc.premiereDate) return null;
+  
+  // Parse premiere date
+  let eventDate: Date | null = null;
+  if (doc.premiereDate instanceof Date) {
+    eventDate = doc.premiereDate;
+  } else if (doc.premiereDate?.$date) {
+    eventDate = new Date(doc.premiereDate.$date);
+  } else if (typeof doc.premiereDate === 'string') {
+    eventDate = new Date(doc.premiereDate);
+  }
+  
+  if (!eventDate || isNaN(eventDate.getTime())) return null;
+  
+  // Extract pricing information from pre-processed data
+  let ticketUrl = doc.url || '#';
+  if (ticketUrl && !ticketUrl.startsWith('http')) {
+    ticketUrl = 'https://' + ticketUrl;
+  }
+  
+  // Format date components
+  const dayOfWeek = eventDate.toLocaleDateString('de-DE', { weekday: 'long' });
+  const day = eventDate.getDate();
+  const month = eventDate.toLocaleDateString('de-DE', { month: 'short' }).toUpperCase();
+  const time = eventDate.toLocaleTimeString('de-DE', { 
+    hour: '2-digit', 
+    minute: '2-digit',
+    hour12: false 
+  });
+  
+  // Build basic description for fallback
+  let description = doc.shortDescription || 'Ein vergangenes musikalisches Märchen vom Figurentheater PETRUSCHKA';
+  
+  // Extract ticket types with detailed information from pre-processed data
+  const ticketTypes = doc.ticketDetails?.map((ticket: any) => ({
+    name: ticket.name || 'Ticket',
+    price: ticket.price || 0,
+    currency: ticket.currency || 'CHF',
+    description: ''
+  })) || [];
+
+  // Calculate duration from event dates if available
+  let duration = '';
+  const eventDateInfo = doc.eventDates?.find((ed: any) => {
+    const edStart = ed.start instanceof Date ? ed.start : new Date(ed.start);
+    return Math.abs(edStart.getTime() - eventDate.getTime()) < 86400000; // Within 1 day
+  });
+  
+  if (eventDateInfo && eventDateInfo.end) {
+    let endDate: Date | null = null;
+    if (eventDateInfo.end instanceof Date) {
+      endDate = eventDateInfo.end;
+    } else if (eventDateInfo.end?.$date) {
+      endDate = new Date(eventDateInfo.end.$date);
+    } else if (typeof eventDateInfo.end === 'string') {
+      endDate = new Date(eventDateInfo.end);
+    }
+    
+    if (endDate && !isNaN(endDate.getTime())) {
+      const durationMs = endDate.getTime() - eventDate.getTime();
+      const durationHours = Math.floor(durationMs / (1000 * 60 * 60));
+      const durationMinutes = Math.floor((durationMs % (1000 * 60 * 60)) / (1000 * 60));
+      
+      if (durationHours > 0) {
+        duration = `ca. ${durationHours}h${durationMinutes > 0 ? ` ${durationMinutes}min` : ''}`;
+      } else if (durationMinutes > 0) {
+        duration = `ca. ${durationMinutes}min`;
+      }
+    }
+  }
+  
+  // Generate numeric ID
+  let eventId: number;
+  if (typeof doc._id === 'number') {
+    eventId = doc._id;
+  } else if (typeof doc._id === 'string') {
+    const hash = doc._id.split('').reduce((hash: number, char: string) => {
+      return char.charCodeAt(0) + (hash << 6) + (hash << 16) - hash;
+    }, 0);
+    eventId = Math.abs(hash) % 1000000;
+  } else {
+    eventId = Math.floor(Math.random() * 1000000);
+  }
+  
+  return {
+    id: eventId,
+    date: { day, month },
+    title: doc.name,
+    venue: doc.location || 'Petruschka Theater',
+    location: doc.location || 'Petruschka Theater', 
+    time: time,
+    dayOfWeek: dayOfWeek,
+    description: description,
+    ticketUrl: ticketUrl,
+    // Enhanced fields from optimized view data
+    longDescription: doc.longDescription || '',
+    shortDescription: doc.shortDescription || '',
+    artists: doc.artists || '',
+    flyerImagePath: doc.flyerImagePath || '',
+    bannerImagePath: doc.bannerImagePath || '',
+    eventDateString: eventDate.toLocaleDateString('de-DE', { 
+      weekday: 'long', 
+      year: 'numeric', 
+      month: 'long', 
+      day: 'numeric',
+      hour: '2-digit',
+      minute: '2-digit'
+    }),
+    ticketTypes: ticketTypes,
+    duration: duration,
+    ageRecommendation: doc.shortDescription?.match(/ab (\d+) Jahr/)?.[0] || '',
+    importantNotes: doc.importantNotes || ''
+  };
+}
+
 export default defineEventHandler(async (event): Promise<ApiResponse<Gig>> => {
   try {
     const id = getRouterParam(event, 'id');
@@ -111,23 +228,28 @@ export default defineEventHandler(async (event): Promise<ApiResponse<Gig>> => {
       });
     }
 
-    // Convert string ID to number if needed
+    // Convert string ID to number if needed, or use as string template ID
     const numericId = parseInt(id);
     const searchId = isNaN(numericId) ? id : numericId;
     
-    // Get specific past event data from MongoDB PastEventsWithId collection
-    const eventDocuments = await getMongoData({ _id: searchId }, 'eventDb', 'EventDetails');
+    // Get specific past event data from optimized MongoDB Gigs view
+    // Filter by ID and ensure it's from past events with section tracking
+    const query = { 
+      _id: searchId,
+      'googleAnalyticsTracker': { $regex: "CD|Tournee", $options: "i" }
+    };
+    const gigsData = await getMongoData(query, 'eventDb', 'Gigs');
     
-    if (!eventDocuments || eventDocuments.length === 0) {
+    if (!gigsData || gigsData.length === 0) {
       throw createError({
         statusCode: 404,
         statusMessage: 'Past event not found'
       });
     }
 
-    console.log(`✅ Loading detailed past event data for ID: ${id}`);
+    console.log(`✅ Loading detailed past event data for template ID: ${searchId}`);
     
-    const detailedPastEvent = extractDetailedPastEvent(eventDocuments[0]);
+    const detailedPastEvent = extractDetailedPastEventFromView(gigsData[0]);
     
     console.log(`✅ past event ${JSON.stringify(detailedPastEvent)}`);
 

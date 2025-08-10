@@ -12,7 +12,7 @@ export default defineEventHandler(async (event): Promise<ApiResponse<Gig[]>> => 
     
     console.log('🔍 Raw gigs data count:', gigsData?.length || 0);
     if (gigsData && gigsData.length > 0) {
-      console.log('🔍 First gig sample:', JSON.stringify(gigsData[0], null, 2));
+      console.log('🔍 First gig sample:', gigsData[0]._id);
     }
     
     let gigs: Gig[] = [];

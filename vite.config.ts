@@ -7,6 +7,15 @@ import analog from '@analogjs/platform';
 export default defineConfig(({ mode }) => ({
   build: {
     target: ['es2020'],
+    rollupOptions: {
+      output: {
+        manualChunks: {
+          vendor: ['@angular/core', '@angular/common', '@angular/platform-browser'],
+          dialog: ['@angular/cdk/dialog'],
+        },
+      },
+    },
+    chunkSizeWarningLimit: 600, // Increase warning limit to 600kB
   },
   resolve: {
     mainFields: ['module'],

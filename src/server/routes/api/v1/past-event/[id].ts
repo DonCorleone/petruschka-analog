@@ -253,7 +253,7 @@ export default defineEventHandler(async (event): Promise<ApiResponse<Gig>> => {
     
     const detailedPastEvent = extractDetailedPastEventFromView(gigsData[0]);
     
-    console.log(`✅ past event ${JSON.stringify(detailedPastEvent)}`);
+    console.log(`✅ past event ${detailedPastEvent?.id}`);
 
     if (!detailedPastEvent) {
       throw createError({

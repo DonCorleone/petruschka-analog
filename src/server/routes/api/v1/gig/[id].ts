@@ -191,7 +191,7 @@ export default defineEventHandler(async (event): Promise<ApiResponse<Gig>> => {
     
     const detailedGig = extractDetailedGigFromView(gigsData[0], targetTimestamp);
     
-    console.log(`✅ gig ${JSON.stringify(detailedGig)}`);
+    console.log(`✅ gig ${detailedGig?.id}`);
 
     if (!detailedGig) {
       throw createError({

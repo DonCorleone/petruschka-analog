@@ -131,7 +131,7 @@ export class DialogService {
 
   async openHistoryDetail(event: PastEvent): Promise<void> {
 
-    console.log('event data:', JSON.stringify(event));
+    console.log('event data:', JSON.stringify(event.id));
     // Close any existing dialog first
     if (this.currentDialogRef) {
       this.currentDialogRef.close();

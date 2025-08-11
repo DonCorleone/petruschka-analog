@@ -1,4 +1,5 @@
 import { Component, inject, ChangeDetectionStrategy } from '@angular/core';
+import { SlicePipe } from '@angular/common';
 import { BandDataService } from '../../core/services';
 import { DialogService } from '../../core/services/dialog.service';
 import { PastEvent } from '../../../shared/types';
@@ -7,7 +8,8 @@ import { PastEvent } from '../../../shared/types';
   selector: 'app-history-section',
   templateUrl: './history-section.html',
   styleUrls: ['./history-section.css'],
-  changeDetection: ChangeDetectionStrategy.OnPush
+  changeDetection: ChangeDetectionStrategy.OnPush,
+  imports: [SlicePipe]
 })
 export class HistorySectionComponent {
   

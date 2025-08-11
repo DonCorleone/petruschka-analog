@@ -5,7 +5,7 @@
       @for (gig of gigs(); track gig.id) {
         <div class="item">
           <div class="date-label">
-            <div class="number">{{ gig.date.day }}</div>
+            <div class="number">{{ gig.date.day }}.</div>
             <div class="month">{{ gig.date.month }}</div>
             <div class="year">{{ gig.date.year }}</div>
           </div>
@@ -33,10 +33,10 @@
               <button 
                 class="btn btn-xs btn-ghost-secondary" 
                 (click)="openGigDetail(gig)">
-                Mehr Infos
+                 Infos
               </button>
               <a class="btn btn-xs btn-secondary" [href]="gig.ticketUrl">
-                Tickets kaufen
+                Tickets 
               </a>
             </div>
             

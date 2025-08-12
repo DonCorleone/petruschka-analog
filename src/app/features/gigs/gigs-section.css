@@ -7,8 +7,8 @@
   position: relative;
   padding-left: 60px;
   padding-top: 15px;
-  padding-bottom: 15px;
-  border-bottom: 1px solid var(--border-light);
+  padding-bottom: 30px;
+  border-bottom: 1px solid var(--border-dark);
 }
 
 .gigs-section .date-label {
@@ -16,9 +16,8 @@
   color: #fff;
   text-align: center;
   display: inline-block;
-  width: 45px;
-  height: 55px;
-  padding-top: 4px;
+  padding: 8px;
+  min-width: 50px;
   position: absolute;
   left: 0;
   top: 15px;
@@ -123,4 +122,12 @@
     margin-top: 15px;
     margin-bottom: 15px;
   }
+  .gigs-section .item {
+    padding-left: 80px;
+  }
+
+  .gigs-section .date-label {
+    width: unset;
+    padding: 20px 10px;
+  } 
 }

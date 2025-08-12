@@ -36,6 +36,7 @@
 .history-section .event-info {
   flex: 1;
   padding-right: 60px;
+  width: 100%;
 }
 
 .history-section .event-title {

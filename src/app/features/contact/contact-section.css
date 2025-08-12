@@ -25,7 +25,8 @@
 }
 
 .contact-section .contact-block {
-  max-width: 800px;
+  width: 800px;
+  justify-self: center;
   margin-bottom: 90px;
 }
 

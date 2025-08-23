@@ -12,6 +12,7 @@ import {
   type SocialLink,
   type PastEvent,
   type Press,
+  type Sponsor,
   type ApiResponse 
 } from '../../../shared/types';
 
@@ -88,6 +89,13 @@ export class BandDataService {
   pressResource = resource({
     loader: async () => {
       const response = await this.http.get<ApiResponse<Press[]>>('/api/v1/press').toPromise();
+      return response?.data || [];
+    }
+  });
+
+  sponsorsResource = resource({
+    loader: async () => {
+      const response = await this.http.get<ApiResponse<Sponsor[]>>('/api/v1/sponsors').toPromise();
       return response?.data || [];
     }
   });

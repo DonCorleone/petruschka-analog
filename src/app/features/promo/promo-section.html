@@ -37,40 +37,44 @@
         id="carousel-updates" 
         class="carousel slide" 
         [attr.data-bs-ride]="'carousel'" 
-        [attr.data-bs-interval]="6000">
+        [attr.data-bs-interval]="600000">
         
         <div class="carousel-inner" role="listbox">
           @for (update of updates(); track update.id; let i = $index) {
             <div class="carousel-item" [class.active]="i === 0">
-              
-              @if (update.mediaType && update.mediaThumb) {
-                <div class="media-holder">
-                  <div class="media-thumb">
-                    <img [src]="update.mediaThumb" [alt]="update.title">
-                    @if (update.mediaType === 'video') {
-                      <a 
-                        class="video-play-trigger" 
-                        (click)="openVideoModal(update.mediaUrl!)"
-                        role="button"
-                        tabindex="0">
-                        <i class="fas fa-play"></i>
-                      </a>
-                    }
-                  </div>
-                </div>
-              }
-              
-              <div class="carousel-content" [class.no-media-holder]="!update.mediaType">
-                <h3 class="title" [innerHTML]="update.title"></h3>
-                <div class="desc">
-                  @if (update.isCountdown && update.countdownDate) {
-                    <div class="countdown">
-                      <app-countdown [targetDate]="update.countdownDate"></app-countdown>
-                      <span>bis zur Veröffentlichung</span>
+              <div class="carousel-item-wrapper">
+                <div class="carousel-item-content">
+                  @if (update.mediaType && update.mediaThumb) {
+                    <div class="media-holder">
+                      <div class="media-thumb">
+                        <img [src]="update.mediaThumb" [alt]="update.title">
+                        @if (update.mediaType === 'video') {
+                          <a 
+                            class="video-play-trigger" 
+                            (click)="openVideoModal(update.mediaUrl!)"
+                            role="button"
+                            tabindex="0">
+                            <i class="fas fa-play"></i>
+                          </a>
+                        }
+                      </div>
                     </div>
                   }
-                  <p class="intro" [innerHTML]="update.description"></p>
+                  
+                  <div class="carousel-content" [class.no-media-holder]="!update.mediaType">
+                    <h3 class="title" [innerHTML]="update.title"></h3>
+                    <div class="desc">
+                      @if (update.isCountdown && update.countdownDate) {
+                        <div class="countdown">
+                          <app-countdown [targetDate]="update.countdownDate"></app-countdown>
+                          <span>bis zur Veröffentlichung</span>
+                        </div>
+                      }
+                      <p class="intro" [innerHTML]="update.description"></p>
+                    </div>
+                  </div>
                 </div>
+                
                 <a class="btn btn-primary btn-cta" [href]="update.ctaUrl">
                   {{ update.ctaText }}
                 </a>

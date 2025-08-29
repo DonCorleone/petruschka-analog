@@ -1,0 +1,40 @@
+<section class="sponsors-section section" id="sponsors">
+  <div class="container">
+    <div class="section-header text-center">
+      <h2 class="section-title">Unsere Partner & Unterstützer</h2>
+      <div class="section-intro">
+        Ein großes Dankeschön an alle, die unsere musikalische Reise möglich machen!
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-lg-12">
+        <div class="sponsors-grid">
+          @for (sponsor of sponsors(); track sponsor.id) {
+            <div class="sponsor-item" [ngClass]="sponsor.sizeClass">
+              <a [href]="sponsor.url" target="_blank" rel="noopener noreferrer" [title]="sponsor.name">
+                @if (sponsor.image === 'PLACEHOLDER') {
+                  <div class="sponsor-logo sponsor-placeholder">
+                    <i class="fa-solid fa-handshake"></i>
+                  </div>
+                } @else {
+                  <img [src]="sponsor.image" [alt]="sponsor.name + ' Logo'" class="sponsor-logo">
+                }
+              </a>
+              <div class="sponsor-details">
+                <h4 class="sponsor-name">{{sponsor.name}}</h4>
+                <div class="sponsor-support">Partner</div>
+              </div>
+            </div>
+          }
+          
+          @if (sponsors()?.length === 0) {
+            <div class="no-sponsors">
+              <p>Zur Zeit sind keine Sponsoren-Informationen verfügbar.</p>
+            </div>
+          }
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

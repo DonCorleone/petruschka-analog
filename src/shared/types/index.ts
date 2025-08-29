@@ -117,6 +117,19 @@ export interface Press {
   quote?: string;
 }
 
+export interface Sponsor {
+  id: string;
+  name: string;
+  url: string;
+  image: string;
+  events: Array<{
+    event: string;
+    share: number;
+  }>;
+  totalShare: number;
+  sizeClass: string;
+}
+
 // API Response wrapper
 export interface ApiResponse<T> {
   success: boolean;

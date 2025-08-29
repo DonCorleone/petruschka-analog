@@ -4,6 +4,7 @@ import { PromoSectionComponent } from '../features/promo';
 import { GigsSectionComponent } from '../features/gigs';
 import { MusicSectionComponent } from '../features/music';
 import { AboutSectionComponent } from '../features/about';
+import { SponsorsSectionComponent } from '../features/sponsors/sponsors-section';
 import { MerchSectionComponent } from '../features/merch';
 import { HistorySectionComponent } from '../features/history';
 import { ContactSectionComponent } from '../features/contact';
@@ -17,6 +18,7 @@ import { BackToTopComponent } from '../shared/components';
     GigsSectionComponent,
     MusicSectionComponent,
     AboutSectionComponent,
+    SponsorsSectionComponent,
     MerchSectionComponent,
     HistorySectionComponent,
     ContactSectionComponent,
@@ -52,6 +54,10 @@ import { BackToTopComponent } from '../shared/components';
     
     <div id="contact">
       <app-contact-section />
+    </div>
+    
+    <div id="sponsors">
+      <app-sponsors-section />
     </div>
     
     <app-footer />

@@ -204,10 +204,11 @@
   margin-bottom: 5px;
 }
 
-.updates-block .carousel-content .btn-cta {
-  position: absolute;
-  right: 0;
-  top: 30px;
+.updates-block .btn-cta {
+  position: static;
+  margin-left: 190px;
+  margin-top: 15px;
+  display: inline-block;
 }
 
 .updates-block .carousel-content .desc {
@@ -291,27 +292,94 @@
   
   .updates-block {
     position: relative;
-    height: inherit;
+    height: auto;
     bottom: 0;
     min-height: 400px;
+    padding: 30px 0;
+  }
+  
+  .updates-block .updates-block-inner {
+    padding-left: 20px;
+    padding-right: 20px;
+  }
+  
+  .updates-block .carousel .carousel-item {
+    height: auto;
+    min-height: 250px;
+    padding-bottom: 30px;
+  }
+  
+  .updates-block .carousel-item-wrapper {
+    display: flex;
+    flex-direction: column;
+    min-height: 220px;
+    gap: 20px;
+  }
+  
+  .updates-block .carousel-item-content {
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+    flex: 1;
   }
   
   .updates-block .media-holder {
     position: static;
-    margin: 0 auto;
-    margin-bottom: 30px;
+    flex-shrink: 0;
+    width: 120px;
+    height: 80px;
+    margin-right: 15px;
+    margin-bottom: 0;
   }
   
   .updates-block .carousel-content {
     padding-left: 0;
+    flex: 1;
+    display: flex;
+    flex-direction: column;
   }
   
-  .updates-block .carousel-content .btn-cta {
+  .updates-block .carousel-content .title {
+    margin-bottom: 8px;
+    font-size: 16px;
+  }
+  
+  .updates-block .carousel-content .desc {
+    margin-bottom: 0;
+  }
+  
+  .updates-block .carousel-content .desc .intro {
+    font-size: 14px;
+    line-height: 1.4;
+    margin-bottom: 0;
+  }
+  
+  .updates-block .btn-cta {
     position: static;
+    width: 100%;
+    margin-top: 0;
+    align-self: stretch;
+    flex-shrink: 0;
+    margin-left: unset;
   }
   
-  .updates-block .carousel .carousel-item {
-    height: inherit;
+  /* Handle carousel items without media */
+  .updates-block .carousel-content.no-media-holder {
+    padding-left: 0;
+    margin-left: 0;
+  }
+  
+  .updates-block .carousel-item-content:has(.no-media-holder) {
+    justify-content: center;
+  }
+  
+  /* Adjust carousel controls for mobile */
+  .updates-block .carousel-control-prev {
+    left: -20px;
+  }
+  
+  .updates-block .carousel-control-next {
+    right: -20px;
   }
 }
 
@@ -321,15 +389,18 @@
   }
   
   .updates-block {
-    height: 260px;
+    height: auto;
+    min-height: 320px;
   }
   
-  .updates-block .carousel-content .btn-cta {
+  .updates-block .btn-cta {
     position: static;
+    margin-top: 15px;
   }
   
   .updates-block .carousel .carousel-item {
-    height: 200px;
+    height: auto;
+    min-height: 220px;
   }
 }
 
@@ -339,14 +410,17 @@
   }
   
   .updates-block {
-    height: 160px;
+    height: auto;
+    min-height: 240px;
   }
   
-  .updates-block .carousel-content .btn-cta {
-    position: absolute;
+  .updates-block .btn-cta {
+    position: static;
+    margin-top: 15px;
   }
   
   .updates-block .carousel .carousel-item {
-    height: 100px;
+    height: auto;
+    min-height: 180px;
   }
 }

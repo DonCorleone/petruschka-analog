@@ -3,7 +3,6 @@
   display: block;
   background: #fff;
   margin: 4vh 4vw;
-  min-width: 600px;
   max-width: 1024px;
   box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
 }
@@ -52,6 +51,23 @@
   padding: 20px;
   overflow-y: auto;
   max-height: calc(90vh - 80px);
+}
+
+/* Grid Layout */
+.location-info-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 20px;
+}
+
+.location-address-section,
+.location-details-section {
+  display: flex;
+  flex-direction: column;
+}
+
+.location-image {
+  margin-top: 1rem;
 }
 
 .info-section {
@@ -127,5 +143,15 @@
   
   .dialog-content {
     padding: 16px;
+  }
+  
+  /* Switch to single column on mobile */
+  .location-info-grid {
+    grid-template-columns: 1fr;
+    gap: 16px;
+  }
+  
+  .location-image {
+    margin-top: 0.5rem;
   }
 }

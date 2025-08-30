@@ -12,10 +12,10 @@
 
 <div class="dialog-content">
   <div class="member-info">
-    <div class="row">
+    <div class="member-info-grid">
       <!-- Image Column -->
-      <div class="col-md-4">
-        <div class="member-profile mb-3">
+      <div class="member-image-section">
+        <div class="member-profile">
           <img [src]="data.member.image" 
                [alt]="data.member.name"
                class="img-fluid rounded shadow-sm">
@@ -23,7 +23,7 @@
       </div>
 
       <!-- Main Content Column -->
-      <div class="col-md-8">
+      <div class="member-content-section">
         <div class="member-label">{{ data.member.instrument }}</div>
 
         <!-- Full bio content -->

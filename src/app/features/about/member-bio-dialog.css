@@ -76,6 +76,16 @@
 }
 
 /* Member specific styling */
+.member-info-grid {
+  display: grid;
+  grid-template-columns: minmax(200px, 1fr) minmax(300px, 2fr);
+  gap: 30px;
+}
+
+.member-profile {
+  margin-bottom: 20px;
+}
+
 .member-profile img {
   width: 100%;
   height: auto;
@@ -114,8 +124,16 @@
   .dialog-content {
     padding: 16px;
   }
-
+  
+  .member-info-grid {
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+  
   .member-profile {
     margin-bottom: 20px;
+    max-width: 300px;
+    margin-left: auto;
+    margin-right: auto;
   }
 }

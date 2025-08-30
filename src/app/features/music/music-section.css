@@ -12,13 +12,20 @@
   margin-bottom: 15px;
 }
 
-.music-section .albums-block .item {
-  margin-bottom: 45px;
+.music-section .albums-block {
+ display: grid;
+ grid-template-columns: repeat(auto-fill, minmax(min(300px, 100%), 1fr));
 }
 
-.music-section .albums-block .item-inner {
-  position: relative;
-  padding-right: 60px;
+.music-section .albums-block .item {
+  margin-bottom: 45px;
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.music-section .albums-block .item-inner .cover-holder {
+  display: flex;
+  flex-direction: column;
 }
 
 .music-section .albums-block .arrow-holder {

@@ -12,6 +12,12 @@
   text-align: center;
 }
 
+.about-section .members-block {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(min(280px, 100%), 1fr));
+  gap: 20px;
+}
+
 .about-section .item-inner {
   padding: 30px;
   height: 100%;
@@ -107,11 +113,15 @@
 }
 
 @media (max-width: 767.98px) {
+  .about-section .members-block {
+    grid-template-columns: repeat(auto-fill, minmax(min(220px, 100%), 1fr));
+    gap: 15px;
+  }
 
   .member-card {
-      border-bottom: 1px solid var(--border-dark);
-
+    border-bottom: 1px solid var(--border-dark);
   }
+  
   .about-section .item-inner {
     padding: 15px;
   }
@@ -119,5 +129,11 @@
   /* Show "Mehr erfahren" by default on mobile */
   .about-section .read-more-hint {
     opacity: 0.8;
+  }
+}
+
+@media (max-width: 480px) {
+  .about-section .members-block {
+    grid-template-columns: repeat(auto-fill, minmax(min(100%, 100%), 1fr));
   }
 }

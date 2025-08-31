@@ -12,9 +12,9 @@
 
 <div class="dialog-content">
   <div class="location-info">
-    <div class="row">
+    <div class="location-info-grid">
       <!-- Main Content Column -->
-      <div class="col-md-6">
+      <div class="location-address-section">
         <div class="info-section">
           <h4>Adresse</h4>
           <p><strong>{{ data.location.name }}</strong></p>
@@ -31,20 +31,18 @@
       </div>
 
       <!-- Image Column -->
-      <div class="col-md-6">
-                @if (data.location.info) {
+      <div class="location-details-section">
+        @if (data.location.info) {
           <div class="info-section">
             <h4>Über diesen Ort</h4>
             <div [innerHTML]="data.location.info"></div>
           </div>
         }
-        <div class="location-image mb-3">
+        <div class="location-image">
           <img [src]="getLocationImageUrl()" 
                [alt]="data.location.name"
                class="img-fluid rounded shadow-sm">
         </div>
-        
-
       </div>
     </div>
 

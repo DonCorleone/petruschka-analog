@@ -8,9 +8,8 @@
     </div>
     
     <div class="members-block">
-      <div class="row">
         @for (member of bandMembers(); track member.id) {
-          <div class="item col-12 col-sm-6 col-lg-4 col-xl-3">
+          <div class="item">
             <div class="item-inner member-card" (click)="openMemberBio(member)">
               <div class="member-profile">
                 <img class="img-fluid" [src]="member.image" [alt]="member.name">
@@ -25,7 +24,6 @@
             </div>
           </div>
         }
-      </div>
     </div>
   </div>
 </section>

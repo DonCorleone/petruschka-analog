@@ -12,9 +12,9 @@
 
 <div class="dialog-content">
   <div class="gig-info">
-    <div class="row">
+    <div class="gig-info-grid">
       <!-- Main Content Column -->
-      <div class="col-md-7">
+      <div class="gig-content-section">
         <div class="info-section">
           @if (data.isHistoryEvent) {
             <h4>Historische Aufführung</h4>
@@ -53,7 +53,7 @@
         }
         
         <!-- Long Description with HTML content -->
-        @if (data.gig.longDescription && data.gig.longDescription !== data.gig.shortDescription) {
+        @if (data.gig.longDescription) {
           <div class="info-section">
             @if (data.isHistoryEvent) {
               <h4>Über dieses Stück</h4>
@@ -62,7 +62,9 @@
             }
             <div [innerHTML]="data.gig.longDescription"></div>
           </div>
-        } @else if (data.gig.description && !data.gig.shortDescription) {
+        }
+        
+        @if (data.gig.description && !data.gig.shortDescription) {
           <div class="info-section">
             @if (data.isHistoryEvent) {
               <h4>Über dieses Stück</h4>
@@ -119,9 +121,9 @@
       </div>
 
       <!-- Image Column -->
-      <div class="col-md-5">
+      <div class="gig-image-section">
         @if (data.gig.flyerImagePath) {
-          <div class="gig-image mb-3">
+          <div class="gig-image">
             <img [src]="data.gig.flyerImagePath" 
                  [alt]="data.gig.title + ' Flyer'"
                  class="img-fluid rounded shadow-sm">
@@ -129,7 +131,7 @@
         }
         
         @if (data.gig.bannerImagePath && !data.gig.flyerImagePath) {
-          <div class="gig-banner mb-3">
+          <div class="gig-banner">
             <img [src]="data.gig.bannerImagePath" 
                  [alt]="data.gig.title + ' Banner'"
                  class="img-fluid rounded shadow-sm">

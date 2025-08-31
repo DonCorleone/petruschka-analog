@@ -60,6 +60,12 @@
   max-height: calc(90vh - 80px);
 }
 
+.gig-info-grid {
+  display: grid;
+  grid-template-columns: 3fr 2fr;
+  gap: 30px;
+}
+
 .info-section {
   margin-bottom: 25px;
 }
@@ -226,20 +232,26 @@
 /* Mobile Responsiveness */
 @media (max-width: 768px) {
   :host {
-    /* width: 95vw;
-    height: 95vh;
-    max-height: 95vh;
-    border-radius: 8px; */
-
     min-width: unset;
-    /* max-width: unset;
-    margin: 8vh 0vw;
-    height: 84vh;
-    width: 90vw; */
   }
 
   .dialog-title {
     font-size: 20px;
+  }
+  
+  .gig-info-grid {
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+  
+  .gig-image-section {
+    order: -1; /* Show image first on mobile */
+  }
+  
+  .gig-image img,
+  .gig-banner img {
+    max-width: 100%;
+    margin-bottom: 20px;
   }
 
   .ticket-type {

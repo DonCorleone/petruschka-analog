@@ -54,15 +54,66 @@ export class GigDataService {
   }
 
   /**
-   * Find a specific gig template by ID
+   * Find a specific gig template by ID or name
    */
   getGigTemplate(templateId: string | number): GigTemplate | null {
     const templates = this.getGigTemplates();
-    return templates.find(template => 
+    
+    // First try to find by exact ID match
+    const foundByID = templates.find(template => 
       template._id === templateId || 
       template._id === String(templateId) || 
       String(template._id) === String(templateId)
-    ) || null;
+    );
+    
+    if (foundByID) {
+      return foundByID;
+    }
+    
+    // If numeric ID, it might be derived from a string ID, so let's extract the key part
+    if (typeof templateId === 'number' || /^\d+$/.test(String(templateId))) {
+      // The numeric ID might be derived from the template._id + timestamp
+      // Let's try to find a template whose generated numeric ID would match
+      
+      // Convert ID to string to ensure proper comparison
+      const idStr = String(templateId);
+      
+      // Check if this could be a derived ID from one of our templates
+      for (const template of templates) {
+        // Try to generate the numeric ID for this template using the same logic as in extractDetailedGig
+        let hash = 0;
+        if (typeof template._id === 'string') {
+          hash = template._id.split('').reduce((h: number, char: string) => {
+            return char.charCodeAt(0) + (h << 6) + (h << 16) - h;
+          }, 0);
+          
+          // Apply the same modulo operation
+          hash = Math.abs(hash) % 100000;
+          
+          // Check if the first digits match (ignoring the time component)
+          const hashStr = String(hash);
+          const timeIndependentMatch = idStr.startsWith(hashStr) || hashStr.startsWith(idStr.substring(0, 3));
+          
+          if (timeIndependentMatch) {
+            return template;
+          }
+        }
+      }
+      
+      // Last resort: try to match by name
+      const currentTitle = document.querySelector('.dialog-title')?.textContent?.trim();
+      if (currentTitle) {
+        const foundByName = templates.find(template => 
+          template.name === currentTitle
+        );
+        
+        if (foundByName) {
+          return foundByName;
+        }
+      }
+    }
+    
+    return null;
   }
 
   /**
@@ -70,8 +121,11 @@ export class GigDataService {
    * This replaces the server-side extractDetailedGigFromView function
    */
   extractDetailedGig(templateId: string | number, targetTimestamp?: number | null): Gig | null {
+    // If the templateId doesn't exist, try to match by name
     const template = this.getGigTemplate(templateId);
-    if (!template) return null;
+    if (!template) {
+      return null;
+    }
 
     // Skip if no basic info
     if (!template.name || !template.eventDates || template.eventDates.length === 0) return null;

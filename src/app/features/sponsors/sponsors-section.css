@@ -32,7 +32,7 @@
 /* Sponsors Grid Layout */
 .sponsors-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  grid-template-columns: repeat(auto-fill, minmax(min(350px, 100%), 1fr));
   gap: 30px;
   align-items: center;
   justify-items: center;
@@ -212,7 +212,7 @@
 /* Responsive Design */
 @media (max-width: 767.98px) {
   .sponsors-grid {
-    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    grid-template-columns: repeat(auto-fill, minmax(min(200px, 100%), 1fr));
     gap: 20px;
   }
   

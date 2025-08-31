@@ -1,7 +1,7 @@
 <section class="music-section section text-center">
   <div class="container">
     <h2 class="section-title">Hörspiele</h2>
-    
+
     <!-- SoundCloud embeds -->
     <!--div class="sc-block ml-auto mr-auto">
       <div class="item">
@@ -23,44 +23,50 @@
         </iframe>
       </div>
     </div-->
-    
+
     <!-- Albums grid -->
     <div class="albums-block">
-      <div class="row">
-        @for (album of albums(); track album.id) {
-          <div class="item col-6 col-lg-4">
-            <div class="item-inner">
-              <h3 class="album-title">{{ album.title }}</h3>
-              <div class="cover-holder">
-                <a class="cover-figure" [href]="album.purchaseUrl">
-                  @if (album.status === 'coming-soon') {
-                    <div class="arrow-holder"></div>
-                  }
-                  <div class="record-holder">
-                    <img class="img-fluid" src="/images/record.png" alt="">
-                  </div>
-                  <img class="cover-image img-fluid" [src]="album.coverImage" [alt]="album.title">
-                  @if (album.status === 'coming-soon') {
-                    <div class="cover-label">Demnächst verfügbar</div>
-                  }
-                </a>
-                
-                @if (album.status === 'coming-soon') {
-                  <a [href]="album.purchaseUrl" class="btn btn-sm btn-ghost-secondary">
-                    Album vorbestellen
-                  </a>
-                } @else {
-                  <a [href]="album.purchaseUrl" class="btn btn-sm btn-secondary">
-                    Album kaufen @if (album.price) { CHF {{ album.price }} }
-                  </a>
-                }
+      @for (album of albums(); track album.id) {
+      <div class="item">
+        <div class="item-inner">
+          <h3 class="album-title">{{ album.title }}</h3>
+          <div class="cover-holder">
+            <a class="cover-figure" [href]="album.purchaseUrl">
+              @if (album.status === 'coming-soon') {
+              <div class="arrow-holder"></div>
+              }
+              <div class="record-holder">
+                <img class="img-fluid" src="/images/record.png" alt="" />
               </div>
-            </div>
+              <img
+                class="cover-image img-fluid"
+                [src]="album.coverImage"
+                [alt]="album.title"
+              />
+              @if (album.status === 'coming-soon') {
+              <div class="cover-label">Demnächst verfügbar</div>
+              }
+            </a>
+
+            @if (album.status === 'coming-soon') {
+            <a
+              [href]="album.purchaseUrl"
+              class="btn btn-sm btn-ghost-secondary"
+            >
+              Album vorbestellen
+            </a>
+            } @else {
+            <a [href]="album.purchaseUrl" class="btn btn-sm btn-secondary">
+              Album kaufen @if (album.price) { CHF {{ album.price }} }
+            </a>
+            }
           </div>
-        }
+        </div>
       </div>
+
+      }
     </div>
-    
+
     <div class="music-action">
       <a class="btn btn-ghost-primary" href="#">Musik auf iTunes</a>
     </div>

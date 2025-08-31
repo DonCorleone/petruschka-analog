@@ -15,7 +15,8 @@
 
 .history-section .item {
   position: relative;
-  display: flex;
+  display: grid;
+  grid-template-columns: 120px 1fr;
   align-items: flex-start;
   padding: 20px 0;
   border-bottom: 1px solid var(--border-light);
@@ -108,7 +109,8 @@
 
 @media (max-width: 767.98px) {
   .history-section .item {
-    flex-direction: column;
+    display: grid;
+    grid-template-columns: 1fr;
     gap: 15px;
   }
   

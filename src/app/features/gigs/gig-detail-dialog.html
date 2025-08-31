@@ -53,7 +53,7 @@
         }
         
         <!-- Long Description with HTML content -->
-        @if (data.gig.longDescription && data.gig.longDescription !== data.gig.shortDescription) {
+        @if (data.gig.longDescription) {
           <div class="info-section">
             @if (data.isHistoryEvent) {
               <h4>Über dieses Stück</h4>
@@ -62,7 +62,9 @@
             }
             <div [innerHTML]="data.gig.longDescription"></div>
           </div>
-        } @else if (data.gig.description && !data.gig.shortDescription) {
+        }
+        
+        @if (data.gig.description && !data.gig.shortDescription) {
           <div class="info-section">
             @if (data.isHistoryEvent) {
               <h4>Über dieses Stück</h4>

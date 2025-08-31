@@ -24,7 +24,6 @@ export class GigDetailDialogComponent {
   private dialogService = inject(DialogService);
 
   close(): void {
-    console.log('Dialog close called', { isHistoryEvent: this.data.isHistoryEvent });
     this.dialogRef.close();
   }
 

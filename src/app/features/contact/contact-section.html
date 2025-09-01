@@ -87,6 +87,39 @@
         </div>
       </div>
     }
+
+        
+    <!-- Sponsors Section -->
+    @if (sponsorsList.length > 0) {
+      <div class="sponsors-section mt-5">
+        <h3 class="section-subtitle">Unsere Partner & Unterstützer</h3>
+        <div class="sponsors-grid">
+          @for (sponsor of sponsorsList; track sponsor.id) {
+            <div class="sponsor-item" [ngClass]="sponsor.sizeClass">
+              <a [href]="sponsor.url" target="_blank" rel="noopener noreferrer" [title]="sponsor.name">
+                @if (sponsor.image === 'PLACEHOLDER') {
+                  <div class="sponsor-logo sponsor-placeholder">
+                    <i class="fa-solid fa-handshake"></i>
+                  </div>
+                } @else {
+                  <img [src]="sponsor.image" [alt]="sponsor.name + ' Logo'" class="sponsor-logo">
+                }
+              </a>
+              <div class="sponsor-details">
+                <h4 class="sponsor-name">{{sponsor.name}}</h4>
+                <div class="sponsor-support">Partner</div>
+              </div>
+            </div>
+          }
+          
+          @if (sponsorsList.length === 0) {
+            <div class="no-sponsors">
+              <p>Zur Zeit sind keine Sponsoren-Informationen verfügbar.</p>
+            </div>
+          }
+        </div>
+      </div>
+    }
     <div class="contact-block mr-auto ml-auto">
         <div class="contact-grid">
           @for (contact of contactInfo; track contact.type) {
@@ -128,5 +161,6 @@
         }
       </ul>
     </div>
+
   </div>
 </div>

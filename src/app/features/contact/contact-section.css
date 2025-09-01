@@ -263,6 +263,113 @@
   transform: scale(1.2);
 }
 
+/* Sponsors Section Styles */
+.sponsors-section {
+  margin-top: 60px;
+}
+
+.sponsors-section .section-subtitle {
+  color: #fff;
+  font-size: 24px;
+  font-weight: bold;
+  margin-bottom: 30px;
+  text-align: center;
+}
+
+/* Sponsors Grid Layout */
+.sponsors-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(min(250px, 100%), 1fr));
+  gap: 30px;
+  align-items: center;
+  justify-items: center;
+  max-width: 1000px;
+  margin: 0 auto;
+}
+
+/* Sponsor Items */
+.sponsor-item {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  background: rgba(255, 255, 255, 0.05);
+  padding: 30px 20px;
+  border-radius: 8px;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  transition: all 0.3s ease;
+  height: 100%;
+}
+
+.sponsor-item:hover {
+  background: rgba(255, 255, 255, 0.1);
+  transform: translateY(-2px);
+}
+
+/* Logo styling */
+.sponsor-logo {
+  margin-bottom: 20px;
+  border-radius: 4px;
+  object-fit: contain;
+  background: rgba(255, 255, 255, 0.95);
+  padding: 10px;
+  transition: all 0.3s ease;
+  max-width: 140px;
+  height: auto;
+}
+
+.sponsor-item:hover .sponsor-logo {
+  background: rgba(255, 255, 255, 1);
+}
+
+/* Placeholder styling */
+.sponsor-placeholder {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(255, 255, 255, 0.95) !important;
+  border: 2px solid rgba(255, 255, 255, 0.1);
+  color: rgba(255, 255, 255, 0.7);
+  font-size: 2rem;
+  width: 140px;
+  height: 85px;
+}
+
+.sponsor-item:hover .sponsor-placeholder {
+  background: rgba(255, 255, 255, 1) !important;
+  color: var(--primary-color);
+}
+
+/* Sponsor details */
+.sponsor-details {
+  width: 100%;
+}
+
+.sponsor-name {
+  font-size: 16px;
+  margin-top: 0;
+  margin-bottom: 8px;
+  font-weight: 600;
+  color: #fff;
+}
+
+.sponsor-support {
+  color: var(--primary-color);
+  font-weight: 600;
+  font-size: 14px;
+  margin-bottom: 12px;
+}
+
+/* Empty state */
+.no-sponsors {
+  grid-column: 1 / -1;
+  text-align: center;
+  color: rgba(255, 255, 255, 0.7);
+  font-style: italic;
+  padding: 40px 20px;
+}
+
 /* Responsive adjustments */
 @media (max-width: 768px) {
   .press-grid {
@@ -297,5 +404,19 @@
   
   .contact-section .contact-grid {
     grid-template-columns: 1fr;
+  }
+  
+  .sponsors-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+  }
+  
+  .sponsor-logo {
+    max-width: 100px;
+  }
+  
+  .sponsor-placeholder {
+    width: 100px;
+    height: 60px;
   }
 }

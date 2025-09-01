@@ -4,7 +4,6 @@ import { PromoSectionComponent } from '../features/promo';
 import { GigsSectionComponent } from '../features/gigs';
 import { MusicSectionComponent } from '../features/music';
 import { AboutSectionComponent } from '../features/about';
-import { SponsorsSectionComponent } from '../features/sponsors/sponsors-section';
 import { MerchSectionComponent } from '../features/merch';
 import { HistorySectionComponent } from '../features/history';
 import { ContactSectionComponent } from '../features/contact';
@@ -18,52 +17,46 @@ import { BackToTopComponent } from '../shared/components';
     GigsSectionComponent,
     MusicSectionComponent,
     AboutSectionComponent,
-    SponsorsSectionComponent,
     MerchSectionComponent,
     HistorySectionComponent,
     ContactSectionComponent,
     FooterComponent,
-    BackToTopComponent
+    BackToTopComponent,
   ],
   template: `
     <app-header />
-    
+
     <div id="promo">
       <app-promo-section />
     </div>
-    
+
     <div id="gigs">
       <app-gigs-section />
     </div>
-    
+
     <div id="music">
       <app-music-section />
     </div>
-    
+
     <div id="about">
       <app-about-section />
     </div>
-    
+
     <div id="merch">
       <app-merch-section />
     </div>
-    
+
     <div id="history">
       <app-history-section />
     </div>
-    
+
     <div id="contact">
       <app-contact-section />
     </div>
-    
-    <div id="sponsors">
-      <app-sponsors-section />
-    </div>
-    
+
     <app-footer />
     <app-back-to-top />
   `,
-  changeDetection: ChangeDetectionStrategy.OnPush
+  changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export default class HomeComponent {
-}
+export default class HomeComponent {}

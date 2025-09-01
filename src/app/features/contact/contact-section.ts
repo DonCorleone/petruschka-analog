@@ -1,11 +1,11 @@
 import { Component, inject, ChangeDetectionStrategy } from '@angular/core';
-import { CommonModule } from '@angular/common';
+import { CommonModule, NgClass } from '@angular/common';
 import { BandDataService } from '../../core/services';
 import { type ContactInfo, type SocialLink, type Press } from '../../../shared/types';
 
 @Component({
   selector: 'app-contact-section',
-  imports: [CommonModule],
+  imports: [CommonModule, NgClass],
   templateUrl: './contact-section.html',
   styleUrls: ['./contact-section.css'],
   changeDetection: ChangeDetectionStrategy.OnPush
@@ -15,6 +15,7 @@ export class ContactSectionComponent {
   
   contactData = this.bandDataService.contactResource.value;
   press = this.bandDataService.pressResource.value;
+  sponsors = this.bandDataService.sponsorsResource.value;
   
   get contactInfo(): ContactInfo[] {
     return this.contactData()?.contactInfo || [];
@@ -30,6 +31,10 @@ export class ContactSectionComponent {
 
   get pressReleases(): Press[] {
     return this.press() || [];
+  }
+
+  get sponsorsList() {
+    return this.sponsors() || [];
   }
 
   getPressImageUrl(press: Press): string {

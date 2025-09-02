@@ -26,36 +26,16 @@
 
 .promo-carousel-holder .carousel-item {
   animation: zoom 5s ease-in-out;
-}
-
-.promo-carousel-holder .slide-1 {
-  background: url("/images/hero/hero-1.jpg") no-repeat center center;
   background-size: cover;
 }
 
-.promo-carousel-holder .slide-2 {
-  background: url("/images/hero/hero-2.jpg") no-repeat center center;
-  background-size: cover;
+/* Orientation-specific styles */
+.promo-carousel-holder .carousel-item.portrait-mode {
+  background-position: center center !important;
 }
 
-.promo-carousel-holder .slide-3 {
-  background: url("/images/hero/hero-3.jpg") no-repeat center center;
-  background-size: cover;
-}
-
-.promo-carousel-holder .slide-4 {
-  background: url("/images/hero/hero-4.jpg") no-repeat center center;
-  background-size: cover;
-}
-
-.promo-carousel-holder .slide-5 {
-  background: url("/images/hero/hero-5.jpg") no-repeat center center;
-  background-size: cover;
-}
-
-.promo-carousel-holder .slide-6 {
-  background: url("/images/hero/hero-6.jpg") no-repeat center center;
-  background-size: cover;
+.promo-carousel-holder .carousel-item.landscape-mode {
+  background-position: center center !important;
 }
 
 .overlay-mask {

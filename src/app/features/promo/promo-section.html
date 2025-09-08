@@ -10,8 +10,10 @@
           <div 
             class="carousel-item"
             [class.active]="i === 0"
-            [class]="'slide-' + slide.id"
-            [attr.data-bs-interval]="slide.interval">
+            [class.portrait-mode]="isPortraitOrientation()"
+            [class.landscape-mode]="!isPortraitOrientation()"
+            [attr.data-bs-interval]="slide.interval"
+            [ngStyle]="slide.styleObj">
             <div class="d-flex align-items-center justify-content-center min-vh-100">
               <!-- Slide content can be added here if needed -->
             </div>
@@ -40,6 +42,20 @@
         [attr.data-bs-interval]="600000">
         
         <div class="carousel-inner" role="listbox">
+          @if (updates().length === 0) {
+            <div class="carousel-item active">
+              <div class="carousel-item-wrapper">
+                <div class="carousel-item-content">
+                  <div class="carousel-content no-media-holder">
+                    <h3 class="title">Aktuelle Updates</h3>
+                    <div class="desc">
+                      <p class="intro">Schau bald wieder vorbei für neue Updates zu Veranstaltungen und Vorführungen!</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          }
           @for (update of updates(); track update.id; let i = $index) {
             <div class="carousel-item" [class.active]="i === 0">
               <div class="carousel-item-wrapper">
@@ -132,7 +148,7 @@
           <div class="ratio ratio-16x9">
             @if (currentVideoUrl()) {
               <iframe 
-                [src]="currentVideoUrl() + (isVideoModalOpen() ? '?autoplay=1' : '')" 
+                [src]="currentVideoUrl()" 
                 title="YouTube video" 
                 allowfullscreen>
               </iframe>

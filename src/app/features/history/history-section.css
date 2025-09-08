@@ -112,17 +112,24 @@
     display: grid;
     grid-template-columns: 1fr;
     gap: 15px;
+    justify-items: center;
   }
   
   .history-section .event-info {
     padding-right: 0;
     text-align: center;
+    width: 100%;
   }
   
-
   .history-section .event-image {
     width: 100%;
     max-width: 200px;
-    align-self: center;
+    margin: 0 auto;
+    display: flex;
+    justify-content: center;
+  }
+  
+  .history-section .event-image img {
+    margin: 0 auto;
   }
 }

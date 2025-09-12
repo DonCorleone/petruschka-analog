@@ -121,6 +121,63 @@
   opacity: 0.8;
 }
 
+/* Team member links styling */
+.artists-list {
+  margin: 0;
+  padding: 0;
+}
+
+.artist-text {
+  font-family: inherit;
+  white-space: pre-wrap;
+  font-size: 1rem;
+  margin: 0;
+  padding: 0;
+  background: transparent;
+  border: none;
+  line-height: 1.6;
+}
+
+.artist-role-group {
+  margin-bottom: 15px;
+}
+
+.role-name {
+  font-weight: 600;
+  color: #444;
+  margin-bottom: 5px;
+  display: inline-block;
+  min-width: 120px;
+}
+
+.role-members {
+  display: inline-block;
+  margin-left: 8px;
+  line-height: 1.6;
+}
+
+.artist-separator {
+  margin: 0 2px;
+}
+
+.team-member-link {
+  color: var(--primary-color);
+  cursor: pointer;
+  position: relative;
+  transition: color 0.2s ease;
+}
+
+.team-member-link:hover {
+  color: color-mix(in srgb, var(--primary-color) 80%, black);
+  text-decoration: underline;
+}
+
+.team-member-link i {
+  font-size: 0.8em;
+  opacity: 0.8;
+  margin-left: 5px;
+}
+
 /* Accessibility */
 .sr-only {
   position: absolute !important;

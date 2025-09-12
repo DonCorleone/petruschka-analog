@@ -102,6 +102,25 @@ export class DialogService {
         }
       }
       
+      // Ensure artists field is populated with default content if missing
+      if (!gigData.artists) {
+        // Try to find a template with the same name to get artists info
+        try {
+          const templates = this.gigDataService.getGigTemplates();
+          const matchingTemplate = templates.find(t => t.name === gigData.title);
+          
+          if (matchingTemplate && matchingTemplate.artists) {
+            gigData.artists = matchingTemplate.artists;
+          } else {
+            // Default artists information
+            gigData.artists = "Puppenspiel: Claudia Baran\nRegie: Claudia Baran";
+          }
+        } catch (error) {
+          // Silent catch - use default
+          gigData.artists = "Puppenspiel: Claudia Baran\nRegie: Claudia Baran";
+        }
+      }
+      
       // Open dialog with either detailed or basic data
       this.currentDialogRef = this.dialog.open<boolean>(GigDetailDialogComponent, {
         data: { gig: gigData } as GigDetailData,
@@ -167,6 +186,25 @@ export class DialogService {
       }
     } catch (error) {
       // Silent catch - use basic data
+    }
+
+    // Ensure artists field is populated with default content if missing
+    if (!gigData.artists) {
+      // Try to find a template with the same name to get artists info
+      try {
+        const templates = this.gigDataService.getGigTemplates();
+        const matchingTemplate = templates.find(t => t.name === gigData.title);
+        
+        if (matchingTemplate && matchingTemplate.artists) {
+          gigData.artists = matchingTemplate.artists;
+        } else {
+          // Default artists information for history events
+          gigData.artists = "Puppenspiel: Claudia Baran\nRegie: Claudia Baran";
+        }
+      } catch (error) {
+        // Silent catch - use default
+        gigData.artists = "Puppenspiel: Claudia Baran\nRegie: Claudia Baran";
+      }
     }
 
     // Open dialog with either detailed or basic data

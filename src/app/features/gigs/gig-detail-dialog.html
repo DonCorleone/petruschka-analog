@@ -1,10 +1,11 @@
 <div class="dialog-header">
   <h2 class="dialog-title">{{ data.gig.title }}</h2>
-  <button 
-    type="button" 
-    class="btn-close btn btn-xs btn-ghost-secondary" 
+  <button
+    type="button"
+    class="btn-close btn btn-xs btn-ghost-secondary"
     aria-label="Dialog schliessen"
-    (click)="close()">
+    (click)="close()"
+  >
     <i class="fa-solid fa-times" aria-hidden="true"></i>
     <span class="sr-only">×</span>
   </button>
@@ -17,78 +18,102 @@
       <div class="gig-content-section">
         <div class="info-section">
           @if (data.isHistoryEvent) {
-            <h4>Historische Aufführung</h4>
-            <p><strong>Titel:</strong> {{ data.gig.title }}</p>
-            <p><strong>Uraufführung:</strong> {{ data.gig.date.day }} {{ data.gig.date.month }}</p>
+          <h4>Historische Aufführung</h4>
+          <p><strong>Titel:</strong> {{ data.gig.title }}</p>
+          <p>
+            <strong>Uraufführung:</strong> {{ data.gig.date.day }} {{
+            data.gig.date.month }}
+          </p>
           } @else {
-            <h4>Veranstaltungsdetails</h4>
-            @if (data.gig.eventDateString) {
-              <p><strong>Datum & Zeit:</strong> {{ data.gig.eventDateString }}</p>
-            } @else {
-              <p><strong>Datum:</strong> {{ data.gig.date.day }} {{ data.gig.date.month }}</p>
-              <p><strong>Tag:</strong> {{ data.gig.dayOfWeek }}</p>
-              <p><strong>Zeit:</strong> {{ data.gig.time }}</p>
-            }
-            <p><strong>Veranstaltungsort:</strong> 
-              <span class="location-link" (click)="openLocationDialog(data.gig.location)" title="Ort-Details anzeigen">
-                {{ data.gig.location }}
-                <i class="fa-solid fa-map-marker-alt ms-1"></i>
-              </span>
-            </p>
-            @if (data.gig.duration) {
-              <p><strong>Dauer:</strong> {{ data.gig.duration }}</p>
-            }
-            @if (data.gig.ageRecommendation) {
-              <p><strong>Altersempfehlung:</strong> {{ data.gig.ageRecommendation }}</p>
-            }
+          <h4>Veranstaltungsdetails</h4>
+          @if (data.gig.eventDateString) {
+          <p><strong>Datum & Zeit:</strong> {{ data.gig.eventDateString }}</p>
+          } @else {
+          <p>
+            <strong>Datum:</strong> {{ data.gig.date.day }} {{
+            data.gig.date.month }}
+          </p>
+          <p><strong>Tag:</strong> {{ data.gig.dayOfWeek }}</p>
+          <p><strong>Zeit:</strong> {{ data.gig.time }}</p>
           }
+          <p>
+            <strong>Veranstaltungsort:</strong>
+            <span
+              class="location-link"
+              (click)="openLocationDialog(data.gig.location)"
+              title="Ort-Details anzeigen"
+            >
+              {{ data.gig.location }}
+              <i class="fa-solid fa-map-marker-alt ms-1"></i>
+            </span>
+          </p>
+          @if (data.gig.duration) {
+          <p><strong>Dauer:</strong> {{ data.gig.duration }}</p>
+          } @if (data.gig.ageRecommendation) {
+          <p>
+            <strong>Altersempfehlung:</strong> {{ data.gig.ageRecommendation }}
+          </p>
+          } }
         </div>
 
         <!-- Short Description -->
         @if (data.gig.shortDescription) {
-          <div class="info-section">
-            <h4>Kurzbeschreibung</h4>
-            <p class="lead">{{ data.gig.shortDescription }}</p>
-          </div>
+        <div class="info-section">
+          <h4>Kurzbeschreibung</h4>
+          <p class="lead">{{ data.gig.shortDescription }}</p>
+        </div>
         }
-        
+
         <!-- Long Description with HTML content -->
         @if (data.gig.longDescription) {
-          <div class="info-section">
-            @if (data.isHistoryEvent) {
-              <h4>Über dieses Stück</h4>
-            } @else {
-              <h4>Über diese Aufführung</h4>
-            }
-            <div [innerHTML]="data.gig.longDescription"></div>
-          </div>
-        }
-        
-        @if (data.gig.description && !data.gig.shortDescription) {
-          <div class="info-section">
-            @if (data.isHistoryEvent) {
-              <h4>Über dieses Stück</h4>
-            } @else {
-              <h4>Über diese Aufführung</h4>
-            }
-            <p>{{ data.gig.description }}</p>
-          </div>
+        <div class="info-section">
+          @if (data.isHistoryEvent) {
+          <h4>Über dieses Stück</h4>
+          } @else {
+          <h4>Über diese Aufführung</h4>
+          }
+          <div [innerHTML]="data.gig.longDescription"></div>
+        </div>
+        } @if (data.gig.description && !data.gig.shortDescription) {
+        <div class="info-section">
+          @if (data.isHistoryEvent) {
+          <h4>Über dieses Stück</h4>
+          } @else {
+          <h4>Über diese Aufführung</h4>
+          }
+          <p>{{ data.gig.description }}</p>
+        </div>
         }
 
         <!-- Artists/Cast Information -->
         @if (data.gig.artists) {
-          <div class="info-section">
-            <h4>Mitwirkende</h4>
-            <p>{{ data.gig.artists }}</p>
+        <div class="info-section">
+          <h4>Mitwirkende</h4>
+
+          @for (group of artistGroups(); track group.role) {
+          <div class="artist-role-group">
+            <span class="role-name">{{ group.role }}:</span>
+            <span class="role-members">
+              @for (name of group.names; track name; let last = $last) {
+                @if (isTeamMember(name)) {
+                <span class="team-member-link" (click)="openMemberBio(name)">{{ name }}<i class="fa-solid fa-info-circle" title="Mehr über dieses Teammitglied"></i></span>
+                } @else {
+                <span>{{ name }}</span>
+                }
+                @if (!last) {<span class="artist-separator">, </span>}
+              }
+            </span>
           </div>
+          }
+        </div>
         }
 
         <!-- Important Notes -->
         @if (data.gig.importantNotes) {
-          <div class="info-section alert alert-info">
-            <h5><i class="fas fa-info-circle"></i> Wichtige Hinweise</h5>
-            <p class="mb-0">{{ data.gig.importantNotes }}</p>
-          </div>
+        <div class="info-section alert alert-info">
+          <h5><i class="fas fa-info-circle"></i> Wichtige Hinweise</h5>
+          <p class="mb-0">{{ data.gig.importantNotes }}</p>
+        </div>
         }
 
         <!-- Ticket Information
@@ -108,34 +133,39 @@
             </div>
           </div> 
         }-->
-        
-        @if (data.gig.ticketUrl && data.gig.ticketUrl !== '#' && !data.isHistoryEvent) {
-          <div class="info-section">
-            <a [href]="data.gig.ticketUrl" 
-               target="_blank" 
-               class="btn btn-primary btn-lg">
-              <i class="fa-solid fa-ticket"></i> Tickets kaufen
-            </a>
-          </div>
+
+        @if (data.gig.ticketUrl && data.gig.ticketUrl !== '#' &&
+        !data.isHistoryEvent) {
+        <div class="info-section">
+          <a
+            [href]="data.gig.ticketUrl"
+            target="_blank"
+            class="btn btn-primary btn-lg"
+          >
+            <i class="fa-solid fa-ticket"></i> Tickets kaufen
+          </a>
+        </div>
         }
       </div>
 
       <!-- Image Column -->
       <div class="gig-image-section">
         @if (data.gig.flyerImagePath) {
-          <div class="gig-image">
-            <img [src]="data.gig.flyerImagePath" 
-                 [alt]="data.gig.title + ' Flyer'"
-                 class="img-fluid rounded shadow-sm">
-          </div>
-        }
-        
-        @if (data.gig.bannerImagePath && !data.gig.flyerImagePath) {
-          <div class="gig-banner">
-            <img [src]="data.gig.bannerImagePath" 
-                 [alt]="data.gig.title + ' Banner'"
-                 class="img-fluid rounded shadow-sm">
-          </div>
+        <div class="gig-image">
+          <img
+            [src]="data.gig.flyerImagePath"
+            [alt]="data.gig.title + ' Flyer'"
+            class="img-fluid rounded shadow-sm"
+          />
+        </div>
+        } @if (data.gig.bannerImagePath && !data.gig.flyerImagePath) {
+        <div class="gig-banner">
+          <img
+            [src]="data.gig.bannerImagePath"
+            [alt]="data.gig.title + ' Banner'"
+            class="img-fluid rounded shadow-sm"
+          />
+        </div>
         }
       </div>
     </div>

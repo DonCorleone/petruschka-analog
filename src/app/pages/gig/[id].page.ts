@@ -27,16 +27,43 @@ export default class GigDetailPage implements OnInit {
     const gigId = this.route.snapshot.paramMap.get('id');
     
     if (gigId) {
-      // Try to find the gig and open the dialog
-      const gigs = this.bandDataService.gigsResource.value();
-      const gig = gigs?.find(g => g.id.toString() === gigId);
-      
-      if (gig) {
-        // Open the dialog overlay with detailed data loading
-        await this.dialogService.openGigDetail(gig);
-      } else {
-        // Gig not found, redirect to home
-        console.error('Gig not found:', gigId);
+      try {
+        // Try to find the gig and open the dialog
+        const gigs = this.bandDataService.gigsResource.value() || [];
+        const gig = gigs.find(g => g?.id?.toString() === gigId);
+        
+        if (gig) {
+          // Open the dialog overlay with detailed data loading
+          await this.dialogService.openGigDetail(gig);
+        } else {
+          // If we couldn't find the gig, check if we need to load data
+          // This happens when the page is accessed directly (deeplink)
+          if (gigs.length === 0) {
+            console.log('No gigs available, trying to load data...');
+            // Force data loading - need to wait a moment for resources to load in this environment
+            try {
+              // Wait briefly then retry with whatever data might be available now
+              await new Promise(resolve => setTimeout(resolve, 1000));
+              
+              // Try again after waiting - resources should have loaded by now
+              const refreshedGigs = this.bandDataService.gigsResource.value() || [];
+              const refreshedGig = refreshedGigs.find(g => g?.id?.toString() === gigId);
+              
+              if (refreshedGig) {
+                await this.dialogService.openGigDetail(refreshedGig);
+                return;
+              }
+            } catch (refreshError) {
+              console.error('Failed to refresh gig data:', refreshError);
+            }
+          }
+          
+          // Gig not found, redirect to home
+          console.error('Gig not found:', gigId);
+          this.router.navigate(['/']);
+        }
+      } catch (error) {
+        console.error('Error opening gig dialog:', error);
         this.router.navigate(['/']);
       }
     } else {

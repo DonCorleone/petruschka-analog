@@ -23,20 +23,43 @@ export default class HistoryDetailPage implements OnInit {
   private dialogService = inject(DialogService);
   private bandDataService = inject(BandDataService);
 
-  ngOnInit(): void {
+  async ngOnInit(): Promise<void> {
     const eventId = this.route.snapshot.paramMap.get('id');
     
     if (eventId) {
-      // Try to find the event and open the dialog
-      const pastEvents = this.bandDataService.pastEventsResource.value();
-      const event = pastEvents?.find((e: PastEvent) => e.id === eventId);
-      
-      if (event) {
-        // Open the dialog overlay
-        this.dialogService.openHistoryDetail(event);
-      } else {
-        // Event not found, redirect to home
-        console.error('History event not found:', eventId);
+      try {
+        // Try to find the event and open the dialog
+        const pastEvents = this.bandDataService.pastEventsResource.value() || [];
+        const event = pastEvents.find((e: PastEvent) => e.id === eventId);
+        
+        if (event) {
+          // Open the dialog overlay
+          await this.dialogService.openHistoryDetail(event);
+        } else {
+          // If we couldn't find the event, check if we need to load data
+          // This happens when the page is accessed directly (deeplink)
+          if (pastEvents.length === 0) {
+            console.log('No past events available, trying to load data...');
+            
+            // Wait briefly then retry with whatever data might be available now
+            await new Promise(resolve => setTimeout(resolve, 1000));
+            
+            // Try again after waiting
+            const refreshedEvents = this.bandDataService.pastEventsResource.value() || [];
+            const refreshedEvent = refreshedEvents.find((e: PastEvent) => e.id === eventId);
+            
+            if (refreshedEvent) {
+              await this.dialogService.openHistoryDetail(refreshedEvent);
+              return;
+            }
+          }
+          
+          // Event not found, redirect to home
+          console.error('History event not found:', eventId);
+          this.router.navigate(['/']);
+        }
+      } catch (error) {
+        console.error('Error opening history dialog:', error);
         this.router.navigate(['/']);
       }
     } else {

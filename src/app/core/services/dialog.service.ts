@@ -29,6 +29,13 @@ export class DialogService {
     
     this.isDialogOpening = true;
     
+    // Safety check for gig object
+    if (!gig || !gig.id) {
+      this.isDialogOpening = false;
+      console.error('Invalid gig object provided to openGigDetail');
+      return;
+    }
+    
     try {
       // Close any existing dialog first
       if (this.currentDialogRef) {
@@ -121,6 +128,17 @@ export class DialogService {
         }
       }
       
+      // Update the URL for deeplinking if we're not already on the detail page
+      // Check if we are already on the detail page (to prevent redundant history manipulation)
+      const currentPath = window.location.pathname;
+      const expectedPath = `/gig/${gig.id}`;
+      
+      if (!currentPath.includes(expectedPath)) {
+        // Update the URL without triggering navigation
+        const url = `/gig/${gig.id}`;
+        window.history.pushState({ gigId: gig.id }, '', url);
+      }
+      
       // Open dialog with either detailed or basic data
       this.currentDialogRef = this.dialog.open<boolean>(GigDetailDialogComponent, {
         data: { gig: gigData } as GigDetailData,
@@ -132,12 +150,20 @@ export class DialogService {
         disableClose: false,
         autoFocus: false,
         restoreFocus: true,
-        closeOnNavigation: false // No navigation involved
+        closeOnNavigation: false
       });
 
-      // Handle dialog close - simple cleanup
+      // Handle dialog close - clean up and restore history if needed
       this.currentDialogRef.closed.subscribe(() => {
         this.currentDialogRef = null;
+        
+        // Check if we should go back in history
+        // Only go back if we're on a detail page and there's history to go back to
+        if (window.location.pathname.includes('/gig/') && 
+            window.history.length > 1 && 
+            document.referrer) {
+          window.history.back();
+        }
       });
       
     } finally {
@@ -207,6 +233,17 @@ export class DialogService {
       }
     }
 
+    // Update the URL for deeplinking if we're not already on the detail page
+    // Check if we are already on the detail page (to prevent redundant history manipulation)
+    const currentPath = window.location.pathname;
+    const expectedPath = `/history/${event.id}`;
+    
+    if (!currentPath.includes(expectedPath)) {
+      // Update the URL without triggering navigation
+      const url = `/history/${event.id}`;
+      window.history.pushState({ historyEventId: event.id }, '', url);
+    }
+
     // Open dialog with either detailed or basic data
     this.currentDialogRef = this.dialog.open<boolean>(GigDetailDialogComponent, {
       data: { gig: gigData, isHistoryEvent: true } as GigDetailData,
@@ -219,9 +256,17 @@ export class DialogService {
       closeOnNavigation: false
     });
 
-    // Handle dialog close
+    // Handle dialog close - clean up and restore history if needed
     this.currentDialogRef.closed.subscribe(() => {
       this.currentDialogRef = null;
+      
+      // Check if we should go back in history
+      // Only go back if we're on a detail page and there's history to go back to
+      if (window.location.pathname.includes('/history/') && 
+          window.history.length > 1 && 
+          document.referrer) {
+        window.history.back();
+      }
     });
   }
 
@@ -269,6 +314,33 @@ export class DialogService {
         this.currentDialogRef.close();
       }
       
+      // Format the member name for URL
+      const formattedName = member.name
+        .toLowerCase()
+        .replace(/\s+/g, '-')      // Replace spaces with hyphens
+        .replace(/[äöüÄÖÜ]/g, c => {  // Handle umlauts
+          switch(c) {
+            case 'ä': return 'ae';
+            case 'ö': return 'oe';
+            case 'ü': return 'ue';
+            case 'Ä': return 'ae';
+            case 'Ö': return 'oe';
+            case 'Ü': return 'ue';
+            default: return c;
+          }
+        })
+        .replace(/[^a-z0-9-]/g, ''); // Remove special chars except hyphens
+
+      // Update the URL for deeplinking if we're not already on the detail page
+      const currentPath = window.location.pathname;
+      const expectedPath = `/member/${formattedName}`;
+      
+      if (!currentPath.includes(expectedPath)) {
+        // Update the URL without triggering navigation
+        const url = `/member/${formattedName}`;
+        window.history.pushState({ memberName: member.name }, '', url);
+      }
+      
       // Open member bio dialog
       this.currentDialogRef = this.dialog.open<boolean>(MemberBioDialogComponent, {
         data: { member } as MemberBioData,
@@ -281,9 +353,16 @@ export class DialogService {
         closeOnNavigation: false
       });
 
-      // Handle dialog close
+      // Handle dialog close - clean up and restore history if needed
       this.currentDialogRef.closed.subscribe(() => {
         this.currentDialogRef = null;
+        
+        // Check if we should go back in history
+        if (window.location.pathname.includes('/member/') && 
+            window.history.length > 1 && 
+            document.referrer) {
+          window.history.back();
+        }
       });
       
     } finally {
@@ -317,6 +396,33 @@ export class DialogService {
         throw new Error('Failed to load location details');
       }
       
+      // Format location name for URL
+      const formattedName = locationName
+        .toLowerCase()
+        .replace(/\s+/g, '-')      // Replace spaces with hyphens
+        .replace(/[äöüÄÖÜ]/g, c => {  // Handle umlauts
+          switch(c) {
+            case 'ä': return 'ae';
+            case 'ö': return 'oe';
+            case 'ü': return 'ue';
+            case 'Ä': return 'ae';
+            case 'Ö': return 'oe';
+            case 'Ü': return 'ue';
+            default: return c;
+          }
+        })
+        .replace(/[^a-z0-9-]/g, ''); // Remove special chars except hyphens
+      
+      // Update the URL for deeplinking if we're not already on the detail page
+      const currentPath = window.location.pathname;
+      const expectedPath = `/location/${formattedName}`;
+      
+      if (!currentPath.includes(expectedPath)) {
+        // Update the URL without triggering navigation
+        const url = `/location/${formattedName}`;
+        window.history.pushState({ locationName: locationName }, '', url);
+      }
+
       // Open location dialog
       this.currentDialogRef = this.dialog.open<boolean>(LocationDialogComponent, {
         data: { location: response.data } as LocationDialogData,
@@ -329,9 +435,16 @@ export class DialogService {
         closeOnNavigation: false
       });
 
-      // Handle dialog close
+      // Handle dialog close - clean up and restore history if needed
       this.currentDialogRef.closed.subscribe(() => {
         this.currentDialogRef = null;
+        
+        // Check if we should go back in history
+        if (window.location.pathname.includes('/location/') && 
+            window.history.length > 1 && 
+            document.referrer) {
+          window.history.back();
+        }
       });
       
     } catch (error) {

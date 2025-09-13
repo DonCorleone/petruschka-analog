@@ -95,8 +95,20 @@ export default class LocationDetailPageComponent implements OnInit, OnDestroy {
       );
       
       if (response.success && response.data) {
-        // Found the location! Open the dialog
-        await this.dialogService.openLocationDetail(response.data.name);
+        // Found the location! Open the dialog and get the reference
+        const dialogRef = await this.dialogService.openLocationDetail(response.data.name);
+        
+        // Subscribe to dialog close and navigate to home when closed
+        // This ensures we don't leave the user on a blank page in private browsing mode
+        if (dialogRef) {
+          this.subscription.add(
+            dialogRef.closed.subscribe(() => {
+              // Navigate to the homepage when dialog is closed to avoid blank page
+              this.router.navigate(['/']);
+            })
+          );
+        }
+        
         return true;
       }
       

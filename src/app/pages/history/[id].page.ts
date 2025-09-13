@@ -33,8 +33,17 @@ export default class HistoryDetailPage implements OnInit {
         const event = pastEvents.find((e: PastEvent) => e.id === eventId);
         
         if (event) {
-          // Open the dialog overlay
-          await this.dialogService.openHistoryDetail(event);
+          // Open the dialog overlay and get reference
+          const dialogRef = await this.dialogService.openHistoryDetail(event);
+          
+          // Subscribe to dialog close and navigate to home when closed
+          // This prevents blank page in private browsing mode
+          if (dialogRef) {
+            dialogRef.closed.subscribe(() => {
+              // Navigate to homepage when dialog is closed
+              this.router.navigate(['/']);
+            });
+          }
         } else {
           // If we couldn't find the event, check if we need to load data
           // This happens when the page is accessed directly (deeplink)
@@ -49,7 +58,16 @@ export default class HistoryDetailPage implements OnInit {
             const refreshedEvent = refreshedEvents.find((e: PastEvent) => e.id === eventId);
             
             if (refreshedEvent) {
-              await this.dialogService.openHistoryDetail(refreshedEvent);
+              // Open dialog and get reference
+              const dialogRef = await this.dialogService.openHistoryDetail(refreshedEvent);
+              
+              // Subscribe to dialog close event
+              if (dialogRef) {
+                dialogRef.closed.subscribe(() => {
+                  // Navigate to homepage when dialog is closed
+                  this.router.navigate(['/']);
+                });
+              }
               return;
             }
           }

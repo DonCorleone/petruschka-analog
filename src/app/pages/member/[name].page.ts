@@ -55,8 +55,17 @@ export default class MemberDetailPage implements OnInit {
         }
         
         if (member) {
-          // Open the dialog overlay
-          await this.dialogService.openMemberBio(member);
+          // Open the dialog overlay and get the dialog reference
+          const dialogRef = this.dialogService.openMemberBio(member);
+          
+          // If successful, subscribe to dialog closing and navigate to home
+          // This prevents blank page in private browsing mode
+          if (dialogRef) {
+            dialogRef.closed.subscribe(() => {
+              // Navigate to homepage when dialog is closed
+              this.router.navigate(['/']);
+            });
+          }
         } else {
           // If we couldn't find the member, check if we need to load data
           // This happens when the page is accessed directly (deeplink)
@@ -88,7 +97,16 @@ export default class MemberDetailPage implements OnInit {
             }
             
             if (member) {
-              await this.dialogService.openMemberBio(member);
+              // Open the dialog overlay and get the dialog reference
+              const dialogRef = this.dialogService.openMemberBio(member);
+              
+              // If successful, subscribe to dialog closing and navigate to home
+              if (dialogRef) {
+                dialogRef.closed.subscribe(() => {
+                  // Navigate to homepage when dialog is closed
+                  this.router.navigate(['/']);
+                });
+              }
               return;
             }
           }

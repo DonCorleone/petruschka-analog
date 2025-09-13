@@ -21,10 +21,10 @@ export class DialogService {
     private gigDataService: GigDataService
   ) {}
 
-  async openGigDetail(gig: Gig): Promise<void> {
+  async openGigDetail(gig: Gig): Promise<DialogRef<boolean> | null> {
     // Prevent double-opening
     if (this.isDialogOpening) {
-      return;
+      return null;
     }
     
     this.isDialogOpening = true;
@@ -33,7 +33,7 @@ export class DialogService {
     if (!gig || !gig.id) {
       this.isDialogOpening = false;
       console.error('Invalid gig object provided to openGigDetail');
-      return;
+      return null;
     }
     
     try {
@@ -166,6 +166,13 @@ export class DialogService {
         }
       });
       
+      // Store reference to return
+      const dialogRef = this.currentDialogRef;
+      return dialogRef;
+      
+    } catch (error) {
+      // Silent catch for any errors
+      return null;
     } finally {
       // Reset the opening flag after a short delay
       setTimeout(() => {
@@ -180,11 +187,19 @@ export class DialogService {
     }
   }
 
-  async openHistoryDetail(event: PastEvent): Promise<void> {
-    // Close any existing dialog first
-    if (this.currentDialogRef) {
-      this.currentDialogRef.close();
+  async openHistoryDetail(event: PastEvent): Promise<DialogRef<boolean> | null> {
+    // Prevent double-opening
+    if (this.isDialogOpening) {
+      return null;
     }
+    
+    this.isDialogOpening = true;
+    
+    try {
+      // Close any existing dialog first
+      if (this.currentDialogRef) {
+        this.currentDialogRef.close();
+      }
     
     // Transform PastEvent to Gig-like structure for dialog (basic data)
     let gigData: Gig = {
@@ -268,6 +283,20 @@ export class DialogService {
         window.history.back();
       }
     });
+    
+    // Store reference to return
+    const dialogRef = this.currentDialogRef;
+    return dialogRef;
+      
+  } catch (error) {
+    // Silent catch for any errors
+    return null;
+  } finally {
+    // Reset the opening flag after a short delay
+    setTimeout(() => {
+      this.isDialogOpening = false;
+    }, 300);
+  }
   }
 
   private getMonthFromDate(dateStr: string): string {
@@ -300,10 +329,10 @@ export class DialogService {
     return new Date().getFullYear();
   }
 
-  openMemberBio(member: BandMember): void {
+  openMemberBio(member: BandMember): DialogRef<boolean> | null {
     // Prevent double-opening
     if (this.isDialogOpening) {
-      return;
+      return null;
     }
     
     this.isDialogOpening = true;
@@ -365,6 +394,13 @@ export class DialogService {
         }
       });
       
+      // Store reference to return
+      const dialogRef = this.currentDialogRef;
+      return dialogRef;
+      
+    } catch (error) {
+      // Silent catch for any errors
+      return null;
     } finally {
       // Reset the opening flag after a short delay
       setTimeout(() => {
@@ -373,10 +409,10 @@ export class DialogService {
     }
   }
 
-  async openLocationDetail(locationName: string): Promise<void> {
+  async openLocationDetail(locationName: string): Promise<DialogRef<boolean> | null> {
     // Prevent double-opening
     if (this.isDialogOpening) {
-      return;
+      return null;
     }
     
     this.isDialogOpening = true;
@@ -447,8 +483,13 @@ export class DialogService {
         }
       });
       
+      // Store reference to return
+      const dialogRef = this.currentDialogRef;
+      return dialogRef;
+      
     } catch (error) {
       // Silent catch
+      return null;
     } finally {
       // Reset the opening flag after a short delay
       setTimeout(() => {

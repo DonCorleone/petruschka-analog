@@ -34,7 +34,16 @@ export default class GigDetailPage implements OnInit {
         
         if (gig) {
           // Open the dialog overlay with detailed data loading
-          await this.dialogService.openGigDetail(gig);
+          const dialogRef = await this.dialogService.openGigDetail(gig);
+          
+          // Subscribe to dialog close and navigate to home when closed
+          // This prevents blank page in private browsing mode
+          if (dialogRef) {
+            dialogRef.closed.subscribe(() => {
+              // Navigate to homepage when dialog is closed
+              this.router.navigate(['/']);
+            });
+          }
         } else {
           // If we couldn't find the gig, check if we need to load data
           // This happens when the page is accessed directly (deeplink)
@@ -50,7 +59,16 @@ export default class GigDetailPage implements OnInit {
               const refreshedGig = refreshedGigs.find(g => g?.id?.toString() === gigId);
               
               if (refreshedGig) {
-                await this.dialogService.openGigDetail(refreshedGig);
+                // Open the dialog and get reference
+                const dialogRef = await this.dialogService.openGigDetail(refreshedGig);
+                
+                // Subscribe to dialog close event
+                if (dialogRef) {
+                  dialogRef.closed.subscribe(() => {
+                    // Navigate to homepage when dialog is closed
+                    this.router.navigate(['/']);
+                  });
+                }
                 return;
               }
             } catch (refreshError) {

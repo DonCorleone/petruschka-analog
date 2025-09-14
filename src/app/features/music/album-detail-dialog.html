@@ -16,6 +16,12 @@
       <div class="album-metadata">
         <strong>Veröffentlichung:</strong> {{ data.album.releaseDate }}
       </div>
+      
+      @if (data.album.artists) {
+      <div class="album-metadata">
+        <strong>Künstler:</strong> {{ data.album.artists }}
+      </div>
+      }
       }
       
       @if (data.album.tracks?.length) {

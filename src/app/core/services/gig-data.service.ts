@@ -20,6 +20,7 @@ interface GigTemplate {
     name: string;
     price: number;
     currency: string;
+    description?: string;
     imageUrl?: string;
   }>;
   eventDates?: Array<{
@@ -197,7 +198,7 @@ export class GigDataService {
       name: ticket.name || 'Ticket',
       price: ticket.price || 0,
       currency: ticket.currency || 'CHF',
-      description: ''
+      description: ticket.description || ''
     })) || [];
 
     // Calculate duration if end time is available
@@ -318,7 +319,7 @@ export class GigDataService {
       name: ticket.name || 'Ticket',
       price: ticket.price || 0,
       currency: ticket.currency || 'CHF',
-      description: ''
+      description: ticket.description || ''
     })) || [];
 
     // Calculate duration from event dates if available

@@ -347,14 +347,22 @@ export class DialogService {
           const detailedGig = this.gigDataService.extractDetailedGig(matchingTemplate._id, fakeTimestamp);
           
           if (detailedGig) {
+            // Find the CD ticket type to extract artists information
+            const cdTicket = detailedGig.ticketTypes?.find(t => 
+              t.name === "CD" || t.name === "Hörspiel"
+            );
+            
             // Convert gig data to album data format
             albumData = {
               ...albumData,
               description: detailedGig.longDescription || detailedGig.description,
               releaseDate: detailedGig.eventDateString,
+              // Use the CD ticket description as artists info instead of the gig's artists field
+              artists: cdTicket?.description || detailedGig.artists,
               // Extract tracks if available in the gig data
               tracks: detailedGig.ticketTypes?.filter(t => 
                 t.name !== "CD" && // Filter out the CD ticket type itself
+                t.name !== "Hörspiel" &&
                 !t.name.includes("Versand") && // Filter out shipping options
                 !t.name.includes("Postversand") &&
                 !t.name.includes("Abo")

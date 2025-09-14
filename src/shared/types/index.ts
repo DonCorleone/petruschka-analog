@@ -42,6 +42,7 @@ export interface Album {
   // Additional fields for detailed view
   description?: string;
   releaseDate?: string;
+  artists?: string;
   tracks?: Array<{
     title: string;
     duration?: string;

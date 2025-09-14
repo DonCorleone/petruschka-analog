@@ -39,6 +39,13 @@ export interface Album {
   status: 'available' | 'coming-soon';
   price?: number;
   purchaseUrl: string;
+  // Additional fields for detailed view
+  description?: string;
+  releaseDate?: string;
+  tracks?: Array<{
+    title: string;
+    duration?: string;
+  }>;
 }
 
 export interface BandMember {
@@ -67,6 +74,11 @@ export interface MerchItem {
   image: string;
   description: string;
   purchaseUrl: string;
+  // Additional fields for detailed view
+  longDescription?: string;
+  details?: string[];
+  performanceDates?: string[];
+  type?: 'tournee' | 'regular';
 }
 
 export interface Update {

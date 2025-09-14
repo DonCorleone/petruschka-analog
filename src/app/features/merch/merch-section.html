@@ -6,11 +6,11 @@
         <div class="item">
           <div class="item-inner">
             <img class="img-fluid" [src]="item.image" [alt]="item.title">
-            <a class="mask" [href]="item.purchaseUrl">
+            <a class="mask" (click)="openMerchDetail(item); $event.preventDefault()" href="javascript:void(0)">
               <span class="mask-inner">
                 <span class="item-title">{{ item.title }}</span>
                 <span class="desc">{{ item.description }}</span>
-                <span class="btn btn-primary btn-cta">Jetzt anfragen</span>
+                <span class="btn btn-primary btn-cta">Details anzeigen</span>
               </span>
             </a>
           </div>
@@ -19,7 +19,7 @@
     </div>
     
     <div class="merch-action">
-      <a class="btn btn-ghost-primary" href="#">Alle Artikel anzeigen</a>
+      <a class="btn btn-ghost-primary" href="javascript:void(0)">Alle Artikel anzeigen</a>
     </div>
   </div>
 </section>

@@ -1,0 +1,51 @@
+<div class="merch-detail-container">
+  <div class="merch-header">
+    <h2 class="merch-title">{{ data.merchItem.title }}</h2>
+    <button class="close-button" (click)="close()">&times;</button>
+  </div>
+
+  <div class="merch-content">
+    <div class="merch-image">
+      <img [src]="data.merchItem.image" [alt]="data.merchItem.title" class="img-fluid">
+    </div>
+    
+    <div class="merch-info">
+      <div class="merch-description" [innerHTML]="data.merchItem.description"></div>
+      
+      @if (data.merchItem.longDescription) {
+      <div class="merch-long-description" [innerHTML]="data.merchItem.longDescription"></div>
+      }
+      
+      @if (data.merchItem.details?.length) {
+      <div class="merch-details-section">
+        <h3>Weitere Informationen</h3>
+        <ul class="merch-details-list">
+          @for (detail of data.merchItem.details; track detail) {
+          <li class="detail-item">{{ detail }}</li>
+          }
+        </ul>
+      </div>
+      }
+
+      @if (data.merchItem.performanceDates?.length) {
+      <div class="performance-dates-section">
+        <h3>Aufführungsdaten</h3>
+        <ul class="performance-dates-list">
+          @for (date of data.merchItem.performanceDates; track date) {
+          <li class="date-item">{{ date }}</li>
+          }
+        </ul>
+      </div>
+      }
+      
+      @if (data.merchItem.purchaseUrl) {
+      <div class="merch-actions">
+        <a [href]="data.merchItem.purchaseUrl" class="btn btn-secondary">
+          Jetzt kaufen
+          @if (data.merchItem.price) { CHF {{ data.merchItem.price }} }
+        </a>
+      </div>
+      }
+    </div>
+  </div>
+</div>

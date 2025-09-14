@@ -31,7 +31,7 @@
         <div class="item-inner">
           <h3 class="album-title">{{ album.title }}</h3>
           <div class="cover-holder">
-            <a class="cover-figure" [href]="album.purchaseUrl">
+            <a class="cover-figure" (click)="openAlbumDetail(album); $event.preventDefault()" href="javascript:void(0)">
               @if (album.status === 'coming-soon') {
               <div class="arrow-holder"></div>
               }
@@ -50,13 +50,14 @@
 
             @if (album.status === 'coming-soon') {
             <a
-              [href]="album.purchaseUrl"
+              (click)="openAlbumDetail(album); $event.preventDefault()"
+              href="javascript:void(0)"
               class="btn btn-sm btn-ghost-secondary"
             >
               Album vorbestellen
             </a>
             } @else {
-            <a [href]="album.purchaseUrl" class="btn btn-sm btn-secondary">
+            <a (click)="openAlbumDetail(album); $event.preventDefault()" href="javascript:void(0)" class="btn btn-sm btn-secondary">
               Album kaufen @if (album.price) { CHF {{ album.price }} }
             </a>
             }

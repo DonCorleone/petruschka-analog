@@ -6,48 +6,34 @@
 
   <div class="album-content">
     <div class="album-image">
-      <img [src]="data.album.coverImage" [alt]="data.album.title" class="img-fluid">
+      <img
+        [src]="data.album.coverImage"
+        [alt]="data.album.title"
+        class="img-fluid"
+      />
     </div>
-    
+
     <div class="album-info">
       <div class="album-description" [innerHTML]="data.album.description"></div>
-      
+
       @if (data.album.releaseDate) {
       <div class="album-metadata">
-        <strong>Veröffentlichung:</strong> {{ data.album.releaseDate }}
+        <strong>Premiere:</strong> {{ data.album.releaseDate }}
       </div>
-      
+
       @if (data.album.artists) {
       <div class="album-metadata">
         <strong>Künstler:</strong> {{ data.album.artists }}
       </div>
-      }
-      }
-      
-      @if (data.album.tracks?.length) {
-      <div class="tracks-section">
-        <h3>Tracks</h3>
-        <ol class="track-list">
-          @for (track of data.album.tracks; track track) {
-          <li class="track-item">
-            <span class="track-title">{{ track.title }}</span>
-            @if (track.duration) {
-            <span class="track-duration">{{ track.duration }}</span>
-            }
-          </li>
-          }
-        </ol>
-      </div>
-      }
-      
-      @if (data.album.purchaseUrl) {
+      } } @if (data.album.purchaseUrl) {
       <div class="album-actions">
         @if (data.album.status === 'coming-soon') {
-        <a [href]="data.album.purchaseUrl" class="btn btn-secondary">Album vorbestellen</a>
+        <a [href]="data.album.purchaseUrl" class="btn btn-secondary"
+          >Album vorbestellen</a
+        >
         } @else {
         <a [href]="data.album.purchaseUrl" class="btn btn-secondary">
-          Album kaufen 
-          @if (data.album.price) { CHF {{ data.album.price }} }
+          Album kaufen @if (data.album.price) { CHF {{ data.album.price }} }
         </a>
         }
       </div>

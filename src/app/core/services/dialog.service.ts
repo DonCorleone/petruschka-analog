@@ -359,6 +359,8 @@ export class DialogService {
               releaseDate: detailedGig.eventDateString,
               // Use the CD ticket description as artists info instead of the gig's artists field
               artists: cdTicket?.description || detailedGig.artists,
+              // Include notification email for order process
+              notificationEmail: detailedGig.notificationEmail || matchingTemplate.notificationEmail || '',
               // Extract tracks if available in the gig data
               tracks: detailedGig.ticketTypes?.filter(t => 
                 t.name !== "CD" && // Filter out the CD ticket type itself
@@ -467,6 +469,7 @@ export class DialogService {
               longDescription: detailedGig.longDescription || detailedGig.description,
               details: details.length > 0 ? details : undefined,
               performanceDates: performanceDates.length > 0 ? performanceDates : undefined,
+              notificationEmail: detailedGig.notificationEmail || matchingTemplate.notificationEmail || '',
               type: 'tournee'
             };
             

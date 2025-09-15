@@ -15,37 +15,17 @@
       @if (data.merchItem.longDescription) {
       <div class="merch-long-description" [innerHTML]="data.merchItem.longDescription"></div>
       }
-      
-      @if (data.merchItem.details?.length) {
-      <div class="merch-details-section">
-        <h3>Weitere Informationen</h3>
-        <ul class="merch-details-list">
-          @for (detail of data.merchItem.details; track detail) {
-          <li class="detail-item">{{ detail }}</li>
-          }
-        </ul>
-      </div>
-      }
-
-      @if (data.merchItem.performanceDates?.length) {
-      <div class="performance-dates-section">
-        <h3>Aufführungsdaten</h3>
-        <ul class="performance-dates-list">
-          @for (date of data.merchItem.performanceDates; track date) {
-          <li class="date-item">{{ date }}</li>
-          }
-        </ul>
-      </div>
-      }
-      
-      @if (data.merchItem.purchaseUrl) {
+            
       <div class="merch-actions">
-        <a [href]="data.merchItem.purchaseUrl" class="btn btn-secondary">
-          Jetzt kaufen
-          @if (data.merchItem.price) { CHF {{ data.merchItem.price }} }
-        </a>
+        @if (data.merchItem.notificationEmail) {
+          <a 
+            [href]="'mailto:' + data.merchItem.notificationEmail + '?subject=Buchungsanfrage: ' + data.merchItem.title + '&body=Hallo,%0A%0AIch möchte gerne folgendes Stück buchen:%0A%0A' + data.merchItem.title + '%0A%0A%0A%0AVielen Dank und freundliche Grüsse'" 
+            class="btn btn-secondary"
+          >
+            Buchungsanfrage senden
+          </a>
+        } 
       </div>
-      }
     </div>
   </div>
 </div>

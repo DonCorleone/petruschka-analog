@@ -16,6 +16,7 @@ interface GigTemplate {
   importantNotes?: string;
   googleAnalyticsTracker?: string;
   premiereDate?: Date | string;
+  notificationEmail?: string;
   ticketDetails?: Array<{
     name: string;
     price: number;
@@ -267,7 +268,8 @@ export class GigDataService {
       ticketTypes: ticketTypes,
       duration: duration,
       ageRecommendation: template.shortDescription?.match(/ab (\d+) Jahr/)?.[0] || '',
-      importantNotes: template.importantNotes || ''
+      importantNotes: template.importantNotes || '',
+      notificationEmail: template.notificationEmail || ''
     };
   }
 
@@ -392,7 +394,8 @@ export class GigDataService {
       ticketTypes: ticketTypes,
       duration: duration,
       ageRecommendation: template.shortDescription?.match(/ab (\d+) Jahr/)?.[0] || '',
-      importantNotes: template.importantNotes || ''
+      importantNotes: template.importantNotes || '',
+      notificationEmail: template.notificationEmail || ''
     };
   }
 

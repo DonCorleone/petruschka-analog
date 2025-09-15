@@ -30,6 +30,7 @@ export interface Gig {
   duration?: string;
   ageRecommendation?: string;
   importantNotes?: string;
+  notificationEmail?: string;
 }
 
 export interface Album {
@@ -43,6 +44,7 @@ export interface Album {
   description?: string;
   releaseDate?: string;
   artists?: string;
+  notificationEmail?: string;
   tracks?: Array<{
     title: string;
     duration?: string;
@@ -80,6 +82,7 @@ export interface MerchItem {
   details?: string[];
   performanceDates?: string[];
   type?: 'tournee' | 'regular';
+  notificationEmail?: string;
 }
 
 export interface Update {

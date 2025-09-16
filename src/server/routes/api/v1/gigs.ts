@@ -4,9 +4,9 @@ import { getMongoData } from '../../../lib/simple-mongo';
 
 export default defineEventHandler(async (event): Promise<ApiResponse<Gig[]>> => {
   try {
-    // Get current gigs data from optimized MongoDB Gigs view
-    // Filter for items that have ticketable content (CD or Tournee)
-    const query = { 'googleAnalyticsTracker': { $regex: "CD|Tournee", $options: "i" } };
+    // Get all gigs data from optimized MongoDB Gigs view
+    // No filter on googleAnalyticsTracker so we include theater events too
+    const query = {}; // Empty query to match all documents
     console.log('🔍 Gigs query:', JSON.stringify(query));
     const gigsData = await getMongoData(query, 'eventDb', 'Gigs');
     
@@ -68,11 +68,18 @@ function extractGigsFromView(gigsViewData: any[]): Gig[] {
       
       if (!parsedDate || isNaN(parsedDate.getTime())) return;
       
-      // TEMPORARY: Include ALL events for testing (remove date filtering)
-      // TODO: Re-enable date filtering for production
-      // const now = new Date();
-      // const oneYearAgo = new Date(now.getTime() - (365 * 24 * 60 * 60 * 1000));
-      // if (parsedDate < oneYearAgo) return;
+      // Debug upcoming events
+      const now = new Date();
+      const isUpcoming = parsedDate > now;
+      console.log(`DEBUG: Event date: ${parsedDate.toISOString()}, Now: ${now.toISOString()}, Is upcoming: ${isUpcoming}`);
+      
+      // Filter out past events for the regular gigs view
+      // This only applies to the /api/v1/gigs endpoint
+      // Other endpoints (music, merch, history) will handle their own filtering
+      if (!isUpcoming) {
+        console.log(`DEBUG: Skipping past event: ${doc.name} at ${parsedDate.toISOString()}`);
+        return;
+      }
       
       // Extract pricing information from pre-processed ticket details
       let ticketUrl = doc.url || '#';
@@ -144,6 +151,14 @@ function extractGigsFromView(gigsViewData: any[]): Gig[] {
   const sortedGigs = gigsWithDates.sort((a, b) => {
     return a.eventDate.getTime() - b.eventDate.getTime();
   });
+  
+  // Debug the final results
+  console.log(`DEBUG: Found ${gigsWithDates.length} upcoming gigs after filtering`);
+  if (gigsWithDates.length > 0) {
+    console.log(`DEBUG: First upcoming gig: "${gigsWithDates[0].title}" on ${gigsWithDates[0].eventDate.toISOString()}`);
+  } else {
+    console.log(`DEBUG: No upcoming gigs found!`);
+  }
   
   // Remove the eventDate property and return only upcoming events
   return sortedGigs.map(({ eventDate, ...gig }) => gig);

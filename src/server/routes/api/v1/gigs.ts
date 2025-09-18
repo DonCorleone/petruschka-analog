@@ -81,8 +81,8 @@ function extractGigsFromView(gigsViewData: any[]): Gig[] {
         return;
       }
       
-      // Extract pricing information from pre-processed ticket details
-      let ticketUrl = doc.url || '#';
+      // Extract ticket URL from event date if available, fall back to template URL
+      let ticketUrl = eventDate.ticketUrl || doc.url || '#';
       if (ticketUrl && !ticketUrl.startsWith('http')) {
         ticketUrl = 'https://' + ticketUrl;
       }
@@ -129,6 +129,14 @@ function extractGigsFromView(gigsViewData: any[]): Gig[] {
         eventId = Math.floor(Math.random() * 1000000);
       }
       
+      // Create a properly formatted date string for the detail view
+      const eventDateString = parsedDate.toLocaleDateString('de-DE', { 
+        weekday: 'long', 
+        year: 'numeric', 
+        month: 'long', 
+        day: 'numeric'
+      }) + ', ' + time + ' Uhr';
+      
       gigsWithDates.push({
         id: eventId,
         date: { day, month, year },
@@ -140,6 +148,7 @@ function extractGigsFromView(gigsViewData: any[]): Gig[] {
         description: description,
         ticketUrl: ticketUrl,
         eventDate: parsedDate,
+        eventDateString: eventDateString, // Add the formatted event date string
         // Only include minimal data for list view - detailed data loaded on demand
         shortDescription: doc.shortDescription || '',
         flyerImagePath: doc.flyerImagePath || ''

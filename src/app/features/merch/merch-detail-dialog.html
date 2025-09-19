@@ -1,0 +1,31 @@
+<div class="merch-detail-container">
+  <div class="merch-header">
+    <h2 class="merch-title">{{ data.merchItem.title }}</h2>
+    <button class="close-button" (click)="close()">&times;</button>
+  </div>
+
+  <div class="merch-content">
+    <div class="merch-image">
+      <img [src]="data.merchItem.image" [alt]="data.merchItem.title" class="img-fluid">
+    </div>
+    
+    <div class="merch-info">
+      <div class="merch-description" [innerHTML]="data.merchItem.description"></div>
+      
+      @if (data.merchItem.longDescription) {
+      <div class="merch-long-description" [innerHTML]="data.merchItem.longDescription"></div>
+      }
+            
+      <div class="merch-actions">
+        @if (data.merchItem.notificationEmail) {
+          <a 
+            [href]="'mailto:' + data.merchItem.notificationEmail + '?subject=Buchungsanfrage: ' + data.merchItem.title + '&body=Hallo,%0A%0AIch möchte gerne folgendes Stück buchen:%0A%0A' + data.merchItem.title + '%0A%0A%0A%0AVielen Dank und freundliche Grüsse'" 
+            class="btn btn-secondary"
+          >
+            Buchungsanfrage senden
+          </a>
+        } 
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,5 +1,6 @@
 import { Component, inject, ChangeDetectionStrategy } from '@angular/core';
-import { BandDataService } from '../../core/services';
+import { BandDataService, DialogService } from '../../core/services';
+import { MerchItem } from '../../../shared/types';
 
 @Component({
   selector: 'app-merch-section',
@@ -10,6 +11,13 @@ import { BandDataService } from '../../core/services';
 export class MerchSectionComponent {
   
   private bandDataService = inject(BandDataService);
+  private dialogService = inject(DialogService);
   
   merchItems = this.bandDataService.merchResource.value;
+  
+  openMerchDetail(merchItem: MerchItem): void {
+    if (merchItem) {
+      this.dialogService.openMerchDetail(merchItem);
+    }
+  }
 }

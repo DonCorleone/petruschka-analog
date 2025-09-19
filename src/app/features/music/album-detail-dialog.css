@@ -1,0 +1,146 @@
+.album-detail-container {
+  display: flex;
+  flex-direction: column;
+  background-color: #fff;
+  color: #333;
+  border-radius: 8px;
+  overflow: hidden;
+  max-height: 90vh;
+  max-width: 100%;
+  width: 100%;
+  padding: 0;
+  position: relative;
+}
+
+.album-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 15px 20px;
+  background-color: #f5f5f5;
+  border-bottom: 1px solid #e0e0e0;
+}
+
+.album-title {
+  margin: 0;
+  font-size: 1.8rem;
+  font-weight: 700;
+  color: #333;
+}
+
+.close-button {
+  background: none;
+  border: none;
+  font-size: 24px;
+  cursor: pointer;
+  color: #555;
+  padding: 0;
+  margin: 0;
+  line-height: 1;
+}
+
+.close-button:hover {
+  color: #000;
+}
+
+.album-content {
+  display: flex;
+  flex-direction: row;
+  padding: 20px;
+  overflow-y: auto;
+}
+
+@media (max-width: 768px) {
+  .album-content {
+    flex-direction: column;
+  }
+}
+
+.album-image {
+  flex: 0 0 300px;
+  margin-right: 30px;
+}
+
+@media (max-width: 768px) {
+  .album-image {
+    flex: 0 0 auto;
+    margin-right: 0;
+    margin-bottom: 20px;
+    text-align: center;
+  }
+}
+
+.album-image img {
+  width: 100%;
+  height: auto;
+  border-radius: 4px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+.album-info {
+  flex: 1;
+}
+
+.album-description {
+  margin-bottom: 20px;
+  font-size: 1rem;
+  line-height: 1.6;
+}
+
+.album-metadata {
+  margin-bottom: 15px;
+  font-size: 0.9rem;
+}
+
+.tracks-section {
+  margin-top: 25px;
+  margin-bottom: 25px;
+}
+
+.tracks-section h3 {
+  font-size: 1.3rem;
+  margin-bottom: 15px;
+}
+
+.track-list {
+  list-style-position: inside;
+  padding-left: 0;
+}
+
+.track-item {
+  display: flex;
+  justify-content: space-between;
+  padding: 8px 0;
+  border-bottom: 1px solid #eee;
+}
+
+.track-title {
+  flex: 1;
+}
+
+.track-duration {
+  color: #777;
+  font-size: 0.85em;
+}
+
+.album-actions {
+  margin-top: 25px;
+}
+
+.album-actions .btn {
+  display: inline-block;
+  padding: 8px 20px;
+  border-radius: 4px;
+  text-decoration: none;
+  font-weight: 500;
+  transition: all 0.3s ease;
+}
+
+.btn-secondary {
+  background-color: #333;
+  color: white;
+}
+
+.btn-secondary:hover {
+  background-color: #555;
+}

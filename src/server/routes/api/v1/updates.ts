@@ -5,17 +5,17 @@ import { getMongoData } from '../../../lib/simple-mongo';
 export default defineEventHandler(async (event): Promise<ApiResponse<Update[]>> => {
   try {
     // Get upcoming premieres data from optimized MongoDB Gigs view
-    // Filter for promo-worthy content (CD or Tournee sections)
-    const query = { 'googleAnalyticsTracker': { $regex: "CD|Tournee", $options: "i" } };
+    // Get ALL premieres regardless of googleAnalyticsTracker value
+    const query = { 'premiereDate': { $exists: true } };
     const gigsData = await getMongoData(query, 'eventDb', 'Gigs');
     
     let updates: Update[] = [];
     
     if (gigsData && gigsData.length > 0) {
-      console.log('✅ Using optimized MongoDB Gigs view for updates');
+      console.log('✅ Using MongoDB Gigs view for updates - showing upcoming premieres');
       updates = extractUpdatesFromView(gigsData);
     } else {
-      console.log('⚠️ No gigs data found in view, using fallback update');
+      console.log('⚠️ No upcoming premieres found in the database, using fallback update');
       // Fallback update based on ID 3 mock structure
       updates = [
         {
@@ -58,7 +58,7 @@ function extractUpdatesFromView(gigsViewData: any[]): Update[] {
   const updatesWithDates: Array<Update & { sortDate: Date }> = [];
   
   gigsViewData.forEach((doc: any) => {
-    // Only show items that have a premiere date (indicating they're in Promo/History sections)
+    // Only show items that have a premiere date
     if (!doc.premiereDate || !doc.eventDates || doc.eventDates.length === 0) return;
     
     // Parse premiere date
@@ -73,11 +73,29 @@ function extractUpdatesFromView(gigsViewData: any[]): Update[] {
     
     if (!premiereDate) return;
     
-    // Only include recent/upcoming events (within last 2 years or future)
+    // Check if event has any upcoming dates (even if premiere was in the past)
     const now = new Date();
-    const twoYearsAgo = new Date(now.getTime() - (2 * 365 * 24 * 60 * 60 * 1000));
+    let hasUpcomingDate = false;
     
-    if (premiereDate < twoYearsAgo) return;
+    // Check if any event date is upcoming
+    for (const eventDate of doc.eventDates) {
+      let parsedDate: Date | null = null;
+      if (eventDate.start instanceof Date) {
+        parsedDate = eventDate.start;
+      } else if (eventDate.start?.$date) {
+        parsedDate = new Date(eventDate.start.$date);
+      } else if (typeof eventDate.start === 'string') {
+        parsedDate = new Date(eventDate.start);
+      }
+      
+      if (parsedDate && parsedDate > now) {
+        hasUpcomingDate = true;
+        break;
+      }
+    }
+    
+    // Only include upcoming events
+    if (!hasUpcomingDate) return;
     
     // Process image URL for media thumb
     let imageUrl = 'https://petruschka.netlify.app/.netlify/images?url=';
@@ -85,12 +103,12 @@ function extractUpdatesFromView(gigsViewData: any[]): Update[] {
     
     if (doc.flyerImagePath) {
       mediaThumb = doc.flyerImagePath.includes('?') 
-        ? `${imageUrl}${doc.flyerImagePath}&nf_resize=fit&w=105`
-        : `${imageUrl}${doc.flyerImagePath}?nf_resize=fit&w=105`;
+        ? `${imageUrl}${doc.flyerImagePath}&nf_resize=fit&w=180`
+        : `${imageUrl}${doc.flyerImagePath}?nf_resize=fit&w=180`;
     } else if (doc.bannerImagePath) {
       mediaThumb = doc.bannerImagePath.includes('?') 
-        ? `${imageUrl}${doc.bannerImagePath}&nf_resize=fit&w=105`
-        : `${imageUrl}${doc.bannerImagePath}?nf_resize=fit&w=105`;
+        ? `${imageUrl}${doc.bannerImagePath}&nf_resize=fit&w=180`
+        : `${imageUrl}${doc.bannerImagePath}?nf_resize=fit&w=180`;
     }
     
     // Determine if this is a future event (for countdown)

@@ -1,0 +1,41 @@
+<div class="album-detail-container">
+  <div class="album-header">
+    <h2 class="album-title">{{ data.album.title }}</h2>
+    <button class="close-button" (click)="close()">&times;</button>
+  </div>
+
+  <div class="album-content">
+    <div class="album-image">
+      <img
+        [src]="data.album.coverImage"
+        [alt]="data.album.title"
+        class="img-fluid"
+      />
+    </div>
+
+    <div class="album-info">
+      <div class="album-description" [innerHTML]="data.album.description"></div>
+
+      @if (data.album.releaseDate) {
+      <div class="album-metadata">
+        <strong>Premiere:</strong> {{ data.album.releaseDate }}
+      </div>
+      }
+      
+      @if (data.album.artists) {
+      <div class="album-metadata">
+        <strong>Künstler:</strong> {{ data.album.artists }}
+      </div>
+      }
+      
+      <div class="album-actions">
+        <a
+          href="mailto:nathaliehildebrand@kinderkultur.ch?subject=Bestellung CD '{{ data.album.title }}'&body=Hallo,%0A%0AIch möchte gerne die CD '{{ data.album.title }}' bestellen.%0A%0AAnzahl CDs: 1%0APreis: CHF 22.00 (inkl. Porto)%0A%0ABitte senden Sie die Bestellung an:%0A%0AName: %0AStrasse: %0APLZ / Ort: %0A%0AVielen Dank und freundliche Grüsse"
+          class="btn btn-secondary"
+        >
+          CD bestellen (CHF 22.00 inkl. Porto)
+        </a>
+      </div>
+    </div>
+  </div>
+</div>

@@ -6,7 +6,7 @@ export default defineEventHandler(async (event): Promise<ApiResponse<any[]>> => 
   try {
     // Get raw gig template data from optimized MongoDB Gigs view
     // This includes all the template-level data needed for client-side detail extraction
-    const query = { 'googleAnalyticsTracker': { $regex: "CD|Tournee", $options: "i" } };
+    const query = { 'googleAnalyticsTracker': { $regex: "CD|Tournee|Premiere", $options: "i" } };
     console.log('🔍 Gig templates query:', JSON.stringify(query));
     const gigsTemplateData = await getMongoData(query, 'eventDb', 'Gigs');
     

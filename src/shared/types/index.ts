@@ -21,6 +21,7 @@ export interface Gig {
   flyerImagePath?: string;
   bannerImagePath?: string;
   eventDateString?: string;
+  startTimestamp?: number; // Add timestamp for exact event identification
   ticketTypes?: Array<{
     name: string;
     price: number;
@@ -28,8 +29,8 @@ export interface Gig {
     description?: string;
   }>;
   duration?: string;
-  ageRecommendation?: string;
   importantNotes?: string;
+  notificationEmail?: string;
 }
 
 export interface Album {
@@ -39,6 +40,15 @@ export interface Album {
   status: 'available' | 'coming-soon';
   price?: number;
   purchaseUrl: string;
+  // Additional fields for detailed view
+  description?: string;
+  releaseDate?: string;
+  artists?: string;
+  notificationEmail?: string;
+  tracks?: Array<{
+    title: string;
+    duration?: string;
+  }>;
 }
 
 export interface BandMember {
@@ -67,6 +77,12 @@ export interface MerchItem {
   image: string;
   description: string;
   purchaseUrl: string;
+  // Additional fields for detailed view
+  longDescription?: string;
+  details?: string[];
+  performanceDates?: string[];
+  type?: 'tournee' | 'regular';
+  notificationEmail?: string;
 }
 
 export interface Update {

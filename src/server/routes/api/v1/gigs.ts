@@ -137,6 +137,9 @@ function extractGigsFromView(gigsViewData: any[]): Gig[] {
         day: 'numeric'
       }) + ', ' + time + ' Uhr';
       
+      // Store the exact timestamp for precise event identification
+      const startTimestamp = parsedDate.getTime();
+      
       gigsWithDates.push({
         id: eventId,
         date: { day, month, year },
@@ -149,6 +152,7 @@ function extractGigsFromView(gigsViewData: any[]): Gig[] {
         ticketUrl: ticketUrl,
         eventDate: parsedDate,
         eventDateString: eventDateString, // Add the formatted event date string
+        startTimestamp: startTimestamp, // Add the exact timestamp for event identification
         // Only include minimal data for list view - detailed data loaded on demand
         shortDescription: doc.shortDescription || '',
         flyerImagePath: doc.flyerImagePath || ''

@@ -21,6 +21,7 @@ export interface Gig {
   flyerImagePath?: string;
   bannerImagePath?: string;
   eventDateString?: string;
+  startTimestamp?: number; // Add timestamp for exact event identification
   ticketTypes?: Array<{
     name: string;
     price: number;
@@ -28,7 +29,6 @@ export interface Gig {
     description?: string;
   }>;
   duration?: string;
-  ageRecommendation?: string;
   importantNotes?: string;
   notificationEmail?: string;
 }

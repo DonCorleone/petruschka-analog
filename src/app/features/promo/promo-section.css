@@ -97,6 +97,9 @@
 
 .updates-block .media-thumb {
   position: relative;
+  img {
+    width: 100%
+  }
 }
 
 .updates-block .video-play-trigger {

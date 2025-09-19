@@ -41,26 +41,40 @@ export class DialogService {
       
       // Try to extract detailed gig from client-side template data (no API call needed!)
       try {
-        // Parse composite ID (format: "templateId_timestamp" or just templateId)
+        // Get template ID from numeric ID
         let templateId: string | number;
-        let targetTimestamp: number | null = null;
+        // Use the startTimestamp from the gig object if available
+        let targetTimestamp: number | null = gig.startTimestamp || null;
         
+        // Legacy ID handling for backward compatibility
         const gigIdStr = String(gig.id);
         if (gigIdStr.includes('_')) {
           const parts = gigIdStr.split('_');
           templateId = parts[0];
-          targetTimestamp = parseInt(parts[1]);
+          if (!targetTimestamp) {
+            targetTimestamp = parseInt(parts[1]);
+          }
         } else {
           // Legacy numeric ID or simple template ID
           const numericId = parseInt(gigIdStr);
           templateId = isNaN(numericId) ? gigIdStr : numericId;
         }
         
+        console.log('Looking up gig details with:', { 
+          templateId, 
+          targetTimestamp, 
+          ticketUrl: gig.ticketUrl 
+        });
+        
         // Extract detailed gig from stored template data
         const detailedGig = this.gigDataService.extractDetailedGig(templateId, targetTimestamp);
         
         if (detailedGig) {
-          gigData = detailedGig;
+          // Make sure we preserve the specific ticketUrl from the event
+          gigData = {
+            ...detailedGig,
+            ticketUrl: gig.ticketUrl // Always use the event-specific ticket URL
+          };
         } else {
           throw new Error('Template not found in client-side data');
         }
@@ -72,14 +86,17 @@ export class DialogService {
           const templateByName = templates.find(t => t.name === gig.title);
           
           if (templateByName) {
-            // Create a pseudo-timestamp if needed for the extraction
-            const fakeTimestamp = Date.now();
+            // Use the startTimestamp from the gig object or fallback
+            const timestamp = gig.startTimestamp || Date.now();
             
             // Try extraction again with the found template
-            const detailedGigByName = this.gigDataService.extractDetailedGig(templateByName._id, fakeTimestamp);
+            const detailedGigByName = this.gigDataService.extractDetailedGig(templateByName._id, timestamp);
             
             if (detailedGigByName) {
-              gigData = detailedGigByName;
+              gigData = {
+                ...detailedGigByName,
+                ticketUrl: gig.ticketUrl // Always use the event-specific ticket URL
+              };
             }
           }
         } catch (nameMatchError) {
@@ -94,7 +111,10 @@ export class DialogService {
             );
             
             if (response.success && response.data) {
-              gigData = response.data;
+              gigData = {
+                ...response.data,
+                ticketUrl: gig.ticketUrl // Always use the event-specific ticket URL
+              };
             } else {
               throw new Error('Failed to load gig details from API');
             }
@@ -457,7 +477,6 @@ export class DialogService {
             
             // Extract additional details
             const details: string[] = [];
-            if (detailedGig.ageRecommendation) details.push(detailedGig.ageRecommendation);
             if (detailedGig.duration) details.push(`Dauer: ${detailedGig.duration}`);
             if (detailedGig.venue) details.push(`Ort: ${detailedGig.venue}`);
             if (detailedGig.artists) details.push(`Künstler: ${detailedGig.artists}`);

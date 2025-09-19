@@ -175,7 +175,8 @@ export class GigDataService {
     if (!eventDate || isNaN(eventDate.getTime())) return null;
     
     // Extract pricing information from pre-processed ticket details
-    let ticketUrl = template.url || '#';
+    // Check if selected event date has a specific ticketUrl
+    let ticketUrl = selectedEventDate.ticketUrl || template.url || '#';
     if (ticketUrl && !ticketUrl.startsWith('http')) {
       ticketUrl = 'https://' + ticketUrl;
     }
@@ -267,7 +268,6 @@ export class GigDataService {
       }),
       ticketTypes: ticketTypes,
       duration: duration,
-      ageRecommendation: template.shortDescription?.match(/ab (\d+) Jahr/)?.[0] || '',
       importantNotes: template.importantNotes || '',
       notificationEmail: template.notificationEmail || ''
     };
@@ -393,7 +393,6 @@ export class GigDataService {
       }),
       ticketTypes: ticketTypes,
       duration: duration,
-      ageRecommendation: template.shortDescription?.match(/ab (\d+) Jahr/)?.[0] || '',
       importantNotes: template.importantNotes || '',
       notificationEmail: template.notificationEmail || ''
     };

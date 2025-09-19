@@ -68,11 +68,18 @@
   margin-left: auto;
   margin-right: auto;
   display: inline-block;
-    border-radius: 50%;
+  border-radius: 50%;
   width: 240px;
   height: 240px;
   object-fit: cover;
   object-position: center;
+  filter: grayscale(100%);
+  transition: filter 0.3s ease;
+}
+
+/* Add hover effect to restore color on hover */
+.about-section .member-card:hover .member-profile img {
+  filter: grayscale(70%);
 }
 
 .about-section .member-label {

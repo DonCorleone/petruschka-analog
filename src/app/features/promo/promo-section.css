@@ -49,7 +49,7 @@
 }
 
 .promo-content {
-  padding-top: 80px;
+  padding-top: 100px;
   position: relative;
   z-index: 20;
 }
@@ -268,7 +268,7 @@
   }
 
   .promo-content {
-    padding-top: 0px;
+    padding-top: 10px;
   }
 
   .promo-content .headline {
@@ -374,7 +374,7 @@
 
 @media (min-width: 768px) {
   .promo-content {
-    padding-top: 30px;
+    padding-top: 70px;
   }
 
   .updates-block {

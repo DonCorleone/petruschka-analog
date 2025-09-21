@@ -127,8 +127,6 @@ export class DialogService {
       // Open dialog with either detailed or basic data
       this.currentDialogRef = this.dialog.open<boolean>(GigDetailDialogComponent, {
         data: { gig: gigData } as GigDetailData,
-        height: '200px',
-        width: '90vw',
         panelClass: 'custom-dialog-panel',
         backdropClass: 'custom-dialog-backdrop',
         hasBackdrop: true,

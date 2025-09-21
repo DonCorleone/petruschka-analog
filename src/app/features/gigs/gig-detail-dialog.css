@@ -1,7 +1,7 @@
 /* CDK Dialog Host Styles - Following CDK Documentation Pattern */
 :host {
   display: block;
-  background: #fff;
+  background: #f8f9fa;
   /* border-radius: 12px;
   padding: 0;
   max-width: 800px;

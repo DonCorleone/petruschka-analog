@@ -12,6 +12,9 @@
   min-width: 600px;
   max-width: 1024px;
   box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+  /* Prevent horizontal overflow */
+  max-width: 100%;
+  box-sizing: border-box;
 }
 
 /* Dialog Header */
@@ -109,6 +112,8 @@
   cursor: pointer;
   text-decoration: underline;
   transition: color 0.2s ease;
+  white-space: nowrap;
+
 }
 
 .location-link:hover {
@@ -119,6 +124,16 @@
 .location-link i {
   font-size: 0.9em;
   opacity: 0.8;
+}
+
+/* Event date and time styling */
+.event-datetime {
+  white-space: nowrap;
+}
+
+/* Text nowrap utility (fallback if Bootstrap not available) */
+.text-nowrap {
+  white-space: nowrap !important;
 }
 
 /* Accessibility */
@@ -233,10 +248,17 @@
 @media (max-width: 768px) {
   :host {
     min-width: unset;
+    margin: 2vh 2vw;
+    max-width: calc(100vw - 4vw);
   }
 
   .dialog-title {
     font-size: 20px;
+    word-break: break-word;
+  }
+  
+  .dialog-content {
+    padding: 15px;
   }
   
   .gig-info-grid {
@@ -261,5 +283,18 @@
 
   .ticket-price {
     margin-top: 0.25rem;
+  }
+  
+  /* Handle long text content */
+  .info-section p,
+  .info-section div {
+    word-wrap: break-word;
+    overflow-wrap: break-word;
+  }
+  
+  /* Override nowrap on mobile for critical content */
+  .event-datetime,
+  .location-link {
+    white-space: normal !important;
   }
 }

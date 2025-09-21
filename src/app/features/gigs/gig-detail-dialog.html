@@ -23,7 +23,11 @@
           } @else {
             <h4>Veranstaltungsdetails</h4>
             @if (data.gig.eventDateString) {
-              <p><strong class="text-nowrap">Datum & Zeit:</strong> <span class="event-datetime">{{ data.gig.eventDateString }}</span></p>
+              <p><strong class="text-nowrap">Datum & Zeit:</strong> 
+                <span class="event-datetime">
+                  {{ data.gig.eventDateString }}
+                </span>
+              </p>
             } @else {
               <p><strong>Datum:</strong> {{ data.gig.date.day }} {{ data.gig.date.month }}</p>
               <p><strong>Tag:</strong> {{ data.gig.dayOfWeek }}</p>

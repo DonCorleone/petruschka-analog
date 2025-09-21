@@ -26,6 +26,7 @@
 
 .navbar-nav {
   padding-top: 15px;
+  justify-content: center;
 }
 
 .nav-link {

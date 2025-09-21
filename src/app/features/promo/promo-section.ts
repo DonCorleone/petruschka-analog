@@ -28,7 +28,7 @@ export class PromoSectionComponent implements OnInit {
   private isBrowser = isPlatformBrowser(this.platformId);
   
   headline = 'Petruschka';
-  tagline = 'Zauberhafte Puppentheater-Aufführungen für Kinder und Familien';
+  tagline = 'Das Figurentheater in Luzern';
   
   // All available background images - separated by orientation
   private allLandscapeBackgroundImages = [

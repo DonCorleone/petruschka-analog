@@ -1,6 +1,6 @@
 import { Component, inject, ChangeDetectionStrategy } from '@angular/core';
 import { CommonModule, NgClass } from '@angular/common';
-import { BandDataService } from '../../core/services';
+import { BandDataService, DialogService } from '../../core/services';
 import { type ContactInfo, type SocialLink, type Press } from '../../../shared/types';
 
 @Component({
@@ -12,7 +12,8 @@ import { type ContactInfo, type SocialLink, type Press } from '../../../shared/t
 })
 export class ContactSectionComponent {
   private bandDataService = inject(BandDataService);
-  
+  private dialogService = inject(DialogService);
+
   contactData = this.bandDataService.contactResource.value;
   press = this.bandDataService.pressResource.value;
   sponsors = this.bandDataService.sponsorsResource.value;
@@ -35,6 +36,11 @@ export class ContactSectionComponent {
 
   get sponsorsList() {
     return this.sponsors() || [];
+  }
+
+
+  openNewsletterSignup() {
+    this.dialogService.openNewsletterDialog();
   }
 
   getPressImageUrl(press: Press): string {

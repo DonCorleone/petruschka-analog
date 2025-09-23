@@ -120,7 +120,28 @@
         </div>
       </div>
     }
-    <div class="contact-block mr-auto ml-auto">
+
+        <div class="contact-block mr-auto ml-auto">
+        <div class="contact-grid">
+            <div class="item">
+              <div class="item-inner">
+                <div class="icon-holder">
+                  <i [class]="'fas fa-newspaper'"></i>
+                </div>
+                <h4 class="title">Newsletter</h4>
+                <div class="email">
+                  <button type="button" class="btn btn-primary btn-cta btn-sm" 
+                          (click)="openNewsletterSignup()">
+                    Zum Newsletter anmelden
+                  </button>
+                </div>
+              </div>
+            </div>
+          
+        </div>
+    </div>
+
+    <!--div class="contact-block mr-auto ml-auto">
         <div class="contact-grid">
           @for (contact of contactInfo; track contact.type) {
             <div class="item">
@@ -131,12 +152,12 @@
                 <h4 class="title">{{ contact.title }}</h4>
                 <div class="email">
                   <a [href]="'mailto:' + contact.email">{{ contact.email }}</a>
-                </div>
+                </div>x
               </div>
             </div>
           }
         </div>
-    </div>
+    </div-->
     
     <!--div class="channels-block">
       <ul class="channels-list list-inline">

@@ -67,6 +67,11 @@ export class ContactSectionComponent {
     event.target.src = '/images/placeholder.svg';
   }
 
+  onSponsorImageError(event: any): void {
+    // Fallback to sponsor placeholder SVG if sponsor image fails to load
+    event.target.src = '/sponsor-placeholder.svg';
+  }
+
   formatDate(dateString: string): string {
     const date = new Date(dateString);
     return date.toLocaleDateString('de-CH', {

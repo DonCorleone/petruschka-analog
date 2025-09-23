@@ -28,7 +28,9 @@ export default defineEventHandler(async (event): Promise<ApiResponse<Sponsor[]>>
       // Process image URL
       let imageUrl = '';
       if (doc.image && doc.image.trim() !== '') {
-        imageUrl = `https://www.petruschka.ch/images/sponsoren/sponsors_${doc.image}?nf_resize=fit&w=200`;
+        // Validate that the image filename exists to prevent SSR errors
+        const imageFileName = doc.image.trim();
+        imageUrl = `https://www.petruschka.ch/images/sponsoren/sponsors_${imageFileName}?nf_resize=fit&w=200`;
       } else {
         // Use placeholder identifier for sponsors without images
         imageUrl = 'PLACEHOLDER';

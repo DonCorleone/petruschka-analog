@@ -8,6 +8,7 @@ import { MemberBioDialogComponent, MemberBioData } from '../../features/about/me
 import { LocationDialogComponent, LocationDialogData } from '../../features/location/location-dialog';
 import { AlbumDetailDialogComponent, AlbumDetailData } from '../../features/music/album-detail-dialog';
 import { MerchDetailDialogComponent, MerchDetailData } from '../../features/merch/merch-detail-dialog';
+import { NewsletterDialogComponent, NewsletterDialogData } from '../../features/newsletter/newsletter-dialog';
 import { Gig, PastEvent, BandMember, Location, Album, MerchItem, ApiResponse } from '../../../shared/types';
 
 @Injectable({
@@ -518,6 +519,48 @@ export class DialogService {
       
     } catch (error) {
       // Silent catch
+    } finally {
+      // Reset the opening flag after a short delay
+      setTimeout(() => {
+        this.isDialogOpening = false;
+      }, 300);
+    }
+  }
+
+  async openNewsletterDialog(): Promise<void> {
+    // Prevent double-opening
+    if (this.isDialogOpening) {
+      return;
+    }
+    
+    this.isDialogOpening = true;
+    
+    try {
+      // Close any existing dialog first
+      if (this.currentDialogRef) {
+        this.currentDialogRef.close();
+      }
+      
+      // Open newsletter dialog
+      this.currentDialogRef = this.dialog.open<boolean>(NewsletterDialogComponent, {
+        data: {} as NewsletterDialogData,
+        panelClass: 'custom-dialog-panel',
+        backdropClass: 'custom-dialog-backdrop',
+        hasBackdrop: true,
+        disableClose: false,
+        autoFocus: false,
+        restoreFocus: true,
+        closeOnNavigation: false
+      });
+
+      // Handle dialog close
+      this.currentDialogRef.closed.subscribe((success) => {
+        this.currentDialogRef = null;
+        if (success) {
+          console.log('Newsletter subscription successful');
+        }
+      });
+      
     } finally {
       // Reset the opening flag after a short delay
       setTimeout(() => {

@@ -12,11 +12,12 @@
         <div class="sponsor-item" [ngClass]="sponsor.sizeClass">
           <a [href]="sponsor.url" target="_blank" rel="noopener noreferrer" [title]="sponsor.name">
             @if (sponsor.image === 'PLACEHOLDER') {
-              <div class="sponsor-logo sponsor-placeholder">
-                <i class="fa-solid fa-handshake"></i>
-              </div>
+              <img src="/sponsor-placeholder.svg" [alt]="sponsor.name + ' Logo'" class="sponsor-logo sponsor-placeholder">
             } @else {
-              <img [src]="sponsor.image" [alt]="sponsor.name + ' Logo'" class="sponsor-logo">
+              <img [src]="sponsor.image" 
+                   [alt]="sponsor.name + ' Logo'" 
+                   class="sponsor-logo"
+                   (error)="onSponsorImageError($event)">
             }
           </a>
           <div class="sponsor-details">

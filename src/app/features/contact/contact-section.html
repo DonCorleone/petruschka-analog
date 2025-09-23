@@ -22,7 +22,10 @@
                 <div class="press-item">
                   <div class="press-grid">
                     <div class="press-image">
-                      <img [src]="getPressImageUrl(press)" [alt]="press.desc" class="img-fluid">
+                      <img [src]="getPressImageUrl(press)" 
+                           [alt]="press.desc" 
+                           class="img-fluid"
+                           (error)="onImageError($event)">
                     </div>
                     <div class="press-content">
                       <h4 class="press-title">{{ press.desc }}</h4>

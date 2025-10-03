@@ -51,3 +51,4 @@ testem.log
 Thumbs.db
 src/assets/eventDb.EventDetailsTaggedUsage.json
 src/assets/input-data
+mongodb-scripts

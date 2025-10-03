@@ -5,32 +5,32 @@
 // Execute this script in MongoDB Compass or mongo shell
 
 // 1. Deactivate Marianne
-db.TeamMembers.updateMany(
+db.staff.updateMany(
   { "name": { $regex: "Marianne", $options: "i" } },
   { $set: { "active": false } }
 );
 
 // 2. Deactivate Elmar
-db.TeamMembers.updateMany(
+db.staff.updateMany(
   { "name": { $regex: "Elmar", $options: "i" } },
   { $set: { "active": false } }
 );
 
 // 3. Deactivate Evamaria Felder
-db.TeamMembers.updateMany(
+db.staff.updateMany(
   { "name": { $regex: "Evamaria Felder", $options: "i" } },
   { $set: { "active": false } }
 );
 
 // Alternative single name search if needed:
-db.TeamMembers.updateMany(
+db.staff.updateMany(
   { "name": { $regex: "Evamaria", $options: "i" } },
   { $set: { "active": false } }
 );
 
 // 4. Deactivate all musicians by their instruments in the topic field
 // This deactivates anyone with specific instruments like "flöte", "klavier", "cello" in their topic
-db.TeamMembers.updateMany(
+db.staff.updateMany(
   {
     $or: [
       { "topic": { $regex: "flöte", $options: "i" } },
@@ -44,22 +44,22 @@ db.TeamMembers.updateMany(
 );
 
 // 5. Deactivate Andreas Guillomen specifically
-db.TeamMembers.updateMany(
+db.staff.updateMany(
   { "name": { $regex: "Andreas Guillomen", $options: "i" } },
   { $set: { "active": false } }
 );
 
 // Alternative broader search for Andreas if needed:
-db.TeamMembers.updateMany(
+db.staff.updateMany(
   { "name": { $regex: "Andreas", $options: "i" } },
   { $set: { "active": false } }
 );
 
-console.log("Team member deactivation script executed");
+console.log("Staff deactivation script executed");
 
-// Show all team members with their active status to verify
-console.log("All team members with status:");
-db.TeamMembers.find({}, { name: 1, role: 1, topic: 1, active: 1 }).pretty();
+// Show all staff members with their active status to verify
+console.log("All staff members with status:");
+db.staff.find({}, { name: 1, role: 1, topic: 1, active: 1 }).pretty();
 
-console.log("Active team members only:");
-db.TeamMembers.find({ "active": true }, { name: 1, role: 1, topic: 1 }).pretty();
+console.log("Active staff members only:");
+db.staff.find({ "active": true }, { name: 1, role: 1, topic: 1 }).pretty();

@@ -5,7 +5,7 @@
 // Execute this script in MongoDB Compass or mongo shell
 
 // Update Regula Auf der Maur with new information
-db.TeamMembers.updateOne(
+db.staff.updateOne(
   { "_id": ObjectId("5fefa3cc10b02e457ef64737") },
   {
     $set: {
@@ -19,7 +19,7 @@ db.TeamMembers.updateOne(
 );
 
 // Alternative: Update by name if ObjectId approach doesn't work
-db.TeamMembers.updateOne(
+db.staff.updateOne(
   { "name": { $regex: "Regula Auf der Maur", $options: "i" } },
   {
     $set: {
@@ -33,4 +33,4 @@ db.TeamMembers.updateOne(
 console.log("Regula update script executed");
 
 // Verify the update
-db.TeamMembers.find({ "name": { $regex: "Regula", $options: "i" } }, { name: 1, bio: 1, topic: 1, sortOrder: 1, active: 1 }).pretty();
+db.staff.find({ "name": { $regex: "Regula", $options: "i" } }, { name: 1, bio: 1, topic: 1, sortOrder: 1, active: 1 }).pretty();

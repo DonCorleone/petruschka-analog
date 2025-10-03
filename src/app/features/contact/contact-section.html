@@ -1,169 +1,62 @@
 <div class="contact-section section text-center">
   <div class="container">
     <h2 class="section-title">Über uns</h2>
+    
+    <!-- Memorial Component -->
+    <app-memorial-section class="mb-5"></app-memorial-section>
+    
+    <!-- Theater Info Component -->
+    <app-theater-info-section class="mb-5"></app-theater-info-section>
+    
+    <!-- Press Component -->
+    <app-press-section></app-press-section>
+    
+    <!-- Sponsors Component -->
+    <app-sponsors-section></app-sponsors-section>
+    
+    <!-- Core Contact Information -->
     <div class="section-intro center-block">
       Haben Sie Fragen oder möchten Sie eine Aufführung buchen? Wir freuen uns auf Ihre Nachricht! 
       Kontaktieren Sie uns per E-Mail oder folgen Sie uns auf unseren sozialen Kanälen, 
       um über kommende Auftritte informiert zu bleiben.
     </div>
-        <!-- Press Carousel -->
-    @if (pressReleases.length > 0) {
-      <div class="press-section mt-5">
-        <h3 class="section-subtitle">Presseartikel</h3>
-        <div 
-          id="press-carousel" 
-          class="press-carousel carousel slide" 
-          [attr.data-bs-ride]="'carousel'" 
-          [attr.data-bs-interval]="5000">
-          
-          <div class="carousel-inner">
-            @for (press of pressReleases; track press.id; let i = $index) {
-              <div class="carousel-item" [class.active]="i === 0">
-                <div class="press-item">
-                  <div class="press-grid">
-                    <div class="press-image">
-                      <img [src]="getPressImageUrl(press)" 
-                           [alt]="press.desc" 
-                           class="img-fluid"
-                           (error)="onImageError($event)">
-                    </div>
-                    <div class="press-content">
-                      <h4 class="press-title">{{ press.desc }}</h4>
-                      <div class="press-meta">
-                        <p class="press-source">{{ press.source }}</p>
-                        <p class="press-date">{{ formatDate(press.date) }}</p>
-                        <p class="press-author">Von {{ press.author }}</p>
-                      </div>
-                      @if (press.quote) {
-                        <blockquote class="press-quote">
-                          "{{ press.quote }}"
-                        </blockquote>
-                      }
-                      <a [href]="getPressArticleUrl(press)" target="_blank" class="btn btn-primary btn-cta btn-sm">
-                        @if (press.link) {
-                          Artikel lesen
-                        } @else {
-                          Artikel öffnen ({{ press.fileExtension.toUpperCase() }})
-                        }
-                      </a>
-                    </div>
-                  </div>
-                </div>
+
+    <!-- Contact Details and Newsletter -->
+    <div class="contact-block mr-auto ml-auto">
+      <div class="contact-grid">
+        @for (contact of contactInfo; track contact.type) {
+          <div class="item">
+            <div class="item-inner">
+              <div class="icon-holder">
+                <i [class]="contact.icon"></i>
               </div>
-            }
+              <h4 class="title">{{ contact.title }}</h4>
+              <div class="email">
+                <a [href]="'mailto:' + contact.email">{{ contact.email }}</a>
+              </div>
+            </div>
           </div>
-          
-          <!-- Carousel Controls -->
-          @if (pressReleases.length > 1) {
-            <button 
-              class="carousel-control-prev" 
-              type="button" 
-              data-bs-target="#press-carousel" 
-              data-bs-slide="prev">
-              <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-              <span class="visually-hidden">Previous</span>
-          </button>
-            <button 
-              class="carousel-control-next" 
-              type="button" 
-              data-bs-target="#press-carousel" 
-              data-bs-slide="next">
-              <span class="carousel-control-next-icon" aria-hidden="true"></span>
-              <span class="visually-hidden">Next</span>
-          </button>
-          }
-
-          <!-- Carousel Indicators -->
-          @if (pressReleases.length > 1) {
-            <div class="carousel-indicators">
-              @for (press of pressReleases; track press.id; let i = $index) {
-                <button 
-                  type="button" 
-                  data-bs-target="#press-carousel" 
-                  [attr.data-bs-slide-to]="i" 
-                  [class.active]="i === 0"
-                  [attr.aria-label]="'Slide ' + (i + 1)">
-                </button>
-              }
-            </div>
-          }
-        </div>
-      </div>
-    }
-
+        }
         
-    <!-- Sponsors Section -->
-    @if (sponsorsList.length > 0) {
-      <div class="sponsors-section mt-5">
-        <h3 class="section-subtitle">Unsere Partner & Unterstützer</h3>
-        <div class="sponsors-grid">
-          @for (sponsor of sponsorsList; track sponsor.id) {
-            <div class="sponsor-item" [ngClass]="sponsor.sizeClass">
-              <a [href]="sponsor.url" target="_blank" rel="noopener noreferrer" [title]="sponsor.name">
-                @if (sponsor.image === 'PLACEHOLDER') {
-                  <img src="/sponsor-placeholder.svg" [alt]="sponsor.name + ' Logo'" class="sponsor-logo sponsor-placeholder">
-                } @else {
-                  <img [src]="sponsor.image" 
-                       [alt]="sponsor.name + ' Logo'" 
-                       class="sponsor-logo"
-                       (error)="onSponsorImageError($event)">
-                }
-              </a>
-              <div class="sponsor-details">
-                <h4 class="sponsor-name">{{sponsor.name}}</h4>
-                <div class="sponsor-support">Partner</div>
-              </div>
+        <div class="item">
+          <div class="item-inner">
+            <div class="icon-holder">
+              <i class="fas fa-newsletter"></i>
             </div>
-          }
-          
-          @if (sponsorsList.length === 0) {
-            <div class="no-sponsors">
-              <p>Zur Zeit sind keine Sponsoren-Informationen verfügbar.</p>
+            <h4 class="title">Newsletter</h4>
+            <div class="email">
+              <button type="button" class="btn btn-primary btn-cta btn-sm" 
+                      (click)="openNewsletterSignup()">
+                Zum Newsletter anmelden
+              </button>
             </div>
-          }
+          </div>
         </div>
       </div>
-    }
-
-        <div class="contact-block mr-auto ml-auto">
-        <div class="contact-grid">
-            <div class="item">
-              <div class="item-inner">
-                <div class="icon-holder">
-                  <i [class]="'fas fa-newspaper'"></i>
-                </div>
-                <h4 class="title">Newsletter</h4>
-                <div class="email">
-                  <button type="button" class="btn btn-primary btn-cta btn-sm" 
-                          (click)="openNewsletterSignup()">
-                    Zum Newsletter anmelden
-                  </button>
-                </div>
-              </div>
-            </div>
-          
-        </div>
     </div>
-
-    <!--div class="contact-block mr-auto ml-auto">
-        <div class="contact-grid">
-          @for (contact of contactInfo; track contact.type) {
-            <div class="item">
-              <div class="item-inner">
-                <div class="icon-holder">
-                  <i [class]="contact.icon"></i>
-                </div>
-                <h4 class="title">{{ contact.title }}</h4>
-                <div class="email">
-                  <a [href]="'mailto:' + contact.email">{{ contact.email }}</a>
-                </div>x
-              </div>
-            </div>
-          }
-        </div>
-    </div-->
     
-    <!--div class="channels-block">
+    <!-- Music Channels -->
+    <div class="channels-block">
       <ul class="channels-list list-inline">
         @for (channel of musicChannels; track channel.name) {
           <li class="list-inline-item mr-3">
@@ -173,9 +66,10 @@
           </li>
         }
       </ul>
-    </div-->
+    </div>
     
-    <!--div class="social-media-block">
+    <!-- Social Media -->
+    <div class="social-media-block">
       <ul class="list-inline social-media-list">
         @for (social of socialMedia; track social.name) {
           <li class="list-inline-item mr-3">
@@ -185,7 +79,7 @@
           </li>
         }
       </ul>
-    </div-->
+    </div>
 
   </div>
 </div>

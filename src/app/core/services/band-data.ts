@@ -1,5 +1,5 @@
 import { inject, Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, httpResource } from '@angular/common/http';
 import { resource } from '@angular/core';
 import { GigDataService } from './gig-data.service';
 import { 
@@ -57,6 +57,8 @@ export class BandDataService {
       return response?.data || [];
     }
   });
+
+  merchResource2 = httpResource<MerchItem[]>(() => '/api/v1/merch', {defaultValue: []});
 
   merchResource = resource({
     loader: async () => {

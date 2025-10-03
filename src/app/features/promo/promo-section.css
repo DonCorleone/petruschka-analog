@@ -131,7 +131,6 @@
 
 .updates-block .video-play-trigger i {
   color: #fff;
-  font-size: 14px;
   margin-top: 11px;
   margin-left: 4px;
 }
@@ -330,7 +329,6 @@
 
   .updates-block .carousel-content .title {
     margin-bottom: 8px;
-    font-size: 16px;
   }
 
   .updates-block .carousel-content .desc {
@@ -338,7 +336,6 @@
   }
 
   .updates-block .carousel-content .desc .intro {
-    font-size: 14px;
     line-height: 1.4;
     margin-bottom: 0;
   }

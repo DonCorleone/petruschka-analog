@@ -13,7 +13,11 @@ export class SponsorsSectionComponent {
   
   private bandDataService = inject(BandDataService);
   
-  sponsors = this.bandDataService.sponsorsResource.value || [];
+  sponsors = this.bandDataService.sponsorsResource.value;
+  
+  get sponsorsList() {
+    return this.sponsors() || [];
+  }
 
   onSponsorImageError(event: any): void {
     // Fallback to sponsor placeholder SVG if image fails to load

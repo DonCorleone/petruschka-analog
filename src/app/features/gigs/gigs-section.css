@@ -36,7 +36,6 @@
 }
 
 .gigs-section .gig-title {
-  font-size: 16px;
   margin-top: 0;
   margin-bottom: 10px;
   font-weight: 700;
@@ -66,7 +65,6 @@
 .gigs-section .meta-list i {
   margin-right: 5px;
   color: var(--primary-color);
-  font-size: 16px;
 }
 
 .gigs-section .gig-actions {
@@ -85,7 +83,6 @@
 
 .gigs-section .info-extra {
   color: var(--text-muted);
-  font-size: 16px;
   max-height: 0;
   overflow: hidden;
   transition: max-height 0.3s ease-out;
@@ -107,7 +104,6 @@
 }
 
 .gigs-section .gigs-contact .intro {
-  font-size: 16px;
   color: var(--text-muted);
   max-width: 800px;
 }

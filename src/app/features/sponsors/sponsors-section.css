@@ -1,41 +1,26 @@
-/* Sponsors section styles - streamlined with existing design */
+/* Sponsors Section Styles */
 .sponsors-section {
-  background: rgba(0, 0, 0, 0.9);
-  padding: 60px 0;
+  margin-top: 60px;
+  color: rgba(255, 255, 255, 0.75);
 }
 
-.sponsors-section .container {
-  max-width: 860px;
-}
-
-.sponsors-section .section-header {
-  color: var(--text-light);
-  padding-bottom: 32px;
-}
-
-.sponsors-section .section-title {
-  font-size: 32px;
-  margin-bottom: 15px;
-  font-weight: 700;
+.sponsors-section .section-subtitle {
   color: #fff;
-}
-
-.sponsors-section .section-intro {
-  font-size: 16px;
-  color: var(--text-muted);
-  margin-bottom: 40px;
-  max-width: 800px;
-  margin: 0 auto 40px auto;
+  font-size: 24px;
+  font-weight: bold;
+  margin-bottom: 30px;
   text-align: center;
 }
 
 /* Sponsors Grid Layout */
 .sponsors-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(min(350px, 100%), 1fr));
+  grid-template-columns: repeat(auto-fill, minmax(min(250px, 100%), 1fr));
   gap: 30px;
   align-items: center;
   justify-items: center;
+  max-width: 1000px;
+  margin: 0 auto;
 }
 
 /* Sponsor Items */
@@ -112,7 +97,6 @@
 }
 
 .sponsor-name {
-  font-size: 16px;
   margin-top: 0;
   margin-bottom: 8px;
   font-weight: 600;
@@ -122,7 +106,6 @@
 .sponsor-support {
   color: var(--primary-color);
   font-weight: 600;
-  font-size: 14px;
   margin-bottom: 12px;
 }
 

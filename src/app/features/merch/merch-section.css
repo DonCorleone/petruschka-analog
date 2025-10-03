@@ -3,6 +3,26 @@
   background: var(--section-bg-light);
 }
 
+/* Wandertheater intro styles */
+.wandertheater-intro {
+
+  text-align: left;
+}
+
+.contact-info-inline {
+  border-left: 4px solid var(--primary-color);
+  text-align: left;
+}
+
+.contact-info-inline a {
+  color: var(--primary-color);
+  text-decoration: none;
+}
+
+.contact-info-inline a:hover {
+  text-decoration: underline;
+}
+
 .merch-section .item {
   margin-bottom: 30px;
 }
@@ -43,7 +63,6 @@
 }
 
 .merch-section .mask .desc {
-  font-size: 16px;
   margin-bottom: 30px;
 }
 

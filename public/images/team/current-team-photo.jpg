@@ -1,0 +1,29 @@
+<svg width="500" height="300" xmlns="http://www.w3.org/2000/svg">
+  <rect width="100%" height="100%" fill="#f8f9fa" stroke="#e9ecef" stroke-width="2"/>
+  
+  <!-- Four people silhouettes -->
+  <g transform="translate(100, 150)">
+    <!-- Person 1 -->
+    <circle cx="0" cy="-30" r="20" fill="#6c757d" opacity="0.4"/>
+    <ellipse cx="0" cy="10" rx="25" ry="40" fill="#6c757d" opacity="0.4"/>
+    
+    <!-- Person 2 -->
+    <circle cx="80" cy="-25" r="18" fill="#6c757d" opacity="0.4"/>
+    <ellipse cx="80" cy="15" rx="23" ry="35" fill="#6c757d" opacity="0.4"/>
+    
+    <!-- Person 3 -->
+    <circle cx="160" cy="-28" r="19" fill="#6c757d" opacity="0.4"/>
+    <ellipse cx="160" cy="8" rx="24" ry="38" fill="#6c757d" opacity="0.4"/>
+    
+    <!-- Person 4 -->
+    <circle cx="240" cy="-26" r="17" fill="#6c757d" opacity="0.4"/>
+    <ellipse cx="240" cy="12" rx="22" ry="36" fill="#6c757d" opacity="0.4"/>
+  </g>
+  
+  <text x="50%" y="85%" font-family="Arial, sans-serif" font-size="16" fill="#6c757d" text-anchor="middle">
+    Das aktuelle Team
+  </text>
+  <text x="50%" y="90%" font-family="Arial, sans-serif" font-size="12" fill="#6c757d" text-anchor="middle">
+    Marianne, Röbi, Nathalie und Regula (Bild folgt per WeTransfer)
+  </text>
+</svg>

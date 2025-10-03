@@ -17,11 +17,12 @@
   color: #fff;
 }
 
+/* Contact section main styles */
+
 .contact-section .section-intro {
   max-width: 800px;
   margin: 0 auto;
   margin-bottom: 60px;
-  font-size: 16px;
 }
 
 .contact-section .contact-block {
@@ -164,7 +165,6 @@
 
 .press-meta p {
   margin: 5px 0;
-  font-size: 14px;
   opacity: 0.8;
 }
 
@@ -347,7 +347,6 @@
 }
 
 .sponsor-name {
-  font-size: 16px;
   margin-top: 0;
   margin-bottom: 8px;
   font-weight: 600;
@@ -357,7 +356,6 @@
 .sponsor-support {
   color: var(--primary-color);
   font-weight: 600;
-  font-size: 14px;
   margin-bottom: 12px;
 }
 

@@ -4,6 +4,7 @@ import { PromoSectionComponent } from '../features/promo';
 import { GigsSectionComponent } from '../features/gigs';
 import { MusicSectionComponent } from '../features/music';
 import { AboutSectionComponent } from '../features/about';
+import { EducationSectionComponent } from '../features/education/education-section';
 import { MerchSectionComponent } from '../features/merch';
 import { HistorySectionComponent } from '../features/history';
 import { ContactSectionComponent } from '../features/contact';
@@ -17,6 +18,7 @@ import { BackToTopComponent } from '../shared/components';
     GigsSectionComponent,
     MusicSectionComponent,
     AboutSectionComponent,
+    EducationSectionComponent,
     MerchSectionComponent,
     HistorySectionComponent,
     ContactSectionComponent,
@@ -40,6 +42,10 @@ import { BackToTopComponent } from '../shared/components';
 
     <div id="about">
       <app-about-section />
+    </div>
+
+    <div id="schueleraufführungen">
+      <app-education-section />
     </div>
 
     <div id="merch">

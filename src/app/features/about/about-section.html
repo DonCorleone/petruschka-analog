@@ -7,20 +7,18 @@
       Mit unseren interaktiven Aufführungen erwecken wir märchenhafte Welten zum Leben.
     </div-->
     
-    <div class="members-block">
+    <div class="content-grid content-grid-4">
         @for (member of bandMembers(); track member.id) {
-          <div class="item">
-            <div class="item-inner member-card" (click)="openMemberBio(member)">
-              <div class="member-profile">
-                <img class="img-fluid bw-filter" [src]="member.image" [alt]="member.name">
-              </div>
-              <div class="member-label">{{ member.instrument }}</div>
-              <h3 class="member-name">{{ member.name }}</h3>
-              <div class="member-desc">{{ member.description | truncate:150 }}</div>
-              <div class="read-more-hint">
-                <i class="fas fa-book-open"></i>
-                <span>Mehr erfahren</span>
-              </div>
+          <div class="card-hover member-card p-4" (click)="openMemberBio(member)">
+            <div class="member-profile">
+              <img class="img-fluid bw-filter" [src]="member.image" [alt]="member.name">
+            </div>
+            <div class="member-label">{{ member.instrument }}</div>
+            <h3 class="member-name">{{ member.name }}</h3>
+            <div class="member-desc">{{ member.description | truncate:150 }}</div>
+            <div class="read-more-hint">
+              <i class="fas fa-book-open"></i>
+              <span>Mehr erfahren</span>
             </div>
           </div>
         }

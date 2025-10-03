@@ -1,24 +1,24 @@
-<section class="merch-section section text-center">
+<section class="merch-section section text-center bg-body-secondary">
   <div class="container">
     <h2 class="section-title">Tourneestücke</h2>
-    <div class="d-flex justify-content-center flex-wrap merch-container">
+    <div class="content-grid-wide gap-4 mb-4">
       @for (item of merchItems(); track item.id; let i = $index) {
-        <div class="item">
+        <div class="item mb-4">
           <div class="item-inner">
             <img class="img-fluid" [src]="item.image" [alt]="item.title">
             <a class="mask" (click)="openMerchDetail(item); $event.preventDefault()" href="javascript:void(0)">
-              <span class="mask-inner">
-                <span class="item-title">{{ item.title }}</span>
-                <span class="desc">{{ item.description }}</span>
-                <span class="btn btn-primary btn-cta">Details anzeigen</span>
-              </span>
+              <div class="mask-inner">
+                <div class="item-title">{{ item.title }}</div>
+                <div class="desc">{{ item.description }}</div>
+                <div class="btn btn-primary btn-cta">Details anzeigen</div>
+              </div>
             </a>
           </div>
         </div>
       }
     </div>
     
-    <div class="merch-action">
+    <div class="mt-4">
       <a class="btn btn-ghost-primary" href="javascript:void(0)">Alle Artikel anzeigen</a>
     </div>
   </div>

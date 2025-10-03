@@ -10,10 +10,10 @@ import { SponsorsSectionComponent } from '../sponsors/sponsors-section';
 @Component({
   selector: 'app-contact-section',
   imports: [
-    CommonModule, 
-    MemorialSectionComponent, 
-    TheaterInfoSectionComponent, 
-    PressSectionComponent, 
+    CommonModule,
+    MemorialSectionComponent,
+    TheaterInfoSectionComponent,
+    PressSectionComponent,
     SponsorsSectionComponent
   ],
   templateUrl: './contact-section.html',

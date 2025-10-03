@@ -30,7 +30,7 @@ export default defineEventHandler(async (event): Promise<ApiResponse<Sponsor[]>>
       if (doc.image && doc.image.trim() !== '') {
         // Validate that the image filename exists to prevent SSR errors
         const imageFileName = doc.image.trim();
-        imageUrl = `https://www.petruschka.ch/images/sponsoren/sponsors_${imageFileName}?nf_resize=fit&w=200`;
+        imageUrl = `https://petruschka.netlify.app/.netlify/images?url=https://petruschka-analog-mongo.onrender.com/images/sponsoren/${imageFileName}&nf_resize=fit&w=200`;
       } else {
         // Use placeholder identifier for sponsors without images
         imageUrl = 'PLACEHOLDER';

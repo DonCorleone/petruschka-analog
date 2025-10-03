@@ -18,7 +18,6 @@ interface FormData {
   selector: 'app-newsletter-dialog',
   templateUrl: './newsletter-dialog.html',
   styleUrls: ['./newsletter-dialog.css'],
-  standalone: true,
   imports: [CommonModule, FormsModule],
   changeDetection: ChangeDetectionStrategy.OnPush
 })

@@ -1,0 +1,14 @@
+<svg width="400" height="300" xmlns="http://www.w3.org/2000/svg">
+  <rect width="100%" height="100%" fill="#f8f9fa"/>
+  <g transform="translate(200, 150)">
+    <!-- Zwerg Silhouette -->
+    <circle cx="0" cy="-80" r="25" fill="#6c757d" opacity="0.5"/>
+    <rect x="-20" y="-60" width="40" height="60" rx="5" fill="#6c757d" opacity="0.5"/>
+    <rect x="-15" y="-5" width="30" height="40" rx="3" fill="#6c757d" opacity="0.5"/>
+    <!-- Mütze -->
+    <path d="M-25,-105 Q0,-115 25,-105 L20,-80 L-20,-80 Z" fill="#6c757d" opacity="0.5"/>
+  </g>
+  <text x="50%" y="85%" font-family="Arial, sans-serif" font-size="16" fill="#6c757d" text-anchor="middle">
+    Zwerg-Bild folgt
+  </text>
+</svg>

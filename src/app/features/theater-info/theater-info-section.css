@@ -1,0 +1,45 @@
+/* Theater Info Section Styles */
+.section-subtitle {
+  color: #fff;
+  font-size: 24px;
+  font-weight: bold;
+  margin-bottom: 30px;
+}
+
+/* Current Team Section */
+.current-team-section {
+  background: rgba(255, 255, 255, 0.05);
+  padding: 2rem;
+  border-radius: 8px;
+  color: rgba(255, 255, 255, 0.75);
+}
+
+.team-photo img {
+  max-height: 300px;
+  object-fit: cover;
+}
+
+.team-caption {
+  font-style: italic;
+  color: rgba(255, 255, 255, 0.7);
+}
+
+/* Theater Description */
+.theater-description {
+  background: rgba(255, 255, 255, 0.03);
+  padding: 2rem;
+  border-radius: 8px;
+  color: rgba(255, 255, 255, 0.75);
+}
+
+.description-content {
+  text-align: left;
+  font-size: 1.1rem;
+  line-height: 1.7;
+  color: rgba(255, 255, 255, 0.85);
+}
+
+.collaboration-info {
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}

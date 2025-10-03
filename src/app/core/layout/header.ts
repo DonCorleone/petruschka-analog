@@ -23,7 +23,8 @@ export class HeaderComponent {
     { href: '#gigs', label: 'Aufführungen' },
     { href: '#music', label: 'Hörspiele' },
     { href: '#about', label: 'Team' },
-    { href: '#merch', label: 'Tourneestücke' },
+    { href: '#schueleraufführungen', label: 'Schüleraufführungen' },
+    { href: '#merch', label: 'Wandertheater' },
     { href: '#history', label: 'Vergangene Stücke' },
     { href: '#contact', label: 'Über uns' }
   ];

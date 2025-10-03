@@ -1,4 +1,4 @@
-import { Component, inject, ChangeDetectionStrategy } from '@angular/core';
+import { Component, inject, ChangeDetectionStrategy, OnInit } from '@angular/core';
 import { BandDataService, DialogService } from '../../core/services';
 import { MerchItem } from '../../../shared/types';
 
@@ -20,4 +20,5 @@ export class MerchSectionComponent {
       this.dialogService.openMerchDetail(merchItem);
     }
   }
+
 }

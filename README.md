@@ -8,7 +8,6 @@ This project is a modern Angular application built with Analog.js that has been 
 - **SSR & SSG**: Server-side rendering and static site generation for better performance and SEO
 - **Bootstrap 5**: Pure Bootstrap 5 integration without ng-bootstrap
 - **Modern Angular Patterns**:
-  - Standalone components
   - Signal-based state management
   - Resource API for data fetching
   - New control flow syntax (`@if`, `@for`, etc.)

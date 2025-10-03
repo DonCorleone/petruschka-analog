@@ -1,0 +1,58 @@
+/* Education Section Styles */
+.education-section {
+  background: var(--section-bg-light);
+}
+
+
+.contact-info {
+  border-left: 4px solid var(--primary-color);
+}
+
+.contact-info h5 {
+  color: var(--primary-color);
+  font-weight: 600;
+}
+
+.contact-info .btn-primary {
+  background: var(--primary-color);
+  border-color: var(--primary-color);
+  font-weight: 600;
+  text-decoration: none;
+  transition: all 0.3s ease;
+}
+
+.contact-info .btn-primary:hover {
+  background: color-mix(in srgb, var(--primary-color) 90%, black);
+  border-color: color-mix(in srgb, var(--primary-color) 90%, black);
+  transform: translateY(-2px);
+}
+
+.education-image {
+  position: relative;
+}
+
+.education-image img {
+  max-height: 400px;
+  object-fit: cover;
+}
+
+.image-caption {
+  font-style: italic;
+  color: var(--text-muted);
+}
+
+/* Mobile Responsiveness */
+@media (max-width: 768px) {
+  .education-content {
+    text-align: center;
+  }
+  
+  .contact-info .btn-primary {
+    width: 100%;
+    margin-top: 0.5rem;
+  }
+  
+  .education-image img {
+    max-height: 300px;
+  }
+}

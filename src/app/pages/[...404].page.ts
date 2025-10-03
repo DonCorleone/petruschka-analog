@@ -1,7 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { inject } from '@angular/core';
-import { Location } from '@angular/common';
+import { Location, isPlatformBrowser } from '@angular/common';
+import { PLATFORM_ID } from '@angular/core';
 
 @Component({
   selector: 'app-not-found',
@@ -38,22 +39,26 @@ import { Location } from '@angular/common';
 export default class NotFoundPage implements OnInit {
   private router = inject(Router);
   private location = inject(Location);
+  private platformId = inject(PLATFORM_ID);
 
   ngOnInit() {
-    // If this is a request for a static asset, don't show 404 page
-    const currentPath = this.location.path();
-    if (currentPath.includes('/images/') || 
-        currentPath.includes('/assets/') || 
-        currentPath.includes('.jpg') || 
-        currentPath.includes('.png') || 
-        currentPath.includes('.svg') ||
-        currentPath.includes('.ico') ||
-        currentPath.includes('.css') ||
-        currentPath.includes('.js') ||
-        currentPath.includes('.well-known/')) {
-      // This is likely a static asset request, redirect to prevent routing issues
-      window.location.href = currentPath;
-      return;
+    // Only run browser-specific code on the client side
+    if (isPlatformBrowser(this.platformId)) {
+      // If this is a request for a static asset, don't show 404 page
+      const currentPath = this.location.path();
+      if (currentPath.includes('/images/') || 
+          currentPath.includes('/assets/') || 
+          currentPath.includes('.jpg') || 
+          currentPath.includes('.png') || 
+          currentPath.includes('.svg') ||
+          currentPath.includes('.ico') ||
+          currentPath.includes('.css') ||
+          currentPath.includes('.js') ||
+          currentPath.includes('.well-known/')) {
+        // This is likely a static asset request, redirect to prevent routing issues
+        window.location.href = currentPath;
+        return;
+      }
     }
   }
 

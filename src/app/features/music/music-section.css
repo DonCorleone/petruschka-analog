@@ -1,82 +1,55 @@
-/* Music section styles */
-.music-section {
-  background: var(--section-bg-light);
-}
+/* Music section specific styles */
 
-.music-section .sc-block {
-  max-width: 860px;
-  margin-bottom: 90px;
-}
-
-.music-section .sc-block .item {
-  margin-bottom: 15px;
-}
-
-.music-section .albums-block {
- display: grid;
- grid-template-columns: repeat(auto-fill, minmax(min(300px, 100%), 1fr));
-}
-
-.music-section .albums-block .item {
-  margin-bottom: 45px;
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-}
-
-.music-section .albums-block .item-inner .cover-holder {
-  display: flex;
-  flex-direction: column;
-}
-
-.music-section .albums-block .arrow-holder {
-  content: "";
-  display: block;
-  width: 0;
-  height: 0;
-  border-left: 20px solid transparent;
-  border-right: 20px solid transparent;
-  border-top: 20px solid #810c3b;
-  position: absolute;
-  left: -10px;
-  top: 37px;
-  bottom: -20px;
-}
-
-.music-section .albums-block .cover-figure {
+/* Album cover hover effects */
+.music-section .cover-figure {
   max-width: 235px;
   max-height: 235px;
   position: relative;
   display: inline-block;
-  margin-bottom: 15px;
   background: var(--dark-bg);
   box-shadow: 0 0 4px rgba(0, 0, 0, 0.5);
+  cursor: pointer;
 }
 
-.music-section .albums-block .cover-figure .cover-image {
+.music-section .cover-image {
   position: relative;
   opacity: 0.95;
+  transition: opacity 0.3s ease;
 }
 
-.music-section .albums-block .cover-figure .record-holder {
+.music-section .cover-figure:hover .cover-image {
+  opacity: 1;
+}
+
+/* Record hover animation */
+.music-section .record-holder {
   max-width: 235px;
   max-height: 235px;
-  display: inline-block;
   position: absolute;
   right: -80px;
   bottom: 0;
   transition: all 0.6s ease-in-out;
 }
 
-.music-section .albums-block .cover-figure:hover .cover-image {
-  opacity: 1;
-}
-
-.music-section .albums-block .cover-figure:hover .record-holder {
+.music-section .cover-figure:hover .record-holder {
   right: -118px;
 }
 
-.music-section .albums-block .cover-label {
+/* Coming soon elements */
+.music-section .arrow-holder {
+  content: "";
+  display: block;
+  width: 0;
+  height: 0;
+  border-left: 20px solid transparent;
+  border-right: 20px solid transparent;
+  border-top: 20px solid var(--primary-color);
+  position: absolute;
+  left: -10px;
+  top: 37px;
+}
+
+.music-section .cover-label {
   position: absolute;
   left: -10px;
   top: 0;
@@ -89,69 +62,42 @@
   padding: 10px;
 }
 
-.music-section .albums-block .album-title {
-  margin-bottom: 15px;
-  margin-top: 0;
+/* Album title styling */
+.music-section .album-title {
+  font-size: 14px;
   max-width: 235px;
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
-  text-align: center;
-  display: inline-block;
 }
 
-.music-section .music-action {
-  margin-top: 30px;
-}
-
+/* Responsive adjustments */
 @media (max-width: 767.98px) {
-  .music-section .albums-block .item-inner {
-    padding: 0px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    width: 100%;
+  .music-section .record-holder {
+    display: none !important;
   }
   
-  .music-section .albums-block .album-title {
-    max-width: 235px;
+  .music-section .album-title {
     white-space: normal;
-    text-align: center;
-    margin: 0 auto 15px auto;
-  }
-  
-  .music-section .albums-block .cover-figure {
-    max-width: 235px;
-    max-height: inherit;
-    margin: 0 auto;
-  }
-  
-  .music-section .albums-block .cover-holder {
-    align-items: center;
-    width: 100%;
-  }
-  
-  .music-section .albums-block .cover-figure .record-holder {
-    display: none;
   }
 }
 
 @media (min-width: 768px) {
-  .music-section .albums-block .cover-figure .record-holder {
+  .music-section .record-holder {
     right: -60px;
   }
   
-  .music-section .albums-block .cover-figure:hover .record-holder {
+  .music-section .cover-figure:hover .record-holder {
     right: -80px;
   }
 }
 
 @media (min-width: 992px) {
-  .music-section .albums-block .cover-figure .record-holder {
+  .music-section .record-holder {
     right: -80px;
   }
   
-  .music-section .albums-block .cover-figure:hover .record-holder {
+  .music-section .cover-figure:hover .record-holder {
     right: -118px;
   }
 }

@@ -1,81 +1,25 @@
-/* Sponsors Section Styles */
+/* Sponsors section styles - using common patterns and Bootstrap utilities */
 .sponsors-section {
-  margin-top: 60px;
-  color: rgba(255, 255, 255, 0.75);
+  background: rgba(0, 0, 0, 0.9);
 }
 
-.sponsors-section .section-subtitle {
-  color: #fff;
-  font-size: 24px;
-  font-weight: bold;
-  margin-bottom: 30px;
-  text-align: center;
-}
+/* Sponsor logo sizing based on sponsorship level */
+.sponsor-xl .sponsor-logo { max-width: 160px; height: auto; }
+.sponsor-xl .sponsor-placeholder { width: 160px; height: 100px; font-size: 2.5rem; }
 
-/* Sponsors Grid Layout */
-.sponsors-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(min(250px, 100%), 1fr));
-  gap: 30px;
-  align-items: center;
-  justify-items: center;
-  max-width: 1000px;
-  margin: 0 auto;
-}
+.sponsor-lg .sponsor-logo { max-width: 140px; height: auto; }
+.sponsor-lg .sponsor-placeholder { width: 140px; height: 85px; font-size: 2.2rem; }
 
-/* Sponsor Items */
-.sponsor-item {
-  position: relative;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  text-align: center;
-  background: rgba(255, 255, 255, 0.05);
-  padding: 30px 20px;
-  border-radius: 8px;
-  border: 1px solid var(--border-light);
-  transition: all 0.3s ease;
-  height: 100%;
-}
+.sponsor-md .sponsor-logo { max-width: 120px; height: auto; }
+.sponsor-md .sponsor-placeholder { width: 120px; height: 75px; font-size: 2rem; }
 
-.sponsor-item:hover {
-  background: rgba(255, 255, 255, 0.1);
-  transform: translateY(-2px);
-}
+.sponsor-sm .sponsor-logo { max-width: 100px; height: auto; }
+.sponsor-sm .sponsor-placeholder { width: 100px; height: 60px; font-size: 1.8rem; }
 
-.sponsor-item::after {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  background: rgba(255, 255, 255, 0.1);
-  opacity: 0;
-  transition: opacity 0.3s ease;
-  pointer-events: none;
-  border-radius: 8px;
-}
+.sponsor-xs .sponsor-logo { max-width: 80px; height: auto; }
+.sponsor-xs .sponsor-placeholder { width: 80px; height: 50px; font-size: 1.5rem; }
 
-.sponsor-item:hover::after {
-  opacity: 1;
-}
-
-/* Logo styling */
-.sponsor-logo {
-  margin-bottom: 20px;
-  border-radius: 4px;
-  object-fit: contain;
-  background: rgba(255, 255, 255, 0.95);
-  padding: 10px;
-  transition: all 0.3s ease;
-}
-
-.sponsor-item:hover .sponsor-logo {
-  background: rgba(255, 255, 255, 1);
-}
-
-/* Placeholder styling */
+/* Placeholder styling - specific to sponsors */
 .sponsor-placeholder {
   display: flex;
   align-items: center;
@@ -83,30 +27,25 @@
   background: rgba(255, 255, 255, 0.95) !important;
   border: 2px solid var(--border-light);
   color: var(--text-muted);
-  font-size: 2rem;
 }
 
-.sponsor-item:hover .sponsor-placeholder {
+.card-hover:hover .sponsor-placeholder {
   background: rgba(255, 255, 255, 1) !important;
   color: var(--primary-color);
 }
 
-/* Sponsor details */
-.sponsor-details {
-  width: 100%;
-}
-
-.sponsor-name {
-  margin-top: 0;
-  margin-bottom: 8px;
-  font-weight: 600;
-  color: #fff;
-}
-
-.sponsor-support {
-  color: var(--primary-color);
-  font-weight: 600;
-  margin-bottom: 12px;
+/* Responsive sizing */
+@media (max-width: 767.98px) {
+  .sponsor-xl .sponsor-logo { max-width: 120px; }
+  .sponsor-xl .sponsor-placeholder { width: 120px; height: 75px; font-size: 2rem; }
+  .sponsor-lg .sponsor-logo { max-width: 110px; }
+  .sponsor-lg .sponsor-placeholder { width: 110px; height: 65px; font-size: 1.8rem; }
+  .sponsor-md .sponsor-logo { max-width: 100px; }
+  .sponsor-md .sponsor-placeholder { width: 100px; height: 60px; font-size: 1.6rem; }
+  .sponsor-sm .sponsor-logo { max-width: 90px; }
+  .sponsor-sm .sponsor-placeholder { width: 90px; height: 55px; font-size: 1.5rem; }
+  .sponsor-xs .sponsor-logo { max-width: 80px; }
+  .sponsor-xs .sponsor-placeholder { width: 80px; height: 50px; font-size: 1.3rem; }
 }
 
 /* Event badges */

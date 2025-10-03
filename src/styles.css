@@ -314,8 +314,136 @@ label {
   }
 }
 
-/* Media Queries */
+/* Content grid patterns - common layouts used across components */
+.content-grid {
+  display: grid;
+  gap: 2rem;
+}
+
+.content-grid-2 {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 2rem;
+}
+
+.content-grid-3 {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 2rem;
+}
+
+.content-grid-4 {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 2rem;
+}
+
+.content-grid-wide {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 2rem;
+}
+
+/* Common Card Component */
+.card-hover {
+  transition: all 0.3s ease;
+  position: relative;
+}
+
+.card-hover::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(255, 255, 255, 0.1);
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  pointer-events: none;
+  border-radius: inherit;
+}
+
+.card-hover:hover::after {
+  opacity: 1;
+}
+
+.card-hover:hover {
+  transform: translateY(-2px);
+}
+
+/* Dark Card Variations */
+.card-dark {
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 8px;
+}
+
+.card-dark:hover {
+  background: rgba(255, 255, 255, 0.1);
+}
+
+/* Logo/Image Containers */
+.logo-container {
+  border-radius: 4px;
+  object-fit: contain;
+  background: rgba(255, 255, 255, 0.95);
+  padding: 10px;
+  transition: all 0.3s ease;
+}
+
+.logo-container:hover {
+  background: rgba(255, 255, 255, 1);
+}
+
+/* Section Intro Styling */
+.section-intro-center {
+  max-width: 800px;
+  margin: 0 auto;
+  text-align: center;
+  color: var(--text-muted);
+}
+
+/* Additional utility classes to replace common patterns */
+.transition-hover {
+  transition: all 0.3s ease;
+}
+
+.hover-lift:hover {
+  transform: translateY(-2px);
+}
+
+.text-shadow {
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.border-primary-bottom {
+  border-bottom: 2px solid var(--primary-color);
+}
+
+/* Dark Section Variants */
+.section-dark {
+  background: var(--dark-bg);
+  color: rgba(255, 255, 255, 0.75);
+}
+
+.section-dark .section-title {
+  color: #fff;
+}
+
+.section-dark a {
+  color: rgba(255, 255, 255, 0.75);
+}
+
+.section-dark a:hover {
+  color: var(--primary-color);
+}
+
+/* Responsive Utilities - defined in media queries below */
+
+/* Media Queries - Mobile First Approach */
 @media (max-width: 767.98px) {
+  /* Section adjustments */
   .section {
     padding-top: 60px;
     padding-bottom: 60px;
@@ -326,4 +454,138 @@ label {
     margin-bottom: 40px;
   }
 
+  /* Grid adjustments */
+  .content-grid {
+    gap: 20px;
+  }
+  
+  .content-grid-2,
+  .mobile-two-col {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  
+  .content-grid-3 {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  
+  .content-grid-4,
+  .content-grid-wide,
+  .mobile-single-col {
+    grid-template-columns: 1fr;
+  }
+  
+  /* Mobile-specific utilities */
+  .mobile-p-3 { padding: 1rem !important; }
+  .mobile-mb-3 { margin-bottom: 1rem !important; }
+  .mobile-text-sm { font-size: 0.875rem !important; }
+}
+
+@media (max-width: 480px) {
+  /* Extra small screens */
+  .content-grid-2,
+  .content-grid-3 {
+    grid-template-columns: 1fr;
+  }
+  
+  .xs-single-col {
+    grid-template-columns: 1fr !important;
+  }
+}
+
+/* Dialog Components */
+.dialog-container {
+  display: block;
+  background: #f8f9fa;
+  margin: 4vh 4vw;
+  min-width: 600px;
+  max-width: 1024px;
+  max-height: 90vh;
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+  border-radius: 0.5rem;
+  overflow: hidden;
+}
+
+.dialog-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1.25rem;
+  border-bottom: 1px solid #eee;
+  background: #f8f9fa;
+}
+
+.dialog-title {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: var(--secondary-color);
+  margin: 0;
+}
+
+.dialog-content {
+  padding: 1.25rem;
+  overflow-y: auto;
+  max-height: calc(90vh - 80px);
+}
+
+.dialog-close-btn {
+  border-color: var(--primary-color);
+  color: var(--primary-color);
+  background-color: var(--section-bg-light);
+  opacity: 1;
+  min-width: 40px;
+  min-height: 40px;
+}
+
+.dialog-close-btn:hover {
+  border-color: var(--section-bg-light);
+  color: var(--section-bg-light);
+  background: var(--primary-color);
+  box-shadow: none;
+}
+
+.dialog-close-btn:focus {
+  outline: 2px solid var(--primary-color);
+  outline-offset: 2px;
+}
+
+/* Dialog content patterns */
+.dialog-info-section {
+  margin-bottom: 1.5rem;
+}
+
+.dialog-info-section h4 {
+  color: var(--primary-color);
+  font-weight: 600;
+  margin-bottom: 0.75rem;
+  border-bottom: 2px solid var(--primary-color);
+  padding-bottom: 0.25rem;
+}
+
+.dialog-two-col {
+  display: grid;
+  grid-template-columns: 3fr 2fr;
+  gap: 1.875rem;
+}
+
+/* Dialog mobile responsive */
+@media (max-width: 767.98px) {
+  .dialog-container {
+    min-width: unset;
+    margin: 2vh 2vw;
+    max-width: calc(100vw - 4vw);
+  }
+  
+  .dialog-title {
+    font-size: 1.25rem;
+    word-break: break-word;
+  }
+  
+  .dialog-content {
+    padding: 0.9375rem;
+  }
+  
+  .dialog-two-col {
+    grid-template-columns: 1fr;
+    gap: 1.25rem;
+  }
 }

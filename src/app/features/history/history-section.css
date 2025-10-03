@@ -1,56 +1,30 @@
-/* History section styles - horizontal layout with image */
-.history-section {
-  background: rgba(0, 0, 0, 0.9);
-  padding: 60px 0;
-}
+/* History section specific styles */
 
-.history-section .container {
-  max-width: 860px;
-}
-
-.history-section .section-header {
-  color: var(--text-light);
-  padding-bottom: 32px;
-}
-
-.history-section .item {
+/* Event item layout */
+.history-section .history-item {
   position: relative;
   display: grid;
   grid-template-columns: 120px 1fr;
   align-items: flex-start;
-  padding: 20px 0;
-  border-bottom: 1px solid var(--border-light);
-  gap: 20px;
+  gap: 1.25rem;
 }
 
 .history-section .event-image {
   flex-shrink: 0;
   width: 120px;
-  height: auto;
-}
-
-.history-section .event-image img {
-  width: 100%;
-  height: auto;
-}
-
-.history-section .event-info {
-  flex: 1;
-  padding-right: 60px;
-  width: 100%;
 }
 
 .history-section .event-title {
-  font-size: 24px;
-  margin-top: 0;
-  margin-bottom: 8px;
+  font-size: 1.5rem;
   font-weight: 700;
   color: #fff;
+  margin-bottom: 0.5rem;
 }
 
 .history-section .event-subtitle {
-  margin-bottom: 12px;
+  font-size: 1rem;
   color: #ccc;
+  margin-bottom: 0.75rem;
 }
 
 .history-section .event-date {
@@ -60,28 +34,15 @@
 
 .history-section .event-description {
   color: #aaa;
+  font-size: 0.875rem;
   line-height: 1.5;
-  margin-bottom: 15px;
+  margin-bottom: 0.9375rem;
 }
 
-.history-section .event-actions {
-  margin-top: 15px;
-}
-
-.history-section .event-actions .btn {
-  border: 2px solid var(--primary-color);
-  color: var(--primary-color);
-  padding: 8px 16px;
-  text-transform: uppercase;
-}
-
-.history-section .event-actions .btn:hover {
-  background: var(--primary-color);
-  color: #ccc;
-}
-
+/* Expandable content */
 .history-section .info-extra {
   color: var(--text-muted);
+  font-size: 1rem;
   max-height: 0;
   overflow: hidden;
   transition: max-height 0.3s ease-out;
@@ -92,40 +53,18 @@
   transition: max-height 0.3s ease-in;
 }
 
-.history-section .title {
-  font-size: 32px;
-  margin-bottom: 15px;
-  font-weight: 700;
-}
-
-.history-section .intro {
-  color: var(--text-muted);
-  margin-bottom: 40px;
-}
-
+/* Mobile layout */
 @media (max-width: 767.98px) {
-  .history-section .item {
-    display: grid;
+  .history-section .history-item {
     grid-template-columns: 1fr;
-    gap: 15px;
+    gap: 0.9375rem;
     justify-items: center;
-  }
-  
-  .history-section .event-info {
-    padding-right: 0;
     text-align: center;
-    width: 100%;
   }
   
   .history-section .event-image {
     width: 100%;
     max-width: 200px;
-    margin: 0 auto;
-    display: flex;
-    justify-content: center;
-  }
-  
-  .history-section .event-image img {
     margin: 0 auto;
   }
 }

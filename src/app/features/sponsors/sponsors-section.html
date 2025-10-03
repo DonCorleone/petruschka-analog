@@ -1,23 +1,28 @@
-<!-- Sponsors Section -->
-@if (sponsorsList.length > 0) {
-  <div class="sponsors-section">
-    <h3 class="section-subtitle">Unsere Partner & Unterstützer</h3>
-    <div class="sponsors-grid">
-      @for (sponsor of sponsorsList; track sponsor.id) {
-        <div class="sponsor-item" [ngClass]="sponsor.sizeClass">
-          <a [href]="sponsor.url" target="_blank" rel="noopener noreferrer" [title]="sponsor.name">
+<section class="sponsors-section section" id="sponsors">
+  <div class="container">
+    <div class="text-center mb-5">
+      <h2 class="section-title">Unsere Partner & Unterstützer</h2>
+      <div class="section-intro-center mb-5">
+        Ein großes Dankeschön an alle, die unsere musikalische Reise möglich machen!
+      </div>
+    </div>
+
+    <div class="content-grid content-grid-wide">
+      @for (sponsor of sponsors(); track sponsor.id) {
+        <div class="card-dark card-hover p-4 text-center" [ngClass]="sponsor.sizeClass">
+          <a [href]="sponsor.url" target="_blank" rel="noopener noreferrer" [title]="sponsor.name" class="text-decoration-none">
             @if (sponsor.image === 'PLACEHOLDER') {
-              <img src="/sponsor-placeholder.svg" [alt]="sponsor.name + ' Logo'" class="sponsor-logo sponsor-placeholder">
+              <img src="/sponsor-placeholder.svg" [alt]="sponsor.name + ' Logo'" class="sponsor-logo sponsor-placeholder mb-3">
             } @else {
               <img [src]="sponsor.image" 
                    [alt]="sponsor.name + ' Logo'" 
-                   class="sponsor-logo"
+                   class="sponsor-logo logo-container mb-3"
                    (error)="onSponsorImageError($event)">
             }
           </a>
-          <div class="sponsor-details">
-            <h4 class="sponsor-name">{{sponsor.name}}</h4>
-            <div class="sponsor-support">Partner</div>
+          <div class="sponsor-details w-100">
+            <h4 class="sponsor-name text-white mb-2">{{sponsor.name}}</h4>
+            <div class="sponsor-support text-primary fw-bold small">Partner</div>
           </div>
         </div>
       }

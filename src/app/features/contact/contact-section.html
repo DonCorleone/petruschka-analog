@@ -1,4 +1,4 @@
-<div class="contact-section section text-center">
+<div class="contact-section section section-dark text-center">
   <div class="container">
     <h2 class="section-title">Über uns</h2>
     
@@ -15,53 +15,47 @@
     <app-sponsors-section></app-sponsors-section>
     
     <!-- Core Contact Information -->
-    <div class="section-intro center-block">
+    <div class="mx-auto mb-5" style="max-width: 800px;">
       Haben Sie Fragen oder möchten Sie eine Aufführung buchen? Wir freuen uns auf Ihre Nachricht! 
       Kontaktieren Sie uns per E-Mail oder folgen Sie uns auf unseren sozialen Kanälen, 
       um über kommende Auftritte informiert zu bleiben.
     </div>
 
     <!-- Contact Details and Newsletter -->
-    <div class="contact-block mr-auto ml-auto">
-      <div class="contact-grid">
+    <div class="mx-auto mb-5" style="max-width: 800px;">
+      <div class="content-grid-wide gap-4 mb-5">
         @for (contact of contactInfo; track contact.type) {
-          <div class="item">
-            <div class="item-inner">
-              <div class="icon-holder">
-                <i [class]="contact.icon"></i>
-              </div>
-              <h4 class="title">{{ contact.title }}</h4>
-              <div class="email">
-                <a [href]="'mailto:' + contact.email">{{ contact.email }}</a>
-              </div>
+          <div class="contact-item text-center">
+            <div class="mb-3">
+              <i [class]="contact.icon" class="text-primary" style="font-size: 1.5rem;"></i>
+            </div>
+            <h4 class="contact-title text-white mb-2">{{ contact.title }}</h4>
+            <div>
+              <a [href]="'mailto:' + contact.email" class="text-light">{{ contact.email }}</a>
             </div>
           </div>
         }
         
-        <div class="item">
-          <div class="item-inner">
-            <div class="icon-holder">
-              <i class="fas fa-newsletter"></i>
-            </div>
-            <h4 class="title">Newsletter</h4>
-            <div class="email">
-              <button type="button" class="btn btn-primary btn-cta btn-sm" 
-                      (click)="openNewsletterSignup()">
-                Zum Newsletter anmelden
-              </button>
-            </div>
+        <div class="contact-item text-center">
+          <div class="mb-3">
+            <i class="fas fa-newsletter text-primary" style="font-size: 1.5rem;"></i>
           </div>
+          <h4 class="contact-title text-white mb-3">Newsletter</h4>
+          <button type="button" class="btn btn-primary btn-cta btn-sm" 
+                  (click)="openNewsletterSignup()">
+            Zum Newsletter anmelden
+          </button>
         </div>
       </div>
     </div>
     
     <!-- Music Channels -->
-    <div class="channels-block">
-      <ul class="channels-list list-inline">
+    <div class="mb-4">
+      <ul class="list-inline mb-0">
         @for (channel of musicChannels; track channel.name) {
-          <li class="list-inline-item mr-3">
-            <a [href]="channel.url" [title]="channel.name">
-              <img class="icon" [src]="channel.icon" [alt]="channel.name">
+          <li class="list-inline-item mx-2">
+            <a [href]="channel.url" [title]="channel.name" class="channel-link">
+              <img class="img-fluid" [src]="channel.icon" [alt]="channel.name" style="max-height: 32px;">
             </a>
           </li>
         }
@@ -69,12 +63,12 @@
     </div>
     
     <!-- Social Media -->
-    <div class="social-media-block">
-      <ul class="list-inline social-media-list">
+    <div>
+      <ul class="list-inline mb-0">
         @for (social of socialMedia; track social.name) {
-          <li class="list-inline-item mr-3">
-            <a [href]="social.url" [title]="social.name">
-              <i [class]="social.icon"></i>
+          <li class="list-inline-item mx-2">
+            <a [href]="social.url" [title]="social.name" class="social-link">
+              <i [class]="social.icon" style="font-size: 2rem;"></i>
             </a>
           </li>
         }

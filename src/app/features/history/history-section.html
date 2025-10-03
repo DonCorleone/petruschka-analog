@@ -1,6 +1,6 @@
-<section class="history-section section">
-  <div class="container">
-    <div class="section-header text-center">
+<section class="history-section section section-dark">
+  <div class="container" style="max-width: 860px;">
+    <div class="text-center mb-5">
         <h2 class="section-title">Vergangene Stücke</h2>
         <div class="section-intro">
             Hier finden Sie eine Übersicht über unsere vergangenen Stücke, die wir in den letzten Jahren aufgeführt haben.
@@ -8,7 +8,7 @@
     </div>
 
     @for (event of pastEvents(); track event.id; let i = $index) {
-      <div class="item">
+      <div class="history-item py-3 border-bottom border-light-subtle">
         <div class="event-image">
           <img [src]="event.image" [alt]="event.title" class="img-fluid">
         </div>
@@ -17,7 +17,7 @@
           <div class="event-subtitle">Uraufführung: <span class="event-date">{{event.date}}</span></div>
           <div class="event-description">{{event.description | slice:0:100}}@if (event.description && event.description.length > 100) {…}</div>
           @if (event.description) {
-            <div class="event-actions">
+            <div class="mt-3">
               <button type="button" class="btn btn-xs btn-ghost-secondary" 
                       (click)="openHistoryDetail(event)">
                 Mehr Details
@@ -29,10 +29,8 @@
     }
     
     @if (pastEvents()?.length === 0) {
-      <div class="item">
-        <div class="text-center">
-          <p>Zur Zeit sind keine vergangenen Stücke verfügbar.</p>
-        </div>
+      <div class="py-4 text-center">
+        <p class="text-light">Zur Zeit sind keine vergangenen Stücke verfügbar.</p>
       </div>
     }
   </div>

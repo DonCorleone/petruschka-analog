@@ -1,50 +1,9 @@
-/* About section styles */
-.about-section .section-title {
-  margin-bottom: 30px;
-}
+/* About section styles - most styles moved to common patterns */
 
-.about-section .section-intro {
-  margin-bottom: 60px;
-  max-width: 800px;
-  margin: 0 auto 60px auto;
-  font-size: 16px;
-  color: var(--text-muted);
-  text-align: center;
-}
-
-.about-section .members-block {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(min(280px, 100%), 1fr));
-  gap: 20px;
-}
-
-.about-section .item-inner {
-  padding: 30px;
-  height: 100%;
-}
-
-/* Member card clickable styles */
+/* Member card specific styles */
 .about-section .member-card {
   cursor: pointer;
-  transition: all 0.3s ease;
-  position: relative;
-}
-
-.about-section .member-card::after {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  background: rgba(255, 255, 255, 0.1);
-  opacity: 0;
-  transition: opacity 0.3s ease;
-  pointer-events: none;
-}
-
-.about-section .member-card:hover::after {
-  opacity: 1;
+  height: 100%;
 }
 
 .about-section .member-name {

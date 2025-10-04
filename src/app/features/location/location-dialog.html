@@ -1,62 +1,40 @@
-<div class="dialog-header">
-  <h2 class="dialog-title">{{ data.location.name }}</h2>
-  <button 
-    type="button" 
-    class="btn-close btn btn-xs btn-ghost-secondary" 
-    aria-label="Dialog schliessen"
-    (click)="close()">
-    <i class="fa-solid fa-times" aria-hidden="true"></i>
-    <span class="sr-only">×</span>
-  </button>
-</div>
+<app-base-dialog [title]="data.location.name">
+  <app-dialog-two-column>
+    <!-- Main Content Column -->
+    <div slot="content">
+      <app-dialog-info-section title="Adresse">
+        <p><strong>{{ data.location.name }}</strong></p>
+        <p>{{ data.location.street }}</p>
+        <p>{{ data.location.postalCode }} {{ data.location.city }}</p>
+      </app-dialog-info-section>
 
-<div class="dialog-content">
-  <div class="location-info">
-    <div class="location-info-grid">
-      <!-- Main Content Column -->
-      <div class="location-address-section">
-        <div class="info-section">
-          <h4>Adresse</h4>
-          <p><strong>{{ data.location.name }}</strong></p>
-          <p>{{ data.location.street }}</p>
-          <p>{{ data.location.postalCode }} {{ data.location.city }}</p>
-        </div>
+      @if (data.location.directions) {
+        <app-dialog-info-section title="Anreise">
+          <div [innerHTML]="data.location.directions"></div>
+        </app-dialog-info-section>
+      }
 
-        @if (data.location.directions) {
-          <div class="info-section">
-            <h4>Anreise</h4>
-            <div [innerHTML]="data.location.directions"></div>
-          </div>
-        }
-      </div>
-
-      <!-- Image Column -->
-      <div class="location-details-section">
-        @if (data.location.info) {
-          <div class="info-section">
-            <h4>Über diesen Ort</h4>
-            <div [innerHTML]="data.location.info"></div>
-          </div>
-        }
-        <div class="location-image">
-          <img [src]="getLocationImageUrl()" 
-               [alt]="data.location.name"
-               class="img-fluid rounded shadow-sm">
-        </div>
-      </div>
-    </div>
-
-    <!-- Map Section -->
-    <div class="info-section">
-      <h4>Karte & Navigation</h4>
-      <div class="map-actions">
+      <app-dialog-info-section title="Karte & Navigation">
         <a [href]="getGoogleMapsUrl()" 
            target="_blank" 
            class="btn btn-primary">
           <i class="fa-solid fa-map-marker-alt"></i> 
           In Google Maps öffnen
         </a>
-      </div>
+      </app-dialog-info-section>
     </div>
-  </div>
-</div>
+
+    <!-- Image Column -->
+    <div slot="image">
+      <img [src]="getLocationImageUrl()" 
+           [alt]="data.location.name"
+           class="img-fluid">
+      
+      @if (data.location.info) {
+        <app-dialog-info-section title="Über diesen Ort">
+          <div [innerHTML]="data.location.info"></div>
+        </app-dialog-info-section>
+      }
+    </div>
+  </app-dialog-two-column>
+</app-base-dialog>

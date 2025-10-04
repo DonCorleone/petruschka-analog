@@ -3,6 +3,9 @@ import { CommonModule } from '@angular/common';
 import { DIALOG_DATA, DialogRef } from '@angular/cdk/dialog';
 import { Router } from '@angular/router';
 import { DialogService } from '../../core/services/dialog.service';
+import { BaseDialogComponent } from '../../core/components/base-dialog.component';
+import { DialogInfoSectionComponent } from '../../core/components/dialog-info-section.component';
+import { DialogTwoColumnComponent } from '../../core/components/dialog-two-column.component';
 import { Gig } from '../../../shared/types';
 
 export interface GigDetailData {
@@ -12,20 +15,19 @@ export interface GigDetailData {
 
 @Component({
   selector: 'app-gig-detail-dialog',
-  imports: [CommonModule],
+  imports: [
+    CommonModule, 
+    BaseDialogComponent, 
+    DialogInfoSectionComponent, 
+    DialogTwoColumnComponent
+  ],
   templateUrl: './gig-detail-dialog.html',
-  styleUrls: ['./gig-detail-dialog.css'],
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class GigDetailDialogComponent {
-  public dialogRef = inject(DialogRef<boolean>);
   public data = inject(DIALOG_DATA) as GigDetailData;
   private router = inject(Router);
   private dialogService = inject(DialogService);
-
-  close(): void {
-    this.dialogRef.close();
-  }
 
   openLocationDialog(locationName: string): void {
     if (locationName && locationName !== '#') {

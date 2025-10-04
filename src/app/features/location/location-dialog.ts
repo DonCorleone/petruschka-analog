@@ -1,6 +1,9 @@
 import { Component, inject, ChangeDetectionStrategy } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { DIALOG_DATA, DialogRef } from '@angular/cdk/dialog';
+import { BaseDialogComponent } from '../../core/components/base-dialog.component';
+import { DialogInfoSectionComponent } from '../../core/components/dialog-info-section.component';
+import { DialogTwoColumnComponent } from '../../core/components/dialog-two-column.component';
 import { Location } from '../../../shared/types';
 
 export interface LocationDialogData {
@@ -9,18 +12,18 @@ export interface LocationDialogData {
 
 @Component({
   selector: 'app-location-dialog',
-  imports: [CommonModule],
+  imports: [
+    CommonModule, 
+    BaseDialogComponent, 
+    DialogInfoSectionComponent, 
+    DialogTwoColumnComponent
+  ],
   templateUrl: './location-dialog.html',
   styleUrls: ['./location-dialog.css'],
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class LocationDialogComponent {
-  public dialogRef = inject(DialogRef<boolean>);
   public data = inject(DIALOG_DATA) as LocationDialogData;
-
-  close(): void {
-    this.dialogRef.close();
-  }
 
   getGoogleMapsUrl(): string {
     const address = `${this.data.location.street}, ${this.data.location.postalCode} ${this.data.location.city}`;

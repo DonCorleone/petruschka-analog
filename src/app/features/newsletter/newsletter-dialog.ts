@@ -2,6 +2,8 @@ import { ChangeDetectionStrategy, Component, Inject } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { DialogRef, DIALOG_DATA } from '@angular/cdk/dialog';
+import { BaseDialogComponent } from '../../core/components/base-dialog.component';
+import { DialogInfoSectionComponent } from '../../core/components/dialog-info-section.component';
 
 export interface NewsletterDialogData {
   // Add any data you want to pass to the dialog
@@ -18,7 +20,12 @@ interface FormData {
   selector: 'app-newsletter-dialog',
   templateUrl: './newsletter-dialog.html',
   styleUrls: ['./newsletter-dialog.css'],
-  imports: [CommonModule, FormsModule],
+  imports: [
+    CommonModule, 
+    FormsModule, 
+    BaseDialogComponent, 
+    DialogInfoSectionComponent
+  ],
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class NewsletterDialogComponent {
@@ -34,7 +41,7 @@ export class NewsletterDialogComponent {
   };
 
   constructor(
-    private dialogRef: DialogRef<boolean>,
+    public dialogRef: DialogRef<boolean>,
     @Inject(DIALOG_DATA) public data: NewsletterDialogData
   ) {}
 

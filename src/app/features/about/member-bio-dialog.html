@@ -1,37 +1,18 @@
-<div class="dialog-header">
-  <h2 class="dialog-title">{{ data.member.name }}</h2>
-  <button 
-    type="button" 
-    class="btn-close btn btn-xs btn-ghost-secondary" 
-    aria-label="Dialog schliessen"
-    (click)="close()">
-    <i class="fa-solid fa-times" aria-hidden="true"></i>
-    <span class="sr-only">×</span>
-  </button>
-</div>
-
-<div class="dialog-content">
-  <div class="member-info">
-    <div class="member-info-grid">
-      <!-- Image Column -->
-      <div class="member-image-section">
-        <div class="member-profile">
-          <img [src]="data.member.image" 
-               [alt]="data.member.name"
-               class="img-fluid rounded shadow-sm">
-        </div>
-      </div>
-
-      <!-- Main Content Column -->
-      <div class="member-content-section">
-        <div class="member-label">{{ data.member.instrument }}</div>
-
-        <!-- Full bio content -->
-        <div class="info-section">
-          <h4>Über {{ data.member.name }}</h4>
-          <p [innerHTML]="data.member.description"></p>
-        </div>
-      </div>
+<app-base-dialog [title]="data.member.name">
+  <app-dialog-two-column>
+    <!-- Image Column -->
+    <div slot="image">
+      <img [src]="data.member.image" 
+           [alt]="data.member.name"
+           class="img-fluid">
+      <div class="member-label">{{ data.member.instrument }}</div>
     </div>
-  </div>
-</div>
+
+    <!-- Main Content Column -->
+    <div slot="content">
+      <app-dialog-info-section [title]="'Über ' + data.member.name">
+        <div [innerHTML]="data.member.description"></div>
+      </app-dialog-info-section>
+    </div>
+  </app-dialog-two-column>
+</app-base-dialog>

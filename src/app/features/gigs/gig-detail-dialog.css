@@ -1,66 +1,25 @@
-/* CDK Dialog Host Styles - Following CDK Documentation Pattern */
+/* Gig-specific dialog styles - streamlined */
 :host {
   display: block;
-  background: #f8f9fa;
-  /* border-radius: 12px;
-  padding: 0;
-  max-width: 800px;
-  width: 90vw;
-  max-height: 90vh;
-  overflow: hidden; */
-  margin: 4vh 4vw;
-  min-width: 600px;
-  max-width: 1024px;
-  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
-  /* Prevent horizontal overflow */
-  max-width: 100%;
-  box-sizing: border-box;
 }
 
-/* Dialog Header */
-.dialog-header {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 20px;
-  border-bottom: 1px solid #eee;
-  background: #f8f9fa;
-}
-
-.dialog-title {
-  margin: 0;
-  font-size: 24px;
-  font-weight: 700;
-  color: var(--secondary-color);
-}
-
-/* Close Button */
-.btn-close {
-  border-color: var(--primary-color);
+/* Location link styling */
+.location-link {
   color: var(--primary-color);
-  background-color: var(--section-bg-light);
-  opacity: 1;
-  min-width: 40px;
-  min-height: 40px;
+  cursor: pointer;
+  text-decoration: underline;
+  transition: color 0.2s ease;
+  white-space: nowrap;
 }
 
-.btn-close:hover {
-  border-color: var(--section-bg-light);
-  color: var(--section-bg-light);
-  background: var(--primary-color);
-  box-shadow: unset;
+.location-link:hover {
+  color: color-mix(in srgb, var(--primary-color) 80%, black);
+  text-decoration: none;
 }
 
-.btn-close:focus {
-  outline: 2px solid var(--primary-color);
-  outline-offset: 2px;
-}
-
-/* Content */
-.dialog-content {
-  padding: 20px;
-  overflow-y: auto;
-  max-height: calc(90vh - 80px);
+.location-link i {
+  font-size: 0.9em;
+  opacity: 0.8;
 }
 
 .gig-info-grid {

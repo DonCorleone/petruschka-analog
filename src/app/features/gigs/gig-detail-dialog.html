@@ -1,144 +1,92 @@
-<div class="dialog-header">
-  <h2 class="dialog-title">{{ data.gig.title }}</h2>
-  <button 
-    type="button" 
-    class="btn-close btn btn-xs btn-ghost-secondary" 
-    aria-label="Dialog schliessen"
-    (click)="close()">
-    <i class="fa-solid fa-times" aria-hidden="true"></i>
-    <span class="sr-only">×</span>
-  </button>
-</div>
-
-<div class="dialog-content">
-  <div class="gig-info">
-    <div class="gig-info-grid">
-      <!-- Main Content Column -->
-      <div class="gig-content-section">
-        <div class="info-section">
-          @if (data.isHistoryEvent) {
-            <h4>Historische Aufführung</h4>
-            <p><strong>Titel:</strong> {{ data.gig.title }}</p>
-            <p><strong>Uraufführung:</strong> {{ data.gig.date.day }} {{ data.gig.date.month }}</p>
-          } @else {
-            <h4>Veranstaltungsdetails</h4>
-            @if (data.gig.eventDateString) {
-              <p><strong class="text-nowrap">Datum & Zeit:</strong> 
-                <span class="event-datetime">
-                  {{ data.gig.eventDateString }}
-                </span>
-              </p>
-            } @else {
-              <p><strong>Datum:</strong> {{ data.gig.date.day }} {{ data.gig.date.month }}</p>
-              <p><strong>Tag:</strong> {{ data.gig.dayOfWeek }}</p>
-              <p><strong>Zeit:</strong> {{ data.gig.time }}</p>
-            }
-            <p><strong>Veranstaltungsort:</strong> 
-              <span class="location-link" (click)="openLocationDialog(data.gig.location)" title="Ort-Details anzeigen">
-                {{ data.gig.location }}
-                <i class="fa-solid fa-map-marker-alt ms-1"></i>
-              </span>
+<app-base-dialog [title]="data.gig.title">
+  <app-dialog-two-column>
+    <!-- Main Content Column -->
+    <div slot="content">
+      @if (data.isHistoryEvent) {
+        <app-dialog-info-section title="Historische Aufführung">
+          <p><strong>Titel:</strong> {{ data.gig.title }}</p>
+          <p><strong>Uraufführung:</strong> {{ data.gig.date.day }} {{ data.gig.date.month }}</p>
+        </app-dialog-info-section>
+      } @else {
+        <app-dialog-info-section title="Veranstaltungsdetails">
+          @if (data.gig.eventDateString) {
+            <p><strong class="text-nowrap">Datum & Zeit:</strong> 
+              <span class="event-datetime">{{ data.gig.eventDateString }}</span>
             </p>
-            @if (data.gig.duration) {
-              <p><strong>Dauer:</strong> {{ data.gig.duration }}</p>
-            }
+          } @else {
+            <p><strong>Datum:</strong> {{ data.gig.date.day }} {{ data.gig.date.month }}</p>
+            <p><strong>Tag:</strong> {{ data.gig.dayOfWeek }}</p>
+            <p><strong>Zeit:</strong> {{ data.gig.time }}</p>
           }
-        </div>
+          <p><strong>Veranstaltungsort:</strong> 
+            <span class="location-link" (click)="openLocationDialog(data.gig.location)" title="Ort-Details anzeigen">
+              {{ data.gig.location }}
+              <i class="fa-solid fa-map-marker-alt ms-1"></i>
+            </span>
+          </p>
+          @if (data.gig.duration) {
+            <p><strong>Dauer:</strong> {{ data.gig.duration }}</p>
+          }
+        </app-dialog-info-section>
+      }
 
-        <!-- Short Description -->
-        @if (data.gig.shortDescription) {
-          <div class="info-section">
-            <h4>Kurzbeschreibung</h4>
-            <p class="lead">{{ data.gig.shortDescription }}</p>
-          </div>
-        }
-        
-        <!-- Long Description with HTML content -->
-        @if (data.gig.longDescription) {
-          <div class="info-section">
-            @if (data.isHistoryEvent) {
-              <h4>Über dieses Stück</h4>
-            } @else {
-              <h4>Über diese Aufführung</h4>
-            }
-            <div [innerHTML]="data.gig.longDescription"></div>
-          </div>
-        }
-        
-        @if (data.gig.description && !data.gig.shortDescription) {
-          <div class="info-section">
-            @if (data.isHistoryEvent) {
-              <h4>Über dieses Stück</h4>
-            } @else {
-              <h4>Über diese Aufführung</h4>
-            }
-            <p>{{ data.gig.description }}</p>
-          </div>
-        }
+      @if (data.gig.shortDescription) {
+        <app-dialog-info-section title="Kurzbeschreibung">
+          <p class="lead">{{ data.gig.shortDescription }}</p>
+        </app-dialog-info-section>
+      }
+      
+      @if (data.gig.longDescription) {
+        <app-dialog-info-section [title]="data.isHistoryEvent ? 'Über dieses Stück' : 'Über diese Aufführung'">
+          <div [innerHTML]="data.gig.longDescription"></div>
+        </app-dialog-info-section>
+      }
+      
+      @if (data.gig.description && !data.gig.shortDescription) {
+        <app-dialog-info-section [title]="data.isHistoryEvent ? 'Über dieses Stück' : 'Über diese Aufführung'">
+          <p>{{ data.gig.description }}</p>
+        </app-dialog-info-section>
+      }
 
-        <!-- Artists/Cast Information -->
-        @if (data.gig.artists) {
-          <div class="info-section">
-            <h4>Mitwirkende</h4>
-            <p>{{ data.gig.artists }}</p>
-          </div>
-        }
+      @if (data.gig.artists) {
+        <app-dialog-info-section title="Mitwirkende">
+          <p>{{ data.gig.artists }}</p>
+        </app-dialog-info-section>
+      }
 
-        <!-- Important Notes -->
-        @if (data.gig.importantNotes) {
-          <div class="info-section alert alert-info">
+      @if (data.gig.importantNotes) {
+        <app-dialog-info-section title="Wichtige Hinweise">
+          <div class="alert alert-info">
             <h5><i class="fas fa-info-circle"></i> Wichtige Hinweise</h5>
             <p class="mb-0">{{ data.gig.importantNotes }}</p>
           </div>
-        }
-
-        <!-- Ticket Information
-        @if (data.gig.ticketTypes && data.gig.ticketTypes.length > 0 && !data.isHistoryEvent) {
-          <div class="info-section">
-            <h4>Tickets & Preise</h4>
-            <div class="ticket-types">
-              @for (ticketType of data.gig.ticketTypes; track ticketType.name) {
-                <div class="ticket-type mb-2">
-                  <span class="ticket-name">{{ ticketType.name }}:</span>
-                  <span class="ticket-price">{{ ticketType.currency }} {{ ticketType.price }}.00</span>
-                  @if (ticketType.description) {
-                    <small class="ticket-description d-block text-muted">{{ ticketType.description }}</small>
-                  }
-                </div>
-              }
-            </div>
-          </div> 
-        }-->
-        
-        @if (data.gig.ticketUrl && data.gig.ticketUrl !== '#' && !data.isHistoryEvent) {
-          <div class="info-section">
-            <a [href]="data.gig.ticketUrl" 
-               target="_blank" 
-               class="btn btn-primary btn-lg">
-              <i class="fa-solid fa-ticket"></i> Tickets kaufen
-            </a>
-          </div>
-        }
-      </div>
-
-      <!-- Image Column -->
-      <div class="gig-image-section">
-        @if (data.gig.flyerImagePath) {
-          <div class="gig-image">
-            <img [src]="data.gig.flyerImagePath" 
-                 [alt]="data.gig.title + ' Flyer'"
-                 class="img-fluid rounded shadow-sm">
-          </div>
-        }
-        
-        @if (data.gig.bannerImagePath && !data.gig.flyerImagePath) {
-          <div class="gig-banner">
-            <img [src]="data.gig.bannerImagePath" 
-                 [alt]="data.gig.title + ' Banner'"
-                 class="img-fluid rounded shadow-sm">
-          </div>
-        }
-      </div>
+        </app-dialog-info-section>
+      }
+      
+      @if (data.gig.ticketUrl && data.gig.ticketUrl !== '#' && !data.isHistoryEvent) {
+        <app-dialog-info-section title="">
+          <a [href]="data.gig.ticketUrl" 
+             target="_blank" 
+             class="btn btn-primary btn-lg">
+            <i class="fa-solid fa-ticket"></i> Tickets kaufen
+          </a>
+        </app-dialog-info-section>
+      }
     </div>
-  </div>
-</div>
+
+    <!-- Image Column -->
+    <div slot="image">
+      @if (data.gig.flyerImagePath) {
+        <img [src]="data.gig.flyerImagePath" 
+             [alt]="data.gig.title + ' Flyer'"
+             class="img-fluid">
+      }
+      
+      @if (data.gig.bannerImagePath && !data.gig.flyerImagePath) {
+        <img [src]="data.gig.bannerImagePath" 
+             [alt]="data.gig.title + ' Banner'"
+             class="img-fluid">
+      }
+    </div>
+  </app-dialog-two-column>
+</app-base-dialog>

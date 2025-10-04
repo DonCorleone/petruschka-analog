@@ -1,16 +1,4 @@
-<div class="dialog-header">
-  <h2 class="dialog-title">Newsletter abonnieren</h2>
-  <button 
-    type="button" 
-    class="btn-close btn btn-xs btn-ghost-secondary" 
-    aria-label="Dialog schliessen"
-    (click)="close()">
-    <i class="fa-solid fa-times" aria-hidden="true"></i>
-    <span class="sr-only">×</span>
-  </button>
-</div>
-
-<div class="dialog-content">
+<app-base-dialog title="Newsletter abonnieren">
   <div class="newsletter-info">
     <p class="lead">Bleiben Sie auf dem Laufenden über unsere aktuellen Aufführungen, neue Produktionen und besondere Veranstaltungen.</p>
     
@@ -100,4 +88,4 @@
       </form>
     }
   </div>
-</div>
+</app-base-dialog>

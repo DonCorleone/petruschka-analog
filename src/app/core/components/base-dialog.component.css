@@ -1,0 +1,112 @@
+/* Base Dialog Styles - Streamlined and consistent */
+:host {
+  display: block;
+}
+
+.dialog-container {
+  display: block;
+  background: #f8f9fa;
+  margin: 4vh 4vw;
+  min-width: 600px;
+  max-width: 1024px;
+  max-height: 90vh;
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+  border-radius: 0.5rem;
+  overflow: hidden;
+}
+
+.dialog-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1.25rem;
+  border-bottom: 1px solid #eee;
+  background: #f8f9fa;
+}
+
+.dialog-title {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: var(--secondary-color);
+  margin: 0;
+}
+
+.dialog-content {
+  padding: 1.25rem;
+  overflow-y: auto;
+  max-height: calc(90vh - 80px);
+  /* Ensure mobile content is fully accessible */
+  padding-bottom: 2rem;
+}
+
+.dialog-close-btn {
+  border-color: var(--primary-color);
+  color: var(--primary-color);
+  background-color: var(--section-bg-light);
+  opacity: 1;
+  min-width: 40px;
+  min-height: 40px;
+}
+
+.dialog-close-btn:hover {
+  border-color: var(--section-bg-light);
+  color: var(--section-bg-light);
+  background: var(--primary-color);
+  box-shadow: none;
+}
+
+.dialog-close-btn:focus {
+  outline: 2px solid var(--primary-color);
+  outline-offset: 2px;
+}
+
+/* Accessibility */
+.sr-only {
+  position: absolute !important;
+  width: 1px !important;
+  height: 1px !important;
+  padding: 0 !important;
+  margin: -1px !important;
+  overflow: hidden !important;
+  clip: rect(0, 0, 0, 0) !important;
+  white-space: nowrap !important;
+  border: 0 !important;
+}
+
+/* Mobile Responsive - Fixed mobile border visibility */
+@media (max-width: 767.98px) {
+  .dialog-container {
+    min-width: unset;
+    margin: 2vh 2vw;
+    max-width: calc(100vw - 4vw);
+    max-height: calc(100vh - 4vh);
+    /* Ensure proper mobile viewport handling */
+    padding-bottom: env(safe-area-inset-bottom, 0);
+  }
+  
+  .dialog-title {
+    font-size: 1.25rem;
+    word-break: break-word;
+  }
+  
+  .dialog-content {
+    padding: 0.9375rem;
+    /* Critical fix: Add extra bottom padding on mobile to ensure full visibility */
+    padding-bottom: calc(2rem + env(safe-area-inset-bottom, 0));
+    /* Ensure scrollable area accounts for mobile UI */
+    max-height: calc(100vh - 6vh - 80px);
+  }
+}
+
+/* Extra small screens */
+@media (max-width: 480px) {
+  .dialog-container {
+    margin: 1vh 1vw;
+    max-width: calc(100vw - 2vw);
+  }
+  
+  .dialog-content {
+    padding: 0.75rem;
+    padding-bottom: calc(2.5rem + env(safe-area-inset-bottom, 0));
+  }
+}

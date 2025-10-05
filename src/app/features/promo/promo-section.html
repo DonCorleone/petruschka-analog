@@ -1,14 +1,14 @@
-<section class="promo-section section">
-  <div class="promo-carousel-holder">
+<section class="promo-section section position-relative vh-100 w-100 text-white">
+  <div class="promo-carousel-holder position-absolute top-0 start-0 w-100 h-100">
     <div 
       id="promo-carousel" 
-      class="promo-carousel carousel slide carousel-fade" 
+      class="promo-carousel carousel slide carousel-fade h-100" 
       [attr.data-bs-ride]="'carousel'">
       
-      <div class="carousel-inner carousel-zoom">
+      <div class="carousel-inner carousel-zoom h-100">
         @for (slide of slides; track slide.id; let i = $index) {
           <div 
-            class="carousel-item"
+            class="carousel-item h-100"
             [class.active]="i === 0"
             [class.portrait-mode]="isPortraitOrientation()"
             [class.landscape-mode]="!isPortraitOrientation()"
@@ -23,18 +23,18 @@
     </div>
   </div>
   
-  <div class="overlay-mask"></div>
+  <div class="overlay-mask position-absolute top-0 start-0 w-100 h-100"></div>
   
-  <div class="container text-center promo-content">
+  <div class="container text-center promo-content position-relative">
     <div class="upper-wrapper">
       <h1 class="logo-holder"></h1>
-      <h2 class="headline">{{ headline }}</h2>
-      <div class="tagline">{{ tagline }}</div>
+      <h2 class="headline text-uppercase opacity-90">{{ headline }}</h2>
+      <div class="tagline text-white opacity-90 fw-semibold">{{ tagline }}</div>
     </div>
   </div>
   
-  <div class="updates-block">
-    <div class="container updates-block-inner">
+  <div class="updates-block position-absolute bottom-0 w-100 text-white">
+    <div class="container updates-block-inner position-relative">
       <div 
         id="carousel-updates" 
         class="carousel slide" 
@@ -44,12 +44,12 @@
         <div class="carousel-inner" role="listbox">
           @if (updates().length === 0) {
             <div class="carousel-item active">
-              <div class="carousel-item-wrapper">
-                <div class="carousel-item-content">
+              <div class="carousel-item-wrapper d-flex flex-column">
+                <div class="carousel-item-content d-flex flex-row align-items-start flex-fill">
                   <div class="carousel-content no-media-holder">
-                    <h3 class="title">Aktuelle Updates</h3>
+                    <h3 class="title fs-5 fw-semibold mt-0 mb-2">Aktuelle Updates</h3>
                     <div class="desc">
-                      <p class="intro">Schau bald wieder vorbei für neue Updates zu Veranstaltungen und Vorführungen!</p>
+                      <p class="intro mb-2">Schau bald wieder vorbei für neue Updates zu Veranstaltungen und Vorführungen!</p>
                     </div>
                   </div>
                 </div>
@@ -58,15 +58,15 @@
           }
           @for (update of updates(); track update.id; let i = $index) {
             <div class="carousel-item" [class.active]="i === 0">
-              <div class="carousel-item-wrapper">
-                <div class="carousel-item-content">
+              <div class="carousel-item-wrapper d-flex flex-column">
+                <div class="carousel-item-content d-flex flex-row align-items-start flex-fill">
                   @if (update.mediaType && update.mediaThumb) {
-                    <div class="media-holder">
-                      <div class="media-thumb">
-                        <img [src]="update.mediaThumb" [alt]="update.title">
+                    <div class="media-holder position-absolute">
+                      <div class="media-thumb position-relative">
+                        <img class="w-100" [src]="update.mediaThumb" [alt]="update.title">
                         @if (update.mediaType === 'video') {
                           <a 
-                            class="video-play-trigger" 
+                            class="video-play-trigger position-absolute text-center text-white rounded-circle" 
                             (click)="openVideoModal(update.mediaUrl!)"
                             role="button"
                             tabindex="0">
@@ -78,8 +78,8 @@
                   }
                   
                   <div class="carousel-content" [class.no-media-holder]="!update.mediaType">
-                    <h3 class="title" [innerHTML]="update.title"></h3>
-                    <div class="desc">
+                    <h3 class="title fs-5 fw-semibold mt-0 mb-1" [innerHTML]="update.title"></h3>
+                    <div class="desc opacity-75">
                       @if (update.isCountdown && update.countdownDate) {
                         <div class="countdown">
                           <app-countdown [targetDate]="update.countdownDate"></app-countdown>
@@ -102,7 +102,7 @@
         <!-- Carousel Controls - Only show when there are multiple updates -->
         @if (updates().length > 1) {
           <a 
-            class="carousel-control-prev" 
+            class="carousel-control-prev w-auto" 
             href="#carousel-updates" 
             role="button" 
             data-bs-slide="prev">
@@ -110,7 +110,7 @@
             <span class="visually-hidden">Previous</span>
           </a>
           <a 
-            class="carousel-control-next" 
+            class="carousel-control-next w-auto" 
             href="#carousel-updates" 
             role="button" 
             data-bs-slide="next">

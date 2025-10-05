@@ -1,4 +1,4 @@
-/* Sponsors section styles - using common patterns and Bootstrap utilities */
+/* Sponsors section styles */
 .sponsors-section {
   background: rgba(0, 0, 0, 0.9);
 }
@@ -19,11 +19,8 @@
 .sponsor-xs .sponsor-logo { max-width: 80px; height: auto; }
 .sponsor-xs .sponsor-placeholder { width: 80px; height: 50px; font-size: 1.5rem; }
 
-/* Placeholder styling - specific to sponsors */
+/* Placeholder styling */
 .sponsor-placeholder {
-  display: flex;
-  align-items: center;
-  justify-content: center;
   background: rgba(255, 255, 255, 0.95) !important;
   border: 2px solid var(--border-light);
   color: var(--text-muted);
@@ -32,6 +29,13 @@
 .card-hover:hover .sponsor-placeholder {
   background: rgba(255, 255, 255, 1) !important;
   color: var(--primary-color);
+}
+
+/* Event badges */
+.event-badge {
+  background: rgba(255, 255, 255, 0.1);
+  color: #ccc;
+  border: 1px solid var(--border-light);
 }
 
 /* Responsive sizing */
@@ -48,130 +52,15 @@
   .sponsor-xs .sponsor-placeholder { width: 80px; height: 50px; font-size: 1.3rem; }
 }
 
-/* Event badges */
-.sponsor-events {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 6px;
-  justify-content: center;
-}
-
-.event-badge {
-  background: rgba(255, 255, 255, 0.1);
-  color: #ccc;
-  padding: 4px 8px;
-  border-radius: 12px;
-  font-size: 12px;
-  font-weight: 500;
-  border: 1px solid var(--border-light);
-}
-
-/* Size Classes - Visual hierarchy */
-.sponsor-xl .sponsor-logo {
-  max-width: 160px;
-  height: auto;
-}
-
-.sponsor-xl .sponsor-placeholder {
-  width: 160px;
-  height: 100px;
-  font-size: 2.5rem;
-}
-
-.sponsor-lg .sponsor-logo {
-  max-width: 140px;
-  height: auto;
-}
-
-.sponsor-lg .sponsor-placeholder {
-  width: 140px;
-  height: 85px;
-  font-size: 2.2rem;
-}
-
-.sponsor-md .sponsor-logo {
-  max-width: 120px;
-  height: auto;
-}
-
-.sponsor-md .sponsor-placeholder {
-  width: 120px;
-  height: 75px;
-  font-size: 2rem;
-}
-
-.sponsor-sm .sponsor-logo {
-  max-width: 100px;
-  height: auto;
-}
-
-.sponsor-sm .sponsor-placeholder {
-  width: 100px;
-  height: 60px;
-  font-size: 1.8rem;
-}
-
-.sponsor-xs .sponsor-logo {
-  max-width: 80px;
-  height: auto;
-}
-
-.sponsor-xs .sponsor-placeholder {
-  width: 80px;
-  height: 50px;
-  font-size: 1.5rem;
-}
-
-/* Empty state */
-.no-sponsors {
-  grid-column: 1 / -1;
-  text-align: center;
-  color: var(--text-muted);
-  font-style: italic;
-  padding: 40px 20px;
-}
-
-/* Responsive Design */
-@media (max-width: 767.98px) {
-  .sponsors-grid {
-    grid-template-columns: repeat(auto-fill, minmax(min(200px, 100%), 1fr));
-    gap: 20px;
-  }
-  
-  .sponsor-item {
-    padding: 20px 15px;
-  }
-  
-  .sponsor-xl .sponsor-logo { max-width: 120px; height: auto; }
-  .sponsor-xl .sponsor-placeholder { width: 120px; height: 75px; font-size: 2rem; }
-  .sponsor-lg .sponsor-logo { max-width: 110px; height: auto; }
-  .sponsor-lg .sponsor-placeholder { width: 110px; height: 65px; font-size: 1.8rem; }
-  .sponsor-md .sponsor-logo { max-width: 100px; height: auto; }
-  .sponsor-md .sponsor-placeholder { width: 100px; height: 60px; font-size: 1.6rem; }
-  .sponsor-sm .sponsor-logo { max-width: 90px; height: auto; }
-  .sponsor-sm .sponsor-placeholder { width: 90px; height: 55px; font-size: 1.5rem; }
-  .sponsor-xs .sponsor-logo { max-width: 80px; height: auto; }
-  .sponsor-xs .sponsor-placeholder { width: 80px; height: 50px; font-size: 1.3rem; }
-}
-
 @media (max-width: 480px) {
-  .sponsors-grid {
-    grid-template-columns: repeat(2, 1fr);
-    gap: 15px;
-  }
-  
-  .sponsor-item {
-    padding: 15px 10px;
-  }
-  
-  .sponsor-xl .sponsor-logo { max-width: 100px; height: auto; }
+  .sponsor-xl .sponsor-logo { max-width: 100px; }
   .sponsor-xl .sponsor-placeholder { width: 100px; height: 65px; font-size: 1.8rem; }
-  .sponsor-lg .sponsor-logo { max-width: 90px; height: auto; }
+  .sponsor-lg .sponsor-logo { max-width: 90px; }
   .sponsor-lg .sponsor-placeholder { width: 90px; height: 55px; font-size: 1.6rem; }
-  .sponsor-md .sponsor-logo { max-width: 80px; height: auto; }
+  .sponsor-md .sponsor-logo { max-width: 80px; }
   .sponsor-md .sponsor-placeholder { width: 80px; height: 50px; font-size: 1.4rem; }
-  .sponsor-sm .sponsor-logo { max-width: 70px; height: auto; }
+  .sponsor-sm .sponsor-logo { max-width: 70px; }
   .sponsor-sm .sponsor-placeholder { width: 70px; height: 45px; font-size: 1.2rem; }
-  .sponsor-xs .sponsor-logo { max-width: 60px; height: auto; }
+  .sponsor-xs .sponsor-logo { max-width: 60px; }
   .sponsor-xs .sponsor-placeholder { width: 60px; height: 40px; font-size: 1rem; }
 }

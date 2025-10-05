@@ -61,7 +61,7 @@
               <div class="carousel-item-wrapper d-flex flex-column">
                 <div class="carousel-item-content d-flex flex-row align-items-start flex-fill">
                   @if (update.mediaType && update.mediaThumb) {
-                    <div class="media-holder position-absolute">
+                    <div class="media-holder position-static position-md-absolute">
                       <div class="media-thumb position-relative">
                         <img class="w-100" [src]="update.mediaThumb" [alt]="update.title">
                         @if (update.mediaType === 'video') {
@@ -91,7 +91,7 @@
                   </div>
                 </div>
                 
-                <a class="btn btn-primary btn-cta" [href]="update.ctaUrl">
+                <a class="btn btn-primary btn-cta " [href]="update.ctaUrl">
                   {{ update.ctaText }}
                 </a>
               </div>

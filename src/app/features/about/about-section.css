@@ -6,27 +6,11 @@
   height: 100%;
 }
 
-.about-section .member-name {
-  margin-top: 0;
-  margin-bottom: 15px;
-}
-
 .about-section .member-desc {
   color: var(--text-muted);
 }
 
-.about-section .member-profile {
-  position: relative;
-  overflow: hidden;
-  margin-bottom: 15px;
-  text-align: center;
-}
-
 .about-section .member-profile img {
-  margin-left: auto;
-  margin-right: auto;
-  display: inline-block;
-  border-radius: 50%;
   width: 240px;
   height: 240px;
   object-fit: cover;
@@ -41,26 +25,16 @@
 }
 
 .about-section .member-label {
-  display: inline-block;
   width: 90%;
   padding: 5px 10px;
   background: var(--dark-bg);
   color: #fff;
   font-family: 'Raleway', sans-serif;
-  text-transform: uppercase;
-  font-weight: 700;
-  margin-bottom: 30px;
 }
 
 /* Read more hint - hidden by default, subtle on hover */
 .about-section .read-more-hint {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 8px;
-  margin-top: 16px;
   color: var(--primary-color);
-  font-weight: 500;
   opacity: 0;
   transition: opacity 0.3s ease;
 }

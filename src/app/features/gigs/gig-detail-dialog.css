@@ -34,7 +34,6 @@
 
 .info-section h4 {
   font-size: 18px;
-  font-weight: 600;
   color: #333;
   border-bottom: 1px solid var(--primary-color);
 }
@@ -46,23 +45,6 @@
 
 .info-section strong {
   color: #555;
-  font-weight: 600;
-}
-
-.btn-primary {
-  background: var(--primary-color);
-  border-color: var(--primary-color);
-  padding: 12px 24px;
-  font-weight: 600;
-  text-decoration: none;
-  display: inline-flex;
-  align-items: center;
-  gap: 8px;
-}
-
-.btn-primary:hover {
-  background: color-mix(in srgb, var(--primary-color) 90%, black);
-  border-color: color-mix(in srgb, var(--primary-color) 90%, black);
 }
 
 /* Location link styling */

@@ -1,6 +1,10 @@
 <button 
   id="back-to-top"
-  class="back-to-top"
+  class="back-to-top position-fixed border-0 rounded-circle d-flex align-items-center justify-content-center text-center"
+  [class.visible]="isVisible()"
+  [class.opacity-0]="!isVisible()"
+  [class.invisible]="!isVisible()"
+  [class.opacity-100]="isVisible()"
   [class.visible]="isVisible()"
   (click)="scrollToTop()"
   aria-label="Back to top">

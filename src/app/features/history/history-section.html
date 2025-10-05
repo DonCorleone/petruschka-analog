@@ -18,7 +18,7 @@
           <div class="event-description">{{event.description | slice:0:100}}@if (event.description && event.description.length > 100) {…}</div>
           @if (event.description) {
             <div class="mt-3">
-              <button type="button" class="btn btn-xs btn-ghost-secondary" 
+              <button type="button" class="btn btn-xs btn-ghost-primary"
                       (click)="openHistoryDetail(event)">
                 Mehr Details
               </button>

@@ -146,6 +146,8 @@
 .updates-block .carousel-control-next,
 .updates-block .carousel-control-prev {
   width: auto;
+  background: transparent;
+  border: none;
 }
 
 .updates-block .carousel-control-next:hover,
@@ -220,6 +222,11 @@
   color: var(--primary-color);
 }
 
+.updates-block .countdown-label {
+  white-space: nowrap;
+  display: inline-block;
+}
+
 /* Modal styles */
 .modal-backdrop {
   background-color: rgba(0, 0, 0, 0.9);
@@ -282,8 +289,9 @@
     position: relative;
     height: auto;
     bottom: 0;
-    min-height: 400px;
-    padding: 30px 0;
+    min-height: 350px;
+    padding: 25px 0;
+    overflow: visible;
   }
 
   .updates-block .updates-block-inner {
@@ -293,15 +301,15 @@
 
   .updates-block .carousel .carousel-item {
     height: auto;
-    min-height: 250px;
-    padding-bottom: 30px;
+    min-height: 220px;
+    padding-bottom: 25px;
   }
 
   .updates-block .carousel-item-wrapper {
     display: flex;
     flex-direction: column;
-    min-height: 220px;
-    gap: 20px;
+    min-height: 190px;
+    gap: 12px;
   }
 
   .updates-block .carousel-item-content {
@@ -332,12 +340,15 @@
   }
 
   .updates-block .carousel-content .desc {
-    margin-bottom: 0;
+    margin-bottom: 10px;
+    overflow-y: visible;
   }
 
   .updates-block .carousel-content .desc .intro {
     line-height: 1.4;
-    margin-bottom: 0;
+    margin-bottom: 8px;
+    overflow-wrap: break-word;
+    word-wrap: break-word;
   }
 
   .updates-block .btn-cta {
@@ -362,10 +373,14 @@
   /* Adjust carousel controls for mobile */
   .updates-block .carousel-control-prev {
     left: -20px;
+    background: transparent;
+    border: none;
   }
 
   .updates-block .carousel-control-next {
     right: -20px;
+    background: transparent;
+    border: none;
   }
 }
 
@@ -379,8 +394,16 @@
     min-height: 320px;
   }
 
+  .updates-block .updates-block-inner {
+    max-width: 1000px;
+    margin: 0 auto;
+    padding-left: 60px;
+    padding-right: 60px;
+  }
+
   .updates-block .btn-cta {
     position: static;
+    margin-left: 190px;
     margin-top: 15px;
   }
 
@@ -400,8 +423,13 @@
     min-height: 240px;
   }
 
+  .updates-block .updates-block-inner {
+    max-width: 1200px;
+  }
+
   .updates-block .btn-cta {
     position: static;
+    margin-left: 190px;
     margin-top: 15px;
   }
 

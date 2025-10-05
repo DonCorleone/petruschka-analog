@@ -83,10 +83,10 @@
                       @if (update.isCountdown && update.countdownDate) {
                         <div class="countdown">
                           <app-countdown [targetDate]="update.countdownDate"></app-countdown>
-                          <span>bis zur Veröffentlichung</span>
+                          <br>
+                          <span class="countdown-label">bis zur Premiere</span>
                         </div>
                       }
-                      <p class="intro" [innerHTML]="update.description"></p>
                     </div>
                   </div>
                 </div>
@@ -99,23 +99,25 @@
           }
         </div>
         
-        <!-- Carousel Controls -->
-        <a 
-          class="carousel-control-prev" 
-          href="#carousel-updates" 
-          role="button" 
-          data-bs-slide="prev">
-          <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-          <span class="visually-hidden">Previous</span>
-        </a>
-        <a 
-          class="carousel-control-next" 
-          href="#carousel-updates" 
-          role="button" 
-          data-bs-slide="next">
-          <span class="carousel-control-next-icon" aria-hidden="true"></span>
-          <span class="visually-hidden">Next</span>
-        </a>
+        <!-- Carousel Controls - Only show when there are multiple updates -->
+        @if (updates().length > 1) {
+          <a 
+            class="carousel-control-prev" 
+            href="#carousel-updates" 
+            role="button" 
+            data-bs-slide="prev">
+            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Previous</span>
+          </a>
+          <a 
+            class="carousel-control-next" 
+            href="#carousel-updates" 
+            role="button" 
+            data-bs-slide="next">
+            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Next</span>
+          </a>
+        }
       </div>
     </div>
   </div>

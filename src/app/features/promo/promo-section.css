@@ -1,9 +1,5 @@
 /* Promo section styles */
 .promo-section {
-  height: 100vh;
-  width: 100%;
-  position: relative;
-  color: #fff;
   background: var(--dark-bg);
 }
 
@@ -14,14 +10,6 @@
   to {
     transform: scale(1, 1);
   }
-}
-
-.promo-carousel-holder {
-  position: absolute;
-  left: 0;
-  top: 0;
-  width: 100%;
-  height: 100%;
 }
 
 .promo-carousel-holder .carousel-item {
@@ -40,53 +28,33 @@
 
 .overlay-mask {
   background: rgba(0, 0, 0, 0.4);
-  position: absolute;
-  width: 100%;
-  height: 100%;
   z-index: 10;
-  top: 0;
-  left: 0;
 }
 
 .promo-content {
   padding-top: 100px;
-  position: relative;
   z-index: 20;
 }
 
 .promo-content .headline {
   color: black;
-  opacity: 0.9;
   font-size: 8cqi;
-  text-transform: uppercase;
   text-shadow: 0px 0px 15px rgba(255, 255, 255, 0.9);
 }
 
 .promo-content .tagline {
-  color: white;
-  opacity: 0.9;
   font-size: 3cqi;
-  font-weight: 600;
   margin-bottom: 90px;
   text-shadow: 0px 0px 10px rgba(0, 0, 0, 0.9);
 }
 
 .updates-block {
-  position: absolute;
   z-index: 30;
   bottom: 2px;
-  width: 100%;
   height: 160px;
   padding-top: 30px;
   padding-bottom: 30px;
   background: rgba(0, 0, 0, 0.8);
-  color: #fff;
-}
-
-.updates-block .updates-block-inner {
-  padding-left: 60px;
-  padding-right: 60px;
-  position: relative;
 }
 
 .updates-block .carousel-inner {
@@ -95,32 +63,20 @@
 
 .updates-block .media-holder {
   display: inline-block;
-  position: absolute;
   width: 170px;
   height: 100px;
   left: 0;
 }
 
-.updates-block .media-thumb {
-  position: relative;
-  img {
-    width: 100%;
-  }
-}
-
 .updates-block .video-play-trigger {
-  position: absolute;
   width: 36px;
   height: 36px;
   left: 50%;
   margin-left: -18px;
-  text-align: center;
   z-index: 5;
   top: 50%;
   margin-top: -18px;
-  color: #fff;
   background: rgba(0, 0, 0, 0.8);
-  border-radius: 50%;
   background-clip: padding-box;
   cursor: pointer;
 }
@@ -145,7 +101,6 @@
 
 .updates-block .carousel-control-next,
 .updates-block .carousel-control-prev {
-  width: auto;
   background: transparent;
   border: none;
 }
@@ -174,7 +129,7 @@
 }
 
 .updates-block .carousel-content {
-  padding-left: 200px;
+  padding-left: 20px;
   max-width: 760px;
 }
 
@@ -187,22 +142,10 @@
   margin-bottom: 15px;
 }
 
-.updates-block .carousel-content .title {
-  font-size: 18px;
-  font-weight: 600;
-  margin-top: 0;
-  margin-bottom: 5px;
-}
-
 .updates-block .btn-cta {
   position: static;
   margin-left: 190px;
   margin-top: 15px;
-  display: inline-block;
-}
-
-.updates-block .carousel-content .desc {
-  color: rgba(255, 255, 255, 0.6);
 }
 
 .updates-block .carousel-content .desc a {
@@ -238,7 +181,6 @@
 
 .modal.modal-video .modal-body {
   padding: 0;
-  padding-top: 0;
 }
 
 .modal.modal-video .modal-header {
@@ -258,13 +200,17 @@
   background: none;
   position: absolute;
   top: inherit;
-  right: 0px;
+  right: 0;
   bottom: 5px;
   z-index: 10;
 }
 
 .modal.modal-video .btn-close:hover {
   opacity: 1;
+}
+
+.updates-block-inner {
+  max-width: 860px;
 }
 
 /* Media Queries */
@@ -294,11 +240,6 @@
     overflow: visible;
   }
 
-  .updates-block .updates-block-inner {
-    padding-left: 20px;
-    padding-right: 20px;
-  }
-
   .updates-block .carousel .carousel-item {
     height: auto;
     min-height: 220px;
@@ -306,17 +247,8 @@
   }
 
   .updates-block .carousel-item-wrapper {
-    display: flex;
-    flex-direction: column;
     min-height: 190px;
     gap: 12px;
-  }
-
-  .updates-block .carousel-item-content {
-    display: flex;
-    flex-direction: row;
-    align-items: flex-start;
-    flex: 1;
   }
 
   .updates-block .media-holder {
@@ -331,8 +263,6 @@
   .updates-block .carousel-content {
     padding-left: 0;
     flex: 1;
-    display: flex;
-    flex-direction: column;
   }
 
   .updates-block .carousel-content .title {
@@ -353,11 +283,11 @@
 
   .updates-block .btn-cta {
     position: static;
-    width: 100%;
     margin-top: 0;
-    align-self: stretch;
     flex-shrink: 0;
     margin-left: unset;
+    width: 100%;
+    align-self: stretch;
   }
 
   /* Handle carousel items without media */
@@ -373,14 +303,10 @@
   /* Adjust carousel controls for mobile */
   .updates-block .carousel-control-prev {
     left: -20px;
-    background: transparent;
-    border: none;
   }
 
   .updates-block .carousel-control-next {
     right: -20px;
-    background: transparent;
-    border: none;
   }
 }
 
@@ -394,17 +320,12 @@
     min-height: 320px;
   }
 
-  .updates-block .updates-block-inner {
-    max-width: 1000px;
-    margin: 0 auto;
-    padding-left: 60px;
-    padding-right: 60px;
-  }
-
   .updates-block .btn-cta {
     position: static;
     margin-left: 190px;
     margin-top: 15px;
+    width: auto;
+    align-self: flex-start;
   }
 
   .updates-block .carousel .carousel-item {
@@ -423,14 +344,12 @@
     min-height: 240px;
   }
 
-  .updates-block .updates-block-inner {
-    max-width: 1200px;
-  }
-
   .updates-block .btn-cta {
     position: static;
     margin-left: 190px;
     margin-top: 15px;
+    width: auto;
+    align-self: flex-start;
   }
 
   .updates-block .carousel .carousel-item {

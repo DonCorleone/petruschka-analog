@@ -1,26 +1,26 @@
-<header id="header" class="header fixed-top" [class.header-scrolled]="isScrolled()">  
+<header id="header" class="header fixed-top pt-0" [class.header-scrolled]="isScrolled()">  
   <div class="container">       
-    <nav class="main-nav navbar navbar-expand-md" role="navigation">
+    <nav class="main-nav navbar navbar-expand-md py-0" role="navigation">
       <button 
-        class="navbar-toggler navbar-dark" 
+        class="navbar-toggler navbar-dark me-0 mt-0 mb-2 px-0" 
         type="button" 
         (click)="toggleNavbar()"
         [attr.aria-expanded]="isNavbarOpen()"
         aria-controls="navbar-collapse" 
         aria-label="Navigation umschalten">
-        <span class="toggle-title">Menü</span>
+        <span class="toggle-title d-inline-block me-1 position-relative top-0">Menü</span>
         <span class="navbar-toggler-icon"></span>
       </button>  
       
       <div 
         id="navbar-collapse" 
-        class="navbar-collapse collapse text-center justify-content-center"
+        class="navbar-collapse collapse text-center"
         [class.show]="isNavbarOpen()">
-        <ul class="nav navbar-nav justify-content-center">
+        <ul class="nav navbar-nav">
           @for (link of navLinks; track link.href) {
             <li class="nav-item">
               <a 
-                class="nav-link scrollto" 
+                class="nav-link scrollto text-decoration-none" 
                 [href]="link.href"
                 (click)="scrollToSection($event, link.href)">
                 {{ link.label }}

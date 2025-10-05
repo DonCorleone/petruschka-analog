@@ -4,36 +4,25 @@
 }
 
 .dialog-container {
-  display: block;
   background: #f8f9fa;
   margin: 4vh 4vw;
   min-width: 600px;
   max-width: 1024px;
   max-height: 90vh;
   box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
-  border-radius: 0.5rem;
-  overflow: hidden;
 }
 
 .dialog-header {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 1.25rem;
-  border-bottom: 1px solid #eee;
+  border-bottom-color: #eee;
   background: #f8f9fa;
 }
 
 .dialog-title {
   font-size: 1.5rem;
-  font-weight: 700;
   color: var(--secondary-color);
-  margin: 0;
 }
 
 .dialog-content {
-  padding: 1.25rem;
-  overflow-y: auto;
   max-height: calc(90vh - 80px);
   /* Ensure mobile content is fully accessible */
   padding-bottom: 2rem;

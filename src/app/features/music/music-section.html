@@ -28,22 +28,22 @@
     <div class="content-grid-3 gap-4">
       @for (album of albums(); track album.id) {
       <div class="d-flex flex-column align-items-center mb-4">
-        <h3 class="album-title mb-3 text-center">{{ album.title }}</h3>
+        <h3 class="album-title mb-3 text-center text-truncate">{{ album.title }}</h3>
         <div class="d-flex flex-column align-items-center">
-          <a class="cover-figure mb-3" (click)="openAlbumDetail(album); $event.preventDefault()" href="javascript:void(0)">
+          <a class="cover-figure mb-3 position-relative d-inline-block" (click)="openAlbumDetail(album); $event.preventDefault()" href="javascript:void(0)">
             @if (album.status === 'coming-soon') {
-            <div class="arrow-holder"></div>
+            <div class="arrow-holder d-block position-absolute"></div>
             }
-            <div class="record-holder d-none d-md-block">
+            <div class="record-holder d-none d-md-block position-absolute">
               <img class="img-fluid" src="/images/record.png" alt="" />
             </div>
             <img
-              class="cover-image img-fluid"
+              class="cover-image img-fluid position-relative"
               [src]="album.coverImage"
               [alt]="album.title"
             />
             @if (album.status === 'coming-soon') {
-            <div class="cover-label">Demnächst verfügbar</div>
+            <div class="cover-label position-absolute text-uppercase fw-bold">Demnächst verfügbar</div>
             }
           </a>
 
@@ -65,8 +65,8 @@
       }
     </div>
 
-    <div class="mt-4">
+    <!-- div class="mt-4">
       <a class="btn btn-ghost-primary" href="#">Musik auf iTunes</a>
-    </div>
+    </div-->
   </div>
 </section>

@@ -1,9 +1,7 @@
 /* Memorial Section Styles */
 .memorial-section {
   background: rgba(0, 0, 0, 0.8);
-  padding: 3rem 2rem;
-  border-radius: 12px;
-  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-color: rgba(255, 255, 255, 0.1);
   color: rgba(255, 255, 255, 0.75);
 }
 
@@ -14,38 +12,13 @@
   border: 3px solid rgba(255, 255, 255, 0.2);
 }
 
-.memorial-text {
-  text-align: left;
-  line-height: 1.8;
-}
-
-.memorial-opening {
-  font-size: 1.2rem;
-  font-weight: 600;
-  color: #fff;
-  margin-bottom: 1.5rem;
-  font-style: italic;
-}
-
 .memorial-tribute {
-  font-size: 1.1rem;
   color: rgba(255, 255, 255, 0.9);
-  margin-bottom: 1.5rem;
 }
 
 .memorial-thanks {
-  font-size: 1.1rem;
   color: rgba(255, 255, 255, 0.85);
-  margin-bottom: 1.5rem;
-  border-left: 3px solid var(--primary-color);
-  padding-left: 1rem;
-}
-
-.memorial-future {
-  font-size: 1.1rem;
-  color: #fff;
-  font-weight: 500;
-  margin-bottom: 1.5rem;
+  border-left-color: var(--primary-color);
 }
 
 .memorial-link .btn-outline-primary {

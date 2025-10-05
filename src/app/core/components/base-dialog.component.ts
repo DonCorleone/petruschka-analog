@@ -6,20 +6,20 @@ import { DialogRef } from '@angular/cdk/dialog';
   selector: 'app-base-dialog',
   imports: [CommonModule],
   template: `
-    <div class="dialog-container">
-      <div class="dialog-header">
-        <h2 class="dialog-title">{{ title }}</h2>
+    <div class="dialog-container d-block overflow-hidden rounded">
+      <div class="dialog-header d-flex justify-content-between align-items-center p-4 border-bottom">
+        <h2 class="dialog-title fw-bold m-0">{{ title }}</h2>
         <button 
           type="button" 
           class="btn-close btn btn-xs btn-ghost-secondary dialog-close-btn" 
           aria-label="Dialog schliessen"
           (click)="close()">
           <i class="fa-solid fa-times" aria-hidden="true"></i>
-          <span class="sr-only">×</span>
+          <span class="visually-hidden">×</span>
         </button>
       </div>
 
-      <div class="dialog-content">
+      <div class="dialog-content p-4 overflow-y-auto">
         <ng-content></ng-content>
       </div>
     </div>

@@ -4,16 +4,8 @@
 }
 
 /* Member specific styling */
-
 .member-label {
-  display: inline-block;
-  width: 100%;
-  text-align: center;
-  padding: 5px 10px;
   background: var(--dark-bg);
   color: #fff;
   font-family: "Raleway", sans-serif;
-  text-transform: uppercase;
-  font-weight: 700;
-  margin-top: 1rem;
 }

@@ -1,42 +1,26 @@
 /* Press Carousel Styles */
 .press-section {
-  margin-top: 60px;
   color: rgba(255, 255, 255, 0.75);
-}
-
-.press-section .section-subtitle {
-  color: #fff;
-  font-size: 24px;
-  font-weight: bold;
-  margin-bottom: 60px; /* Increased margin to accommodate top indicators */
-  text-align: center;
 }
 
 .press-carousel {
   max-width: 1000px;
   margin: 0 auto;
-  position: relative;
   min-height: 400px; /* Ensure consistent carousel height */
 }
 
 .press-item {
-  padding: 30px;
   background: rgba(255, 255, 255, 0.05);
-  border-radius: 10px;
   margin: 0 15px;
   min-height: 350px; /* Fixed minimum height for all slides */
 }
 
 .press-grid {
-  display: grid;
   grid-template-columns: repeat(auto-fill, minmax(min(400px, 100%), 1fr));
-  gap: 30px;
   width: 100%;
-  align-items: center;
 }
 
 .press-image img {
-  border-radius: 8px;
   box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
   transition: transform 0.3s ease;
 }
@@ -45,34 +29,12 @@
   transform: scale(1.02);
 }
 
-.press-content {
-  padding-left: 30px;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  height: 100%;
-}
-
-.press-title {
-  color: #fff;
-  font-size: 20px;
-  font-weight: bold;
-  margin-bottom: 15px;
-  line-height: 1.4;
-}
-
-.press-meta {
-  margin-bottom: 15px;
-}
-
 .press-meta p {
-  margin: 5px 0;
   opacity: 0.8;
 }
 
 .press-source {
   color: var(--primary-color);
-  font-weight: 600;
 }
 
 .press-date {
@@ -81,25 +43,17 @@
 
 .press-author {
   color: rgba(255, 255, 255, 0.6);
-  font-style: italic;
 }
 
 .press-quote {
   background: rgba(255, 255, 255, 0.08);
-  border-left: 4px solid var(--primary-color);
-  padding: 15px 20px;
-  margin: 15px 0;
-  font-style: italic;
+  border-left-color: var(--primary-color);
   color: rgba(255, 255, 255, 0.9);
-  border-radius: 0 8px 8px 0;
-  flex-grow: 1; /* Allow quote to expand and fill available space */
   min-height: 60px; /* Minimum height for consistency */
 }
 
 .press-item .btn {
   transition: all 0.3s ease;
-  display: inline-block;
-  margin-top: 10px;
 }
 
 .press-item .btn:hover {
@@ -171,7 +125,6 @@
   }
   
   .press-content {
-    padding-left: 0;
     margin-top: 20px;
   }
   

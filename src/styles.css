@@ -23,6 +23,10 @@
   --border-light: #eee;
   --border-dark: #4f545e;
   --section-bg-light: #f5f5f5;
+  
+  /* Override Bootstrap's primary color */
+  --bs-primary: #EC3A81;
+  --bs-primary-rgb: 236, 58, 129;
 }
 
 /* Global Styles */
@@ -334,15 +338,27 @@ label {
 }
 
 .content-grid-3 {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  display: flex;
+  flex-wrap: wrap;
   gap: 2rem;
+  justify-content: center;
+}
+
+.content-grid-3 > * {
+  flex: 0 0 calc(33.333% - 1.4rem);
+  min-width: 250px;
 }
 
 .content-grid-4 {
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
+  display: flex;
+  flex-wrap: wrap;
   gap: 2rem;
+  justify-content: center;
+}
+
+.content-grid-4 > * {
+  flex: 0 0 calc(25% - 1.5rem);
+  min-width: 250px;
 }
 
 .content-grid-wide {

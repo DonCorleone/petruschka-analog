@@ -4,41 +4,26 @@
 }
 
 .gigs-section .item {
-  position: relative;
   padding-left: 60px;
-  padding-top: 15px;
-  padding-bottom: 30px;
-  border-bottom: 1px solid var(--border-dark);
+  border-bottom-color: var(--border-dark);
 }
 
 .gigs-section .date-label {
   background: var(--dark-bg);
   color: #fff;
-  text-align: center;
-  display: inline-block;
   padding: 8px;
   min-width: 50px;
-  position: absolute;
-  left: 0;
   top: 15px;
 }
 
 .gigs-section .date-label .number {
   font-size: 20px;
-  font-weight: 700;
 }
 
 .gigs-section .date-label .month {
   font-size: 12px;
-  font-weight: 600;
   font-family: 'Raleway', sans-serif;
   color: rgba(255, 255, 255, 0.8);
-}
-
-.gigs-section .gig-title {
-  margin-top: 0;
-  margin-bottom: 10px;
-  font-weight: 700;
 }
 
 .gigs-section .meta-list {
@@ -68,13 +53,7 @@
 }
 
 .gigs-section .gig-actions {
-  position: absolute;
-  right: 0;
   top: 15px;
-}
-
-.gigs-section .gig-actions .btn {
-  margin-right: 5px;
 }
 
 .gigs-section .gig-actions .btn:last-child {
@@ -97,19 +76,9 @@
   margin-top: 60px;
 }
 
-.gigs-section .gigs-contact .title {
-  font-size: 18px;
-  margin-top: 0;
-  margin-bottom: 15px;
-}
-
 .gigs-section .gigs-contact .intro {
   color: var(--text-muted);
   max-width: 800px;
-}
-
-.gigs-section .gigs-contact .btn {
-  margin-top: 15px;
 }
 
 @media (max-width: 767.98px) {
@@ -119,7 +88,7 @@
     margin-bottom: 15px;
   }
   .gigs-section .item {
-    padding-left: 80px;
+    padding-left: 64px;
   }
 
   .gigs-section .date-label {

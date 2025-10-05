@@ -77,19 +77,6 @@
   white-space: nowrap !important;
 }
 
-/* Accessibility */
-.sr-only {
-  position: absolute !important;
-  width: 1px !important;
-  height: 1px !important;
-  padding: 0 !important;
-  margin: -1px !important;
-  overflow: hidden !important;
-  clip: rect(0, 0, 0, 0) !important;
-  white-space: nowrap !important;
-  border: 0 !important;
-}
-
 /* Enhanced Dialog Content Styles */
 .info-section {
   margin-bottom: 1.5rem;
@@ -167,22 +154,6 @@
 .info-section div[innerHTML] strong {
   color: var(--text-dark);
   font-weight: 600;
-}
-
-/* Alert styling for important notes */
-.alert-info {
-  background: linear-gradient(135deg, #e3f2fd, #bbdefb);
-  border: 1px solid #2196f3;
-  border-radius: 8px;
-}
-
-.alert-info h5 {
-  color: #1976d2;
-  margin-bottom: 0.5rem;
-}
-
-.alert-info i {
-  margin-right: 0.5rem;
 }
 
 /* Mobile Responsiveness */

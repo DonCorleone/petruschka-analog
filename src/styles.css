@@ -26,18 +26,25 @@
 }
 
 /* Global Styles */
-html, body {
+html {
   height: 100%;
-  display: block;
+  overflow-y: scroll; /* Always show scrollbar space */
+  scroll-behavior: smooth;
 }
 
 body {
+  display: block;
   font-family: 'Raleway', sans-serif;
   color: var(--text-dark);
   font-size: 16px;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   overflow-x: hidden;
+}
+
+/* Prevent layout shift when modal opens */
+body.modal-open {
+  padding-right: 0 !important;
 }
 
 h1, h2, h3, h4, h5, h6 {

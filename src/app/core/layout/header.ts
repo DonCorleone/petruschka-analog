@@ -56,8 +56,8 @@ export class HeaderComponent {
     const element = document.querySelector(href);
     if (!element) return;
 
-    const yOffset = 51; // header height
-    const y = element.getBoundingClientRect().top + window.pageYOffset - yOffset;
+    const yOffset = -51;
+    const y = element.getBoundingClientRect().top + window.pageYOffset + yOffset;
     
     window.scrollTo({ top: y, behavior: 'smooth' });
     

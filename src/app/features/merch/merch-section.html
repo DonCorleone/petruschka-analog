@@ -1,13 +1,12 @@
 <section class="merch-section section text-center bg-body-secondary">
   <div class="container">
-    <h2 class="section-title">Tourneestücke</h2>
+    <h2 class="section-title">Wandertheater</h2>
     <div class="content-grid-wide gap-4 mb-4">
       @for (item of merchItems(); track item.id; let i = $index) {
         <div class="item mb-4">
           <div class="item-inner">
-            <img class="img-fluid" [src]="item.image" [alt]="item.title">
             <a class="mask" (click)="openMerchDetail(item); $event.preventDefault()" href="javascript:void(0)">
-              <div class="mask-inner">
+              <div class="mask-inner ">
                 <div class="item-title">{{ item.title }}</div>
                 <div class="desc">{{ item.description }}</div>
                 <div class="btn btn-primary btn-cta">Details anzeigen</div>

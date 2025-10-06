@@ -5,6 +5,7 @@
   position: relative;
   border-radius: 0.375rem;
   overflow: hidden;
+  min-height: 300px;
 }
 
 .merch-section .mask {

@@ -45,7 +45,7 @@ function extractPastEventsFromView(gigsViewData: any[]): PastEvent[] {
     // Process image URL for consistent sizing
     let imageUrl = '';
     if (doc.flyerImagePath) {
-      imageUrl = `https://petruschka.netlify.app/.netlify/images?url=${doc.flyerImagePath}&nf_resize=fit&w=105`;
+      imageUrl = `https://petruschka.netlify.app/.netlify/images?url=${doc.flyerImagePath}&nf_resize=fit&w=145`;
     }
     
     pastEvents.push({
@@ -121,7 +121,7 @@ function extractPastEvents(eventDocuments: any[]): PastEvent[] {
     };
     
     // Process image URL for consistent sizing
-    let imageUrl = `https://petruschka.netlify.app/.netlify/images?url=${eventInfo.flyerImagePath}&nf_resize=fit&w=105`
+    let imageUrl = `https://petruschka.netlify.app/.netlify/images?url=${eventInfo.flyerImagePath}&nf_resize=fit&w=145`
 
     
     pastEvents.push({
@@ -151,10 +151,10 @@ function extractPastEvents(eventDocuments: any[]): PastEvent[] {
 export default defineEventHandler(async (event): Promise<ApiResponse<PastEvent[]>> => {
   try {
     // Get past events data from optimized MongoDB Gigs view
-    // Filter for items from any section (CD, Tournee) that have premiere dates (History section)
+    // Filter for items from any section (CD, Tournee, Premiere) that have premiere dates (History section)
     const query = { 
       'premiereDate': { $exists: true },
-      'googleAnalyticsTracker': { $regex: "CD|Tournee", $options: "i" }
+      'googleAnalyticsTracker': { $regex: "CD|Tournee|Premiere", $options: "i" }
     };
     const gigsData = await getMongoData(query, 'eventDb', 'Gigs');
     

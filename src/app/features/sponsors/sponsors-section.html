@@ -12,11 +12,11 @@
         <div class="card-dark card-hover p-4 text-center" [ngClass]="sponsor.sizeClass">
           <a [href]="sponsor.url" target="_blank" rel="noopener noreferrer" [title]="sponsor.name" class="text-decoration-none d-block">
             @if (sponsor.image === 'PLACEHOLDER') {
-              <img src="/sponsor-placeholder.svg" [alt]="sponsor.name + ' Logo'" class="sponsor-logo sponsor-placeholder mb-3 d-flex align-items-center justify-content-center">
+              <img src="/sponsor-placeholder.svg" [alt]="sponsor.name + ' Logo'" class="sponsor-logo sponsor-placeholder mb-3 mx-auto d-block">
             } @else {
               <img [src]="sponsor.image" 
                    [alt]="sponsor.name + ' Logo'" 
-                   class="sponsor-logo logo-container mb-3 h-auto"
+                   class="sponsor-logo logo-container mb-3 mx-auto d-block h-auto"
                    (error)="onSponsorImageError($event)">
             }
           </a>

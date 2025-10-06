@@ -5,7 +5,9 @@
 
 /* Member specific styling */
 .member-label {
-  background: var(--dark-bg);
+  background: var(--secondary-lighter);
   color: #fff;
   font-family: "Raleway", sans-serif;
+  font-size: 0.875rem;
+  padding: 8px 12px;
 }

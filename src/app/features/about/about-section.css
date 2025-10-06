@@ -26,10 +26,12 @@
 
 .about-section .member-label {
   width: 90%;
-  padding: 5px 10px;
-  background: var(--dark-bg);
+  padding: 8px 12px;
+  background: var(--secondary-lighter);
   color: #fff;
   font-family: 'Raleway', sans-serif;
+  font-size: 0.875rem;
+  display: inline-block;
 }
 
 /* Read more hint - hidden by default, subtle on hover */

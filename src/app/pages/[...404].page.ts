@@ -34,7 +34,6 @@ import { PLATFORM_ID } from '@angular/core';
       color: rgba(255, 255, 255, 0.8);
     }
   `],
-  standalone: true
 })
 export default class NotFoundPage implements OnInit {
   private router = inject(Router);

@@ -56,7 +56,7 @@
             Album vorbestellen
           </a>
           } @else {
-          <a (click)="openAlbumDetail(album); $event.preventDefault()" href="javascript:void(0)" class="btn btn-sm btn-secondary">
+          <a (click)="openAlbumDetail(album); $event.preventDefault()" href="javascript:void(0)" class="btn btn-secondary">
             Album kaufen @if (album.price) { CHF {{ album.price }} }
           </a>
           }

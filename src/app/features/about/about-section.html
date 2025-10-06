@@ -9,11 +9,11 @@
     
     <div class="content-grid content-grid-4">
         @for (member of bandMembers(); track member.id) {
-          <div class="card-hover member-card p-4" (click)="openMemberBio(member)">
+          <div class="card-hover member-card pt-4 pb-4" (click)="openMemberBio(member)">
             <div class="member-profile position-relative overflow-hidden mb-3 text-center">
               <img class="img-fluid bw-filter mx-auto d-inline-block rounded-circle" [src]="member.image" [alt]="member.name">
             </div>
-            <div class="member-label d-inline-block fw-bold text-uppercase mb-5">{{ member.instrument }}</div>
+            <span class="badge member-label text-uppercase mb-5">{{ member.instrument }}</span>
             <h3 class="member-name mt-0 mb-3">{{ member.name }}</h3>
             <div class="member-desc">{{ member.description | truncate:150 }}</div>
             <div class="read-more-hint d-flex align-items-center justify-content-center gap-2 mt-3 fw-medium">

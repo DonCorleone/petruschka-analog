@@ -47,8 +47,8 @@ This document outlines all the performance and SEO optimizations applied to impr
 - **Files Modified**: `index.html`
 
 ### 6. **Build Optimization** (Performance)
-- **Added**: Terser minification with console removal in production
-- **Impact**: Smaller JavaScript bundle sizes
+- **Added**: esbuild minification in production mode (faster and SSR-compatible)
+- **Impact**: Smaller JavaScript bundle sizes, faster build times
 - **Files Modified**: `vite.config.ts`
 
 ### 7. **Server Configuration Documentation** (Performance)
@@ -69,7 +69,7 @@ This document outlines all the performance and SEO optimizations applied to impr
 - ✅ Improved LCP (Largest Contentful Paint) - logo preloaded with high priority
 - ✅ Lazy loading non-critical images
 - ✅ Smaller font files (removed unused weights)
-- ✅ Minified JS with console removal in production
+- ✅ Minified JS with esbuild in production
 - ⏳ **Server-side required**: Compression and caching (see server-config.md)
 
 ### SEO

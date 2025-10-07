@@ -36,10 +36,6 @@ import { BackToTopComponent } from '../shared/components';
       <app-gigs-section />
     </div>
 
-    <div id="music">
-      <app-music-section />
-    </div>
-
     <div id="about">
       <app-about-section />
     </div>
@@ -54,6 +50,10 @@ import { BackToTopComponent } from '../shared/components';
 
     <div id="history">
       <app-history-section />
+    </div>
+
+    <div id="music">
+      <app-music-section />
     </div>
 
     <div id="contact">

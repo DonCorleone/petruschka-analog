@@ -35,12 +35,15 @@
             <div class="arrow-holder d-block position-absolute"></div>
             }
             <div class="record-holder d-none d-md-block position-absolute">
-              <img class="img-fluid" src="/images/record.png" alt="" />
+              <img class="img-fluid" src="/images/record.png" alt="" width="300" height="300" loading="lazy" />
             </div>
             <img
               class="cover-image img-fluid position-relative"
               [src]="album.coverImage"
               [alt]="album.title"
+              width="400"
+              height="400"
+              loading="lazy"
             />
             @if (album.status === 'coming-soon') {
             <div class="cover-label position-absolute text-uppercase fw-bold">Demnächst verfügbar</div>

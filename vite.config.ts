@@ -16,6 +16,13 @@ export default defineConfig(({ mode }) => ({
       },
     },
     chunkSizeWarningLimit: 600, // Increase warning limit to 600kB
+    minify: 'terser',
+    terserOptions: {
+      compress: {
+        drop_console: mode === 'production',
+        drop_debugger: mode === 'production',
+      },
+    },
   },
   resolve: {
     mainFields: ['module'],

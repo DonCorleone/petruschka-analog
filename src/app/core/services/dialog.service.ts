@@ -348,12 +348,10 @@ export class DialogService {
         // Get all gig templates
         const templates = this.gigDataService.getGigTemplates();
         
-        // Find a template that matches this album (by ID or title)
-        // Look for templates that have a "CD" ticketType or googleAnalyticsTracker
+        // Find a template that matches this album by title (most reliable)
+        // The album title comes from the gig template's name field
         const matchingTemplate = templates.find(t => 
-          t._id === album.id.toString() || 
-          t.name === album.title || 
-          (t.googleAnalyticsTracker && t.googleAnalyticsTracker.includes('CD'))
+          t.name === album.title
         );
         
         if (matchingTemplate) {

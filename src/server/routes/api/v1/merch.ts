@@ -75,8 +75,8 @@ function extractTourneeMerchFromView(gigsViewData: any[]): MerchItem[] {
       if (imageUrl) {
         // Add netlify image resizing parameters for consistent 300x300 square images
         imageUrl = imageUrl.includes('?') 
-          ? `https://petruschka.netlify.app/.netlify/images?url=${imageUrl}&nf_resize=smartcrop&w=300&h=300`
-          : `https://petruschka.netlify.app/.netlify/images?url=${imageUrl}?nf_resize=smartcrop&w=300&h=300`;
+          ? `https://petruschka.netlify.app/.netlify/images?url=${imageUrl}&nf_resize=smartcrop&w=400&h=400`
+          : `https://petruschka.netlify.app/.netlify/images?url=${imageUrl}?nf_resize=smartcrop&w=400&h=400`;
       }
 
 

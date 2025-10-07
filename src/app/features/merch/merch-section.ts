@@ -21,4 +21,9 @@ export class MerchSectionComponent {
     }
   }
 
+  onImageError(event: any): void {
+    // Fallback to placeholder image if original fails to load
+    event.target.src = '/images/placeholder.svg';
+  }
+
 }

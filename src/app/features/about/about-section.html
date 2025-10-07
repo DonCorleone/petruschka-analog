@@ -15,7 +15,7 @@
             </div>
             <span class="badge member-label text-uppercase mb-5">{{ member.instrument }}</span>
             <h3 class="member-name mt-0 mb-3">{{ member.name }}</h3>
-            <div class="member-desc">{{ member.description | truncate:150 }}</div>
+            <div class="member-desc" [innerHTML]="member.description | truncate:200:true"></div>
             <div class="read-more-hint d-flex align-items-center justify-content-center gap-2 mt-3 fw-medium">
               <i class="fas fa-book-open"></i>
               <span>Mehr erfahren</span>

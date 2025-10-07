@@ -1,5 +1,44 @@
 /* Merch section specific styles */
 
+/* Contact Info Box */
+.merch-section .contact-info {
+  border-left: 4px solid var(--primary-color);
+}
+
+.merch-section .contact-info h5 {
+  color: var(--primary-color);
+  font-weight: 600;
+}
+
+.merch-section .contact-info .btn-primary {
+  background: var(--primary-color);
+  border-color: var(--primary-color);
+  font-weight: 600;
+  text-decoration: none;
+  transition: all 0.3s ease;
+}
+
+.merch-section .contact-info .btn-primary:hover {
+  background: color-mix(in srgb, var(--primary-color) 90%, black);
+  border-color: color-mix(in srgb, var(--primary-color) 90%, black);
+  transform: translateY(-2px);
+}
+
+/* Wandertheater Image */
+.merch-section .wandertheater-image {
+  position: relative;
+}
+
+.merch-section .wandertheater-image img {
+  max-height: 400px;
+  object-fit: cover;
+}
+
+.merch-section .image-caption {
+  font-style: italic;
+  color: var(--text-muted);
+}
+
 /* Product item with hover overlay */
 .merch-section .item .item-inner {
   position: relative;
@@ -22,7 +61,7 @@
 }
 
 .merch-section .mask-inner {
-  background: rgba(16, 17, 19, 0.7);
+  background: rgba(16, 17, 19, 0.5);
   padding: 1.875rem;
   padding-top: 2.8125rem;
   height: 100%;
@@ -51,6 +90,19 @@
 @media (max-width: 767.98px) {
   .merch-section .mask-inner {
     padding-top: 1.875rem;
+  }
+  
+  .merch-section .wandertheater-content {
+    text-align: center;
+  }
+  
+  .merch-section .contact-info .btn-primary {
+    width: 100%;
+    margin-top: 0.5rem;
+  }
+  
+  .merch-section .wandertheater-image img {
+    max-height: 300px;
   }
 }
 

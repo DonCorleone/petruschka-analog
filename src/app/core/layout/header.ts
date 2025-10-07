@@ -21,11 +21,11 @@ export class HeaderComponent {
   navLinks: NavLink[] = [
     { href: '#promo', label: 'Home' },
     { href: '#gigs', label: 'Aufführungen' },
-    { href: '#music', label: 'Hörspiele' },
     { href: '#about', label: 'Team' },
     { href: '#schueleraufführungen', label: 'Schüleraufführungen' },
     { href: '#merch', label: 'Wandertheater' },
     { href: '#history', label: 'Vergangene Stücke' },
+    { href: '#music', label: 'Hörspiele' },
     { href: '#contact', label: 'Über uns' }
   ];
 

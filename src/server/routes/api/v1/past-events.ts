@@ -45,7 +45,7 @@ function extractPastEventsFromView(gigsViewData: any[]): PastEvent[] {
     // Process image URL for consistent sizing
     let imageUrl = '';
     if (doc.flyerImagePath) {
-      imageUrl = `https://petruschka.netlify.app/.netlify/images?url=${doc.flyerImagePath}&nf_resize=fit&w=145`;
+      imageUrl = `https://petruschka.netlify.app/.netlify/images?url=${doc.flyerImagePath}&nf_resize=fit&w=240`;
     }
     
     pastEvents.push({

@@ -82,7 +82,7 @@ function extractTourneeMerchFromView(gigsViewData: any[]): MerchItem[] {
 
       merchItems.push({
         id: merchId,
-        title: `${doc.name} - Tournee`,
+        title: doc.name,
         price: tourneeTicket.price || 25, // Use actual price or default
         image: imageUrl || '',
         description: `Kann gebucht werden!`,

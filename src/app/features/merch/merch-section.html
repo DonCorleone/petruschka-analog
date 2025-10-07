@@ -1,24 +1,94 @@
-<section class="merch-section section text-center bg-body-secondary">
+<section class="merch-section py-5" id="merch">
   <div class="container">
-    <h2 class="section-title">Wandertheater</h2>
-    <div class="content-grid-wide gap-4 mb-4">
-      @for (item of merchItems(); track item.id; let i = $index) {
-        <div class="item mb-4">
-          <div class="item-inner">
-            <a class="mask" (click)="openMerchDetail(item); $event.preventDefault()" href="javascript:void(0)">
-              <div class="mask-inner ">
-                <div class="item-title">{{ item.title }}</div>
-                <div class="desc">{{ item.description }}</div>
-                <div class="btn btn-primary btn-cta">Details anzeigen</div>
-              </div>
-            </a>
-          </div>
+    <div class="row">
+      <div class="col-12">
+        <div class="section-header text-center mb-5">
+          <h2 class="section-title">Wandertheater</h2>
+          <div class="title-underline"></div>
         </div>
-      }
+      </div>
     </div>
     
-    <div class="mt-4">
-      <a class="btn btn-ghost-primary" href="javascript:void(0)">Alle Artikel anzeigen</a>
+    <div class="row align-items-center">
+      <div class="col-lg-6 mb-4 mb-lg-0">
+        <div class="wandertheater-content">
+          <p>
+            Seit 2017 ziehen Regula Auf der Maur und Nathalie Hildebrand-Isler gemeinsam mit 
+            dem Wandertheater durchs Land – zu Kindergärten, Schulen, Institutionen und 
+            Kulturanlässen. Ihr Ziel ist es, Gross und Klein gleichermassen zu begeistern und 
+            mitten im Alltag kleine Wunder entstehen zu lassen.
+          </p>
+          
+          <p>
+            Die einzelnen Stücke bringen nicht nur Freude, Staunen und Begeisterung, sondern 
+            greifen auch Themen auf, die Kinder unmittelbar bewegen: u.a. Mobbing, die Kraft 
+            der Freundschaft, Mut und Selbstvertrauen, Sorge zur Umwelt tragen und der 
+            Kreislauf des Lebens. So verbinden sich lustvolles Spiel und Fantasie mit 
+            Lebensfragen, die auch zum Nachdenken anregen und wertvolle Basis für 
+            Gespräche eröffnet.
+          </p>
+          
+          <p>
+            Mit ihrer kleinen, feinen Theaterwelten erschaffen Regula und Nathalie Räume, in 
+            denen Türen zu neuen Welten aufgehen, in denen die Kinder auch aktiv mitgestalten 
+            dürfen. Mal heiter, mal tiefgründig, und immer berührend.
+          </p>
+          
+          <div class="contact-info mt-4 p-4 bg-light rounded">
+            <h5 class="mb-3">
+              <i class="fa-solid fa-envelope me-2"></i>
+              Hast du Interesse, das Wandertheater Petruschka einzuladen?
+            </h5>
+            <p class="mb-2">
+              Dann freuen wir uns über eine Kontaktaufnahme bei <strong>Regula Auf der Maur</strong> unter:
+            </p>
+            <p class="mb-0">
+              <a href="mailto:regulaaufdermaur@kinderkultur.ch" class="btn btn-primary small">
+                <i class="fa-solid fa-envelope me-2"></i>
+                regulaaufdermaur<wbr>&#64;<wbr>kinderkultur.ch
+              </a>
+            </p>
+          </div>
+        </div>
+      </div>
+      
+      <div class="col-lg-6">
+        <div class="wandertheater-image text-center">
+          <img src="/images/placeholder.svg" 
+               alt="Wandertheater Petruschka" 
+               class="img-fluid"
+               (error)="onImageError($event)">
+          <!--p class="image-caption mt-2 text-muted">
+            <small>Wandertheater Petruschka unterwegs</small>
+          </p-->
+        </div>
+      </div>
+    </div>
+    
+    <div class="row">
+      <div class="col-12">
+        <h3 class="text-center mb-4">Unsere Stücke</h3>
+        <div class="content-grid-wide gap-4 mb-4">
+          @for (item of merchItems(); track item.id; let i = $index) {
+            <div class="item mb-4">
+              <div class="item-inner">
+                <img class="img-fluid" [src]="item.image" [alt]="item.title">
+                <a class="mask" (click)="openMerchDetail(item); $event.preventDefault()" href="javascript:void(0)">
+                  <div class="mask-inner ">
+                    <div class="item-title">{{ item.title }}</div>
+                    <div class="desc">{{ item.description }}</div>
+                    <div class="btn btn-primary btn-cta">Details anzeigen</div>
+                  </div>
+                </a>
+              </div>
+            </div>
+          }
+        </div>
+        
+        <div class="text-center mt-4">
+          <a class="btn btn-ghost-primary" href="javascript:void(0)">Alle Stücke anzeigen</a>
+        </div>
+      </div>
     </div>
   </div>
 </section>

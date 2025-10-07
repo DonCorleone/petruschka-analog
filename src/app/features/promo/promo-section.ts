@@ -1,8 +1,8 @@
-import { Component, signal, inject, OnInit, ChangeDetectionStrategy, PLATFORM_ID } from '@angular/core';
+import { Component, signal, inject, OnInit, AfterViewInit, ChangeDetectionStrategy, PLATFORM_ID } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { DomSanitizer, SafeResourceUrl } from '@angular/platform-browser';
 import { isPlatformBrowser } from '@angular/common';
-import { BandDataService } from '../../core/services';
+import { BandDataService, BootstrapService } from '../../core/services';
 import { CountdownComponent } from '../../shared/components';
 import { Update } from '../../../shared/types';
 
@@ -20,10 +20,11 @@ interface CarouselSlide {
   styleUrls: ['./promo-section.css'],
   changeDetection: ChangeDetectionStrategy.OnPush
 })
-export class PromoSectionComponent implements OnInit {
+export class PromoSectionComponent implements OnInit, AfterViewInit {
   
   private bandDataService = inject(BandDataService);
   private sanitizer = inject(DomSanitizer);
+  private bootstrapService = inject(BootstrapService);
   private platformId = inject(PLATFORM_ID);
   private isBrowser = isPlatformBrowser(this.platformId);
   
@@ -70,6 +71,34 @@ export class PromoSectionComponent implements OnInit {
       window.matchMedia('(orientation: portrait)').addEventListener('change', (e) => {
         this.isPortraitOrientation.set(e.matches);
         this.initRandomizedSlides();
+      });
+    }
+  }
+  
+  ngAfterViewInit(): void {
+    // Initialize Bootstrap carousel after view is ready
+    if (this.isBrowser) {
+      // First ensure Bootstrap is initialized
+      this.bootstrapService.initializeBootstrap().then(() => {
+        setTimeout(() => {
+          const carouselElement = document.getElementById('promo-carousel');
+          if (carouselElement) {
+            const carousel = this.bootstrapService.initializeCarousel(carouselElement, {
+              interval: 6000,
+              ride: 'carousel',
+              pause: false,
+              wrap: true
+            });
+            if (carousel) {
+              carousel.cycle();
+              console.log('Carousel initialized successfully');
+            } else {
+              console.error('Failed to initialize carousel');
+            }
+          } else {
+            console.error('Carousel element not found');
+          }
+        }, 100);
       });
     }
   }

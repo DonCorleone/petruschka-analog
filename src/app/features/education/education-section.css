@@ -32,7 +32,7 @@
 }
 
 .education-image img {
-  max-height: 400px;
+  max-height: 1200px;
   object-fit: cover;
 }
 
@@ -53,6 +53,6 @@
   }
   
   .education-image img {
-    max-height: 300px;
+    max-height: 1200px;
   }
 }

@@ -42,7 +42,7 @@ export default defineEventHandler(async (event): Promise<ApiResponse<BandMember[
         id: doc._id?.toString() || index + 1,
         name: doc.name || 'Unknown Member',
         instrument: doc.topic || 'Unknown Topic', // MongoDB 'topic' maps to 'instrument'
-        image: doc.image || `https://petruschka.netlify.app/.netlify/images?url=https://petruschka-analog-mongo.onrender.com/images/members/${encodeURIComponent(doc.name || 'Unknown Member')}.jpg&nf_resize=fit&h=240`,
+        image: doc.image || `https://petruschka.netlify.app/.netlify/images?url=https://petruschka-analog-mongo.onrender.com/images/members/${encodeURIComponent(doc.name || 'Unknown Member')}.jpg&nf_resize=fill&w=380`,
         description: doc.bio || 'No description available.' // MongoDB 'bio' - full text, no truncation
       }));
 
@@ -64,7 +64,7 @@ export default defineEventHandler(async (event): Promise<ApiResponse<BandMember[
           id: 1,
           name: 'Petruschka Theater',
           instrument: 'Ensemble',
-          image: 'https://www.petruschka.ch/assets/images/staff/default.jpg?nf_resize=fit&h=240',
+          image: 'https://www.petruschka.ch/assets/images/staff/default.jpg?nf_resize=fit&w=380',
           description: 'Figurentheater Petruschka Ensemble'
         }
       ];

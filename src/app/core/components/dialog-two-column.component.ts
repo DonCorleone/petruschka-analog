@@ -17,7 +17,7 @@ import { CommonModule } from '@angular/common';
   styles: [`
     .dialog-two-col {
       display: grid;
-      grid-template-columns: 3fr 2fr;
+      grid-template-columns: 1fr 320px;
       gap: 1.875rem;
     }
 

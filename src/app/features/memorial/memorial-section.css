@@ -1,8 +1,11 @@
 /* Memorial Section Styles */
 .memorial-section {
-  background: rgba(0, 0, 0, 0.8);
-  border-color: rgba(255, 255, 255, 0.1);
+  background: rgba(255, 255, 255, 0.05); /* Match current-team-section */
+  padding: 2rem;
+  border-radius: 8px;
   color: rgba(255, 255, 255, 0.75);
+  border: 2px solid rgba(255, 255, 255, 0.18); /* Subtle white border */
+  margin-bottom: 3rem; /* Add gap below section */
 }
 
 .memorial-photo {

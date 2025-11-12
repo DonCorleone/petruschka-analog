@@ -310,7 +310,8 @@ export class GigDataService {
     const time = eventDate.toLocaleTimeString('de-DE', { 
       hour: '2-digit', 
       minute: '2-digit',
-      hour12: false 
+      hour12: false,
+      timeZone: 'Europe/Zurich'
     });
     
     // Build basic description for past events

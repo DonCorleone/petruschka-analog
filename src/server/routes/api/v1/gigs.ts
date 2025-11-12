@@ -95,7 +95,8 @@ function extractGigsFromView(gigsViewData: any[]): Gig[] {
       const time = parsedDate.toLocaleTimeString('de-DE', { 
         hour: '2-digit', 
         minute: '2-digit',
-        hour12: false 
+        hour12: false,
+        timeZone: 'Europe/Zurich'
       });
       
       // Build simple description from pre-processed ticket details

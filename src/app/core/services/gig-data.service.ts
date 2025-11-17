@@ -15,6 +15,7 @@ interface GigTemplate {
   imageUrl?: string;
   importantNotes?: string;
   googleAnalyticsTracker?: string;
+  facebookPixelId?: string;
   premiereDate?: Date | string;
   notificationEmail?: string;
   ticketDetails?: Array<{

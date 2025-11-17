@@ -447,16 +447,16 @@ export class DialogService {
         // Get all gig templates
         const templates = this.gigDataService.getGigTemplates();
         
-        // Find a template that matches this merch (by ID or title)
-        // Look for templates that have a "Tournee" in the googleAnalyticsTracker
+        // Find a template that matches this merch (by ID or exact title match)
+        // Match by exact title to avoid showing wrong descriptions
         const matchingTemplate = templates.find(t => 
           t._id === merchItem.id.toString() || 
-          t.name === merchItem.title || 
-          (t.googleAnalyticsTracker && t.googleAnalyticsTracker.includes('Tournee'))
+          t.name === merchItem.title
         );
         
         if (matchingTemplate) {
           console.log('Found matching gig template for merch item:', matchingTemplate);
+          console.log('📊 Facebook Pixel ID:', matchingTemplate.facebookPixelId || 'Not set');
           
           // Create a pseudo-timestamp if needed for the extraction
           const fakeTimestamp = Date.now();

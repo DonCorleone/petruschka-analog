@@ -9,46 +9,46 @@
             <div class="month fw-semibold">{{ gig.date.month }}</div>
             <div class="year">{{ gig.date.year }}</div>
           </div>
-          
+
           <div class="gig-info">
             <div class="info-content">
               <h3 class="gig-title mt-0 mb-2 fw-bold">{{ gig.title }}</h3>
               <div class="meta">
-                <ul class="meta-list list-inline">
-                  <li class="list-inline-item location">
+                <ul class="meta-list">
+                  <li class="location">
                     <i class="fas fa-map-marker-alt"></i>
                     <span class="location-link" (click)="openLocationDialog(gig.location)" title="Ort-Details anzeigen">
                       {{ gig.location }}
                     </span>
                   </li>
-                  <li class="list-inline-item time">
+                  <li class="time">
                     <i class="far fa-clock"></i>
                     {{ gig.time }}, {{ gig.dayOfWeek }}
                   </li>
                 </ul>
               </div>
             </div>
-            
+
             <div class="gig-actions position-absolute end-0 d-flex flex-column flex-md-row gap-2">
-              <button 
-                class="btn btn-xs btn-ghost-secondary w-100 w-md-auto" 
+              <button
+                class="btn btn-xs btn-ghost-secondary w-100 w-md-auto"
                 (click)="openGigDetail(gig)">
                  Infos
               </button>
               <a class="btn btn-xs btn-secondary  w-100 w-md-auto" [href]="gig.ticketUrl">
-                Tickets 
+                Tickets
               </a>
             </div>
-            
+
           </div>
         </div>
       }
     </div>
-    
+
     <!--div class="gigs-contact text-center">
       <h4 class="title">Möchten Sie einen privaten Auftritt buchen?</h4>
       <p class="intro center-block">
-        Kontaktieren Sie uns für private Aufführungen, Firmenevents oder besondere Anlässe. 
+        Kontaktieren Sie uns für private Aufführungen, Firmenevents oder besondere Anlässe.
         Wir freuen uns darauf, Ihnen ein unvergessliches Erlebnis zu bieten.
       </p>
       <a class="btn btn-ghost-primary scrollto" href="#contact">Jetzt Kontakt aufnehmen</a>

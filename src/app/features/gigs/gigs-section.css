@@ -80,6 +80,17 @@
   color: var(--text-muted);
   max-width: 800px;
 }
+/* Stack gig meta list items vertically */
+.gig-info .meta .meta-list {
+  display: flex;
+  flex-direction: row;
+  gap: 0.5rem; /* small space between rows */
+  padding-left: 0; /* remove default ul indent */
+  margin: 0;
+}
+.gig-info .meta .meta-list li {
+  list-style: none; /* hide bullets */
+}
 
 @media (max-width: 767.98px) {
   .gigs-section .gig-actions {
@@ -94,5 +105,9 @@
   .gigs-section .date-label {
     width: unset;
     padding: 20px 10px;
-  } 
+  }
+  /* Stack gig meta list items vertically */
+  .gig-info .meta .meta-list {
+    flex-direction: column;
+  }
 }

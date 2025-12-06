@@ -1,9 +1,11 @@
 import { Component, ChangeDetectionStrategy } from '@angular/core';
+import {YouTubePlayer} from '@angular/youtube-player';
 
 @Component({
   selector: 'app-theater-info-section',
   templateUrl: './theater-info-section.html',
   styleUrls: ['./theater-info-section.css'],
+  imports: [YouTubePlayer],
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class TheaterInfoSectionComponent {

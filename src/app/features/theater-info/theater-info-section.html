@@ -1,5 +1,5 @@
 <!-- Current Team Photo -->
-<div class="current-team-section mb-5 d-flex justify-content-center">
+<div class="current-team-section mb-5">
   <!--h3 class="section-subtitle">Das heutige Team</h3-->
   <!--div class="team-photo text-center">
     <img src="https://petruschka.netlify.app/.netlify/images?url=https://petruschka-analog-mongo.onrender.com/images/team/current-team-photo.jpg&nf_resize=fit&w=1200" 
@@ -13,8 +13,12 @@
       <small>Marianne, Röbi, Nathalie und Regula</small>
     </p>
   </div-->
-  <div class="w-100 d-flex justify-content-center">
-    <youtube-player videoId="QlFGxtoQOXM" placeholderImageQuality="high" />
+  <div #youTubePlayer>
+    <youtube-player
+      videoId="QlFGxtoQOXM"
+      [width]="videoWidth"
+      [height]="videoHeight"
+    />
   </div>
 </div>
 
@@ -24,36 +28,44 @@
     <div class="col-lg-10">
       <div class="description-content">
         <h3 class="section-subtitle text-center mb-4">Geschichte</h3>
-        
+
         <p>
-          Das Figurentheater PETRUSCHKA existiert seit 2003. Es wurde von Marianne Hofer ins Leben gerufen und gastierte
-          erstmals mit dem „Wintermäusemärchen" im Natur-Museum Luzern.
+          Das Figurentheater PETRUSCHKA existiert seit 2003. Es wurde von
+          Marianne Hofer ins Leben gerufen und gastierte erstmals mit dem
+          „Wintermäusemärchen" im Natur-Museum Luzern.
         </p>
-        
+
         <p>
-          Seither wurden viele Stücke für Familien, Kindergärten und Schulklassen geschaffen. Dabei werden Themen aus dem
-          Natur-Museum, meist aus Sonderausstellungen, aufgenommen und in kindgerechter Art präsentiert. Dieses Wissen
-          wird für Gross und Klein in Geschichten eingebaut und so in anschaulicher Art dargeboten. Dabei werden die
-          Tiere, obschon sie sprechen können, nicht verklärt oder verniedlicht, sondern möglichst authentisch dargestellt.
-          Das Bühnenbild und die Figuren sind naturgetreu nachgebildet und sollen auch Einblick in das Leben der Tiere und
-          die Problematik Mensch-Tier geben. Wir schaffen aber auch genügend Raum für Märchenhaftes und Mystisches, das
-          die Phantasie der Kinder anregt und beflügelt.
+          Seither wurden viele Stücke für Familien, Kindergärten und
+          Schulklassen geschaffen. Dabei werden Themen aus dem Natur-Museum,
+          meist aus Sonderausstellungen, aufgenommen und in kindgerechter Art
+          präsentiert. Dieses Wissen wird für Gross und Klein in Geschichten
+          eingebaut und so in anschaulicher Art dargeboten. Dabei werden die
+          Tiere, obschon sie sprechen können, nicht verklärt oder verniedlicht,
+          sondern möglichst authentisch dargestellt. Das Bühnenbild und die
+          Figuren sind naturgetreu nachgebildet und sollen auch Einblick in das
+          Leben der Tiere und die Problematik Mensch-Tier geben. Wir schaffen
+          aber auch genügend Raum für Märchenhaftes und Mystisches, das die
+          Phantasie der Kinder anregt und beflügelt.
         </p>
-        
+
         <p>
-          Unser grösstes Ziel besteht darin, dass Kinder wie auch Erwachsene gleichermassen von unseren Produktionen
-          angetan sind.
+          Unser grösstes Ziel besteht darin, dass Kinder wie auch Erwachsene
+          gleichermassen von unseren Produktionen angetan sind.
         </p>
-        
+
         <p>
-          Durch die spezielle Spielart des PETRUSCHKA Figurentheaters, bei welcher die Kinder miteinbezogen werden, wird
-          eine Nähe zum Publikum geschaffen, die sonst weder im Theater und schon gar nicht im Film, entstehen kann. Die
-          Spielerinnen, die alle auch pädagogisch geschult sind, verstehen es, die Reaktionen der Kinder geschickt
-          aufzunehmen und ins Spiel einfliessen zu lassen. Das verlangt über gewisse Strecken viel Flexibilität und
-          Einfühlungsvermögen. So werden die Kinder auch wirklich „mitgenommen" und verstehen den Plot der Geschichte, bei
-          dem sie sich zum Teil auch aktiv beteiligen können.
+          Durch die spezielle Spielart des PETRUSCHKA Figurentheaters, bei
+          welcher die Kinder miteinbezogen werden, wird eine Nähe zum Publikum
+          geschaffen, die sonst weder im Theater und schon gar nicht im Film,
+          entstehen kann. Die Spielerinnen, die alle auch pädagogisch geschult
+          sind, verstehen es, die Reaktionen der Kinder geschickt aufzunehmen
+          und ins Spiel einfliessen zu lassen. Das verlangt über gewisse
+          Strecken viel Flexibilität und Einfühlungsvermögen. So werden die
+          Kinder auch wirklich „mitgenommen" und verstehen den Plot der
+          Geschichte, bei dem sie sich zum Teil auch aktiv beteiligen können.
         </p>
-        
+
         <!--div class="collaboration-info mt-4 p-3 rounded">
           <p class="mb-3">
             <strong>Zusammenarbeit mit Lucerne Festival „Young"</strong>
@@ -78,6 +90,7 @@
           </p>
         </div>
       </div-->
+      </div>
     </div>
   </div>
 </div>

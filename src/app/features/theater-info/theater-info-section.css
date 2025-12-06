@@ -14,6 +14,17 @@
   color: rgba(255, 255, 255, 0.75);
 }
 
+/* .current-team-section youtube-player {
+  width: 100%;
+  display: block;
+}
+
+.current-team-section iframe {
+  width: 100% !important;
+  height: 100% !important;
+  border: 0;
+} */
+
 .team-photo img {
   max-height: 800px;
   object-fit: cover;

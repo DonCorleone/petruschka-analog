@@ -1,5 +1,5 @@
-import { ChangeDetectionStrategy, Component, Inject } from '@angular/core';
-import { CommonModule } from '@angular/common';
+import { ChangeDetectionStrategy, Component, Inject, inject, PLATFORM_ID } from '@angular/core';
+import { CommonModule, isPlatformBrowser } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { DialogRef, DIALOG_DATA } from '@angular/cdk/dialog';
 import { BaseDialogComponent } from '../../core/components/base-dialog.component';
@@ -23,12 +23,14 @@ interface FormData {
   imports: [
     CommonModule, 
     FormsModule, 
-    BaseDialogComponent, 
-    DialogInfoSectionComponent
+    BaseDialogComponent
   ],
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class NewsletterDialogComponent {
+  private platformId = inject(PLATFORM_ID);
+  private isBrowser = isPlatformBrowser(this.platformId);
+
   isSubmitting = false;
   submitSuccess = false;
   submitError: string | null = null;
@@ -72,7 +74,9 @@ export class NewsletterDialogComponent {
 
   async submitHandler(event: Event): Promise<void> {
     event.preventDefault();
-    
+
+    if (!this.isBrowser) return;
+
     if (!this.isFormValid()) {
       this.submitError = 'Bitte füllen Sie alle Pflichtfelder aus.';
       return;

@@ -1,4 +1,5 @@
-import { Injectable } from '@angular/core';
+import { Injectable, inject, PLATFORM_ID } from '@angular/core';
+import { isPlatformBrowser } from '@angular/common';
 import { BehaviorSubject } from 'rxjs';
 import { Gig } from '../../../shared/types';
 
@@ -37,6 +38,9 @@ interface GigTemplate {
   providedIn: 'root'
 })
 export class GigDataService {
+  private platformId = inject(PLATFORM_ID);
+  private isBrowser = isPlatformBrowser(this.platformId);
+
   private gigTemplatesSubject = new BehaviorSubject<GigTemplate[]>([]);
   public gigTemplates$ = this.gigTemplatesSubject.asObservable();
 
@@ -103,15 +107,17 @@ export class GigDataService {
         }
       }
       
-      // Last resort: try to match by name
-      const currentTitle = document.querySelector('.dialog-title')?.textContent?.trim();
-      if (currentTitle) {
-        const foundByName = templates.find(template => 
-          template.name === currentTitle
-        );
-        
-        if (foundByName) {
-          return foundByName;
+      // Last resort: try to match by name (browser only)
+      if (this.isBrowser) {
+        const currentTitle = document.querySelector('.dialog-title')?.textContent?.trim();
+        if (currentTitle) {
+          const foundByName = templates.find(template =>
+            template.name === currentTitle
+          );
+
+          if (foundByName) {
+            return foundByName;
+          }
         }
       }
     }

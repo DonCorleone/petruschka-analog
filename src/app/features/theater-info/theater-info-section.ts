@@ -6,7 +6,10 @@ import {
   ChangeDetectorRef,
   inject,
   afterNextRender,
+  PLATFORM_ID,
+  signal,
 } from '@angular/core';
+import { isPlatformBrowser } from '@angular/common';
 import { YouTubePlayer } from '@angular/youtube-player';
 
 @Component({
@@ -17,6 +20,9 @@ import { YouTubePlayer } from '@angular/youtube-player';
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class TheaterInfoSectionComponent {
+  private platformId = inject(PLATFORM_ID);
+  isBrowser = signal(isPlatformBrowser(this.platformId));
+
   @ViewChild('youTubePlayer') youTubePlayer!: ElementRef<HTMLDivElement>;
 
   videoHeight: number | undefined;
@@ -25,16 +31,18 @@ export class TheaterInfoSectionComponent {
 
   constructor() {
     // Run browser-only code after render (fixes SSR errors)
-    afterNextRender(() => {
-      // Load YouTube iframe API
-      const tag = document.createElement('script');
-      tag.src = 'https://www.youtube.com/iframe_api';
-      document.body.appendChild(tag);
+    if (this.isBrowser()) {
+      afterNextRender(() => {
+        // Load YouTube iframe API
+        const tag = document.createElement('script');
+        tag.src = 'https://www.youtube.com/iframe_api';
+        document.body.appendChild(tag);
 
-      // Setup resize listener
-      this.onResize();
-      window.addEventListener('resize', this.onResize.bind(this));
-    });
+        // Setup resize listener
+        this.onResize();
+        window.addEventListener('resize', this.onResize.bind(this));
+      });
+    }
   }
 
   onImageError(event: any): void {

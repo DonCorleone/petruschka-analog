@@ -1,5 +1,6 @@
-import { Component, signal, HostListener, inject, ChangeDetectionStrategy } from '@angular/core';
+import { Component, signal, HostListener, inject, ChangeDetectionStrategy, PLATFORM_ID } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { isPlatformBrowser } from '@angular/common';
 
 interface NavLink {
   href: string;
@@ -14,7 +15,10 @@ interface NavLink {
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class HeaderComponent {
-  
+
+  private platformId = inject(PLATFORM_ID);
+  private isBrowser = isPlatformBrowser(this.platformId);
+
   private scrolled = signal(false);
   private navbarOpen = signal(false);
 
@@ -34,12 +38,14 @@ export class HeaderComponent {
 
   @HostListener('window:scroll', [])
   onWindowScroll() {
+    if (!this.isBrowser) return;
     const scrollTop = window.scrollY;
     this.scrolled.set(scrollTop > 0);
   }
 
   @HostListener('window:resize', [])
   onWindowResize() {
+    if (!this.isBrowser) return;
     // Close navbar on resize
     if (window.innerWidth >= 768 && this.navbarOpen()) {
       this.navbarOpen.set(false);
@@ -52,15 +58,17 @@ export class HeaderComponent {
 
   scrollToSection(event: Event, href: string) {
     event.preventDefault();
-    
+
+    if (!this.isBrowser) return;
+
     const element = document.querySelector(href);
     if (!element) return;
 
     const yOffset = -51;
     const y = element.getBoundingClientRect().top + window.pageYOffset + yOffset;
-    
+
     window.scrollTo({ top: y, behavior: 'smooth' });
-    
+
     // Close mobile menu after clicking
     this.navbarOpen.set(false);
   }

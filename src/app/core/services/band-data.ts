@@ -1,4 +1,6 @@
 import { inject, Injectable, computed } from '@angular/core';
+import { inject, Injectable } from '@angular/core';
+import { TransferState, makeStateKey } from '@angular/core';
 import { HttpClient, httpResource } from '@angular/common/http';
 import { resource } from '@angular/core';
 import { firstValueFrom } from 'rxjs';
@@ -25,6 +27,8 @@ export class BandDataService {
   private http = inject(HttpClient);
   private gigDataService = inject(GigDataService);
 
+  private transferState = inject(TransferState);
+  
   // Using Resource API for optimal performance with signals and server-side data fetching
   gigsResource = resource({
     loader: async () => {
@@ -112,12 +116,26 @@ export class BandDataService {
     }
   });
 
-  merchResource2 = httpResource<MerchItem[]>(() => '/api/v1/merch', {defaultValue: []});
+  // Removed client-only httpResource to avoid extra XHR after hydration
 
   merchResource = resource({
     loader: async () => {
+      // Use TransferState to avoid client-side refetch after SSR
+      const STATE_KEY = makeStateKey<MerchItem[]>('merch');
+      const cached = this.transferState.get(STATE_KEY, null as unknown as MerchItem[]);
+      if (cached && Array.isArray(cached)) {
+        return cached;
+      }
+
       const response = await firstValueFrom(this.http.get<ApiResponse<MerchItem[]>>('/api/v1/merch'));
-      return response?.data || [];
+      const data = response?.data || [];
+      // Store for client re-use (only runs during SSR)
+      try {
+        this.transferState.set(STATE_KEY, data);
+      } catch {
+        // no-op if not available
+      }
+      return data;
     }
   });
 

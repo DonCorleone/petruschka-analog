@@ -16,6 +16,10 @@ export class GigsSectionComponent implements OnInit {
   gigs = this.bandDataService.gigsResource.value;
   
   ngOnInit(): void {
+    // Load MULU seat availability data first (with sessionStorage caching)
+    // This ensures seat data is available when gigs are merged
+    this.bandDataService.muluSeatsResource.value();
+
     // Ensure gig templates are loaded for detailed views
     // This will populate the GigDataService with template data needed for client-side detail extraction
     this.bandDataService.gigTemplatesResource.value();

@@ -22,6 +22,7 @@ export interface Gig {
   bannerImagePath?: string;
   eventDateString?: string;
   startTimestamp?: number; // Add timestamp for exact event identification
+  availableSeats?: number; // Available seats from MULU
   ticketTypes?: Array<{
     name: string;
     price: number;
@@ -144,6 +145,12 @@ export interface Sponsor {
   }>;
   totalShare: number;
   sizeClass: string;
+}
+
+// MULU seat availability data
+export interface MuluSeat {
+  from: number; // Unix timestamp (seconds)
+  av_part: number; // Available seats
 }
 
 // API Response wrapper

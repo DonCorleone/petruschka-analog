@@ -96,7 +96,7 @@ export interface Update {
   mediaUrl?: string;
   mediaThumb?: string;
   isCountdown?: boolean;
-  countdownDate?: string;
+  countdownDate?: Date;
 }
 
 export interface PastEvent {

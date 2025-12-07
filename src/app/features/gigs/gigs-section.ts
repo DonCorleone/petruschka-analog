@@ -1,4 +1,4 @@
-import { Component, inject, ChangeDetectionStrategy, OnInit } from '@angular/core';
+import { Component, inject, ChangeDetectionStrategy, OnInit, afterNextRender } from '@angular/core';
 import { BandDataService, DialogService } from '../../core/services';
 import { Gig } from '../../../shared/types';
 
@@ -9,17 +9,22 @@ import { Gig } from '../../../shared/types';
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class GigsSectionComponent implements OnInit {
-  
+
   private bandDataService = inject(BandDataService);
   private dialogService = inject(DialogService);
 
-  gigs = this.bandDataService.gigsResource.value;
-  
-  ngOnInit(): void {
-    // Load MULU seat availability data first (with sessionStorage caching)
-    // This ensures seat data is available when gigs are merged
-    this.bandDataService.muluSeatsResource.value();
+  // Use computed signal that reactively merges gigs with MULU seat data
+  gigs = this.bandDataService.gigsWithSeats;
 
+  constructor() {
+    // Load MULU seat availability ONLY in the browser (not during SSR)
+    // This ensures fresh hourly data, not stale build-time data
+    afterNextRender(() => {
+      this.bandDataService.muluSeatsResource.value();
+    });
+  }
+
+  ngOnInit(): void {
     // Ensure gig templates are loaded for detailed views
     // This will populate the GigDataService with template data needed for client-side detail extraction
     this.bandDataService.gigTemplatesResource.value();

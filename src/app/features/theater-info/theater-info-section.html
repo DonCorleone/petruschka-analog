@@ -14,11 +14,13 @@
     </p>
   </div-->
   <div #youTubePlayer>
-    <youtube-player
-      videoId="QlFGxtoQOXM"
-      [width]="videoWidth"
-      [height]="videoHeight"
-    />
+    @defer (when isBrowser()) {
+      <youtube-player
+        videoId="QlFGxtoQOXM"
+        [width]="videoWidth"
+        [height]="videoHeight"
+      />
+    }
   </div>
 </div>
 

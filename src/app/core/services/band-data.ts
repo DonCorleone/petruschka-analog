@@ -1,5 +1,4 @@
 import { inject, Injectable, computed } from '@angular/core';
-import { inject, Injectable } from '@angular/core';
 import { TransferState, makeStateKey } from '@angular/core';
 import { HttpClient, httpResource } from '@angular/common/http';
 import { resource } from '@angular/core';

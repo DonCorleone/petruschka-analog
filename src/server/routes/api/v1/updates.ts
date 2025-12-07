@@ -146,11 +146,7 @@ function extractUpdatesFromView(gigsViewData: any[]): Update[] {
       mediaType: 'image',
       mediaThumb: mediaThumb,
       isCountdown: isFuture,
-      countdownDate: isFuture ? premiereDate.toLocaleDateString('en-US', { 
-        year: 'numeric', 
-        month: 'long', 
-        day: 'numeric' 
-      }) : undefined,
+      countdownDate: isFuture ? premiereDate : undefined,
       sortDate: premiereDate
     });
   });

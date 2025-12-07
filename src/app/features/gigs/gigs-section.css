@@ -90,6 +90,7 @@
 }
 .gig-info .meta .meta-list li {
   list-style: none; /* hide bullets */
+  min-width: 142px;
 }
 
 @media (max-width: 767.98px) {

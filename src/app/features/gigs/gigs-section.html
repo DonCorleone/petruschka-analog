@@ -25,6 +25,12 @@
                     <i class="far fa-clock"></i>
                     {{ gig.time }}, {{ gig.dayOfWeek }}
                   </li>
+                  @if (gig.availableSeats !== undefined) {
+                    <li class="seats">
+                      <i class="fas fa-users"></i>
+                      {{ gig.availableSeats }} freie Plätze
+                    </li>
+                  }
                 </ul>
               </div>
             </div>

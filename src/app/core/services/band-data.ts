@@ -1,4 +1,4 @@
-import { inject, Injectable } from '@angular/core';
+import { inject, Injectable, computed } from '@angular/core';
 import { HttpClient, httpResource } from '@angular/common/http';
 import { resource } from '@angular/core';
 import { firstValueFrom } from 'rxjs';
@@ -24,31 +24,29 @@ import {
 export class BandDataService {
   private http = inject(HttpClient);
   private gigDataService = inject(GigDataService);
-  
+
   // Using Resource API for optimal performance with signals and server-side data fetching
   gigsResource = resource({
     loader: async () => {
       const response = await firstValueFrom(this.http.get<ApiResponse<Gig[]>>('/api/v1/gigs'));
-      const gigs = response?.data || [];
-
-      // Merge with MULU seat availability if available
-      const muluData = this.muluSeatsResource.value();
-      if (muluData && muluData.length > 0) {
-        return this.mergeGigsWithMuluData(gigs, muluData);
-      }
-
-      return gigs;
+      return response?.data || [];
     }
   });
 
   // MULU seat availability resource with sessionStorage caching
   muluSeatsResource = resource({
     loader: async () => {
+      // Skip entirely during SSR - only run in browser
+      if (typeof window === 'undefined') {
+        console.log('⏭️ Skipping MULU fetch during SSR');
+        return [];
+      }
+
       const STORAGE_KEY = 'mulu_seats_data';
       const STORAGE_TIMESTAMP_KEY = 'mulu_seats_timestamp';
 
-      // Check sessionStorage first (only in browser, not during SSR)
-      if (typeof window !== 'undefined' && typeof sessionStorage !== 'undefined') {
+      // Check sessionStorage first
+      if (typeof sessionStorage !== 'undefined') {
         const cachedData = sessionStorage.getItem(STORAGE_KEY);
         const cachedTimestamp = sessionStorage.getItem(STORAGE_TIMESTAMP_KEY);
 
@@ -58,13 +56,13 @@ export class BandDataService {
         }
       }
 
-      // Fetch from API if not cached
-      console.log('🔄 Fetching fresh MULU seat data...');
+      // Fetch from API if not cached (browser only)
+      console.log('🔄 Fetching fresh MULU seat data from browser...');
       const response = await firstValueFrom(this.http.get<ApiResponse<MuluSeat[]>>('/api/v1/mulu-seats'));
       const data = response?.data || [];
 
-      // Cache in sessionStorage (only in browser, not during SSR)
-      if (typeof window !== 'undefined' && typeof sessionStorage !== 'undefined') {
+      // Cache in sessionStorage
+      if (typeof sessionStorage !== 'undefined') {
         sessionStorage.setItem(STORAGE_KEY, JSON.stringify(data));
         sessionStorage.setItem(STORAGE_TIMESTAMP_KEY, new Date().toISOString());
         console.log('✅ Cached MULU seat data to session');
@@ -79,12 +77,25 @@ export class BandDataService {
     loader: async () => {
       const response = await firstValueFrom(this.http.get<ApiResponse<any[]>>('/api/v1/gig-templates'));
       const templates = response?.data || [];
-      
+
       // Store templates in GigDataService for client-side detail extraction
       this.gigDataService.setGigTemplates(templates);
-      
+
       return templates;
     }
+  });
+
+  // Computed signal that reactively merges gigs with MULU seat availability
+  // This updates automatically when either gigs or MULU data changes
+  gigsWithSeats = computed(() => {
+    const gigs = this.gigsResource.value() || [];
+    const muluData = this.muluSeatsResource.value() || [];
+
+    if (muluData.length === 0) {
+      return gigs;
+    }
+
+    return this.mergeGigsWithMuluData(gigs, muluData);
   });
 
   albumsResource = resource({

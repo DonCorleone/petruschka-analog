@@ -2,7 +2,7 @@ import { defineEventHandler, createError } from 'h3';
 import { Update, ApiResponse } from '../../../../shared/types';
 import { getMongoData } from '../../../lib/simple-mongo';
 
-export default defineEventHandler(async (event): Promise<ApiResponse<Update[]>> => {
+export default defineEventHandler(async (): Promise<ApiResponse<Update[]>> => {
   try {
     // Get upcoming premieres data from optimized MongoDB Gigs view
     // Get ALL premieres regardless of googleAnalyticsTracker value
@@ -113,17 +113,15 @@ function extractUpdatesFromView(gigsViewData: any[]): Update[] {
     
     // Determine if this is a future event (for countdown)
     const isFuture = premiereDate > now;
-    
+    const isCurrentlyRunning = !isFuture && hasUpcomingDate;
+
     // Create update content
     let title = `Premiere: "${doc.name}"`;
     let description = doc.shortDescription || 'Ein musikalisches Märchen vom Figurentheater PETRUSCHKA';
     let ctaText = 'Mehr erfahren';
-    
-    // Extract ticket URL or use event URL
-    let ctaUrl = doc.url || '#';
-    if (ctaUrl && !ctaUrl.startsWith('http')) {
-      ctaUrl = 'https://' + ctaUrl;
-    }
+
+    // Link to gigs section instead of external ticketing URL
+    let ctaUrl = '#gigs';
     
     // Generate numeric ID from doc._id
     let numericId: number;
@@ -147,6 +145,7 @@ function extractUpdatesFromView(gigsViewData: any[]): Update[] {
       mediaThumb: mediaThumb,
       isCountdown: isFuture,
       countdownDate: isFuture ? premiereDate : undefined,
+      isCurrentlyRunning: isCurrentlyRunning,
       sortDate: premiereDate
     });
   });

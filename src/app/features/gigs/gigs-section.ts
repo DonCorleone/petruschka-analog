@@ -17,9 +17,12 @@ export class GigsSectionComponent implements OnInit {
   gigs = this.bandDataService.gigsWithSeats;
 
   constructor() {
-    // Load MULU seat availability ONLY in the browser (not during SSR)
-    // This ensures fresh hourly data, not stale build-time data
+    // Load fresh gigs and MULU seat availability ONLY in the browser (not during SSR)
+    // This ensures fresh data even if the build is old (builds once per month)
     afterNextRender(() => {
+      // Fetch fresh gigs to filter out past events
+      this.bandDataService.clientGigsResource.value();
+      // Fetch fresh MULU seat data
       this.bandDataService.muluSeatsResource.value();
     });
   }

@@ -97,6 +97,7 @@ export interface Update {
   mediaThumb?: string;
   isCountdown?: boolean;
   countdownDate?: Date;
+  isCurrentlyRunning?: boolean; // True when premiere is over but show still has upcoming dates
 }
 
 export interface PastEvent {

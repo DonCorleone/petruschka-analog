@@ -36,6 +36,47 @@ export class BandDataService {
     }
   });
 
+  // Client-side gigs resource with sessionStorage caching
+  // This fetches fresh gigs only in the browser to filter out past events
+  // even if the build is old (SSG builds once per month)
+  clientGigsResource = resource({
+    loader: async () => {
+      // Skip entirely during SSR - only run in browser
+      if (typeof window === 'undefined') {
+        console.log('⏭️ Skipping client gigs fetch during SSR');
+        return [];
+      }
+
+      const STORAGE_KEY = 'client_gigs_data';
+      const STORAGE_TIMESTAMP_KEY = 'client_gigs_timestamp';
+
+      // Check sessionStorage first
+      if (typeof sessionStorage !== 'undefined') {
+        const cachedData = sessionStorage.getItem(STORAGE_KEY);
+        const cachedTimestamp = sessionStorage.getItem(STORAGE_TIMESTAMP_KEY);
+
+        if (cachedData && cachedTimestamp) {
+          console.log('✅ Using cached client gigs data from session');
+          return JSON.parse(cachedData) as Gig[];
+        }
+      }
+
+      // Fetch from API if not cached (browser only)
+      console.log('🔄 Fetching fresh gigs data from browser...');
+      const response = await firstValueFrom(this.http.get<ApiResponse<Gig[]>>('/api/v1/gigs'));
+      const data = response?.data || [];
+
+      // Cache in sessionStorage
+      if (typeof sessionStorage !== 'undefined') {
+        sessionStorage.setItem(STORAGE_KEY, JSON.stringify(data));
+        sessionStorage.setItem(STORAGE_TIMESTAMP_KEY, new Date().toISOString());
+        console.log('✅ Cached client gigs data to session');
+      }
+
+      return data;
+    }
+  });
+
   // MULU seat availability resource with sessionStorage caching
   muluSeatsResource = resource({
     loader: async () => {
@@ -90,9 +131,14 @@ export class BandDataService {
 
   // Computed signal that reactively merges gigs with MULU seat availability
   // This updates automatically when either gigs or MULU data changes
+  // Prefers fresh client-side gigs over stale SSR gigs
   gigsWithSeats = computed(() => {
-    const gigs = this.gigsResource.value() || [];
+    const clientGigs = this.clientGigsResource.value() || [];
+    const ssrGigs = this.gigsResource.value() || [];
     const muluData = this.muluSeatsResource.value() || [];
+
+    // Use client gigs if available (browser), otherwise fallback to SSR gigs
+    const gigs = clientGigs.length > 0 ? clientGigs : ssrGigs;
 
     if (muluData.length === 0) {
       return gigs;

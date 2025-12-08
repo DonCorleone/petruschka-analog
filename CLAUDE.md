@@ -286,6 +286,132 @@ Gig detail extraction has a two-tier system to avoid extra API calls:
 - When user clicks gig, detail extracted client-side (no new API call!)
 - Optimized for performance and user experience
 
+### 4.4 Client-Side Fresh Data Pattern (SSG Stale Data Solution)
+
+**The Problem:**
+This application uses SSG (Static Site Generation) and builds are deployed infrequently (once per month). This creates a challenge:
+- Pre-rendered HTML contains data from build time
+- Time-sensitive data (event dates, seat availability) becomes stale
+- Past events remain visible because they were upcoming during the build
+
+**The Solution:**
+A hybrid approach that combines SSR/SSG for fast initial load with client-side fresh data fetching:
+
+1. **SSR/SSG Phase** - Pre-renders content with build-time data (good for SEO and fast initial paint)
+2. **Client Hydration Phase** - Fetches fresh data and updates the UI reactively
+
+**Implementation Pattern:**
+
+```typescript
+// 1. Create a client-only resource (skips during SSR)
+clientGigsResource = resource({
+  loader: async () => {
+    // Skip entirely during SSR
+    if (typeof window === 'undefined') {
+      console.log('⏭️ Skipping client gigs fetch during SSR');
+      return [];
+    }
+
+    const STORAGE_KEY = 'client_gigs_data';
+    const STORAGE_TIMESTAMP_KEY = 'client_gigs_timestamp';
+
+    // Check sessionStorage cache first
+    if (typeof sessionStorage !== 'undefined') {
+      const cachedData = sessionStorage.getItem(STORAGE_KEY);
+      const cachedTimestamp = sessionStorage.getItem(STORAGE_TIMESTAMP_KEY);
+
+      if (cachedData && cachedTimestamp) {
+        console.log('✅ Using cached client gigs data from session');
+        return JSON.parse(cachedData) as Gig[];
+      }
+    }
+
+    // Fetch fresh data from API
+    console.log('🔄 Fetching fresh gigs data from browser...');
+    const response = await firstValueFrom(
+      this.http.get<ApiResponse<Gig[]>>('/api/v1/gigs')
+    );
+    const data = response?.data || [];
+
+    // Cache in sessionStorage for the rest of the session
+    if (typeof sessionStorage !== 'undefined') {
+      sessionStorage.setItem(STORAGE_KEY, JSON.stringify(data));
+      sessionStorage.setItem(STORAGE_TIMESTAMP_KEY, new Date().toISOString());
+      console.log('✅ Cached client gigs data to session');
+    }
+
+    return data;
+  }
+});
+
+// 2. Create computed signal that prefers fresh data
+gigsWithSeats = computed(() => {
+  const clientGigs = this.clientGigsResource.value() || [];
+  const ssrGigs = this.gigsResource.value() || [];
+  const muluData = this.muluSeatsResource.value() || [];
+
+  // Use client gigs if available (browser), otherwise fallback to SSR gigs
+  const gigs = clientGigs.length > 0 ? clientGigs : ssrGigs;
+
+  if (muluData.length === 0) {
+    return gigs;
+  }
+
+  return this.mergeGigsWithMuluData(gigs, muluData);
+});
+```
+
+**3. Trigger fetch after hydration in component:**
+
+```typescript
+constructor() {
+  // Load fresh data ONLY in browser (not during SSR)
+  // This ensures fresh data even if build is old (builds once per month)
+  afterNextRender(() => {
+    // Fetch fresh gigs to filter out past events
+    this.bandDataService.clientGigsResource.value();
+    // Fetch fresh MULU seat data
+    this.bandDataService.muluSeatsResource.value();
+  });
+}
+```
+
+**Key Characteristics:**
+
+1. **SSR Detection**: Uses `typeof window === 'undefined'` to detect server environment
+2. **SessionStorage Caching**: Caches data per browser session to avoid re-fetching on navigation
+3. **afterNextRender Hook**: Ensures fetch happens only after initial render (Angular lifecycle)
+4. **Computed Signal**: Reactively switches from SSR to fresh client data
+5. **No Extra XHR During Session**: Data is fetched once per session, then cached
+
+**Current Implementations:**
+
+- **`clientGigsResource`**: Fetches upcoming gigs, filters out past events
+- **`muluSeatsResource`**: Fetches real-time seat availability from external MULU API
+
+**Benefits:**
+
+- ✅ Fast initial page load with pre-rendered HTML
+- ✅ SEO-friendly with server-rendered content
+- ✅ Always shows current data, even with monthly builds
+- ✅ No performance penalty (cached after first fetch)
+- ✅ Graceful degradation (uses SSR data if client fetch fails)
+
+**When to Use This Pattern:**
+
+Use this pattern when:
+- Data is time-sensitive and can become stale between builds
+- You need SEO/fast initial load but also need fresh data
+- External APIs provide real-time data (like seat availability)
+- Build frequency is low but data changes frequently
+
+**When NOT to Use:**
+
+Avoid this pattern for:
+- Static content that never changes (band member bios, album info)
+- Data that doesn't need to be real-time
+- High-traffic pages where extra API calls could be expensive
+
 ## 5. API Routes & Server Architecture
 
 ### 5.1 Route Structure

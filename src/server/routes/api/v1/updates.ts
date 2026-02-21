@@ -21,7 +21,7 @@ export default defineEventHandler(async (event): Promise<ApiResponse<Update[]>> 
         {
           id: 1001,
           title: 'Neue Stücke in Vorbereitung',
-          description: 'Das Figurentheater PETRUSCHKA arbeitet an neuen musikalischen Märchen für die kommende Saison.',
+          description: 'Das Figurentheater PETRUSCHKA arbeitet an neuen Märchen für die kommende Saison.',
           ctaText: 'Mehr erfahren',
           ctaUrl: 'https://www.petruschka.ch',
           mediaType: 'image',

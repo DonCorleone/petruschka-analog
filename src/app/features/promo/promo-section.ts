@@ -180,10 +180,22 @@ export class PromoSectionComponent implements OnInit, AfterViewInit {
   closeVideoModal() {
     this.videoModalOpen.set(false);
     this.videoUrl.set('' as unknown as SafeResourceUrl);
-    
+
     // Only manipulate DOM in browser environment
     if (this.isBrowser) {
       document.body.classList.remove('modal-open');
+    }
+  }
+
+  scrollToGigs(event: Event) {
+    event.preventDefault();
+
+    // Only scroll in browser environment
+    if (this.isBrowser) {
+      const gigsSection = document.getElementById('gigs');
+      if (gigsSection) {
+        gigsSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      }
     }
   }
 }

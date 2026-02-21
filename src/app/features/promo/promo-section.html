@@ -87,11 +87,19 @@
                           <span class="countdown-label">bis zur Premiere</span>
                         </div>
                       }
+                      @if (update.isCurrentlyRunning) {
+                        <div class="currently-running">
+                          <p class="fw-semibold fs-5 mb-0">Zur Zeit in Aufführung</p>
+                        </div>
+                      }
                     </div>
                   </div>
                 </div>
                 
-                <a class="btn btn-primary btn-cta " [href]="update.ctaUrl">
+                <a
+                  class="btn btn-primary btn-cta"
+                  [href]="update.ctaUrl"
+                  (click)="scrollToGigs($event)">
                   {{ update.ctaText }}
                 </a>
               </div>

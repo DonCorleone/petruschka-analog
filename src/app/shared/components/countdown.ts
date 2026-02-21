@@ -17,7 +17,7 @@ interface TimeLeft {
 })
 export class CountdownComponent implements OnInit, OnDestroy {
   
-  @Input() targetDate!: string;
+  @Input() targetDate!: Date;
   
   private timeLeftSignal = signal<TimeLeft>({
     days: 0,

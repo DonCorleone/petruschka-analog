@@ -22,6 +22,7 @@ export interface Gig {
   bannerImagePath?: string;
   eventDateString?: string;
   startTimestamp?: number; // Add timestamp for exact event identification
+  availableSeats?: number; // Available seats from MULU
   ticketTypes?: Array<{
     name: string;
     price: number;
@@ -95,7 +96,8 @@ export interface Update {
   mediaUrl?: string;
   mediaThumb?: string;
   isCountdown?: boolean;
-  countdownDate?: string;
+  countdownDate?: Date;
+  isCurrentlyRunning?: boolean; // True when premiere is over but show still has upcoming dates
 }
 
 export interface PastEvent {
@@ -144,6 +146,12 @@ export interface Sponsor {
   }>;
   totalShare: number;
   sizeClass: string;
+}
+
+// MULU seat availability data
+export interface MuluSeat {
+  from: number; // Unix timestamp (seconds)
+  av_part: number; // Available seats
 }
 
 // API Response wrapper

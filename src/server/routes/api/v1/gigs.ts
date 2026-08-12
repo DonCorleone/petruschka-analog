@@ -6,9 +6,9 @@ export default defineEventHandler(async (event): Promise<ApiResponse<Gig[]>> => 
   try {
     // Get all gigs data from optimized MongoDB Gigs view
     // No filter on googleAnalyticsTracker so we include theater events too
-    const query = {
-      'eventDates.start': { $gt: new Date() }
-    };    console.log('🔍 Gigs query:', JSON.stringify(query));
+    const query = {}; // Caching übernimmt die Optimierung    
+    
+    console.log('🔍 Gigs query:', JSON.stringify(query));
     const gigsData = await getMongoData(query, 'eventDb', 'Gigs');
     
     console.log('🔍 Raw gigs data count:', gigsData?.length || 0);

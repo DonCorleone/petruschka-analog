@@ -1,7 +1,15 @@
 import { defineEventHandler, createError } from 'h3';
 import type { ApiResponse, MuluSeat } from '../../../../shared/types';
 
+let muluCache: { data: MuluSeat[]; ts: number } | null = null;
+const MULU_TTL = 5 * 60 * 1000; // 5 minutes
+
 export default defineEventHandler(async (): Promise<ApiResponse<MuluSeat[]>> => {
+  if (muluCache && Date.now() - muluCache.ts < MULU_TTL) {
+    console.log('✅ Cache hit for MULU seats');
+    return { success: true, data: muluCache.data, timestamp: new Date().toISOString() };
+  }
+
   try {
     console.log('🔄 Fetching MULU seat availability...');
 
@@ -16,6 +24,7 @@ export default defineEventHandler(async (): Promise<ApiResponse<MuluSeat[]>> => 
     const data = await response.json() as MuluSeat[];
 
     console.log(`✅ Fetched ${data.length} MULU seat records`);
+    muluCache = { data, ts: Date.now() };
 
     return {
       success: true,

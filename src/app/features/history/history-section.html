@@ -1,16 +1,16 @@
 <section class="history-section section section-dark">
   <div class="container" style="max-width: 860px;">
     <div class="text-center mb-5">
-        <h2 class="section-title">Vergangene Stücke</h2>
-        <div class="section-intro">
+        <h2 class="section-title" appAnimateOnScroll>Vergangene Stücke</h2>
+        <div class="section-intro" appAnimateOnScroll [animationDelay]="100">
             Hier finden Sie eine Übersicht über unsere vergangenen Stücke, die wir in den letzten Jahren aufgeführt haben.
         </div>
     </div>
 
     @for (event of pastEvents(); track event.id; let i = $index) {
-      <div class="history-item py-3 border-bottom border-light-subtle">
+      <div class="history-item item-animate py-3 border-bottom border-light-subtle" appAnimateOnScroll [animationDelay]="i * 100">
         <div class="event-image">
-          <img [src]="event.image" [alt]="event.title" class="img-fluid">
+          <img [src]="event.image" [alt]="event.title" class="img-fluid" loading="lazy">
         </div>
         <div class="event-info">
           <h4 class="event-title">{{event.title}}</h4>

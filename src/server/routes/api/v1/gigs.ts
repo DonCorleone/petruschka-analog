@@ -155,7 +155,9 @@ function extractGigsFromView(gigsViewData: any[]): Gig[] {
         startTimestamp: startTimestamp, // Add the exact timestamp for event identification
         // Only include minimal data for list view - detailed data loaded on demand
         shortDescription: doc.shortDescription || '',
-        flyerImagePath: doc.flyerImagePath || ''
+        flyerImagePath: doc.flyerImagePath
+          ? `https://petruschka.netlify.app/.netlify/images?url=${encodeURIComponent(doc.flyerImagePath)}&nf_resize=fit&w=600`
+          : ''
       });
     });
   });

@@ -1,11 +1,12 @@
 import { Component, inject, ChangeDetectionStrategy } from '@angular/core';
-import { CommonModule, NgClass } from '@angular/common';
+import { CommonModule } from '@angular/common';
 import { BandDataService, DialogService } from '../../core/services';
 import { type ContactInfo, type SocialLink } from '../../../shared/types';
 import { MemorialSectionComponent } from '../memorial/memorial-section';
 import { TheaterInfoSectionComponent } from '../theater-info/theater-info-section';
 import { PressSectionComponent } from '../press/press-section';
 import { SponsorsSectionComponent } from '../sponsors/sponsors-section';
+import { AnimateOnScrollDirective } from '../../shared/directives';
 
 @Component({
   selector: 'app-contact-section',
@@ -14,7 +15,8 @@ import { SponsorsSectionComponent } from '../sponsors/sponsors-section';
     MemorialSectionComponent,
     TheaterInfoSectionComponent,
     PressSectionComponent,
-    SponsorsSectionComponent
+    SponsorsSectionComponent,
+    AnimateOnScrollDirective
   ],
   templateUrl: './contact-section.html',
   styleUrls: ['./contact-section.css'],

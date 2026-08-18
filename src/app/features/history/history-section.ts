@@ -3,13 +3,14 @@ import { SlicePipe } from '@angular/common';
 import { BandDataService } from '../../core/services';
 import { DialogService } from '../../core/services/dialog.service';
 import { PastEvent } from '../../../shared/types';
+import { AnimateOnScrollDirective } from '../../shared/directives';
 
 @Component({
   selector: 'app-history-section',
   templateUrl: './history-section.html',
   styleUrls: ['./history-section.css'],
   changeDetection: ChangeDetectionStrategy.OnPush,
-  imports: [SlicePipe]
+  imports: [SlicePipe, AnimateOnScrollDirective]
 })
 export class HistorySectionComponent {
   

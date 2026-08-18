@@ -1,9 +1,9 @@
 <section class="gigs-section section">
   <div class="container">
-    <h2 class="section-title text-center">Kommende Aufführungen</h2>
-    <div class="gigs-container">
-      @for (gig of gigs(); track gig.id) {
-        <div class="item position-relative pt-3 pb-4 border-bottom">
+    <h2 class="section-title text-center" appAnimateOnScroll>Kommende Aufführungen</h2>
+    <div class="gigs-container animate-stagger">
+      @for (gig of gigs(); track gig.id; let i = $index) {
+        <div class="item item-animate position-relative pt-3 pb-4 border-bottom" appAnimateOnScroll [animationDelay]="i * 100">
           <div class="date-label text-center d-inline-block position-absolute start-0">
             <div class="number fw-bold">{{ gig.date.day }}.</div>
             <div class="month fw-semibold">{{ gig.date.month }}</div>

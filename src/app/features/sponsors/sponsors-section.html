@@ -1,15 +1,15 @@
 <section class="sponsors-section section" id="sponsors">
   <div class="container">
     <div class="text-center mb-5">
-      <h2 class="section-title">Unsere Partner & Unterstützer</h2>
-      <div class="section-intro-center mb-5">
+      <h2 class="section-title" appAnimateOnScroll>Unsere Partner & Unterstützer</h2>
+      <div class="section-intro-center mb-5" appAnimateOnScroll [animationDelay]="100">
         Ein großes Dankeschön an alle, die unsere musikalische Reise möglich machen!
       </div>
     </div>
 
     <div class="content-grid content-grid-wide">
-      @for (sponsor of sponsors(); track sponsor.id) {
-        <div class="card-dark card-hover p-4 text-center" [ngClass]="sponsor.sizeClass">
+      @for (sponsor of sponsors(); track sponsor.id; let i = $index) {
+        <div class="card-dark card-hover p-4 text-center" [ngClass]="sponsor.sizeClass" appAnimateOnScroll [animationDelay]="i * 75">
           <a [href]="sponsor.url" target="_blank" rel="noopener noreferrer" [title]="sponsor.name" class="text-decoration-none d-block">
             @if (sponsor.image === 'PLACEHOLDER') {
               <img src="/sponsor-placeholder.svg" [alt]="sponsor.name + ' Logo'" class="sponsor-logo sponsor-placeholder mb-3 mx-auto d-block">

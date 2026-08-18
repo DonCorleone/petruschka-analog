@@ -1,12 +1,14 @@
 import { Component, inject, ChangeDetectionStrategy, OnInit, afterNextRender } from '@angular/core';
 import { BandDataService, DialogService } from '../../core/services';
 import { Gig } from '../../../shared/types';
+import { AnimateOnScrollDirective } from '../../shared/directives';
 
 @Component({
   selector: 'app-gigs-section',
   templateUrl: './gigs-section.html',
   styleUrls: ['./gigs-section.css'],
-  changeDetection: ChangeDetectionStrategy.OnPush
+  changeDetection: ChangeDetectionStrategy.OnPush,
+  imports: [AnimateOnScrollDirective]
 })
 export class GigsSectionComponent implements OnInit {
 

@@ -78,7 +78,7 @@ function extractCDAlbumsFromView(gigsViewData: any[]): Album[] {
                      doc.imageUrl;
       
       if (imageUrl) {
-        imageUrl = `https://petruschka.netlify.app/.netlify/images?url=${imageUrl}&nf_resize=fit&w=235`;
+        imageUrl = `https://petruschka.netlify.app/.netlify/images?url=${imageUrl}&nf_resize=fit&w=400`;
       }
 
       albums.push({

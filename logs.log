@@ -1,0 +1,50 @@
+2026-08-12T08:16:33.683480543Z ✅ Connected to MongoDB
+2026-08-12T08:16:33.707614366Z ✅ Found 0 documents with filter: { 'eventDates.start': { '$gt': 2026-08-12T08:16:33.562Z } }
+2026-08-12T08:16:33.70985842Z 🔌 Disconnected from MongoDB
+2026-08-12T08:16:33.710020243Z 🔍 Raw gigs data count: 0
+2026-08-12T08:16:33.710027114Z ⚠️ No gigs data found in view
+2026-08-12T08:51:55.584534865Z 🔄 Fetching MULU seat availability...
+2026-08-12T08:51:55.591995904Z 🔍 Gigs query: {"eventDates.start":{"$gt":"2026-08-12T08:51:55.591Z"}}
+2026-08-12T08:51:55.592025466Z 🔄 Connecting to MongoDB...
+2026-08-12T08:51:55.657571102Z ✅ Fetched 0 MULU seat records
+2026-08-12T08:51:55.739516442Z ✅ Connected to MongoDB
+2026-08-12T08:51:55.762156419Z ✅ Found 0 documents with filter: { 'eventDates.start': { '$gt': 2026-08-12T08:51:55.591Z } }
+2026-08-12T08:51:55.764223329Z 🔌 Disconnected from MongoDB
+2026-08-12T08:51:55.764417104Z 🔍 Raw gigs data count: 0
+2026-08-12T08:51:55.764426245Z ⚠️ No gigs data found in view
+2026-08-12T11:20:34.987194311Z 🔍 Gigs query: {"eventDates.start":{"$gt":"2026-08-12T11:20:34.986Z"}}
+2026-08-12T11:20:34.988732189Z 🔄 Connecting to MongoDB...
+2026-08-12T11:20:34.995181774Z 🔄 Fetching MULU seat availability...
+2026-08-12T11:20:35.18658797Z ✅ Fetched 0 MULU seat records
+2026-08-12T11:20:35.458521946Z ✅ Connected to MongoDB
+2026-08-12T11:20:35.50093128Z ✅ Found 0 documents with filter: { 'eventDates.start': { '$gt': 2026-08-12T11:20:34.986Z } }
+2026-08-12T11:20:35.508171265Z 🔌 Disconnected from MongoDB
+2026-08-12T11:20:35.510301149Z 🔍 Raw gigs data count: 0
+2026-08-12T11:20:35.510507075Z ⚠️ No gigs data found in view
+2026-08-12T11:26:57.349977596Z 🔄 Fetching MULU seat availability...
+2026-08-12T11:26:57.352091601Z 🔍 Gigs query: {"eventDates.start":{"$gt":"2026-08-12T11:26:57.351Z"}}
+2026-08-12T11:26:57.352144034Z 🔄 Connecting to MongoDB...
+2026-08-12T11:26:57.40524164Z ✅ Fetched 0 MULU seat records
+2026-08-12T11:26:57.470794613Z ✅ Connected to MongoDB
+2026-08-12T11:26:57.489922159Z ✅ Found 0 documents with filter: { 'eventDates.start': { '$gt': 2026-08-12T11:26:57.351Z } }
+2026-08-12T11:26:57.49135635Z 🔌 Disconnected from MongoDB
+2026-08-12T11:26:57.491585878Z 🔍 Raw gigs data count: 0
+2026-08-12T11:26:57.491595629Z ⚠️ No gigs data found in view
+2026-08-12T12:02:45.872961329Z 🔍 Gigs query: {"eventDates.start":{"$gt":"2026-08-12T12:02:45.872Z"}}
+2026-08-12T12:02:45.872994072Z 🔄 Connecting to MongoDB...
+2026-08-12T12:02:45.875351475Z 🔄 Fetching MULU seat availability...
+2026-08-12T12:02:45.931178742Z ✅ Fetched 0 MULU seat records
+2026-08-12T12:02:46.001234483Z ✅ Connected to MongoDB
+2026-08-12T12:02:46.021775519Z ✅ Found 0 documents with filter: { 'eventDates.start': { '$gt': 2026-08-12T12:02:45.872Z } }
+2026-08-12T12:02:46.023090211Z 🔌 Disconnected from MongoDB
+2026-08-12T12:02:46.023138025Z 🔍 Raw gigs data count: 0
+2026-08-12T12:02:46.023147715Z ⚠️ No gigs data found in view
+2026-08-12T12:23:14.922039663Z 🔄 Fetching MULU seat availability...
+2026-08-12T12:23:14.979869984Z ✅ Fetched 0 MULU seat records
+2026-08-12T12:23:15.082420267Z 🔍 Gigs query: {"eventDates.start":{"$gt":"2026-08-12T12:23:15.082Z"}}
+2026-08-12T12:23:15.082491663Z 🔄 Connecting to MongoDB...
+2026-08-12T12:23:15.219039356Z ✅ Connected to MongoDB
+2026-08-12T12:23:15.238697473Z ✅ Found 0 documents with filter: { 'eventDates.start': { '$gt': 2026-08-12T12:23:15.082Z } }
+2026-08-12T12:23:15.240922676Z 🔌 Disconnected from MongoDB
+2026-08-12T12:23:15.241060757Z 🔍 Raw gigs data count: 0
+2026-08-12T12:23:15.241125351Z ⚠️ No gigs data found in view

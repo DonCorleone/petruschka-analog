@@ -1,13 +1,14 @@
 import { Component, inject, ChangeDetectionStrategy } from '@angular/core';
 import { NgClass } from '@angular/common';
 import { BandDataService } from '../../core/services';
+import { AnimateOnScrollDirective } from '../../shared/directives';
 
 @Component({
   selector: 'app-sponsors-section',
   templateUrl: './sponsors-section.html',
   styleUrls: ['./sponsors-section.css'],
   changeDetection: ChangeDetectionStrategy.OnPush,
-  imports: [NgClass]
+  imports: [NgClass, AnimateOnScrollDirective]
 })
 export class SponsorsSectionComponent {
   

@@ -1,12 +1,14 @@
-import { Component, inject, ChangeDetectionStrategy, OnInit } from '@angular/core';
+import { Component, inject, ChangeDetectionStrategy } from '@angular/core';
 import { BandDataService, DialogService } from '../../core/services';
 import { MerchItem } from '../../../shared/types';
+import { AnimateOnScrollDirective } from '../../shared/directives';
 
 @Component({
   selector: 'app-merch-section',
   templateUrl: './merch-section.html',
   styleUrls: ['./merch-section.css'],
-  changeDetection: ChangeDetectionStrategy.OnPush
+  changeDetection: ChangeDetectionStrategy.OnPush,
+  imports: [AnimateOnScrollDirective]
 })
 export class MerchSectionComponent {
   

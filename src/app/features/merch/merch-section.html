@@ -3,14 +3,14 @@
     <div class="row">
       <div class="col-12">
         <div class="section-header text-center mb-5">
-          <h2 class="section-title">Wandertheater</h2>
+          <h2 class="section-title" appAnimateOnScroll>Wandertheater</h2>
           <div class="title-underline"></div>
         </div>
       </div>
     </div>
-    
+
     <div class="row align-items-center">
-      <div class="col-lg-6 mb-4 mb-lg-0">
+      <div class="col-lg-6 mb-4 mb-lg-0" appAnimateOnScroll>
         <div class="wandertheater-content">
           <p>
             Seit 2017 ziehen Regula Auf der Maur und Nathalie Hildebrand Isler gemeinsam mit 
@@ -52,7 +52,7 @@
         </div>
       </div>
       
-      <div class="col-lg-6">
+      <div class="col-lg-6" appAnimateOnScroll [animationDelay]="150">
         <div class="wandertheater-image text-center">
           <img src="https://petruschka.netlify.app/.netlify/images?url=https://petruschka-analog-mongo.onrender.com/images/education/wandertheater-placeholder.jpg&nf_resize=fit&w=800" 
                alt="Wandertheater Petruschka" 
@@ -70,10 +70,10 @@
     
     <div class="row">
       <div class="col-12">
-        <h3 class="text-center mb-4">Unsere Stücke</h3>
+        <h3 class="text-center mb-4" appAnimateOnScroll>Unsere Stücke</h3>
         <div class="content-grid-wide gap-4 mb-4">
           @for (item of merchItems(); track item.id; let i = $index) {
-            <div class="item mb-4">
+            <div class="item mb-4" appAnimateOnScroll [animationDelay]="i * 100">
               <div class="item-inner">
                 <img class="img-fluid" [src]="item.image" [alt]="item.title">
                 <a class="mask" (click)="openMerchDetail(item); $event.preventDefault()" href="javascript:void(0)">

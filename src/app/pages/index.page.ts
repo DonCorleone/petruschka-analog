@@ -39,7 +39,7 @@ import { BackToTopComponent } from '../shared/components';
     </div>
 
     <div id="about">
-      @defer (on viewport) {
+      @defer (on idle) {
         <app-about-section />
       } @placeholder {
         <div style="min-height:400px"></div>
@@ -47,7 +47,7 @@ import { BackToTopComponent } from '../shared/components';
     </div>
 
     <div id="schueleraufführungen">
-      @defer (on viewport) {
+      @defer (on idle) {
         <app-education-section />
       } @placeholder {
         <div style="min-height:300px"></div>
@@ -55,7 +55,7 @@ import { BackToTopComponent } from '../shared/components';
     </div>
 
     <div id="merch">
-      @defer (on viewport) {
+      @defer (on idle) {
         <app-merch-section />
       } @placeholder {
         <div style="min-height:300px"></div>
@@ -63,7 +63,7 @@ import { BackToTopComponent } from '../shared/components';
     </div>
 
     <div id="history">
-      @defer (on viewport) {
+      @defer (on idle) {
         <app-history-section />
       } @placeholder {
         <div style="min-height:400px"></div>
@@ -71,7 +71,7 @@ import { BackToTopComponent } from '../shared/components';
     </div>
 
     <div id="music">
-      @defer (on viewport) {
+      @defer (on idle) {
         <app-music-section />
       } @placeholder {
         <div style="min-height:300px"></div>
@@ -79,7 +79,7 @@ import { BackToTopComponent } from '../shared/components';
     </div>
 
     <div id="contact">
-      @defer (on viewport) {
+      @defer (on idle) {
         <app-contact-section />
       } @placeholder {
         <div style="min-height:200px"></div>

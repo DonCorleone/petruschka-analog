@@ -34,6 +34,6 @@ export class LocationDialogComponent {
   getLocationImageUrl(): string {
     const locationName = encodeURIComponent(this.data.location.name).toLowerCase();
     console.log(locationName);
-    return `https://petruschka.netlify.app/.netlify/images?url=https://petruschka-analog-mongo.onrender.com/images/staff/${locationName}.jpg&nf_resize=fit&w=538`;
+    return `https://petruschka.netlify.app/.netlify/images?url=https://petruschka.netlify.app/assets/images/staff/${locationName}.jpg&nf_resize=fit&w=538`;
   }
 }

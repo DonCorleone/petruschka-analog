@@ -64,8 +64,15 @@
 .updates-block .media-holder {
   display: inline-block;
   width: 170px;
-  height: 100px;
+  height: auto;
   left: 0;
+}
+
+.updates-block .media-holder img {
+  display: block;
+  width: 100%;
+  height: auto;
+  object-fit: contain;
 }
 
 .updates-block .video-play-trigger {
@@ -92,11 +99,11 @@
 }
 
 .updates-block .carousel-control-prev {
-  left: -60px;
+  left: 0;
 }
 
 .updates-block .carousel-control-next {
-  right: -60px;
+  right: 0;
 }
 
 .updates-block .carousel-control-next,
@@ -114,18 +121,16 @@
   background: transparent url("/images/left-arrow.svg") no-repeat left top;
   width: 23px;
   height: 40px;
-  left: -60px;
 }
 
 .updates-block .carousel-control-next-icon {
   background: transparent url("/images/right-arrow.svg") no-repeat right top;
   width: 23px;
   height: 40px;
-  right: -60px;
 }
 
 .updates-block .carousel .carousel-item {
-  height: 100px;
+  height: auto;
 }
 
 .updates-block .carousel-content {
@@ -255,7 +260,7 @@
     position: static;
     flex-shrink: 0;
     width: 120px;
-    height: 80px;
+    height: auto;
     margin-right: 15px;
     margin-bottom: 0;
   }
@@ -302,11 +307,11 @@
 
   /* Adjust carousel controls for mobile */
   .updates-block .carousel-control-prev {
-    left: -20px;
+    left: 0;
   }
 
   .updates-block .carousel-control-next {
-    right: -20px;
+    right: 0;
   }
 }
 

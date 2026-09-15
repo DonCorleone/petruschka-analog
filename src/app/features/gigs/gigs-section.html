@@ -3,50 +3,52 @@
     <h2 class="section-title text-center" appAnimateOnScroll>Kommende Aufführungen</h2>
     <div class="gigs-container">
       @for (gig of gigs(); track gig.id; let i = $index) {
-        <div class="item position-relative pt-3 pb-4 border-bottom">
-          <div class="date-label text-center d-inline-block position-absolute start-0">
-            <div class="number fw-bold">{{ gig.date.day }}.</div>
-            <div class="month fw-semibold">{{ gig.date.month }}</div>
-            <div class="year">{{ gig.date.year }}</div>
-          </div>
+        <div class="item pt-3 pb-4 border-bottom">
 
-          <div class="gig-info">
-            <div class="info-content">
-              <h3 class="gig-title mt-0 mb-2 fw-bold">{{ gig.title }}</h3>
-              <div class="meta">
-                <ul class="meta-list">
-                  <li class="location">
-                    <i class="fas fa-map-marker-alt"></i>
-                    <span class="location-link" (click)="openLocationDialog(gig.location)" title="Ort-Details anzeigen">
-                      {{ gig.location }}
-                    </span>
-                  </li>
-                  <li class="time">
-                    <i class="far fa-clock"></i>
-                    {{ gig.time }}, {{ gig.dayOfWeek }}
-                  </li>
-                  @if (gig.availableSeats !== undefined) {
-                    <li class="seats">
-                      <i class="fas fa-users"></i>
-                      {{ gig.availableSeats }} freie Plätze
-                    </li>
-                  }
-                </ul>
-              </div>
+          <!-- Row 1: Title full width -->
+          <h3 class="gig-title mt-0 mb-2 fw-bold">{{ gig.title }}</h3>
+
+          <!-- Row 2: date | meta | actions -->
+          <div class="gig-bottom d-flex align-items-start gap-2">
+            <div class="date-label text-center flex-shrink-0">
+              <div class="number fw-bold">{{ gig.date.day }}.</div>
+              <div class="month fw-semibold">{{ gig.date.month }}</div>
+              <div class="year">{{ gig.date.year }}</div>
             </div>
 
-            <div class="gig-actions position-absolute end-0 d-flex flex-column flex-md-row gap-2">
+            <div class="gig-meta flex-grow-1">
+              <ul class="meta-list">
+                <li class="location">
+                  <i class="fas fa-map-marker-alt"></i>
+                  <span class="location-link" (click)="openLocationDialog(gig.location)" title="Ort-Details anzeigen">
+                    {{ gig.location }}
+                  </span>
+                </li>
+                <li class="time">
+                  <i class="far fa-clock"></i>
+                  {{ gig.time }}, {{ gig.dayOfWeek }}
+                </li>
+                @if (gig.availableSeats !== undefined) {
+                  <li class="seats">
+                    <i class="fas fa-users"></i>
+                    {{ gig.availableSeats }} freie Plätze
+                  </li>
+                }
+              </ul>
+            </div>
+
+            <div class="gig-actions d-flex flex-column gap-2 flex-shrink-0">
               <button
-                class="btn btn-xs btn-ghost-secondary w-100 w-md-auto"
+                class="btn btn-xs btn-ghost-secondary"
                 (click)="openGigDetail(gig)">
-                 Infos
+                Infos
               </button>
-              <a class="btn btn-xs btn-secondary  w-100 w-md-auto" [href]="gig.ticketUrl">
+              <a class="btn btn-xs btn-secondary" [href]="gig.ticketUrl">
                 Tickets
               </a>
             </div>
-
           </div>
+
         </div>
       } @empty {
         <div class="empty-state text-center py-5">

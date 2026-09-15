@@ -136,6 +136,17 @@ function extractUpdatesFromView(gigsViewData: any[]): Update[] {
       numericId = doc._id || Math.floor(Math.random() * 1000000);
     }
     
+    // Use next upcoming date for sorting (not premiere which may be past)
+    const nextUpcoming = doc.eventDates
+      .map((ed: any) => {
+        if (ed.start instanceof Date) return ed.start;
+        if (ed.start?.$date) return new Date(ed.start.$date);
+        if (typeof ed.start === 'string') return new Date(ed.start);
+        return null;
+      })
+      .filter((d: Date | null) => d && d > now)
+      .sort((a: Date, b: Date) => a.getTime() - b.getTime())[0] ?? premiereDate;
+
     updatesWithDates.push({
       id: numericId,
       title: title,
@@ -147,13 +158,13 @@ function extractUpdatesFromView(gigsViewData: any[]): Update[] {
       isCountdown: isFuture,
       countdownDate: isFuture ? premiereDate : undefined,
       isCurrentlyRunning: isCurrentlyRunning,
-      sortDate: premiereDate
+      sortDate: nextUpcoming
     });
   });
   
-  // Sort by date (upcoming events first, then recent ones)
+  // Sort by date ascending — soonest event first
   return updatesWithDates
-    .sort((a, b) => b.sortDate.getTime() - a.sortDate.getTime())
+    .sort((a, b) => a.sortDate.getTime() - b.sortDate.getTime())
     .slice(0, 3) // Limit to 3 most relevant updates
     .map(({ sortDate, ...update }) => update);
 }

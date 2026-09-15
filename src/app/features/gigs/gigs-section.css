@@ -4,16 +4,18 @@
 }
 
 .gigs-section .item {
-  padding-left: 60px;
   border-bottom-color: var(--border-dark);
+}
+
+.gigs-section .gig-title {
+  font-size: 1.2rem;
 }
 
 .gigs-section .date-label {
   background: var(--dark-bg);
   color: #fff;
-  padding: 8px;
-  min-width: 50px;
-  top: 15px;
+  padding: 8px 10px;
+  min-width: 54px;
 }
 
 .gigs-section .date-label .number {
@@ -26,12 +28,24 @@
   color: rgba(255, 255, 255, 0.8);
 }
 
+/* Meta list */
 .gigs-section .meta-list {
   color: #788191;
+  list-style: none;
+  padding-left: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
 }
 
 .gigs-section .meta-list a {
   color: #788191;
+}
+
+.gigs-section .meta-list i {
+  margin-right: 5px;
+  color: var(--primary-color);
 }
 
 /* Location link styling */
@@ -47,17 +61,9 @@
   text-decoration: none;
 }
 
-.gigs-section .meta-list i {
-  margin-right: 5px;
-  color: var(--primary-color);
-}
-
-.gigs-section .gig-actions {
-  top: 15px;
-}
-
-.gigs-section .gig-actions .btn:last-child {
-  margin-right: 0;
+/* Actions */
+.gigs-section .gig-actions .btn {
+  white-space: nowrap;
 }
 
 .gigs-section .info-extra {
@@ -79,36 +85,4 @@
 .gigs-section .gigs-contact .intro {
   color: var(--text-muted);
   max-width: 800px;
-}
-/* Stack gig meta list items vertically */
-.gig-info .meta .meta-list {
-  display: flex;
-  flex-direction: row;
-  gap: 0.5rem; /* small space between rows */
-  padding-left: 0; /* remove default ul indent */
-  margin: 0;
-}
-.gig-info .meta .meta-list li {
-  list-style: none; /* hide bullets */
-  min-width: 142px;
-}
-
-@media (max-width: 767.98px) {
-  .gigs-section .gig-actions {
-    position: static;
-    margin-top: 15px;
-    margin-bottom: 15px;
-  }
-  .gigs-section .item {
-    padding-left: 64px;
-  }
-
-  .gigs-section .date-label {
-    width: unset;
-    padding: 20px 10px;
-  }
-  /* Stack gig meta list items vertically */
-  .gig-info .meta .meta-list {
-    flex-direction: column;
-  }
 }

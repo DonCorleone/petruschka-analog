@@ -116,7 +116,8 @@ function extractUpdatesFromView(gigsViewData: any[]): Update[] {
     const isCurrentlyRunning = !isFuture && hasUpcomingDate;
 
     // Create update content
-    let title = `Premiere: "${doc.name}"`;
+    const isPremiere = doc.googleAnalyticsTracker?.toLowerCase() === 'premiere';
+    let title = isPremiere ? `Premiere: "${doc.name}"` : `"${doc.name}"`;
     let description = doc.shortDescription || 'Ein musikalisches Märchen vom Figurentheater PETRUSCHKA';
     let ctaText = 'Mehr erfahren';
 

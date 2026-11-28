@@ -1,16 +1,16 @@
 <section class="music-section section text-center bg-body-secondary">
   <div class="container">
     <h2 class="section-title" appAnimateOnScroll>Hörspiele</h2>
-
     <!-- SoundCloud embeds -->
-    <!--div class="mx-auto mb-5" style="max-width: 860px;">
+    <!--div class="mx-auto mb-5" style="max-width: 860px">
       <div class="mb-3">
         <iframe
           width="100%"
           height="166"
           scrolling="no"
           frameborder="no"
-          src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/54872955&amp;color=0E0E10&amp;auto_play=false&amp;hide_related=false&amp;show_comments=true&amp;show_user=true&amp;show_reposts=false">
+          src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/54872955&amp;color=0E0E10&amp;auto_play=false&amp;hide_related=false&amp;show_comments=true&amp;show_user=true&amp;show_reposts=false"
+        >
         </iframe>
       </div>
       <div class="mb-3">
@@ -19,7 +19,8 @@
           height="166"
           scrolling="no"
           frameborder="no"
-          src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/44327523&amp;color=0E0E10&amp;auto_play=false&amp;hide_related=false&amp;show_comments=true&amp;show_user=true&amp;show_reposts=false">
+          src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/44327523&amp;color=0E0E10&amp;auto_play=false&amp;hide_related=false&amp;show_comments=true&amp;show_user=true&amp;show_reposts=false"
+        >
         </iframe>
       </div>
     </div-->
@@ -27,16 +28,35 @@
     <!-- Albums grid -->
     <div class="content-grid-3 gap-4">
       @for (album of albums(); track album.id; let i = $index) {
-      <div class="d-flex flex-column align-items-center mb-4" appAnimateOnScroll [animationDelay]="i * 150">
-        <h3 class="album-title mb-3 text-center text-truncate">{{ album.title }}</h3>
+      <div
+        class="d-flex flex-column align-items-center mb-4"
+        appAnimateOnScroll
+        [animationDelay]="i * 150"
+      >
+        <h3 class="album-title mb-3 text-center text-truncate">
+          {{ album.title }}
+        </h3>
         <div class="d-flex flex-column align-items-center">
-          <a class="cover-figure mb-3 position-relative d-inline-block" (click)="openAlbumDetail(album); $event.preventDefault()" href="javascript:void(0)">
-            @if (album.status === 'coming-soon') {
+          <a
+            class="cover-figure mb-3 position-relative d-inline-block"
+            (click)="openAlbumDetail(album); $event.preventDefault()"
+            href="javascript:void(0)"
+          >
+            @if (album.status === 'link') {
             <div class="arrow-holder d-block position-absolute"></div>
-            }
+            } @else {
+
             <div class="record-holder d-none d-md-block position-absolute">
-              <img class="img-fluid" src="/images/record.png" alt="" width="300" height="300" loading="lazy" />
+              <img
+                class="img-fluid"
+                src="/images/record.png"
+                alt=""
+                width="300"
+                height="300"
+                loading="lazy"
+              />
             </div>
+            }
             <img
               class="cover-image img-fluid position-relative"
               [src]="album.coverImage"
@@ -45,22 +65,28 @@
               height="400"
               loading="lazy"
             />
-            @if (album.status === 'coming-soon') {
-            <div class="cover-label position-absolute text-uppercase fw-bold">Demnächst verfügbar</div>
+            @if (album.status === 'link') {
+            <div class="cover-label position-absolute text-uppercase fw-bold">
+              Link
+            </div>
             }
           </a>
 
-          @if (album.status === 'coming-soon') {
+          @if (album.status === 'link') {
           <a
             (click)="openAlbumDetail(album); $event.preventDefault()"
             href="javascript:void(0)"
             class="btn btn-sm btn-ghost-secondary"
           >
-            Album vorbestellen
+            Link kaufen @if (album.price) { CHF {{ album.price }} }
           </a>
           } @else {
-          <a (click)="openAlbumDetail(album); $event.preventDefault()" href="javascript:void(0)" class="btn btn-secondary">
-            Album kaufen @if (album.price) { CHF {{ album.price }} }
+          <a
+            (click)="openAlbumDetail(album); $event.preventDefault()"
+            href="javascript:void(0)"
+            class="btn btn-secondary"
+          >
+            CD kaufen @if (album.price) { CHF {{ album.price }} }
           </a>
           }
         </div>

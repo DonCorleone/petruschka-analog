@@ -38,7 +38,7 @@ export interface Album {
   id: number;
   title: string;
   coverImage: string;
-  status: 'available' | 'coming-soon';
+  status: 'cd' | 'link';
   price?: number;
   purchaseUrl: string;
   // Additional fields for detailed view

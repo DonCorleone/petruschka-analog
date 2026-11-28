@@ -6,8 +6,8 @@ export default defineEventHandler(
   async (event): Promise<ApiResponse<Album[]>> => {
     try {
       // Get CD data from optimized MongoDB Gigs view (filtered for Music section)
-      // Use regex to match "CD" anywhere in the googleAnalyticsTracker field
-      const query = { 'googleAnalyticsTracker': { $regex: "CD", $options: "i" } };
+      // Use regex to match "CD" or "Link" anywhere in the googleAnalyticsTracker field
+      const query = { 'googleAnalyticsTracker': { $regex:'cd|link',$options:'i' } };
 
       const gigsData = await getMongoData(
         query,
@@ -85,8 +85,33 @@ function extractCDAlbumsFromView(gigsViewData: any[]): Album[] {
         id: albumId,
         title: doc.name,
         coverImage: imageUrl || '',
-        status: 'available' as const,
+        status: 'cd' as const,
         price: cdTicket.price || 22, // Use actual price or default
+        purchaseUrl: doc.url || '#',
+      });
+    }
+    
+    // Check if this gig has CD tickets in the pre-processed ticket details
+    const linkTicket = doc.ticketDetails?.find((ticket: any) => 
+      ticket?.name.toLowerCase().includes('link')
+    );
+    if (linkTicket) {
+      // Use CD-specific image from ticketDetails array (now includes imageUrl)
+      let imageUrl = linkTicket.imageUrl || 
+                     doc.flyerImagePath || 
+                     doc.bannerImagePath || 
+                     doc.imageUrl;
+      
+      if (imageUrl) {
+        imageUrl = `https://petruschka.netlify.app/.netlify/images?url=${imageUrl}&nf_resize=fit&w=400`;
+      }
+
+      albums.push({
+        id: albumId,
+        title: doc.name,
+        coverImage: imageUrl || '',
+        status: 'link' as const,
+        price: linkTicket.price || 15, // Use actual price or default
         purchaseUrl: doc.url || '#',
       });
     }

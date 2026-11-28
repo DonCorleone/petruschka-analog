@@ -9,7 +9,7 @@ import { CommonModule } from '@angular/common';
       <div class="dialog-content-column">
         <ng-content select="[slot=content]"></ng-content>
       </div>
-      <div class="dialog-image-column">
+      <div class="dialog-image-column text-center">
         <ng-content select="[slot=image]"></ng-content>
       </div>
     </div>

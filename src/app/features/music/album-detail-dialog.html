@@ -2,7 +2,42 @@
   <app-dialog-two-column>
     <!-- Image Column -->
     <div slot="image">
-      <img [src]="data.album.coverImage" [alt]="data.album.title" class="img-fluid" />
+      <img
+        [src]="data.album.coverImage"
+        [alt]="data.album.title"
+        class="img-fluid"
+      />
+            @if(data.album.status == 'link'){
+      <!--app-dialog-info-section title="Disclaimer"-->
+        <p>
+          <i
+            >Hier bestellte Hörspiele werden per E-Mail als Downloadlink (für
+            CD-Erstellung oder MP3-Geräte) und als Link zum Online Player
+            (abspielbar auf Computer und Mobilgeräten) versandt. Die Links
+            erfordern kein Login und keine Registrierung, daher bitte nicht
+            weitergeben.</i
+          >
+        </p>
+      <!--/app-dialog-info-section-->
+      }
+
+      <!--app-dialog-info-section title=""-->
+        @if(data.album.status == 'link'){
+        <a
+          href="mailto:nathaliehildebrand@kinderkultur.ch?subject=Bestellung {{ data.album.status }} '{{ data.album.title }}'&body=Hallo,%0A%0AIch möchte gerne '{{ data.album.title }}' als Link bestellen.%0A%0APreis: CHF {{ data.album.price }}.-- %0A%0ABitte senden Sie mir den QR Code an:%0A%0AE-Mail: %0A%0AVielen Dank und freundliche Grüsse"
+          class="btn btn-secondary mt-3"
+        >
+          {{ data.album.status }} bestellen (CHF {{ data.album.price }}.--)
+        </a>
+        } @else {
+        <a
+          href="mailto:nathaliehildebrand@kinderkultur.ch?subject=Bestellung {{ data.album.status }} '{{ data.album.title }}'&body=Hallo,%0A%0AIch möchte gerne '{{ data.album.title }}' als {{ data.album.status }} bestellen.%0A%0AAnzahl: 1%0APreis: CHF {{ data.album.price }}.-- (inkl. Porto)%0A%0ABitte senden Sie die Bestellung an:%0A%0AName: %0AStrasse: %0APLZ / Ort: %0A%0AVielen Dank und freundliche Grüsse"
+          class="btn btn-secondary mt-3"
+        >
+          {{ data.album.status }} bestellen (CHF {{ data.album.price }}.--)
+        </a>
+        }
+      <!--/app-dialog-info-section-->
     </div>
 
     <!-- Content Column -->
@@ -12,22 +47,11 @@
       </app-dialog-info-section>
 
       @if (data.album.releaseDate) {
-        <app-dialog-info-section title="Album-Details">
-          <p><strong>Premiere:</strong> {{ data.album.releaseDate }}</p>
-          @if (data.album.artists) {
-            <p><strong>Künstler:</strong> {{ data.album.artists }}</p>
-          }
-        </app-dialog-info-section>
-      }
-      
-      <app-dialog-info-section title="">
-        <a
-          href="mailto:nathaliehildebrand@kinderkultur.ch?subject=Bestellung CD '{{ data.album.title }}'&body=Hallo,%0A%0AIch möchte gerne die CD '{{ data.album.title }}' bestellen.%0A%0AAnzahl CDs: 1%0APreis: CHF 22.00 (inkl. Porto)%0A%0ABitte senden Sie die Bestellung an:%0A%0AName: %0AStrasse: %0APLZ / Ort: %0A%0AVielen Dank und freundliche Grüsse"
-          class="btn btn-secondary"
-        >
-          CD bestellen (CHF 22.00 inkl. Porto)
-        </a>
+      <app-dialog-info-section title="Uraufführung">
+        <p><strong>Premiere:</strong> {{ data.album.releaseDate }}</p>
       </app-dialog-info-section>
+      }
+
     </div>
   </app-dialog-two-column>
 </app-base-dialog>

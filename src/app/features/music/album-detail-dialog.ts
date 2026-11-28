@@ -7,6 +7,7 @@ import { DialogInfoSectionComponent } from '../../core/components/dialog-info-se
 import { DialogTwoColumnComponent } from '../../core/components/dialog-two-column.component';
 import { DialogService } from '../../core/services/dialog.service';
 import { Album } from '../../../shared/types';
+import { AboutSectionComponent } from '../about';
 
 export interface AlbumDetailData {
   album: Album;
@@ -15,11 +16,12 @@ export interface AlbumDetailData {
 @Component({
   selector: 'app-album-detail-dialog',
   imports: [
-    CommonModule, 
-    BaseDialogComponent, 
-    DialogInfoSectionComponent, 
-    DialogTwoColumnComponent
-  ],
+    CommonModule,
+    BaseDialogComponent,
+    DialogInfoSectionComponent,
+    DialogTwoColumnComponent,
+    AboutSectionComponent
+],
   templateUrl: './album-detail-dialog.html',
   styleUrls: ['./album-detail-dialog.css'],
   changeDetection: ChangeDetectionStrategy.OnPush
